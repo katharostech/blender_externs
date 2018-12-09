@@ -1,3 +1,3 @@
 -cp src 
--hl main.hl 
+-neko main.n
 -main Main
