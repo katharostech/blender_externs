@@ -22,13 +22,13 @@ class Main {
 	static final outputDir = "haxe";
 	static final cacheDir = ".cache";
 
-	/**
-	 * Array of files that parsing has been delayed due to a dependency on
-	 * an un-parsed class.
-	 */
-	static var postponedFiles:Array<String> = [];
+	static var unhandledDescTypes:Array<String> = [];
 
 	static function main() {
+		// Clear cache
+		deleteDirectoryRecursive(cacheDir);
+		// Clear output dir
+		deleteDirectoryRecursive(outputDir);
 		// Create cache dir
 		FileSystem.createDirectory(cacheDir);
 		// Grab file paths.
@@ -44,56 +44,83 @@ class Main {
 			}
 		});
 
-		// Iterate through file paths iterable.
+		// Parse all classes
 		for (fileName in filePaths) {
-			// Get file data and parse.
-			var file = File.getContent('xml/${fileName}');
-			var xml = new Fast(Parser.parse(file));
-
-			// Parse section
-			var parentSection = xml.node.document.node.section;
-			parseSection(parentSection, fileName);
+			parseFile('xml/$fileName');
 		};
 
-		// Parse postponed files
-		while (postponedFiles.length > 0) {
-			parsePostponedFiles();
-		}
+		trace('Unhandled desc types: $unhandledDescTypes');
 	}
 
 	//
 	// PARSER FUNCTIONS
 	//
 
-	static function parseSection(section:Fast, fileName:String) {
+	static function parseFile(fileName:String) {
+			// Get file data and parse.
+			var file = File.getContent(fileName);
+			var xml = new Fast(Parser.parse(file));
+
+		// Parse section
+		var section = xml.node.document.node.section;
+
 		for (desc in section.nodes.desc) {
 			switch(desc.att.desctype) {
 			case "class":
 				parseClass(desc, section, fileName);
 			default:
-				trace('Unhandled desc type: ${desc.att.desctype}');
+				trace('unhandled desc type for file $fileName: ${desc.att.desctype}');
+				unhandledDescTypes.push(desc.att.desctype);
 			}
 		}
+	}
+
+	/**
+	 * Load a parsed `TypeDefinition` for a class. This will parse the XML
+	 * doc for the class if necessary and will cache the class for future
+	 * reference. If the class has already been parsed it will be loaded from
+	 * cache.
+	 * @param classPath The full name of the class including its package
+	 * @param isRecursion Used by function internally. Don't set.
+	 */
+	static function loadClass(classPath:String, isRecursion = false):TypeDefinition {
+		var def = null;
+		try {
+			// trace('Attempting to load $classPath from cache');
+			def = loadClassDefFromCache(classPath);
+		} catch (e:Error) {
+			if (e != Error.ClassNotCached) { throw e; }
+
+			// Couldn't load class at all :(
+			if (isRecursion) { return null; }
+
+			// Parse file, then load class
+			// trace('Can\'t load $classPath from cache parsing file');
+			parseFile('xml/$classPath.xml');
+			def = loadClass(classPath, true);
+		}
+
+		return def;
 	}
 
 	/**
 	 * Parse files that have been postponed because of un-parsed
 	 * dependencies.
 	 */
-	static function parsePostponedFiles() {
-		var fileNames = postponedFiles.copy();
-		postponedFiles = [];
+	// static function parsePostponedFiles() {
+	// 	var fileNames = postponedFiles.copy();
+	// 	postponedFiles = [];
 
-		for (fileName in fileNames) {
-			// Get file data and parse.
-			var file = File.getContent('xml/${fileName}');
-			var xml = new Fast(Parser.parse(file));
+	// 	for (fileName in fileNames) {
+	// 		// Get file data and parse.
+	// 		var file = File.getContent('xml/${fileName}');
+	// 		var xml = new Fast(Parser.parse(file));
 
-			// Parse section
-			var parentSection = xml.node.document.node.section;
-			parseSection(parentSection, fileName);
-		}
-	}
+	// 		// Parse section
+	// 		var parentSection = xml.node.document.node.section;
+	// 		parseSection(parentSection, fileName);
+	// 	}
+	// }
 
 	/**
 	 * Parse a class description
@@ -133,21 +160,38 @@ class Main {
 			fields: [],
 		}
 
+		var currentClassDef:TypeDefinition = null;
+		var currentClassPath:String = "";
+
 		// Check for inherited properties/functions
 		for (i in 0...section.nodes.rubric.length) {
 			var rubric = section.nodes.rubric[i];
-			if (rubric.innerData == "Inherited Properties") {
+			if (rubric.innerData == "Inherited Properties" ||
+					rubric.innerData == "Inherited Functions") {
 				var refs:Array<String> = collectRefsFromHlist(section.nodes.hlist[i]);
 				for (ref in refs) {
 					var refSplit = ref.split(".");
-					var propName = refSplit.pop();
-					try {
-						loadClassDefFromCache(refSplit.join("."));
-					} catch (e:Error) {
-						if (e == Error.ClassNotCached) {
-							// Postpone class
-							postponedFiles.push(fileName);
-							return;
+					var fieldName = refSplit.pop();
+					var classPath = refSplit.join(".");
+
+					// If it is a different reference than last time
+					if (currentClassPath != ref) {
+						// Load class
+						// trace('loading class $classPath');
+						var classDef = loadClass(classPath);
+						// If there was a failure to load the class
+						if (classDef == null) { continue; }
+
+						currentClassDef = classDef;
+						currentClassPath = ref;
+					}
+
+					// Search class fields for the one we inherit
+					for (field in currentClassDef.fields) {
+						if (field.name == fieldName) {
+							// Add inherited field to class
+							// trace('adding inherited field: $fieldName');
+							moduleClass.fields.push(field);
 						}
 					}
 				}
@@ -249,7 +293,12 @@ class Main {
 		var refs:Array<String> = [];
 		for (hlistcol in hlist.nodes.hlistcol) {
 			for (list_item in hlistcol.node.bullet_list.nodes.list_item) {
-				refs.push(list_item.node.paragraph.node.reference.att.reftitle);
+				try {
+					refs.push(list_item.node.paragraph.node.reference.att.reftitle);
+				} catch (e:Dynamic) {
+					// Isn't a valid reference to another class
+					// trace('Error getting reference from: ${list_item.innerHTML}');
+				}
 			}
 		}
 
@@ -266,5 +315,20 @@ class Main {
 		return paragraphs.map((p) -> {
 			return p.innerHTML.split("\n").map(s -> StringTools.ltrim(s)).join("\n");
 		}).join("\n\n");
+	}
+
+	static function deleteDirectoryRecursive(dirPath:String) {
+		if (! FileSystem.exists(dirPath) ||
+				! FileSystem.isDirectory(dirPath)) { return; }
+		for (file in FileSystem.readDirectory(dirPath)) {
+			var fileName = dirPath + "/" + file;
+			if (FileSystem.isDirectory(fileName)) {
+				trace('Delete recursive: $fileName');
+				deleteDirectoryRecursive(fileName);
+				FileSystem.deleteDirectory(fileName);
+			} else {
+				FileSystem.deleteFile(fileName);
+			}
+		}
 	}
 }
