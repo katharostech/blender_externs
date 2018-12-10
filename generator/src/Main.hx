@@ -19,7 +19,7 @@ class Main {
 	static final capitalize: String -> String = (text: String) -> {
 		return text.charAt(0).toUpperCase() + text.substring(1);
 	}
-	static final outputDir = "haxe";
+	static final outputDir = "src";
 	static final cacheDir = ".cache";
 
 	static var unhandledDescTypes:Array<String> = [];
@@ -104,25 +104,6 @@ class Main {
 	}
 
 	/**
-	 * Parse files that have been postponed because of un-parsed
-	 * dependencies.
-	 */
-	// static function parsePostponedFiles() {
-	// 	var fileNames = postponedFiles.copy();
-	// 	postponedFiles = [];
-
-	// 	for (fileName in fileNames) {
-	// 		// Get file data and parse.
-	// 		var file = File.getContent('xml/${fileName}');
-	// 		var xml = new Fast(Parser.parse(file));
-
-	// 		// Parse section
-	// 		var parentSection = xml.node.document.node.section;
-	// 		parseSection(parentSection, fileName);
-	// 	}
-	// }
-
-	/**
 	 * Parse a class description
 	 * 
 	 * @param desc The XML class description
@@ -131,7 +112,7 @@ class Main {
 	static function parseClass(desc:Fast, section:Fast, fileName:String) {
 		var desc_signature = desc.node.desc_signature;
 		var pack = desc_signature.att.module;
-		var name = desc_signature.att.fullname;
+		var name = capitalize(desc_signature.att.fullname);
 		var fileDir = pack.split(".").join("/");
 		var filePath = fileDir + "/" + name + ".hx";
 		trace(filePath);
