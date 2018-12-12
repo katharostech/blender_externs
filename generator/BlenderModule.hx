@@ -1,12 +1,13 @@
 package;
 
 import haxe.macro.Printer;
-import haxe.ds.Vector;
 import sys.io.File;
 import haxe.xml.Parser;
 import haxe.xml.Fast;
 
 import haxe.macro.Expr;
+
+using StringTools;
 
 /**
  * A python Module defined by an XML definition file from Blender's Sphinx
@@ -30,7 +31,10 @@ class BlenderModule {
 	private var generator:BlenderExternGenerator;
 	/**Haxe type printer**/
 	private var printer:Printer;
-	private static final nullPos:Position = cast { file: "", min: 0, max: 0 }
+	/**A counter for enums that are generated for parameters**/
+	private var enumCounter = 0;
+	private static final nullPos:Position = cast { file: "", min: 0, max: 0};
+	private static final dynamicType:ComplexType = TPath({name: "Dynamic", pack: []});
 
 	public function new(defFile:String, generator:BlenderExternGenerator) {
 		this.defFile = defFile;
@@ -125,7 +129,7 @@ class BlenderModule {
 		var filePath = '$fileDir/Module.hx';
 
 		var classDef:TypeDefinition = {
-			pack: [],
+			pack: [pack],
 			name: "Module",
 			doc: moduleDescription,
 			pos: nullPos,
@@ -133,7 +137,7 @@ class BlenderModule {
 				{
 					name: ":pythonImport",
 					params: [
-						cast {
+						{
 							expr: EConst(CString(moduleName)),
 							pos: nullPos
 						}
@@ -171,7 +175,7 @@ class BlenderModule {
 		
 		// Create class definition
 		var classDef:TypeDefinition = {
-			pack: [],
+			pack: [pack],
 			name: name,
 			doc: createDocString(desc.node.desc_content.nodes.paragraph),
 			pos: nullPos,
@@ -179,7 +183,7 @@ class BlenderModule {
 				{
 					name: ":pythonImport",
 					params: [
-						cast {
+						{
 							expr: EConst(CString(desc_signature.att.ids)),
 							pos: nullPos
 						}
@@ -252,36 +256,40 @@ class BlenderModule {
 	 * @param desc The XML description of class attribute
 	 * @return Field The parsed class field
 	 */
-	 private static function parseAttribute(desc:Fast):Field {
+	 private function parseAttribute(desc:Fast):Field {
 		var name = desc.node.desc_signature.node.desc_name.innerData;
 		var kind:FieldType = null;
-		var typeString = "";
+		var doc = createDocString(desc.node.desc_content.nodes.paragraph);
+		// The default type is `Dynamic`
+		var type:ComplexType = dynamicType;
 
 		// Parse type
 		try {
 			for (field in desc.node.desc_content.node.field_list.nodes.field) {
 				if (field.node.field_name.innerData != "Type") { continue; }
-				typeString = field.node.field_body.node.paragraph.innerData;
+
+				var typeDesc = field.node.field_body.node.paragraph;
+				type = parseParamType(typeDesc);
+
+				// Add type info to doc string
+				doc += '\n\nType: ${typeDesc.innerHTML}';
 				break;
 			}
-		} catch (e:Dynamic) {
-			// If we can't parse the type
-			typeString = "Dynamic";
-		}
+		// This will catch any XML parsing exceptions in which case we
+		// just leave the type set to dynamic.
+		} catch (e:Dynamic) { }
 
-		var type:ComplexType = TPath(cast {
-			pack: [],
-			name: capitalize(typeString.split(" ")[0])
-		});
 
+		// Create field
 		if (desc.att.desctype == "data") {
 			kind = FProp("default", "never", type);
 		} else {
 			kind = FVar(type);
 		}
-		return cast {
+
+		return {
 			name: name,
-			doc: createDocString(desc.node.desc_content.nodes.paragraph),
+			doc: doc,
 			pos: nullPos,
 			kind: kind
 		}
@@ -295,20 +303,128 @@ class BlenderModule {
 	static function parseFunction(desc:Fast):Field {
 		var name = desc.node.desc_signature.node.desc_name.innerData;
 		var access:Array<Access> = [];
-		if (desc.att.desctype == "classmethod" ||
+		if (desc.att.desctype == "function" ||
+		    desc.att.desctype == "classmethod" ||
 				desc.att.desctype == "staticmethod") {
 			access.push(AStatic);
 		}
-		return cast {
+		return {
 			name: name,
 			doc: createDocString(desc.node.desc_content.nodes.paragraph),
 			pos: nullPos,
-			kind: FFun(cast {
-				ret: macro:Dynamic,
-				args: []
+			kind: FFun({
+				ret: dynamicType,
+				args: [],
+				expr: null
 			}),
 			access: access
 		}
+	}
+
+	/**
+	 * Parse a type description for an attribute or function
+	 */
+	private function parseParamType(paramTypeDesc:Fast):ComplexType {
+		// The default type is `Dynamic`
+		var type:ComplexType = dynamicType;
+		var typeString = paramTypeDesc.innerHTML;
+		var isArray = typeString.indexOf("array") != -1;
+
+		// Try to match on basic type name
+		var typeNameReg = ~/^([a-zA-Z]*)[, ]/gm;
+		if (typeNameReg.match(typeString)) {
+			var typeName = typeNameReg.matched(1);
+
+			switch (typeName){
+			case "boolean":
+				// Bool type has different name in docs
+				typeName = "Bool";
+			case "enum":
+				var valueReg = ~/enum in \[(.*)\]/gm;
+				if (valueReg.match(typeString)) {
+					// Enum values
+					var enumValues = valueReg.matched(1).split(",");
+					for (i in 0...enumValues.length) {
+						// Strip quotes
+						var reg = ~/[A-Z0-9_]+/m;
+						if (reg.match(enumValues[i])) {
+							enumValues[i] = reg.matched(0);
+						}
+					}
+
+					enumCounter++;
+					// Create new abstract enum and add it the classDefs
+					var enumClassName = "Enum" + Std.string(enumCounter);
+					var enumClass:TypeDefinition = {
+						pack: [this.moduleName.toLowerCase()],
+						name: enumClassName,
+						pos: nullPos,
+						kind: TDAbstract(
+							TPath({ name: "String", pack: []}),
+							[TPath({ name: "String", pack: []})],
+							[TPath({ name: "String", pack: []})]
+						),
+						meta: [
+							{
+								name: ":enum",
+								pos: nullPos
+							}
+						],
+						fields: []
+					};
+
+					// Add all enum values
+					for (value in enumValues) {
+						enumClass.fields.push({
+							name: value,
+							pos: nullPos,
+							kind: FVar(
+								TPath({name: "String", pack: [] }),
+								{
+									expr: EConst(CString(value)),
+									pos: nullPos
+								}
+							)
+						});
+					}
+
+					classDefs.push(enumClass);
+
+					typeName = enumClassName;
+				}
+			default:
+				typeName = capitalize(typeName);
+			}
+
+			// Set type
+			type = TPath({
+				name: typeName,
+				pack: []
+			});
+			
+			if (isArray) {
+				// Make array
+				type = TPath({
+					name: "Array",
+					pack: [],
+					params: [TPType(type)]
+				});
+			}
+
+		// Try to parse class reference
+		} else if (paramTypeDesc.hasNode.reference) {
+			var ref = paramTypeDesc.node.reference.att.reftitle;
+			var pack = ref.toLowerCase();
+			var refSplit = ref.split(".");
+			var className = capitalize(refSplit[refSplit.length - 1]);
+
+			type = TPath({
+				name: className,
+				pack: [pack]
+			});
+		}
+
+		return type;
 	}
 
 	//

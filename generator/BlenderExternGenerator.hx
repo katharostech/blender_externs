@@ -48,7 +48,7 @@ class BlenderExternGenerator {
 			// Write data
 			var nameSplit = module.moduleName.split(".");
 			var className = capitalize(nameSplit[nameSplit.length - 1] + ".hx");
-			var dir = '$outputDir/${nameSplit.join("/")}';
+			var dir = outputDir + "/" + nameSplit.join("/").toLowerCase();
 
 			var classExterns = module.getClassExterns();
 			var hasClassExterns = classExterns != "";
