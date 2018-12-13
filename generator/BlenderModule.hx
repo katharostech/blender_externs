@@ -1,5 +1,7 @@
 package;
 
+import haxe.rtti.XmlParser;
+import haxe.xml.Check;
 import haxe.macro.Printer;
 import sys.io.File;
 import haxe.xml.Parser;
@@ -269,15 +271,15 @@ class BlenderModule {
 				if (field.node.field_name.innerData != "Type") { continue; }
 
 				var typeDesc = field.node.field_body.node.paragraph;
-				type = parseParamType(typeDesc);
+				type = parseParamType(typeDesc.innerHTML);
 
 				// Add type info to doc string
-				doc += '\n\nType: ${typeDesc.innerHTML}';
+				doc += '\n\nType: ${stripXmlTags(typeDesc.innerHTML)}';
 				break;
 			}
 		// This will catch any XML parsing exceptions in which case we
 		// just leave the type set to dynamic.
-		} catch (e:Dynamic) { }
+		} catch (e:String) { }
 
 
 		// Create field
@@ -300,21 +302,99 @@ class BlenderModule {
 	 * @param desc XML description of a method
 	 * @return Field The parsed method
 	 */
-	static function parseFunction(desc:Fast):Field {
+	private function parseFunction(desc:Fast):Field {
 		var name = desc.node.desc_signature.node.desc_name.innerData;
 		var access:Array<Access> = [];
+		var doc = createDocString(desc.node.desc_content.nodes.paragraph);
+		var args:Array<FunctionArg> = [];
+		// Default return type is `Dynamic`
+		var returnType = dynamicType;
+
+		// Set Static or not
 		if (desc.att.desctype == "function" ||
-		    desc.att.desctype == "classmethod" ||
+				desc.att.desctype == "classmethod" ||
 				desc.att.desctype == "staticmethod") {
 			access.push(AStatic);
 		}
+
+		// Helper for parsing paremters
+		function parseParameter(paramDef:Fast) {
+			var paramString = stripXmlTags(paramDef.innerHTML);
+			var paramName = paramString.split(" ")[0];
+			var paramDoc = paramString.split(" – ")[1];
+
+			doc += '\n@param $paramName $paramDoc';
+
+			var typeString = "";
+			var char = 0;
+			var parenDepth = 0;
+			var foundStart = false;
+			var buf = new StringBuf();
+			for (i in 0...paramString.length) {
+				char = paramString.fastCodeAt(i);
+				// Search for first '('
+				if (foundStart == false) {
+					if (char == "(".code) {
+						foundStart = true;
+						parenDepth = 1;
+					}
+
+				// Start tracking until corresponding ')'
+				} else {
+					if (char == "(".code) { parenDepth++; } else if (char == ")".code) { parenDepth--; }
+					if (parenDepth == 0) { break; }
+					buf.addChar(char);
+				}
+			}
+
+			typeString = buf.toString();
+
+			// Add the type description to the doc string just in case; sometimes
+			// it has extra information.
+			doc += ' — $typeString';
+
+			// Parse arg type
+			var paramType = parseParamType(typeString);
+
+			args.push({
+				name: paramName,
+				type: paramType
+			});
+		}
+
+		// Parse fields
+		if (desc.node.desc_content.hasNode.field_list) {
+			for (field in desc.node.desc_content.node.field_list.nodes.field) {
+				if (field.node.field_name.innerData == "Parameters") {
+					// This function has multiple parameters
+					if (field.node.field_body.hasNode.bullet_list) {
+						for (param in field.node.field_body.node.bullet_list.nodes.list_item) {
+							parseParameter(param.node.paragraph);
+						}
+					
+					// This function only has one parameter
+					} else if (field.node.field_body.hasNode.paragraph) {
+						parseParameter(field.node.field_body.node.paragraph);
+					}
+
+				} else if (field.node.field_name.innerData == "Return type") {
+					var typeDesc = field.node.field_body.node.paragraph;
+					returnType = parseParamType(typeDesc.innerHTML);
+
+					// Add type info to doc string
+					doc += '\n\n@returns ${stripXmlTags(typeDesc.innerHTML)}';
+				}
+			}
+		}
+
+		
 		return {
 			name: name,
-			doc: createDocString(desc.node.desc_content.nodes.paragraph),
+			doc: doc,
 			pos: nullPos,
 			kind: FFun({
-				ret: dynamicType,
-				args: [],
+				ret: returnType,
+				args: args,
 				expr: null
 			}),
 			access: access
@@ -324,20 +404,38 @@ class BlenderModule {
 	/**
 	 * Parse a type description for an attribute or function
 	 */
-	private function parseParamType(paramTypeDesc:Fast):ComplexType {
+	private function parseParamType(paramTypeDescStr:String):ComplexType {
 		// The default type is `Dynamic`
 		var type:ComplexType = dynamicType;
-		var typeString = paramTypeDesc.innerHTML;
+		var paramTypeDesc:Fast = null;
+		// var typeString = paramTypeDesc.innerHTML;
+		var typeString = "";
 		var isArray = typeString.indexOf("array") != -1;
+
+		// Try to parse string as XML
+		try {
+			paramTypeDesc = cast Parser.parse(paramTypeDescStr);
+			typeString = paramTypeDesc.innerHTML;
+		
+		// If it is not xml just use the string
+		} catch (e:XmlParserException) {
+			typeString = paramTypeDescStr;
+		}
 
 		// Try to match on basic type name
 		var typeNameReg = ~/^([a-zA-Z]*)[, ]/gm;
 		if (typeNameReg.match(typeString)) {
 			var typeName = typeNameReg.matched(1);
+			var typePack = [];
 
 			switch (typeName){
+			case "string":
+				typeName = "String";
+			case "float":
+				typeName = "Float";
+			case "int":
+				typeName = "Int";
 			case "boolean":
-				// Bool type has different name in docs
 				typeName = "Bool";
 			case "enum":
 				var valueReg = ~/enum in \[(.*)\]/gm;
@@ -388,18 +486,26 @@ class BlenderModule {
 						});
 					}
 
+					// Add enum to the classDefs list
 					classDefs.push(enumClass);
 
+					// Set type type to the newly created enum
 					typeName = enumClassName;
+					var moduleSplit = moduleName.split(".");
+					typePack = [moduleName.toLowerCase() + "." + capitalize(moduleSplit[moduleSplit.length - 1])];
 				}
 			default:
-				typeName = capitalize(typeName);
+				// Guess that a type with '.'s in it is a reference to another type
+				if (typeName.indexOf(".") != -1) {
+					var typeNameSplit = typeName.split(".");
+					typeName = typeString.toLowerCase() + capitalize(typeNameSplit[typeNameSplit.length - 1]);
+				}
 			}
 
 			// Set type
 			type = TPath({
 				name: typeName,
-				pack: []
+				pack: typePack
 			});
 			
 			if (isArray) {
@@ -412,7 +518,7 @@ class BlenderModule {
 			}
 
 		// Try to parse class reference
-		} else if (paramTypeDesc.hasNode.reference) {
+		} else if (paramTypeDesc != null && paramTypeDesc.hasNode.reference) {
 			var ref = paramTypeDesc.node.reference.att.reftitle;
 			var pack = ref.toLowerCase();
 			var refSplit = ref.split(".");
@@ -447,7 +553,7 @@ class BlenderModule {
 	 */
 	private static function createDocString(paragraphs:Array<Fast>) {
 		return paragraphs.map((p) -> {
-			return p.innerHTML.split("\n").map(s -> StringTools.ltrim(s)).join("\n");
+			return stripXmlTags(p.innerHTML.split("\n").map(s -> StringTools.ltrim(s)).join("\n"));
 		}).join("\n\n");
 	}
 
@@ -462,7 +568,7 @@ class BlenderModule {
 			for (list_item in hlistcol.node.bullet_list.nodes.list_item) {
 				try {
 					refs.push(list_item.node.paragraph.node.reference.att.reftitle);
-				} catch (e:Dynamic) {
+				} catch (e:String) {
 					// There are many references to inherited properties that don't
 					// have the full class path for a cross-reference. Hopefully this
 					// doesn't cause issues.
@@ -471,5 +577,34 @@ class BlenderModule {
 		}
 
 		return refs;
+	}
+
+	/**
+	 * Strip all XML tags from the string and return just the content.
+	 * @param dirtyString A string containing XML tags
+	 * @returns A new string that has all of the XML tags removed.
+	 */
+	private static function stripXmlTags(dirtyString:String):String {
+			// Drop all XML tags and keep content
+			var buf = new StringBuf();
+			var insideXmlTag = false;
+			var charCode = 0;
+
+			for (i in 0...dirtyString.length) {
+				charCode = dirtyString.fastCodeAt(i);
+				if (insideXmlTag) {
+					if (charCode == ">".code) {
+						insideXmlTag = false;
+					}
+				} else {
+					if (charCode == "<".code) {
+						insideXmlTag = true;
+					} else {
+						buf.addChar(charCode);
+					}
+				}
+			}
+
+			return buf.toString();
 	}
 }
