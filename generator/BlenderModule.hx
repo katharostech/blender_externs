@@ -307,8 +307,8 @@ class BlenderModule {
 		var access:Array<Access> = [];
 		var doc = createDocString(desc.node.desc_content.nodes.paragraph);
 		var args:Array<FunctionArg> = [];
-		// Default return type is `Dynamic`
-		var returnType = dynamicType;
+		// Default return type is `Void`
+		var returnType:ComplexType = TPath({name: "Void", pack: []});
 
 		// Set Static or not
 		if (desc.att.desctype == "function" ||
@@ -325,12 +325,12 @@ class BlenderModule {
 
 			doc += '\n@param $paramName $paramDoc';
 
-			var typeString = "";
+			var typeXmlString = "";
 			var char = 0;
 			var parenDepth = 0;
 			var foundStart = false;
 			var buf = new StringBuf();
-			for (i in 0...paramString.length) {
+			for (i in 0...paramDef.innerHTML.length) {
 				char = paramString.fastCodeAt(i);
 				// Search for first '('
 				if (foundStart == false) {
@@ -347,14 +347,13 @@ class BlenderModule {
 				}
 			}
 
-			typeString = buf.toString();
+			typeXmlString = buf.toString();
 
-			// Add the type description to the doc string just in case; sometimes
-			// it has extra information.
-			doc += ' — $typeString';
+			// Add the type description to the doc string
+			doc += ' — ${stripXmlTags(typeXmlString)}';
 
 			// Parse arg type
-			var paramType = parseParamType(typeString);
+			var paramType = parseParamType(typeXmlString);
 
 			args.push({
 				name: paramName,
@@ -408,9 +407,7 @@ class BlenderModule {
 		// The default type is `Dynamic`
 		var type:ComplexType = dynamicType;
 		var paramTypeDesc:Fast = null;
-		// var typeString = paramTypeDesc.innerHTML;
 		var typeString = "";
-		var isArray = typeString.indexOf("array") != -1;
 
 		// Try to parse string as XML
 		try {
@@ -421,6 +418,9 @@ class BlenderModule {
 		} catch (e:XmlParserException) {
 			typeString = paramTypeDescStr;
 		}
+
+		// Set whether or not type is an array
+		var isArray = typeString.indexOf("array") != -1;
 
 		// Try to match on basic type name
 		var typeNameReg = ~/^([a-zA-Z]*)[, ]/gm;
@@ -437,6 +437,13 @@ class BlenderModule {
 				typeName = "Int";
 			case "boolean":
 				typeName = "Bool";
+			case "list":
+				var reg = ~/list of (.*)/gm;
+				if (reg.match(typeString)) {
+					isArray = true;
+					// TODO: Parse type of list
+					typeName = "Dynamic";
+				}
 			case "enum":
 				var valueReg = ~/enum in \[(.*)\]/gm;
 				if (valueReg.match(typeString)) {
@@ -493,12 +500,42 @@ class BlenderModule {
 					typeName = enumClassName;
 					var moduleSplit = moduleName.split(".");
 					typePack = [moduleName.toLowerCase() + "." + capitalize(moduleSplit[moduleSplit.length - 1])];
+
+				// Enum type that doesn't match "enum in [*]"
+				// For now we just set those to Dynamic
+				} else {
+					typeName = "Dynamic";
 				}
 			default:
 				// Guess that a type with '.'s in it is a reference to another type
 				if (typeName.indexOf(".") != -1) {
 					var typeNameSplit = typeName.split(".");
 					typeName = typeString.toLowerCase() + capitalize(typeNameSplit[typeNameSplit.length - 1]);
+
+				// If it isn't a full class path try to find the class
+				} else {
+					var matches = [];
+					for (module in generator.modules) {
+						var moduleSplit = module.moduleName.split(".");
+						var moduleClassName = capitalize(moduleSplit[moduleSplit.length - 1]);
+						if (moduleClassName == typeName) {
+							matches.push(module.moduleName);
+						}
+					}
+
+					// If there is exactly one matching module
+					if (matches.length == 1) {
+						var module = matches[0];
+						typePack = [module.toLowerCase()];
+						var moduleSplit =module.split(".");
+						typeName = capitalize(moduleSplit[moduleSplit.length - 1]);
+
+					// If we can't identify a *single* matching class with that name
+					} else {
+						generator.addWarning(typeString);
+						// Set type to dynamic
+						typeName = "Dynamic";
+					}
 				}
 			}
 
