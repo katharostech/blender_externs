@@ -1,3 +1,0 @@
-MeshFaceMapLayer.data = None
-
-

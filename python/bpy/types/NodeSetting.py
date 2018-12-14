@@ -1,5 +1,0 @@
-class NodeSetting:
-
-    pass
-
-

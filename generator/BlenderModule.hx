@@ -35,6 +35,7 @@ class BlenderModule {
 	private var printer:Printer;
 	/**A counter for enums that are generated for parameters**/
 	private var enumCounter = 0;
+
 	private static final nullPos:Position = cast { file: "", min: 0, max: 0};
 	private static final dynamicType:ComplexType = TPath({name: "Dynamic", pack: []});
 
@@ -532,7 +533,6 @@ class BlenderModule {
 
 					// If we can't identify a *single* matching class with that name
 					} else {
-						generator.addWarning(typeString);
 						// Set type to dynamic
 						typeName = "Dynamic";
 					}

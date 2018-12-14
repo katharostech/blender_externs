@@ -1,3 +1,0 @@
-UIPopover.layout = None
-
-

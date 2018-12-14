@@ -1,3 +1,0 @@
-LayerCollection.collection = None
-
-

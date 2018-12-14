@@ -1,0 +1,33 @@
+package bpy.types.wmownerids;
+@:pythonImport("bpy.types.wmOwnerIDs") extern class WmOwnerIDs {
+	/**
+		Add ui tag
+		@param name New name for the tag — string, (never None)
+		
+		@returns wmOwnerID
+	**/
+	function new(name:String):bpy.types.wmownerid.WmOwnerID;
+	/**
+		Remove ui tag
+		@param owner_id Tag to remove — wmOwnerID, (never None)
+	**/
+	function remove(owner_id:Dynamic):Void;
+	/**
+		Remove all tags
+	**/
+	function clear():Void;
+	/**
+		
+		@param id The RNA type identifier. — string
+		
+		@returns bpy.types.Struct subclass
+	**/
+	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	/**
+		
+		@param id The RNA type identifier. — string
+		
+		@returns type
+	**/
+	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+}

@@ -1,3 +1,0 @@
-ObjectBase.object = None
-
-

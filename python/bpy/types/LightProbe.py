@@ -1,3 +1,0 @@
-LightProbe.type = None
-
-

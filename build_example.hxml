@@ -1,0 +1,14 @@
+-cp exampleBlenderPlugin
+-cp src
+-cp blendertools
+-python exampleBlenderPlugin/example.py
+-main ExamplePlugin
+# Add bl_info to generated code
+--next
+-cp exampleBlenderPlugin
+-cp blendertools
+-cp src
+-D add_bl_info
+-python exampleBlenderPlugin/example.py
+-main ExamplePlugin
+--no-output

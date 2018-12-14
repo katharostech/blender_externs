@@ -1,3 +1,0 @@
-ThickGpencilModifier.curve = None
-
-

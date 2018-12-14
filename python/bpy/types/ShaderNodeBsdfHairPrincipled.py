@@ -1,5 +1,0 @@
-class ShaderNodeBsdfHairPrincipled:
-    parametrization = None
-
-
-

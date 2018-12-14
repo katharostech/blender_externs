@@ -1,5 +1,0 @@
-class ShaderNodeBevel:
-    samples = None
-
-
-

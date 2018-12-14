@@ -1,3 +1,0 @@
-LayerObjects.selected = None
-
-

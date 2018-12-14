@@ -1,3 +1,0 @@
-GpencilVertexGroupElement.group = None
-
-

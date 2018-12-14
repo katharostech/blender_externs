@@ -1,5 +1,0 @@
-class ShaderNodeVolumePrincipled:
-
-    pass
-
-

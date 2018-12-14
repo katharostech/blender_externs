@@ -1,3 +1,0 @@
-ThemeStatusBar.space = None
-
-

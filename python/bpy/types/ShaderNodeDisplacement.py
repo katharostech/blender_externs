@@ -1,5 +1,0 @@
-class ShaderNodeDisplacement:
-    space = None
-
-
-

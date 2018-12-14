@@ -1,5 +1,0 @@
-class SceneObjects:
-
-    pass
-
-

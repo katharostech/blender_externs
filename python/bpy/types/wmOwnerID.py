@@ -1,5 +1,0 @@
-class wmOwnerID:
-    name = None
-
-
-

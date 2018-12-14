@@ -1,5 +1,0 @@
-class MeshFaceMap:
-    value = None
-
-
-

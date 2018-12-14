@@ -1,3 +1,0 @@
-SceneDisplay.shading = None
-
-
