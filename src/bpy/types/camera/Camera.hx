@@ -13,7 +13,7 @@ package bpy.types.camera;
 }/**
 	Camera data-block for storing camera settings
 **/
-@:pythonImport("bpy.types.Camera") extern class Camera {
+@:native("bpy.types.Camera") extern class Camera {
 	/**
 		Camera lens field of view
 		
@@ -217,14 +217,14 @@ package bpy.types.camera;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

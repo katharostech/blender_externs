@@ -2,19 +2,19 @@ package bpy.types.overdropsequence;
 /**
 	Over Drop Sequence
 **/
-@:pythonImport("bpy.types.OverDropSequence") extern class OverDropSequence {
+@:native("bpy.types.OverDropSequence") extern class OverDropSequence {
 	/**
 		First input for the effect strip
 		
 		Type: Sequence, (never None)
 	**/
-	var input_1 : bpy.types.sequence.Sequence;
+	var pyinput_1 : bpy.types.sequence.Sequence;
 	/**
 		Second input for the effect strip
 		
 		Type: Sequence, (never None)
 	**/
-	var input_2 : bpy.types.sequence.Sequence;
+	var pyinput_2 : bpy.types.sequence.Sequence;
 	/**
 		
 		
@@ -27,14 +27,14 @@ package bpy.types.overdropsequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

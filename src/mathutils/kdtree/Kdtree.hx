@@ -2,7 +2,7 @@ package mathutils.kdtree;
 /**
 	KdTree(size) -&gt; new kd-tree initialized to hold size items.
 **/
-@:pythonImport("mathutils.kdtree.KDTree") extern class KDTree {
+@:native("mathutils.kdtree.KDTree") extern class KDTree {
 	/**
 		Balance the tree.
 	**/
@@ -22,7 +22,7 @@ package mathutils.kdtree;
 		
 		@returns list
 	**/
-	function find_n(co:Float, n:Dynamic):Dynamic;
+	function find_n(co:Float, n:Int):Dynamic;
 	/**
 		Find all points within radius of co.
 		@param co 3d coordinates. — float triplet
@@ -30,11 +30,11 @@ package mathutils.kdtree;
 		
 		@returns list
 	**/
-	function find_range(co:Float, radius:Dynamic):Dynamic;
+	function find_range(co:Float, radius:Float):Dynamic;
 	/**
 		Insert a point into the KDTree.
 		@param co Point 3d position. — float triplet
 		@param index The index of the point. — int
 	**/
-	function insert(co:Float, index:Dynamic):Void;
+	function insert(co:Float, index:Int):Void;
 }

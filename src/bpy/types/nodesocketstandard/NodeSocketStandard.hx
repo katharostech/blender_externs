@@ -1,5 +1,5 @@
 package bpy.types.nodesocketstandard;
-@:pythonImport("bpy.types.NodeSocketStandard") extern class NodeSocketStandard {
+@:native("bpy.types.NodeSocketStandard") extern class NodeSocketStandard {
 	/**
 		List of node links from or to this socket. Warning: takes O(len(nodetree.links)) time.
 		(readonly)
@@ -25,14 +25,14 @@ package bpy.types.nodesocketstandard;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Socket name
 		

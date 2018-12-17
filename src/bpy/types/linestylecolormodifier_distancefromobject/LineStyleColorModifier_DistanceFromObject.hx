@@ -21,7 +21,7 @@ package bpy.types.linestylecolormodifier_distancefromobject;
 }@:enum abstract Enum2(String) from String to String {
 	var ALONG_STROKE : String = "ALONG_STROKE";
 	var CREASE_ANGLE : String = "CREASE_ANGLE";
-	var CURVATURE_3D : String = "CURVATURE_3D";
+	var pyCURVATURE_3D : String = "CURVATURE_3D";
 	var DISTANCE_FROM_CAMERA : String = "DISTANCE_FROM_CAMERA";
 	var DISTANCE_FROM_OBJECT : String = "DISTANCE_FROM_OBJECT";
 	var MATERIAL : String = "MATERIAL";
@@ -30,7 +30,7 @@ package bpy.types.linestylecolormodifier_distancefromobject;
 }/**
 	Change line color based on the distance from an object
 **/
-@:pythonImport("bpy.types.LineStyleColorModifier_DistanceFromObject") extern class LineStyleColorModifier_DistanceFromObject {
+@:native("bpy.types.LineStyleColorModifier_DistanceFromObject") extern class LineStyleColorModifier_DistanceFromObject {
 	/**
 		Specify how the modifier value is blended into the base value
 		
@@ -97,12 +97,12 @@ package bpy.types.linestylecolormodifier_distancefromobject;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

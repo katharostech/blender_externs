@@ -2,7 +2,7 @@ package bpy.types.offsetgpencilmodifier;
 /**
 	Offset Stroke modifier
 **/
-@:pythonImport("bpy.types.OffsetGpencilModifier") extern class OffsetGpencilModifier {
+@:native("bpy.types.OffsetGpencilModifier") extern class OffsetGpencilModifier {
 	/**
 		Inverse filter
 		
@@ -75,14 +75,14 @@ package bpy.types.offsetgpencilmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

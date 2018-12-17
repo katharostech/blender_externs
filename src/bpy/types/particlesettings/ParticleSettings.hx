@@ -51,7 +51,7 @@ package bpy.types.particlesettings;
 	var EULER : String = "EULER";
 	var VERLET : String = "VERLET";
 	var MIDPOINT : String = "MIDPOINT";
-	var RK4 : String = "RK4";
+	var pyRK4 : String = "RK4";
 }@:enum abstract Enum11(String) from String to String {
 	var NO : String = "NO";
 	var CURL : String = "CURL";
@@ -100,7 +100,7 @@ package bpy.types.particlesettings;
 }/**
 	Particle settings, reusable by multiple particle systems
 **/
-@:pythonImport("bpy.types.ParticleSettings") extern class ParticleSettings {
+@:native("bpy.types.ParticleSettings") extern class ParticleSettings {
 	/**
 		
 		
@@ -466,13 +466,13 @@ package bpy.types.particlesettings;
 		
 		Type: FieldSettings, (readonly)
 	**/
-	var force_field_1(default, never) : bpy.types.fieldsettings.FieldSettings;
+	var pyforce_field_1(default, never) : bpy.types.fieldsettings.FieldSettings;
 	/**
 		
 		
 		Type: FieldSettings, (readonly)
 	**/
-	var force_field_2(default, never) : bpy.types.fieldsettings.FieldSettings;
+	var pyforce_field_2(default, never) : bpy.types.fieldsettings.FieldSettings;
 	/**
 		Frame number to stop emitting particles
 		
@@ -814,31 +814,31 @@ package bpy.types.particlesettings;
 		
 		Type: float in [0, 100000], default 0.0
 	**/
-	var roughness_1 : Float;
+	var pyroughness_1 : Float;
 	/**
 		Size of location dependent rough
 		
 		Type: float in [0.01, 100000], default 0.0
 	**/
-	var roughness_1_size : Float;
+	var pyroughness_1_size : Float;
 	/**
 		Amount of random rough
 		
 		Type: float in [0, 100000], default 0.0
 	**/
-	var roughness_2 : Float;
+	var pyroughness_2 : Float;
 	/**
 		Size of random rough
 		
 		Type: float in [0.01, 100000], default 0.0
 	**/
-	var roughness_2_size : Float;
+	var pyroughness_2_size : Float;
 	/**
 		Amount of particles left untouched by random rough
 		
 		Type: float in [0, 1], default 0.0
 	**/
-	var roughness_2_threshold : Float;
+	var pyroughness_2_threshold : Float;
 	/**
 		Curve defining roughness
 		
@@ -1181,14 +1181,14 @@ package bpy.types.particlesettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

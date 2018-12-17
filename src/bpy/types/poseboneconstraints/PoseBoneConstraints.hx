@@ -31,7 +31,7 @@ package bpy.types.poseboneconstraints;
 }/**
 	Collection of pose bone constraints
 **/
-@:pythonImport("bpy.types.PoseBoneConstraints") extern class PoseBoneConstraints {
+@:native("bpy.types.PoseBoneConstraints") extern class PoseBoneConstraints {
 	/**
 		Active PoseChannel constraint
 		
@@ -44,7 +44,7 @@ package bpy.types.poseboneconstraints;
 		
 		@returns Constraint
 	**/
-	function new(type:bpy.types.poseboneconstraints.PoseBoneConstraints.Enum1):bpy.types.constraint.Constraint;
+	function pyNew(type:bpy.types.poseboneconstraints.PoseBoneConstraints.Enum1):bpy.types.constraint.Constraint;
 	/**
 		Remove a constraint from this object
 		@param constraint Removed constraint — Constraint, (never None)
@@ -56,12 +56,12 @@ package bpy.types.poseboneconstraints;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

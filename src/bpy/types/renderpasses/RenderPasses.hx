@@ -32,7 +32,7 @@ package bpy.types.renderpasses;
 }/**
 	Collection of render passes
 **/
-@:pythonImport("bpy.types.RenderPasses") extern class RenderPasses {
+@:native("bpy.types.RenderPasses") extern class RenderPasses {
 	/**
 		Get the render pass for a given type and view
 		@param pass_type Pass — enum in ['COMBINED', 'Z', 'COLOR', 'DIFFUSE', 'SPECULAR', 'SHADOW', 'AO', 'REFLECTION', 'NORMAL', 'VECTOR', 'REFRACTION', 'OBJECT_INDEX', 'UV', 'MIST', 'EMIT', 'ENVIRONMENT', 'MATERIAL_INDEX', 'DIFFUSE_DIRECT', 'DIFFUSE_INDIRECT', 'DIFFUSE_COLOR', 'GLOSSY_DIRECT', 'GLOSSY_INDIRECT', 'GLOSSY_COLOR', 'TRANSMISSION_DIRECT', 'TRANSMISSION_INDIRECT', 'TRANSMISSION_COLOR', 'SUBSURFACE_DIRECT', 'SUBSURFACE_INDIRECT', 'SUBSURFACE_COLOR']
@@ -55,12 +55,12 @@ package bpy.types.renderpasses;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

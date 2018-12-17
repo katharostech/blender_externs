@@ -6,7 +6,7 @@ package bpy.types.keyingsetpaths;
 }/**
 	Collection of keying set paths
 **/
-@:pythonImport("bpy.types.KeyingSetPaths") extern class KeyingSetPaths {
+@:native("bpy.types.KeyingSetPaths") extern class KeyingSetPaths {
 	/**
 		Active Keying Set used to insert/delete keyframes
 		
@@ -29,7 +29,7 @@ package bpy.types.keyingsetpaths;
 		
 		@returns KeyingSetPath
 	**/
-	function add(target_id:Dynamic, data_path:String, index:Int, group_method:bpy.types.keyingsetpaths.KeyingSetPaths.Enum1, group_name:String):bpy.types.keyingsetpath.KeyingSetPath;
+	function add(target_id:bpy.types.id.ID, data_path:String, index:Int, group_method:bpy.types.keyingsetpaths.KeyingSetPaths.Enum1, group_name:String):bpy.types.keyingsetpath.KeyingSetPath;
 	/**
 		Remove the given path from the Keying Set
 		@param path Path — KeyingSetPath, (never None)
@@ -45,12 +45,12 @@ package bpy.types.keyingsetpaths;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

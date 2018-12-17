@@ -2,7 +2,7 @@ package bpy.types.blenddataobjects;
 /**
 	Collection of objects
 **/
-@:pythonImport("bpy.types.BlendDataObjects") extern class BlendDataObjects {
+@:native("bpy.types.BlendDataObjects") extern class BlendDataObjects {
 	/**
 		Add a new object to the main database
 		@param name New name for the data-block — string, (never None)
@@ -10,7 +10,7 @@ package bpy.types.blenddataobjects;
 		
 		@returns Object
 	**/
-	function new(name:String, object_data:Dynamic):bpy.types.object.Object;
+	function pyNew(name:String, object_data:bpy.types.id.ID):bpy.types.object.Object;
 	/**
 		Remove a object from the current blendfile
 		@param object Object to remove — Object, (never None)
@@ -23,19 +23,19 @@ package bpy.types.blenddataobjects;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

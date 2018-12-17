@@ -5,7 +5,7 @@ package bpy.types.masksequence;
 }/**
 	Sequence strip to load a video from a mask
 **/
-@:pythonImport("bpy.types.MaskSequence") extern class MaskSequence {
+@:native("bpy.types.MaskSequence") extern class MaskSequence {
 	/**
 		Representation of alpha information in the RGBA pixels
 		
@@ -108,14 +108,14 @@ package bpy.types.masksequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

@@ -2,7 +2,7 @@ package bpy.types.sunlight;
 /**
 	Constant direction parallel ray Light
 **/
-@:pythonImport("bpy.types.SunLight") extern class SunLight {
+@:native("bpy.types.SunLight") extern class SunLight {
 	/**
 		Bias to avoid self shadowing
 		
@@ -129,14 +129,14 @@ package bpy.types.sunlight;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

@@ -2,7 +2,7 @@ package bpy.types.palettecolors;
 /**
 	Collection of palette colors
 **/
-@:pythonImport("bpy.types.PaletteColors") extern class PaletteColors {
+@:native("bpy.types.PaletteColors") extern class PaletteColors {
 	/**
 		
 		
@@ -14,7 +14,7 @@ package bpy.types.palettecolors;
 		
 		@returns PaletteColor
 	**/
-	function new():bpy.types.palettecolor.PaletteColor;
+	function pyNew():bpy.types.palettecolor.PaletteColor;
 	/**
 		Remove a color from the palette
 		@param color The color to remove — PaletteColor, (never None)
@@ -30,12 +30,12 @@ package bpy.types.palettecolors;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

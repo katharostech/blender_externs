@@ -27,7 +27,7 @@ package bpy.types.linestyletextureslot;
 }/**
 	Texture slot for textures in a LineStyle data-block
 **/
-@:pythonImport("bpy.types.LineStyleTextureSlot") extern class LineStyleTextureSlot {
+@:native("bpy.types.LineStyleTextureSlot") extern class LineStyleTextureSlot {
 	/**
 		Amount texture affects alpha
 		
@@ -94,14 +94,14 @@ package bpy.types.linestyletextureslot;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Texture data-block used by this texture slot
 		

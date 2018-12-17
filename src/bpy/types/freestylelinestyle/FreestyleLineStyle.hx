@@ -21,7 +21,7 @@ package bpy.types.freestylelinestyle;
 	var TEXTURE : String = "TEXTURE";
 }@:enum abstract Enum5(String) from String to String {
 	var DISTANCE_FROM_CAMERA : String = "DISTANCE_FROM_CAMERA";
-	var 2D_LENGTH : String = "2D_LENGTH";
+	var py2D_LENGTH : String = "2D_LENGTH";
 	var PROJECTED_X : String = "PROJECTED_X";
 	var PROJECTED_Y : String = "PROJECTED_Y";
 }@:enum abstract Enum6(String) from String to String {
@@ -35,7 +35,7 @@ package bpy.types.freestylelinestyle;
 }/**
 	Freestyle line style, reusable by multiple line sets
 **/
-@:pythonImport("bpy.types.FreestyleLineStyle") extern class FreestyleLineStyle {
+@:native("bpy.types.FreestyleLineStyle") extern class FreestyleLineStyle {
 	/**
 		Active texture slot being displayed
 		
@@ -113,37 +113,37 @@ package bpy.types.freestylelinestyle;
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var dash1 : Int;
+	var pydash1 : Int;
 	/**
 		Length of the 2nd dash for dashed lines
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var dash2 : Int;
+	var pydash2 : Int;
 	/**
 		Length of the 3rd dash for dashed lines
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var dash3 : Int;
+	var pydash3 : Int;
 	/**
 		Length of the 1st gap for dashed lines
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var gap1 : Int;
+	var pygap1 : Int;
 	/**
 		Length of the 2nd gap for dashed lines
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var gap2 : Int;
+	var pygap2 : Int;
 	/**
 		Length of the 3rd gap for dashed lines
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var gap3 : Int;
+	var pygap3 : Int;
 	/**
 		List of stroke geometry modifiers
 		
@@ -209,37 +209,37 @@ package bpy.types.freestylelinestyle;
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var split_dash1 : Int;
+	var pysplit_dash1 : Int;
 	/**
 		Length of the 2nd dash for splitting
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var split_dash2 : Int;
+	var pysplit_dash2 : Int;
 	/**
 		Length of the 3rd dash for splitting
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var split_dash3 : Int;
+	var pysplit_dash3 : Int;
 	/**
 		Length of the 1st gap for splitting
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var split_gap1 : Int;
+	var pysplit_gap1 : Int;
 	/**
 		Length of the 2nd gap for splitting
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var split_gap2 : Int;
+	var pysplit_gap2 : Int;
 	/**
 		Length of the 3rd gap for splitting
 		
 		Type: int in [0, 65535], default 0
 	**/
-	var split_gap3 : Int;
+	var pysplit_gap3 : Int;
 	/**
 		Curvilinear 2D length for chain splitting
 		
@@ -366,14 +366,14 @@ package bpy.types.freestylelinestyle;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

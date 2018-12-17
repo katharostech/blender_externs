@@ -1,13 +1,13 @@
 package bpy.types.linestylegeometrymodifiers;
 @:enum abstract Enum1(String) from String to String {
-	var 2D_OFFSET : String = "2D_OFFSET";
-	var 2D_TRANSFORM : String = "2D_TRANSFORM";
+	var py2D_OFFSET : String = "2D_OFFSET";
+	var py2D_TRANSFORM : String = "2D_TRANSFORM";
 	var BACKBONE_STRETCHER : String = "BACKBONE_STRETCHER";
 	var BEZIER_CURVE : String = "BEZIER_CURVE";
 	var BLUEPRINT : String = "BLUEPRINT";
 	var GUIDING_LINES : String = "GUIDING_LINES";
-	var PERLIN_NOISE_1D : String = "PERLIN_NOISE_1D";
-	var PERLIN_NOISE_2D : String = "PERLIN_NOISE_2D";
+	var pyPERLIN_NOISE_1D : String = "PERLIN_NOISE_1D";
+	var pyPERLIN_NOISE_2D : String = "PERLIN_NOISE_2D";
 	var POLYGONIZATION : String = "POLYGONIZATION";
 	var SAMPLING : String = "SAMPLING";
 	var SIMPLIFICATION : String = "SIMPLIFICATION";
@@ -17,7 +17,7 @@ package bpy.types.linestylegeometrymodifiers;
 }/**
 	Geometry modifiers for changing line geometries
 **/
-@:pythonImport("bpy.types.LineStyleGeometryModifiers") extern class LineStyleGeometryModifiers {
+@:native("bpy.types.LineStyleGeometryModifiers") extern class LineStyleGeometryModifiers {
 	/**
 		Add a geometry modifier to line style
 		@param name New name for the geometry modifier (not unique) — string, (never None)
@@ -25,7 +25,7 @@ package bpy.types.linestylegeometrymodifiers;
 		
 		@returns LineStyleGeometryModifier
 	**/
-	function new(name:String, type:bpy.types.linestylegeometrymodifiers.LineStyleGeometryModifiers.Enum1):bpy.types.linestylegeometrymodifier.LineStyleGeometryModifier;
+	function pyNew(name:String, type:bpy.types.linestylegeometrymodifiers.LineStyleGeometryModifiers.Enum1):bpy.types.linestylegeometrymodifier.LineStyleGeometryModifier;
 	/**
 		Remove a geometry modifier from line style
 		@param modifier Geometry modifier to remove — LineStyleGeometryModifier, (never None)
@@ -37,12 +37,12 @@ package bpy.types.linestylegeometrymodifiers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

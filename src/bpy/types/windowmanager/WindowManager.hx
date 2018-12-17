@@ -84,10 +84,10 @@ package bpy.types.windowmanager;
 	var SPEAKER : String = "SPEAKER";
 	var TOOL_SETTINGS : String = "TOOL_SETTINGS";
 	var SHADERFX : String = "SHADERFX";
-	var BLANK1 : String = "BLANK1";
+	var pyBLANK1 : String = "BLANK1";
 	var FAKE_USER_OFF : String = "FAKE_USER_OFF";
 	var FAKE_USER_ON : String = "FAKE_USER_ON";
-	var VIEW3D : String = "VIEW3D";
+	var pyVIEW3D : String = "VIEW3D";
 	var GRAPH : String = "GRAPH";
 	var OUTLINER : String = "OUTLINER";
 	var PROPERTIES : String = "PROPERTIES";
@@ -476,10 +476,10 @@ package bpy.types.windowmanager;
 	var PASTEDOWN : String = "PASTEDOWN";
 	var PASTEFLIPUP : String = "PASTEFLIPUP";
 	var PASTEFLIPDOWN : String = "PASTEFLIPDOWN";
-	var VIS_SEL_11 : String = "VIS_SEL_11";
-	var VIS_SEL_10 : String = "VIS_SEL_10";
-	var VIS_SEL_01 : String = "VIS_SEL_01";
-	var VIS_SEL_00 : String = "VIS_SEL_00";
+	var pyVIS_SEL_11 : String = "VIS_SEL_11";
+	var pyVIS_SEL_10 : String = "VIS_SEL_10";
+	var pyVIS_SEL_01 : String = "VIS_SEL_01";
+	var pyVIS_SEL_00 : String = "VIS_SEL_00";
 	var AUTOMERGE_ON : String = "AUTOMERGE_ON";
 	var AUTOMERGE_OFF : String = "AUTOMERGE_OFF";
 	var UV_VERTEXSEL : String = "UV_VERTEXSEL";
@@ -611,30 +611,30 @@ package bpy.types.windowmanager;
 	var BRUSH_THUMB : String = "BRUSH_THUMB";
 	var BRUSH_ROTATE : String = "BRUSH_ROTATE";
 	var BRUSH_VERTEXDRAW : String = "BRUSH_VERTEXDRAW";
-	var MATCAP_01 : String = "MATCAP_01";
-	var MATCAP_02 : String = "MATCAP_02";
-	var MATCAP_03 : String = "MATCAP_03";
-	var MATCAP_04 : String = "MATCAP_04";
-	var MATCAP_05 : String = "MATCAP_05";
-	var MATCAP_06 : String = "MATCAP_06";
-	var MATCAP_07 : String = "MATCAP_07";
-	var MATCAP_08 : String = "MATCAP_08";
-	var MATCAP_09 : String = "MATCAP_09";
-	var MATCAP_10 : String = "MATCAP_10";
-	var MATCAP_11 : String = "MATCAP_11";
-	var MATCAP_12 : String = "MATCAP_12";
-	var MATCAP_13 : String = "MATCAP_13";
-	var MATCAP_14 : String = "MATCAP_14";
-	var MATCAP_15 : String = "MATCAP_15";
-	var MATCAP_16 : String = "MATCAP_16";
-	var MATCAP_17 : String = "MATCAP_17";
-	var MATCAP_18 : String = "MATCAP_18";
-	var MATCAP_19 : String = "MATCAP_19";
-	var MATCAP_20 : String = "MATCAP_20";
-	var MATCAP_21 : String = "MATCAP_21";
-	var MATCAP_22 : String = "MATCAP_22";
-	var MATCAP_23 : String = "MATCAP_23";
-	var MATCAP_24 : String = "MATCAP_24";
+	var pyMATCAP_01 : String = "MATCAP_01";
+	var pyMATCAP_02 : String = "MATCAP_02";
+	var pyMATCAP_03 : String = "MATCAP_03";
+	var pyMATCAP_04 : String = "MATCAP_04";
+	var pyMATCAP_05 : String = "MATCAP_05";
+	var pyMATCAP_06 : String = "MATCAP_06";
+	var pyMATCAP_07 : String = "MATCAP_07";
+	var pyMATCAP_08 : String = "MATCAP_08";
+	var pyMATCAP_09 : String = "MATCAP_09";
+	var pyMATCAP_10 : String = "MATCAP_10";
+	var pyMATCAP_11 : String = "MATCAP_11";
+	var pyMATCAP_12 : String = "MATCAP_12";
+	var pyMATCAP_13 : String = "MATCAP_13";
+	var pyMATCAP_14 : String = "MATCAP_14";
+	var pyMATCAP_15 : String = "MATCAP_15";
+	var pyMATCAP_16 : String = "MATCAP_16";
+	var pyMATCAP_17 : String = "MATCAP_17";
+	var pyMATCAP_18 : String = "MATCAP_18";
+	var pyMATCAP_19 : String = "MATCAP_19";
+	var pyMATCAP_20 : String = "MATCAP_20";
+	var pyMATCAP_21 : String = "MATCAP_21";
+	var pyMATCAP_22 : String = "MATCAP_22";
+	var pyMATCAP_23 : String = "MATCAP_23";
+	var pyMATCAP_24 : String = "MATCAP_24";
 	var GPBRUSH_SMOOTH : String = "GPBRUSH_SMOOTH";
 	var GPBRUSH_THICKNESS : String = "GPBRUSH_THICKNESS";
 	var GPBRUSH_STRENGTH : String = "GPBRUSH_STRENGTH";
@@ -667,26 +667,26 @@ package bpy.types.windowmanager;
 	var HANDLETYPE_VECTOR_VEC : String = "HANDLETYPE_VECTOR_VEC";
 	var HANDLETYPE_AUTO_VEC : String = "HANDLETYPE_AUTO_VEC";
 	var HANDLETYPE_AUTO_CLAMP_VEC : String = "HANDLETYPE_AUTO_CLAMP_VEC";
-	var COLORSET_01_VEC : String = "COLORSET_01_VEC";
-	var COLORSET_02_VEC : String = "COLORSET_02_VEC";
-	var COLORSET_03_VEC : String = "COLORSET_03_VEC";
-	var COLORSET_04_VEC : String = "COLORSET_04_VEC";
-	var COLORSET_05_VEC : String = "COLORSET_05_VEC";
-	var COLORSET_06_VEC : String = "COLORSET_06_VEC";
-	var COLORSET_07_VEC : String = "COLORSET_07_VEC";
-	var COLORSET_08_VEC : String = "COLORSET_08_VEC";
-	var COLORSET_09_VEC : String = "COLORSET_09_VEC";
-	var COLORSET_10_VEC : String = "COLORSET_10_VEC";
-	var COLORSET_11_VEC : String = "COLORSET_11_VEC";
-	var COLORSET_12_VEC : String = "COLORSET_12_VEC";
-	var COLORSET_13_VEC : String = "COLORSET_13_VEC";
-	var COLORSET_14_VEC : String = "COLORSET_14_VEC";
-	var COLORSET_15_VEC : String = "COLORSET_15_VEC";
-	var COLORSET_16_VEC : String = "COLORSET_16_VEC";
-	var COLORSET_17_VEC : String = "COLORSET_17_VEC";
-	var COLORSET_18_VEC : String = "COLORSET_18_VEC";
-	var COLORSET_19_VEC : String = "COLORSET_19_VEC";
-	var COLORSET_20_VEC : String = "COLORSET_20_VEC";
+	var pyCOLORSET_01_VEC : String = "COLORSET_01_VEC";
+	var pyCOLORSET_02_VEC : String = "COLORSET_02_VEC";
+	var pyCOLORSET_03_VEC : String = "COLORSET_03_VEC";
+	var pyCOLORSET_04_VEC : String = "COLORSET_04_VEC";
+	var pyCOLORSET_05_VEC : String = "COLORSET_05_VEC";
+	var pyCOLORSET_06_VEC : String = "COLORSET_06_VEC";
+	var pyCOLORSET_07_VEC : String = "COLORSET_07_VEC";
+	var pyCOLORSET_08_VEC : String = "COLORSET_08_VEC";
+	var pyCOLORSET_09_VEC : String = "COLORSET_09_VEC";
+	var pyCOLORSET_10_VEC : String = "COLORSET_10_VEC";
+	var pyCOLORSET_11_VEC : String = "COLORSET_11_VEC";
+	var pyCOLORSET_12_VEC : String = "COLORSET_12_VEC";
+	var pyCOLORSET_13_VEC : String = "COLORSET_13_VEC";
+	var pyCOLORSET_14_VEC : String = "COLORSET_14_VEC";
+	var pyCOLORSET_15_VEC : String = "COLORSET_15_VEC";
+	var pyCOLORSET_16_VEC : String = "COLORSET_16_VEC";
+	var pyCOLORSET_17_VEC : String = "COLORSET_17_VEC";
+	var pyCOLORSET_18_VEC : String = "COLORSET_18_VEC";
+	var pyCOLORSET_19_VEC : String = "COLORSET_19_VEC";
+	var pyCOLORSET_20_VEC : String = "COLORSET_20_VEC";
 	var EVENT_A : String = "EVENT_A";
 	var EVENT_B : String = "EVENT_B";
 	var EVENT_C : String = "EVENT_C";
@@ -717,18 +717,18 @@ package bpy.types.windowmanager;
 	var EVENT_CTRL : String = "EVENT_CTRL";
 	var EVENT_ALT : String = "EVENT_ALT";
 	var EVENT_OS : String = "EVENT_OS";
-	var EVENT_F1 : String = "EVENT_F1";
-	var EVENT_F2 : String = "EVENT_F2";
-	var EVENT_F3 : String = "EVENT_F3";
-	var EVENT_F4 : String = "EVENT_F4";
-	var EVENT_F5 : String = "EVENT_F5";
-	var EVENT_F6 : String = "EVENT_F6";
-	var EVENT_F7 : String = "EVENT_F7";
-	var EVENT_F8 : String = "EVENT_F8";
-	var EVENT_F9 : String = "EVENT_F9";
-	var EVENT_F10 : String = "EVENT_F10";
-	var EVENT_F11 : String = "EVENT_F11";
-	var EVENT_F12 : String = "EVENT_F12";
+	var pyEVENT_F1 : String = "EVENT_F1";
+	var pyEVENT_F2 : String = "EVENT_F2";
+	var pyEVENT_F3 : String = "EVENT_F3";
+	var pyEVENT_F4 : String = "EVENT_F4";
+	var pyEVENT_F5 : String = "EVENT_F5";
+	var pyEVENT_F6 : String = "EVENT_F6";
+	var pyEVENT_F7 : String = "EVENT_F7";
+	var pyEVENT_F8 : String = "EVENT_F8";
+	var pyEVENT_F9 : String = "EVENT_F9";
+	var pyEVENT_F10 : String = "EVENT_F10";
+	var pyEVENT_F11 : String = "EVENT_F11";
+	var pyEVENT_F12 : String = "EVENT_F12";
 	var EVENT_ESC : String = "EVENT_ESC";
 	var EVENT_TAB : String = "EVENT_TAB";
 	var EVENT_PAGEUP : String = "EVENT_PAGEUP";
@@ -819,10 +819,10 @@ package bpy.types.windowmanager;
 	var SPEAKER : String = "SPEAKER";
 	var TOOL_SETTINGS : String = "TOOL_SETTINGS";
 	var SHADERFX : String = "SHADERFX";
-	var BLANK1 : String = "BLANK1";
+	var pyBLANK1 : String = "BLANK1";
 	var FAKE_USER_OFF : String = "FAKE_USER_OFF";
 	var FAKE_USER_ON : String = "FAKE_USER_ON";
-	var VIEW3D : String = "VIEW3D";
+	var pyVIEW3D : String = "VIEW3D";
 	var GRAPH : String = "GRAPH";
 	var OUTLINER : String = "OUTLINER";
 	var PROPERTIES : String = "PROPERTIES";
@@ -1211,10 +1211,10 @@ package bpy.types.windowmanager;
 	var PASTEDOWN : String = "PASTEDOWN";
 	var PASTEFLIPUP : String = "PASTEFLIPUP";
 	var PASTEFLIPDOWN : String = "PASTEFLIPDOWN";
-	var VIS_SEL_11 : String = "VIS_SEL_11";
-	var VIS_SEL_10 : String = "VIS_SEL_10";
-	var VIS_SEL_01 : String = "VIS_SEL_01";
-	var VIS_SEL_00 : String = "VIS_SEL_00";
+	var pyVIS_SEL_11 : String = "VIS_SEL_11";
+	var pyVIS_SEL_10 : String = "VIS_SEL_10";
+	var pyVIS_SEL_01 : String = "VIS_SEL_01";
+	var pyVIS_SEL_00 : String = "VIS_SEL_00";
 	var AUTOMERGE_ON : String = "AUTOMERGE_ON";
 	var AUTOMERGE_OFF : String = "AUTOMERGE_OFF";
 	var UV_VERTEXSEL : String = "UV_VERTEXSEL";
@@ -1346,30 +1346,30 @@ package bpy.types.windowmanager;
 	var BRUSH_THUMB : String = "BRUSH_THUMB";
 	var BRUSH_ROTATE : String = "BRUSH_ROTATE";
 	var BRUSH_VERTEXDRAW : String = "BRUSH_VERTEXDRAW";
-	var MATCAP_01 : String = "MATCAP_01";
-	var MATCAP_02 : String = "MATCAP_02";
-	var MATCAP_03 : String = "MATCAP_03";
-	var MATCAP_04 : String = "MATCAP_04";
-	var MATCAP_05 : String = "MATCAP_05";
-	var MATCAP_06 : String = "MATCAP_06";
-	var MATCAP_07 : String = "MATCAP_07";
-	var MATCAP_08 : String = "MATCAP_08";
-	var MATCAP_09 : String = "MATCAP_09";
-	var MATCAP_10 : String = "MATCAP_10";
-	var MATCAP_11 : String = "MATCAP_11";
-	var MATCAP_12 : String = "MATCAP_12";
-	var MATCAP_13 : String = "MATCAP_13";
-	var MATCAP_14 : String = "MATCAP_14";
-	var MATCAP_15 : String = "MATCAP_15";
-	var MATCAP_16 : String = "MATCAP_16";
-	var MATCAP_17 : String = "MATCAP_17";
-	var MATCAP_18 : String = "MATCAP_18";
-	var MATCAP_19 : String = "MATCAP_19";
-	var MATCAP_20 : String = "MATCAP_20";
-	var MATCAP_21 : String = "MATCAP_21";
-	var MATCAP_22 : String = "MATCAP_22";
-	var MATCAP_23 : String = "MATCAP_23";
-	var MATCAP_24 : String = "MATCAP_24";
+	var pyMATCAP_01 : String = "MATCAP_01";
+	var pyMATCAP_02 : String = "MATCAP_02";
+	var pyMATCAP_03 : String = "MATCAP_03";
+	var pyMATCAP_04 : String = "MATCAP_04";
+	var pyMATCAP_05 : String = "MATCAP_05";
+	var pyMATCAP_06 : String = "MATCAP_06";
+	var pyMATCAP_07 : String = "MATCAP_07";
+	var pyMATCAP_08 : String = "MATCAP_08";
+	var pyMATCAP_09 : String = "MATCAP_09";
+	var pyMATCAP_10 : String = "MATCAP_10";
+	var pyMATCAP_11 : String = "MATCAP_11";
+	var pyMATCAP_12 : String = "MATCAP_12";
+	var pyMATCAP_13 : String = "MATCAP_13";
+	var pyMATCAP_14 : String = "MATCAP_14";
+	var pyMATCAP_15 : String = "MATCAP_15";
+	var pyMATCAP_16 : String = "MATCAP_16";
+	var pyMATCAP_17 : String = "MATCAP_17";
+	var pyMATCAP_18 : String = "MATCAP_18";
+	var pyMATCAP_19 : String = "MATCAP_19";
+	var pyMATCAP_20 : String = "MATCAP_20";
+	var pyMATCAP_21 : String = "MATCAP_21";
+	var pyMATCAP_22 : String = "MATCAP_22";
+	var pyMATCAP_23 : String = "MATCAP_23";
+	var pyMATCAP_24 : String = "MATCAP_24";
 	var GPBRUSH_SMOOTH : String = "GPBRUSH_SMOOTH";
 	var GPBRUSH_THICKNESS : String = "GPBRUSH_THICKNESS";
 	var GPBRUSH_STRENGTH : String = "GPBRUSH_STRENGTH";
@@ -1402,26 +1402,26 @@ package bpy.types.windowmanager;
 	var HANDLETYPE_VECTOR_VEC : String = "HANDLETYPE_VECTOR_VEC";
 	var HANDLETYPE_AUTO_VEC : String = "HANDLETYPE_AUTO_VEC";
 	var HANDLETYPE_AUTO_CLAMP_VEC : String = "HANDLETYPE_AUTO_CLAMP_VEC";
-	var COLORSET_01_VEC : String = "COLORSET_01_VEC";
-	var COLORSET_02_VEC : String = "COLORSET_02_VEC";
-	var COLORSET_03_VEC : String = "COLORSET_03_VEC";
-	var COLORSET_04_VEC : String = "COLORSET_04_VEC";
-	var COLORSET_05_VEC : String = "COLORSET_05_VEC";
-	var COLORSET_06_VEC : String = "COLORSET_06_VEC";
-	var COLORSET_07_VEC : String = "COLORSET_07_VEC";
-	var COLORSET_08_VEC : String = "COLORSET_08_VEC";
-	var COLORSET_09_VEC : String = "COLORSET_09_VEC";
-	var COLORSET_10_VEC : String = "COLORSET_10_VEC";
-	var COLORSET_11_VEC : String = "COLORSET_11_VEC";
-	var COLORSET_12_VEC : String = "COLORSET_12_VEC";
-	var COLORSET_13_VEC : String = "COLORSET_13_VEC";
-	var COLORSET_14_VEC : String = "COLORSET_14_VEC";
-	var COLORSET_15_VEC : String = "COLORSET_15_VEC";
-	var COLORSET_16_VEC : String = "COLORSET_16_VEC";
-	var COLORSET_17_VEC : String = "COLORSET_17_VEC";
-	var COLORSET_18_VEC : String = "COLORSET_18_VEC";
-	var COLORSET_19_VEC : String = "COLORSET_19_VEC";
-	var COLORSET_20_VEC : String = "COLORSET_20_VEC";
+	var pyCOLORSET_01_VEC : String = "COLORSET_01_VEC";
+	var pyCOLORSET_02_VEC : String = "COLORSET_02_VEC";
+	var pyCOLORSET_03_VEC : String = "COLORSET_03_VEC";
+	var pyCOLORSET_04_VEC : String = "COLORSET_04_VEC";
+	var pyCOLORSET_05_VEC : String = "COLORSET_05_VEC";
+	var pyCOLORSET_06_VEC : String = "COLORSET_06_VEC";
+	var pyCOLORSET_07_VEC : String = "COLORSET_07_VEC";
+	var pyCOLORSET_08_VEC : String = "COLORSET_08_VEC";
+	var pyCOLORSET_09_VEC : String = "COLORSET_09_VEC";
+	var pyCOLORSET_10_VEC : String = "COLORSET_10_VEC";
+	var pyCOLORSET_11_VEC : String = "COLORSET_11_VEC";
+	var pyCOLORSET_12_VEC : String = "COLORSET_12_VEC";
+	var pyCOLORSET_13_VEC : String = "COLORSET_13_VEC";
+	var pyCOLORSET_14_VEC : String = "COLORSET_14_VEC";
+	var pyCOLORSET_15_VEC : String = "COLORSET_15_VEC";
+	var pyCOLORSET_16_VEC : String = "COLORSET_16_VEC";
+	var pyCOLORSET_17_VEC : String = "COLORSET_17_VEC";
+	var pyCOLORSET_18_VEC : String = "COLORSET_18_VEC";
+	var pyCOLORSET_19_VEC : String = "COLORSET_19_VEC";
+	var pyCOLORSET_20_VEC : String = "COLORSET_20_VEC";
 	var EVENT_A : String = "EVENT_A";
 	var EVENT_B : String = "EVENT_B";
 	var EVENT_C : String = "EVENT_C";
@@ -1452,18 +1452,18 @@ package bpy.types.windowmanager;
 	var EVENT_CTRL : String = "EVENT_CTRL";
 	var EVENT_ALT : String = "EVENT_ALT";
 	var EVENT_OS : String = "EVENT_OS";
-	var EVENT_F1 : String = "EVENT_F1";
-	var EVENT_F2 : String = "EVENT_F2";
-	var EVENT_F3 : String = "EVENT_F3";
-	var EVENT_F4 : String = "EVENT_F4";
-	var EVENT_F5 : String = "EVENT_F5";
-	var EVENT_F6 : String = "EVENT_F6";
-	var EVENT_F7 : String = "EVENT_F7";
-	var EVENT_F8 : String = "EVENT_F8";
-	var EVENT_F9 : String = "EVENT_F9";
-	var EVENT_F10 : String = "EVENT_F10";
-	var EVENT_F11 : String = "EVENT_F11";
-	var EVENT_F12 : String = "EVENT_F12";
+	var pyEVENT_F1 : String = "EVENT_F1";
+	var pyEVENT_F2 : String = "EVENT_F2";
+	var pyEVENT_F3 : String = "EVENT_F3";
+	var pyEVENT_F4 : String = "EVENT_F4";
+	var pyEVENT_F5 : String = "EVENT_F5";
+	var pyEVENT_F6 : String = "EVENT_F6";
+	var pyEVENT_F7 : String = "EVENT_F7";
+	var pyEVENT_F8 : String = "EVENT_F8";
+	var pyEVENT_F9 : String = "EVENT_F9";
+	var pyEVENT_F10 : String = "EVENT_F10";
+	var pyEVENT_F11 : String = "EVENT_F11";
+	var pyEVENT_F12 : String = "EVENT_F12";
 	var EVENT_ESC : String = "EVENT_ESC";
 	var EVENT_TAB : String = "EVENT_TAB";
 	var EVENT_PAGEUP : String = "EVENT_PAGEUP";
@@ -1474,7 +1474,7 @@ package bpy.types.windowmanager;
 }/**
 	Window manager data-block defining open windows and other user interface data
 **/
-@:pythonImport("bpy.types.WindowManager") extern class WindowManager {
+@:native("bpy.types.WindowManager") extern class WindowManager {
 	/**
 		Filter add-ons by category
 		
@@ -1527,14 +1527,14 @@ package bpy.types.windowmanager;
 		Opens a file selector with an operator. The string properties ‘filepath’, ‘filename’, ‘directory’ and a ‘files’ collection are assigned when present in the operator
 		@param operator Operator to call — Operator
 	**/
-	static function fileselect_add(operator:Dynamic):Void;
+	static function fileselect_add(operator:bpy.types.operator.Operator):Void;
 	/**
 		Add a modal handler to the window manager, for the given modal operator (called by invoke() with self, just before returning {‘RUNNING_MODAL’})
 		@param operator Operator to call — Operator
 		
 		@returns boolean
 	**/
-	static function modal_handler_add(operator:Dynamic):Dynamic;
+	static function modal_handler_add(operator:bpy.types.operator.Operator):Bool;
 	/**
 		Add a timer to the given window, to generate periodic ‘TIMER’ events
 		@param time_step Time Step, Interval in seconds between timer events — float in [0, inf]
@@ -1546,7 +1546,7 @@ package bpy.types.windowmanager;
 	/**
 		event_timer_remove
 	**/
-	function event_timer_remove():Void;
+	function event_timer_remove(timer:Dynamic):Void;
 	/**
 		Activate an existing widget group (when the persistent option isn’t set)
 		@param identifier Gizmo group type name — string, (never None)
@@ -1579,7 +1579,7 @@ package bpy.types.windowmanager;
 		
 		@returns enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}
 	**/
-	static function invoke_props_popup(operator:Dynamic, event:Dynamic):Dynamic;
+	static function invoke_props_popup(operator:bpy.types.operator.Operator, event:bpy.types.event.Event):Dynamic;
 	/**
 		Operator dialog (non-autoexec popup) invoke (show operator properties and only execute it on click on OK button)
 		@param operator Operator to call — Operator
@@ -1588,12 +1588,12 @@ package bpy.types.windowmanager;
 		
 		@returns enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}
 	**/
-	static function invoke_props_dialog(operator:Dynamic, width:Int, height:Int):Dynamic;
+	static function invoke_props_dialog(operator:bpy.types.operator.Operator, width:Int, height:Int):Dynamic;
 	/**
 		Operator search popup invoke which searches values of the operator’s bpy.types.Operator.bl_property (which must be an EnumProperty), executing it on confirmation
 		@param operator Operator to call — Operator
 	**/
-	static function invoke_search_popup(operator:Dynamic):Void;
+	static function invoke_search_popup(operator:bpy.types.operator.Operator):Void;
 	/**
 		Operator popup invoke (only shows operator’s properties, without executing it)
 		@param operator Operator to call — Operator
@@ -1602,7 +1602,7 @@ package bpy.types.windowmanager;
 		
 		@returns enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}
 	**/
-	static function invoke_popup(operator:Dynamic, width:Int, height:Int):Dynamic;
+	static function invoke_popup(operator:bpy.types.operator.Operator, width:Int, height:Int):Dynamic;
 	/**
 		Operator confirmation popup (only to let user confirm the execution, no operator properties shown)
 		@param operator Operator to call — Operator
@@ -1610,7 +1610,7 @@ package bpy.types.windowmanager;
 		
 		@returns enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}
 	**/
-	static function invoke_confirm(operator:Dynamic, event:Dynamic):Dynamic;
+	static function invoke_confirm(operator:bpy.types.operator.Operator, event:bpy.types.event.Event):Dynamic;
 	/**
 		popmenu_begin__internal
 		@param icon icon — enum in ['NONE', 'QUESTION', 'ERROR', 'CANCEL', 'TRIA_RIGHT', 'TRIA_DOWN', 'TRIA_LEFT', 'TRIA_UP', 'ARROW_LEFTRIGHT', 'PLUS', 'DISCLOSURE_TRI_RIGHT', 'DISCLOSURE_TRI_DOWN', 'RADIOBUT_OFF', 'RADIOBUT_ON', 'MENU_PANEL', 'BLENDER', 'GRIP', 'DOT', 'COLLAPSEMENU', 'X', 'DUPLICATE', 'NODE', 'NODE_SEL', 'WINDOW', 'WORKSPACE', 'RIGHTARROW_THIN', 'BORDERMOVE', 'VIEWZOOM', 'ADD', 'REMOVE', 'PANEL_CLOSE', 'COPY_ID', 'EYEDROPPER', 'AUTO', 'CHECKBOX_DEHLT', 'CHECKBOX_HLT', 'UNLOCKED', 'LOCKED', 'UNPINNED', 'PINNED', 'SCREEN_BACK', 'RIGHTARROW', 'DOWNARROW_HLT', 'PLUGIN', 'HELP', 'GHOST_ENABLED', 'COLOR', 'UNLINKED', 'LINKED', 'HAND', 'ZOOM_ALL', 'ZOOM_SELECTED', 'ZOOM_PREVIOUS', 'ZOOM_IN', 'ZOOM_OUT', 'DRIVER_DISTANCE', 'DRIVER_ROTATIONAL_DIFFERENCE', 'DRIVER_TRANSFORM', 'FREEZE', 'STYLUS_PRESSURE', 'GHOST_DISABLED', 'FILE_NEW', 'FILE_TICK', 'QUIT', 'URL', 'RECOVER_LAST', 'THREE_DOTS', 'FULLSCREEN_ENTER', 'FULLSCREEN_EXIT', 'LIGHT', 'MATERIAL', 'TEXTURE', 'ANIM', 'WORLD', 'SCENE', 'OUTPUT', 'SCRIPT', 'PARTICLES', 'PHYSICS', 'SPEAKER', 'TOOL_SETTINGS', 'SHADERFX', 'BLANK1', 'FAKE_USER_OFF', 'FAKE_USER_ON', 'VIEW3D', 'GRAPH', 'OUTLINER', 'PROPERTIES', 'FILEBROWSER', 'IMAGE', 'INFO', 'SEQUENCE', 'TEXT', 'SOUND', 'ACTION', 'NLA', 'PREFERENCES', 'TIME', 'NODETREE', 'CONSOLE', 'CLIP', 'ASSET_MANAGER', 'NODE_COMPOSITING', 'NODE_TEXTURE', 'NODE_MATERIAL', 'OBJECT_DATAMODE', 'EDITMODE_HLT', 'UV', 'VPAINT_HLT', 'TPAINT_HLT', 'WPAINT_HLT', 'SCULPTMODE_HLT', 'POSE_HLT', 'PARTICLEMODE', 'TRACKING', 'TRACKING_BACKWARDS', 'TRACKING_FORWARDS', 'TRACKING_BACKWARDS_SINGLE', 'TRACKING_FORWARDS_SINGLE', 'TRACKING_CLEAR_BACKWARDS', 'TRACKING_CLEAR_FORWARDS', 'TRACKING_REFINE_BACKWARDS', 'TRACKING_REFINE_FORWARDS', 'SCENE_DATA', 'RENDERLAYERS', 'WORLD_DATA', 'OBJECT_DATA', 'MESH_DATA', 'CURVE_DATA', 'META_DATA', 'LATTICE_DATA', 'LIGHT_DATA', 'MATERIAL_DATA', 'TEXTURE_DATA', 'ANIM_DATA', 'CAMERA_DATA', 'PARTICLE_DATA', 'LIBRARY_DATA_DIRECT', 'GROUP', 'ARMATURE_DATA', 'COMMUNITY', 'BONE_DATA', 'CONSTRAINT', 'SHAPEKEY_DATA', 'CONSTRAINT_BONE', 'CAMERA_STEREO', 'PACKAGE', 'UGLYPACKAGE', 'EXPERIMENTAL', 'BRUSH_DATA', 'IMAGE_DATA', 'FILE', 'FCURVE', 'FONT_DATA', 'RENDER_RESULT', 'SURFACE_DATA', 'EMPTY_DATA', 'PRESET', 'RENDER_ANIMATION', 'RENDER_STILL', 'LIBRARY_DATA_BROKEN', 'BOIDS', 'STRANDS', 'LIBRARY_DATA_INDIRECT', 'GREASEPENCIL', 'LINE_DATA', 'LIBRARY_DATA_OVERRIDE', 'GROUP_BONE', 'GROUP_VERTEX', 'GROUP_VCOL', 'GROUP_UVS', 'FACE_MAPS', 'RNA', 'RNA_ADD', 'MOUSE_LMB', 'MOUSE_MMB', 'MOUSE_RMB', 'MOUSE_MOVE', 'MOUSE_LMB_DRAG', 'MOUSE_MMB_DRAG', 'MOUSE_RMB_DRAG', 'PRESET_NEW', 'DECORATE', 'DECORATE_KEYFRAME', 'DECORATE_ANIMATE', 'DECORATE_DRIVER', 'DECORATE_LINKED', 'DECORATE_LIBRARY_OVERRIDE', 'DECORATE_UNLOCKED', 'DECORATE_LOCKED', 'DECORATE_OVERRIDE', 'SEALED', 'HEART', 'ORPHAN_DATA', 'USER', 'SYSTEM', 'SETTINGS', 'OUTLINER_OB_EMPTY', 'OUTLINER_OB_MESH', 'OUTLINER_OB_CURVE', 'OUTLINER_OB_LATTICE', 'OUTLINER_OB_META', 'OUTLINER_OB_LIGHT', 'OUTLINER_OB_CAMERA', 'OUTLINER_OB_ARMATURE', 'OUTLINER_OB_FONT', 'OUTLINER_OB_SURFACE', 'OUTLINER_OB_SPEAKER', 'OUTLINER_OB_FORCE_FIELD', 'OUTLINER_OB_GROUP_INSTANCE', 'OUTLINER_OB_GREASEPENCIL', 'OUTLINER_OB_LIGHTPROBE', 'OUTLINER_OB_IMAGE', 'RESTRICT_COLOR_OFF', 'RESTRICT_COLOR_ON', 'HIDE_ON', 'HIDE_OFF', 'RESTRICT_SELECT_ON', 'RESTRICT_SELECT_OFF', 'RESTRICT_RENDER_ON', 'RESTRICT_RENDER_OFF', 'OUTLINER_DATA_EMPTY', 'OUTLINER_DATA_MESH', 'OUTLINER_DATA_CURVE', 'OUTLINER_DATA_LATTICE', 'OUTLINER_DATA_META', 'OUTLINER_DATA_LIGHT', 'OUTLINER_DATA_CAMERA', 'OUTLINER_DATA_ARMATURE', 'OUTLINER_DATA_FONT', 'OUTLINER_DATA_SURFACE', 'OUTLINER_DATA_SPEAKER', 'OUTLINER_DATA_GREASEPENCIL', 'GP_SELECT_POINTS', 'GP_SELECT_STROKES', 'GP_MULTIFRAME_EDITING', 'GP_ONLY_SELECTED', 'MODIFIER_OFF', 'MODIFIER_ON', 'ONIONSKIN_OFF', 'ONIONSKIN_ON', 'RESTRICT_VIEW_ON', 'RESTRICT_VIEW_OFF', 'MESH_PLANE', 'MESH_CUBE', 'MESH_CIRCLE', 'MESH_UVSPHERE', 'MESH_ICOSPHERE', 'MESH_GRID', 'MESH_MONKEY', 'MESH_CYLINDER', 'MESH_TORUS', 'MESH_CONE', 'MESH_CAPSULE', 'EMPTY_SINGLE_ARROW', 'LIGHT_POINT', 'LIGHT_SUN', 'LIGHT_SPOT', 'LIGHT_HEMI', 'LIGHT_AREA', 'CUBE', 'SPHERE', 'CONE', 'META_PLANE', 'META_CUBE', 'META_BALL', 'META_ELLIPSOID', 'META_CAPSULE', 'SURFACE_NCURVE', 'SURFACE_NCIRCLE', 'SURFACE_NSURFACE', 'SURFACE_NCYLINDER', 'SURFACE_NSPHERE', 'SURFACE_NTORUS', 'EMPTY_AXIS', 'STROKE', 'EMPTY_ARROWS', 'CURVE_BEZCURVE', 'CURVE_BEZCIRCLE', 'CURVE_NCURVE', 'CURVE_NCIRCLE', 'CURVE_PATH', 'LIGHTPROBE_CUBEMAP', 'LIGHTPROBE_PLANAR', 'LIGHTPROBE_GRID', 'COLOR_RED', 'COLOR_GREEN', 'COLOR_BLUE', 'TRIA_RIGHT_BAR', 'TRIA_DOWN_BAR', 'TRIA_LEFT_BAR', 'TRIA_UP_BAR', 'FORCE_FORCE', 'FORCE_WIND', 'FORCE_VORTEX', 'FORCE_MAGNETIC', 'FORCE_HARMONIC', 'FORCE_CHARGE', 'FORCE_LENNARDJONES', 'FORCE_TEXTURE', 'FORCE_CURVE', 'FORCE_BOID', 'FORCE_TURBULENCE', 'FORCE_DRAG', 'FORCE_SMOKEFLOW', 'IMAGE_PLANE', 'IMAGE_BACKGROUND', 'IMAGE_REFERENCE', 'NODE_INSERT_ON', 'NODE_INSERT_OFF', 'NODE_TOP', 'NODE_SIDE', 'NODE_CORNER', 'ALIGN_LEFT', 'ALIGN_CENTER', 'ALIGN_RIGHT', 'ALIGN_JUSTIFY', 'ALIGN_FLUSH', 'ALIGN_TOP', 'ALIGN_MIDDLE', 'ALIGN_BOTTOM', 'BOLD', 'ITALIC', 'UNDERLINE', 'SMALL_CAPS', 'MODIFIER', 'MOD_WAVE', 'MOD_BUILD', 'MOD_DECIM', 'MOD_MIRROR', 'MOD_SOFT', 'MOD_SUBSURF', 'HOOK', 'MOD_PHYSICS', 'MOD_PARTICLES', 'MOD_BOOLEAN', 'MOD_EDGESPLIT', 'MOD_ARRAY', 'MOD_UVPROJECT', 'MOD_DISPLACE', 'MOD_CURVE', 'MOD_LATTICE', 'MOD_TINT', 'MOD_ARMATURE', 'MOD_SHRINKWRAP', 'MOD_CAST', 'MOD_MESHDEFORM', 'MOD_BEVEL', 'MOD_SMOOTH', 'MOD_SIMPLEDEFORM', 'MOD_MASK', 'MOD_CLOTH', 'MOD_EXPLODE', 'MOD_FLUIDSIM', 'MOD_MULTIRES', 'MOD_SMOKE', 'MOD_SOLIDIFY', 'MOD_SCREW', 'MOD_VERTEX_WEIGHT', 'MOD_DYNAMICPAINT', 'MOD_REMESH', 'MOD_OCEAN', 'MOD_WARP', 'MOD_SKIN', 'MOD_TRIANGULATE', 'MOD_WIREFRAME', 'MOD_DATA_TRANSFER', 'MOD_NORMALEDIT', 'MOD_PARTICLE_INSTANCE', 'MOD_HUE_SATURATION', 'MOD_NOISE', 'MOD_OFFSET', 'MOD_SIMPLIFY', 'MOD_THICKNESS', 'MOD_INSTANCE', 'MOD_TIME', 'MOD_OPACITY', 'REC', 'PLAY', 'FF', 'REW', 'PAUSE', 'PREV_KEYFRAME', 'NEXT_KEYFRAME', 'PLAY_REVERSE', 'PREVIEW_RANGE', 'ACTION_TWEAK', 'PMARKER_ACT', 'PMARKER_SEL', 'PMARKER', 'MARKER_HLT', 'MARKER', 'KEYFRAME_HLT', 'KEYFRAME', 'KEYINGSET', 'KEY_DEHLT', 'KEY_HLT', 'MUTE_IPO_OFF', 'MUTE_IPO_ON', 'VISIBLE_IPO_OFF', 'VISIBLE_IPO_ON', 'DRIVER', 'SOLO_OFF', 'SOLO_ON', 'FRAME_PREV', 'FRAME_NEXT', 'NLA_PUSHDOWN', 'IPO_CONSTANT', 'IPO_LINEAR', 'IPO_BEZIER', 'IPO_SINE', 'IPO_QUAD', 'IPO_CUBIC', 'IPO_QUART', 'IPO_QUINT', 'IPO_EXPO', 'IPO_CIRC', 'IPO_BOUNCE', 'IPO_ELASTIC', 'IPO_BACK', 'IPO_EASE_IN', 'IPO_EASE_OUT', 'IPO_EASE_IN_OUT', 'NORMALIZE_FCURVES', 'VERTEXSEL', 'EDGESEL', 'FACESEL', 'PIVOT_BOUNDBOX', 'PIVOT_CURSOR', 'PIVOT_INDIVIDUAL', 'PIVOT_MEDIAN', 'PIVOT_ACTIVE', 'CENTER_ONLY', 'SMOOTHCURVE', 'SPHERECURVE', 'ROOTCURVE', 'SHARPCURVE', 'LINCURVE', 'NOCURVE', 'RNDCURVE', 'PROP_OFF', 'PROP_ON', 'PROP_CON', 'SCULPT_DYNTOPO', 'PARTICLE_POINT', 'PARTICLE_TIP', 'PARTICLE_PATH', 'SNAP_OFF', 'SNAP_ON', 'SNAP_NORMAL', 'SNAP_GRID', 'SNAP_VERTEX', 'SNAP_EDGE', 'SNAP_FACE', 'SNAP_VOLUME', 'SNAP_INCREMENT', 'STICKY_UVS_LOC', 'STICKY_UVS_DISABLE', 'STICKY_UVS_VERT', 'CLIPUV_DEHLT', 'CLIPUV_HLT', 'SNAP_PEEL_OBJECT', 'GRID', 'OBJECT_ORIGIN', 'ORIENTATION_GLOBAL', 'ORIENTATION_GIMBAL', 'ORIENTATION_LOCAL', 'ORIENTATION_NORMAL', 'ORIENTATION_VIEW', 'COPYDOWN', 'PASTEDOWN', 'PASTEFLIPUP', 'PASTEFLIPDOWN', 'VIS_SEL_11', 'VIS_SEL_10', 'VIS_SEL_01', 'VIS_SEL_00', 'AUTOMERGE_ON', 'AUTOMERGE_OFF', 'UV_VERTEXSEL', 'UV_EDGESEL', 'UV_FACESEL', 'UV_ISLANDSEL', 'UV_SYNC_SELECT', 'NORMALS_VERTEX', 'NORMALS_FACE', 'NORMALS_VERTEX_FACE', 'SHADING_BBOX', 'SHADING_WIRE', 'SHADING_SOLID', 'SHADING_RENDERED', 'SHADING_TEXTURE', 'OVERLAY', 'XRAY', 'LOCKVIEW_OFF', 'LOCKVIEW_ON', 'AXIS_SIDE', 'AXIS_FRONT', 'AXIS_TOP', 'NDOF_DOM', 'NDOF_TURN', 'NDOF_FLY', 'NDOF_TRANS', 'LAYER_USED', 'LAYER_ACTIVE', 'SORTALPHA', 'SORTBYEXT', 'SORTTIME', 'SORTSIZE', 'SHORTDISPLAY', 'LONGDISPLAY', 'IMGDISPLAY', 'BOOKMARKS', 'FONTPREVIEW', 'FILTER', 'NEWFOLDER', 'FILE_PARENT', 'FILE_REFRESH', 'FILE_FOLDER', 'FILE_BLANK', 'FILE_BLEND', 'FILE_IMAGE', 'FILE_MOVIE', 'FILE_SCRIPT', 'FILE_SOUND', 'FILE_FONT', 'FILE_TEXT', 'SORT_DESC', 'SORT_ASC', 'LINK_BLEND', 'APPEND_BLEND', 'IMPORT', 'EXPORT', 'LOOP_BACK', 'LOOP_FORWARDS', 'BACK', 'FORWARD', 'FILE_VOLUME', 'ALEMBIC', 'VOLUME', 'FILE_HIDDEN', 'FILE_BACKUP', 'DISK_DRIVE', 'MATPLANE', 'MATSPHERE', 'MATCUBE', 'MONKEY', 'HAIR', 'ALIASED', 'ANTIALIASED', 'MAT_SPHERE_SKY', 'MATSHADERBALL', 'MATCLOTH', 'MATFLUID', 'WORDWRAP_OFF', 'WORDWRAP_ON', 'SYNTAX_OFF', 'SYNTAX_ON', 'LINENUMBERS_OFF', 'LINENUMBERS_ON', 'SCRIPTPLUGINS', 'SEQ_SEQUENCER', 'SEQ_PREVIEW', 'SEQ_LUMA_WAVEFORM', 'SEQ_CHROMA_SCOPE', 'SEQ_HISTOGRAM', 'SEQ_SPLITVIEW', 'IMAGE_RGB', 'IMAGE_RGB_ALPHA', 'IMAGE_ALPHA', 'IMAGE_ZDEPTH', 'VIEW_PERSPECTIVE', 'VIEW_ORTHO', 'VIEW_CAMERA', 'VIEW_PAN', 'VIEW_ZOOM', 'BRUSH_ADD', 'BRUSH_BLOB', 'BRUSH_BLUR', 'BRUSH_CLAY', 'BRUSH_CLAY_STRIPS', 'BRUSH_CLONE', 'BRUSH_CREASE', 'BRUSH_DARKEN', 'BRUSH_FILL', 'BRUSH_FLATTEN', 'BRUSH_GRAB', 'BRUSH_INFLATE', 'BRUSH_LAYER', 'BRUSH_LIGHTEN', 'BRUSH_MASK', 'BRUSH_MIX', 'BRUSH_MULTIPLY', 'BRUSH_NUDGE', 'BRUSH_PINCH', 'BRUSH_SCRAPE', 'BRUSH_SCULPT_DRAW', 'BRUSH_SMEAR', 'BRUSH_SMOOTH', 'BRUSH_SNAKE_HOOK', 'BRUSH_SOFTEN', 'BRUSH_SUBTRACT', 'BRUSH_TEXDRAW', 'BRUSH_TEXFILL', 'BRUSH_TEXMASK', 'BRUSH_THUMB', 'BRUSH_ROTATE', 'BRUSH_VERTEXDRAW', 'MATCAP_01', 'MATCAP_02', 'MATCAP_03', 'MATCAP_04', 'MATCAP_05', 'MATCAP_06', 'MATCAP_07', 'MATCAP_08', 'MATCAP_09', 'MATCAP_10', 'MATCAP_11', 'MATCAP_12', 'MATCAP_13', 'MATCAP_14', 'MATCAP_15', 'MATCAP_16', 'MATCAP_17', 'MATCAP_18', 'MATCAP_19', 'MATCAP_20', 'MATCAP_21', 'MATCAP_22', 'MATCAP_23', 'MATCAP_24', 'GPBRUSH_SMOOTH', 'GPBRUSH_THICKNESS', 'GPBRUSH_STRENGTH', 'GPBRUSH_GRAB', 'GPBRUSH_PUSH', 'GPBRUSH_TWIST', 'GPBRUSH_PINCH', 'GPBRUSH_RANDOMIZE', 'GPBRUSH_CLONE', 'GPBRUSH_WEIGHT', 'GPBRUSH_PENCIL', 'GPBRUSH_PEN', 'GPBRUSH_INK', 'GPBRUSH_INKNOISE', 'GPBRUSH_BLOCK', 'GPBRUSH_MARKER', 'GPBRUSH_CUSTOM', 'GPBRUSH_FILL', 'GPBRUSH_ERASE_SOFT', 'GPBRUSH_ERASE_HARD', 'GPBRUSH_ERASE_STROKE', 'SMALL_TRI_RIGHT_VEC', 'KEYTYPE_KEYFRAME_VEC', 'KEYTYPE_BREAKDOWN_VEC', 'KEYTYPE_EXTREME_VEC', 'KEYTYPE_JITTER_VEC', 'KEYTYPE_MOVING_HOLD_VEC', 'HANDLETYPE_FREE_VEC', 'HANDLETYPE_ALIGNED_VEC', 'HANDLETYPE_VECTOR_VEC', 'HANDLETYPE_AUTO_VEC', 'HANDLETYPE_AUTO_CLAMP_VEC', 'COLORSET_01_VEC', 'COLORSET_02_VEC', 'COLORSET_03_VEC', 'COLORSET_04_VEC', 'COLORSET_05_VEC', 'COLORSET_06_VEC', 'COLORSET_07_VEC', 'COLORSET_08_VEC', 'COLORSET_09_VEC', 'COLORSET_10_VEC', 'COLORSET_11_VEC', 'COLORSET_12_VEC', 'COLORSET_13_VEC', 'COLORSET_14_VEC', 'COLORSET_15_VEC', 'COLORSET_16_VEC', 'COLORSET_17_VEC', 'COLORSET_18_VEC', 'COLORSET_19_VEC', 'COLORSET_20_VEC', 'EVENT_A', 'EVENT_B', 'EVENT_C', 'EVENT_D', 'EVENT_E', 'EVENT_F', 'EVENT_G', 'EVENT_H', 'EVENT_I', 'EVENT_J', 'EVENT_K', 'EVENT_L', 'EVENT_M', 'EVENT_N', 'EVENT_O', 'EVENT_P', 'EVENT_Q', 'EVENT_R', 'EVENT_S', 'EVENT_T', 'EVENT_U', 'EVENT_V', 'EVENT_W', 'EVENT_X', 'EVENT_Y', 'EVENT_Z', 'EVENT_SHIFT', 'EVENT_CTRL', 'EVENT_ALT', 'EVENT_OS', 'EVENT_F1', 'EVENT_F2', 'EVENT_F3', 'EVENT_F4', 'EVENT_F5', 'EVENT_F6', 'EVENT_F7', 'EVENT_F8', 'EVENT_F9', 'EVENT_F10', 'EVENT_F11', 'EVENT_F12', 'EVENT_ESC', 'EVENT_TAB', 'EVENT_PAGEUP', 'EVENT_PAGEDOWN', 'EVENT_HOME', 'EVENT_END', 'EVENT_RETURN'], (optional)
@@ -1621,7 +1621,7 @@ package bpy.types.windowmanager;
 	/**
 		popmenu_end__internal
 	**/
-	static function popmenu_end__internal():Void;
+	static function popmenu_end__internal(menu:Dynamic):Void;
 	/**
 		popover_begin__internal
 		@param ui_units_x ui_units_x — int in [0, inf], (optional)
@@ -1644,35 +1644,35 @@ package bpy.types.windowmanager;
 	/**
 		piemenu_end__internal
 	**/
-	static function piemenu_end__internal():Void;
+	static function piemenu_end__internal(menu:Dynamic):Void;
 	/**
 		operator_properties_last
 		
 		@returns OperatorProperties, (never None)
 	**/
-	static function operator_properties_last():bpy.types.operatorproperties.OperatorProperties;
-	function popover():Void;
+	static function operator_properties_last(operator:Dynamic):bpy.types.operatorproperties.OperatorProperties;
+	function popover(draw_func:Dynamic, *:Dynamic, ui_units_x:Dynamic, keymap:Dynamic):Void;
 	/**
 		Popup menus can be useful for creating menus without having to register menu classes.
 		
 		Note that they will not block the scripts execution, so the caller can’t wait for user input.
 	**/
-	function popup_menu():Void;
-	function popup_menu_pie():Void;
+	function popup_menu(draw_func:Dynamic, title:Dynamic, icon:Dynamic):Void;
+	function popup_menu_pie(event:Dynamic, draw_func:Dynamic, title:Dynamic, icon:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/

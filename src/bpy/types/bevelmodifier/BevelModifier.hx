@@ -21,7 +21,7 @@ package bpy.types.bevelmodifier;
 }/**
 	Bevel modifier to make edges and vertices more rounded
 **/
-@:pythonImport("bpy.types.BevelModifier") extern class BevelModifier {
+@:native("bpy.types.BevelModifier") extern class BevelModifier {
 	/**
 		Angle above which to bevel edges
 		
@@ -130,14 +130,14 @@ package bpy.types.bevelmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

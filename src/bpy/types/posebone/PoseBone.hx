@@ -11,7 +11,7 @@ package bpy.types.posebone;
 }/**
 	Channel defining pose data for a bone in a Pose
 **/
-@:pythonImport("bpy.types.PoseBone") extern class PoseBone {
+@:native("bpy.types.PoseBone") extern class PoseBone {
 	/**
 		X-axis handle offset for start of the B-Bone’s curve, adjusts curvature
 		
@@ -263,7 +263,7 @@ package bpy.types.posebone;
 		
 		Type: boolean, default False
 	**/
-	var lock_rotations_4d : Bool;
+	var pylock_rotations_4d : Bool;
 	/**
 		Lock editing of scale in the interface
 		
@@ -462,23 +462,23 @@ package bpy.types.posebone;
 		The same as ‘bone in other_bone.parent_recursive’
 		but saved generating a list.
 	**/
-	function parent_index():Void;
+	function parent_index(parent_test:Dynamic):Void;
 	/**
 		Utility function to add vec to the head and tail of this bone
 	**/
-	function translate():Void;
+	function translate(vec:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

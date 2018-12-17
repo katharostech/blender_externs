@@ -2,7 +2,7 @@ package bpy.types.motionpath;
 /**
 	Cache of the worldspace positions of an element over a frame range
 **/
-@:pythonImport("bpy.types.MotionPath") extern class MotionPath {
+@:native("bpy.types.MotionPath") extern class MotionPath {
 	/**
 		Custom color for motion path
 		
@@ -69,12 +69,12 @@ package bpy.types.motionpath;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

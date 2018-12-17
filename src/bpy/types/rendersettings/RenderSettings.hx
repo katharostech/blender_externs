@@ -3,10 +3,10 @@ package bpy.types.rendersettings;
 	var SKY : String = "SKY";
 	var TRANSPARENT : String = "TRANSPARENT";
 }@:enum abstract Enum2(String) from String to String {
-	var 5 : String = "5";
-	var 8 : String = "8";
-	var 11 : String = "11";
-	var 16 : String = "16";
+	var py5 : String = "5";
+	var py8 : String = "8";
+	var py11 : String = "11";
+	var py16 : String = "16";
 }@:enum abstract Enum3(String) from String to String {
 	var NORMALS : String = "NORMALS";
 	var DISPLACEMENT : String = "DISPLACEMENT";
@@ -25,10 +25,10 @@ package bpy.types.rendersettings;
 	var RELATIVE : String = "RELATIVE";
 }@:enum abstract Enum8(String) from String to String {
 	var AUTO : String = "AUTO";
-	var 1 : String = "1";
-	var 2 : String = "2";
-	var 4 : String = "4";
-	var 8 : String = "8";
+	var py1 : String = "1";
+	var py2 : String = "2";
+	var py4 : String = "4";
+	var py8 : String = "8";
 }@:enum abstract Enum9(String) from String to String {
 	var WIREFRAME : String = "WIREFRAME";
 	var SOLID : String = "SOLID";
@@ -38,12 +38,12 @@ package bpy.types.rendersettings;
 	var AUTO : String = "AUTO";
 	var FIXED : String = "FIXED";
 }@:enum abstract Enum11(String) from String to String {
-	var STEREO_3D : String = "STEREO_3D";
+	var pySTEREO_3D : String = "STEREO_3D";
 	var MULTIVIEW : String = "MULTIVIEW";
 }/**
 	Rendering settings for a Scene data-block
 **/
-@:pythonImport("bpy.types.RenderSettings") extern class RenderSettings {
+@:native("bpy.types.RenderSettings") extern class RenderSettings {
 	/**
 		Representation of alpha information in the RGBA pixels
 		
@@ -683,12 +683,12 @@ package bpy.types.rendersettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

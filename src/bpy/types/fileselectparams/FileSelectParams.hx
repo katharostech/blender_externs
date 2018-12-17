@@ -11,9 +11,9 @@ package bpy.types.fileselectparams;
 }@:enum abstract Enum3(String) from String to String {
 	var NONE : String = "NONE";
 	var BLEND : String = "BLEND";
-	var ALL_1 : String = "ALL_1";
-	var ALL_2 : String = "ALL_2";
-	var ALL_3 : String = "ALL_3";
+	var pyALL_1 : String = "ALL_1";
+	var pyALL_2 : String = "ALL_2";
+	var pyALL_3 : String = "ALL_3";
 }@:enum abstract Enum4(String) from String to String {
 	var FILE_SORT_ALPHA : String = "FILE_SORT_ALPHA";
 	var FILE_SORT_EXTENSION : String = "FILE_SORT_EXTENSION";
@@ -22,7 +22,7 @@ package bpy.types.fileselectparams;
 }/**
 	File Select Parameters
 **/
-@:pythonImport("bpy.types.FileSelectParams") extern class FileSelectParams {
+@:native("bpy.types.FileSelectParams") extern class FileSelectParams {
 	/**
 		Directory displayed in the file browser
 		
@@ -173,12 +173,12 @@ package bpy.types.fileselectparams;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

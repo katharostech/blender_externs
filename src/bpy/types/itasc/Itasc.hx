@@ -12,7 +12,7 @@ package bpy.types.itasc;
 }/**
 	Parameters for the iTaSC IK solver
 **/
-@:pythonImport("bpy.types.Itasc") extern class Itasc {
+@:native("bpy.types.Itasc") extern class Itasc {
 	/**
 		Singular value under which damping is progressively applied (higher values=more stability, less reactivity - default=0.1)
 		
@@ -97,14 +97,14 @@ package bpy.types.itasc;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		IK solver for which these parameters are defined
 		

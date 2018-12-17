@@ -11,13 +11,13 @@ package bpy.app.icons;
 		
 		@returns int
 	**/
-	static function new_triangles(range:Dynamic, coords:Dynamic, colors:Dynamic):Dynamic;
+	static function new_triangles(range:Dynamic, coords:Dynamic, colors:Dynamic):Int;
 	/**
 		
 		@param filename File path. — string.
 		
 		@returns int
 	**/
-	static function new_triangles_from_file(filename:Dynamic):Dynamic;
-	static function release():Void;
+	static function new_triangles_from_file(filename:String):Int;
+	static function release(icon_id:Dynamic):Void;
 }

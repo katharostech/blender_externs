@@ -1,39 +1,39 @@
 package bpy.types.userpreferencessystem;
 @:enum abstract Enum1(String) from String to String {
-	var FILTER_0 : String = "FILTER_0";
-	var FILTER_2 : String = "FILTER_2";
-	var FILTER_4 : String = "FILTER_4";
-	var FILTER_8 : String = "FILTER_8";
-	var FILTER_16 : String = "FILTER_16";
+	var pyFILTER_0 : String = "FILTER_0";
+	var pyFILTER_2 : String = "FILTER_2";
+	var pyFILTER_4 : String = "FILTER_4";
+	var pyFILTER_8 : String = "FILTER_8";
+	var pyFILTER_16 : String = "FILTER_16";
 }@:enum abstract Enum2(String) from String to String {
 	var MONO : String = "MONO";
 	var STEREO : String = "STEREO";
-	var SURROUND4 : String = "SURROUND4";
-	var SURROUND51 : String = "SURROUND51";
-	var SURROUND71 : String = "SURROUND71";
+	var pySURROUND4 : String = "SURROUND4";
+	var pySURROUND51 : String = "SURROUND51";
+	var pySURROUND71 : String = "SURROUND71";
 }@:enum abstract Enum3(String) from String to String {
-	var N : String = "N";
+	var Null : String = "Null";
 }@:enum abstract Enum4(String) from String to String {
-	var SAMPLES_256 : String = "SAMPLES_256";
-	var SAMPLES_512 : String = "SAMPLES_512";
-	var SAMPLES_1024 : String = "SAMPLES_1024";
-	var SAMPLES_2048 : String = "SAMPLES_2048";
-	var SAMPLES_4096 : String = "SAMPLES_4096";
-	var SAMPLES_8192 : String = "SAMPLES_8192";
-	var SAMPLES_16384 : String = "SAMPLES_16384";
-	var SAMPLES_32768 : String = "SAMPLES_32768";
+	var pySAMPLES_256 : String = "SAMPLES_256";
+	var pySAMPLES_512 : String = "SAMPLES_512";
+	var pySAMPLES_1024 : String = "SAMPLES_1024";
+	var pySAMPLES_2048 : String = "SAMPLES_2048";
+	var pySAMPLES_4096 : String = "SAMPLES_4096";
+	var pySAMPLES_8192 : String = "SAMPLES_8192";
+	var pySAMPLES_16384 : String = "SAMPLES_16384";
+	var pySAMPLES_32768 : String = "SAMPLES_32768";
 }@:enum abstract Enum5(String) from String to String {
-	var U8 : String = "U8";
-	var S16 : String = "S16";
-	var S24 : String = "S24";
-	var S32 : String = "S32";
+	var pyU8 : String = "U8";
+	var pyS16 : String = "S16";
+	var pyS24 : String = "S24";
+	var pyS32 : String = "S32";
 	var FLOAT : String = "FLOAT";
 	var DOUBLE : String = "DOUBLE";
 }@:enum abstract Enum6(String) from String to String {
-	var RATE_44100 : String = "RATE_44100";
-	var RATE_48000 : String = "RATE_48000";
-	var RATE_96000 : String = "RATE_96000";
-	var RATE_192000 : String = "RATE_192000";
+	var pyRATE_44100 : String = "RATE_44100";
+	var pyRATE_48000 : String = "RATE_48000";
+	var pyRATE_96000 : String = "RATE_96000";
+	var pyRATE_192000 : String = "RATE_192000";
 }@:enum abstract Enum7(String) from String to String {
 	var CIRCLE_HSV : String = "CIRCLE_HSV";
 	var CIRCLE_HSL : String = "CIRCLE_HSL";
@@ -42,29 +42,29 @@ package bpy.types.userpreferencessystem;
 	var SQUARE_HV : String = "SQUARE_HV";
 }@:enum abstract Enum8(String) from String to String {
 	var CLAMP_OFF : String = "CLAMP_OFF";
-	var CLAMP_8192 : String = "CLAMP_8192";
-	var CLAMP_4096 : String = "CLAMP_4096";
-	var CLAMP_2048 : String = "CLAMP_2048";
-	var CLAMP_1024 : String = "CLAMP_1024";
-	var CLAMP_512 : String = "CLAMP_512";
-	var CLAMP_256 : String = "CLAMP_256";
-	var CLAMP_128 : String = "CLAMP_128";
+	var pyCLAMP_8192 : String = "CLAMP_8192";
+	var pyCLAMP_4096 : String = "CLAMP_4096";
+	var pyCLAMP_2048 : String = "CLAMP_2048";
+	var pyCLAMP_1024 : String = "CLAMP_1024";
+	var pyCLAMP_512 : String = "CLAMP_512";
+	var pyCLAMP_256 : String = "CLAMP_256";
+	var pyCLAMP_128 : String = "CLAMP_128";
 }@:enum abstract Enum9(String) from String to String {
 	var NONE : String = "NONE";
-	var 2 : String = "2";
-	var 4 : String = "4";
-	var 8 : String = "8";
-	var 16 : String = "16";
+	var py2 : String = "2";
+	var py4 : String = "4";
+	var py8 : String = "8";
+	var py16 : String = "16";
 }@:enum abstract Enum10(String) from String to String {
-	var 2DTEXTURE : String = "2DTEXTURE";
+	var py2DTEXTURE : String = "2DTEXTURE";
 	var GLSL : String = "GLSL";
 	var DRAWPIXELS : String = "DRAWPIXELS";
 }@:enum abstract Enum11(String) from String to String {
 	var NONE : String = "NONE";
-	var 2 : String = "2";
-	var 4 : String = "4";
-	var 8 : String = "8";
-	var 16 : String = "16";
+	var py2 : String = "2";
+	var py4 : String = "4";
+	var py8 : String = "8";
+	var py16 : String = "16";
 }@:enum abstract Enum12(String) from String to String {
 	var NONE : String = "NONE";
 	var CPU : String = "CPU";
@@ -81,7 +81,7 @@ package bpy.types.userpreferencessystem;
 }/**
 	Graphics driver and operating system settings
 **/
-@:pythonImport("bpy.types.UserPreferencesSystem") extern class UserPreferencesSystem {
+@:native("bpy.types.UserPreferencesSystem") extern class UserPreferencesSystem {
 	/**
 		Quality of the anisotropic filtering (values greater than 1.0 enable anisotropic filtering)
 		
@@ -279,7 +279,7 @@ package bpy.types.userpreferencessystem;
 		
 		Type: boolean, default False
 	**/
-	var use_16bit_textures : Bool;
+	var pyuse_16bit_textures : Bool;
 	/**
 		Generate Image Mipmaps on the GPU
 		
@@ -364,12 +364,12 @@ package bpy.types.userpreferencessystem;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

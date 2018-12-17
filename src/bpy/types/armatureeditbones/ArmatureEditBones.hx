@@ -2,7 +2,7 @@ package bpy.types.armatureeditbones;
 /**
 	Collection of armature edit bones
 **/
-@:pythonImport("bpy.types.ArmatureEditBones") extern class ArmatureEditBones {
+@:native("bpy.types.ArmatureEditBones") extern class ArmatureEditBones {
 	/**
 		Armatures active edit bone
 		
@@ -15,7 +15,7 @@ package bpy.types.armatureeditbones;
 		
 		@returns EditBone
 	**/
-	function new(name:String):bpy.types.editbone.EditBone;
+	function pyNew(name:String):bpy.types.editbone.EditBone;
 	/**
 		Remove an existing bone from the armature
 		@param bone EditBone to remove — EditBone, (never None)
@@ -27,12 +27,12 @@ package bpy.types.armatureeditbones;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

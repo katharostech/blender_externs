@@ -1,5 +1,5 @@
 package bpy.types.palettecolor;
-@:pythonImport("bpy.types.PaletteColor") extern class PaletteColor {
+@:native("bpy.types.PaletteColor") extern class PaletteColor {
 	/**
 		
 		
@@ -24,12 +24,12 @@ package bpy.types.palettecolor;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

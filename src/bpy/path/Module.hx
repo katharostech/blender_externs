@@ -20,7 +20,7 @@ package bpy.path;
 		
 		Use for Windows compatibility.
 	**/
-	static function basename():Void;
+	static function basename(path:Dynamic):Void;
 	/**
 		Returns a name with characters replaced that
 		may cause problems under various circumstances,
@@ -28,31 +28,31 @@ package bpy.path;
 		All characters besides A-Z/a-z, 0-9 are replaced with “_”
 		or the replace argument if defined.
 	**/
-	static function clean_name():Void;
+	static function clean_name(name:Dynamic, replace:Dynamic):Void;
 	/**
 		Creates a display string from name to be used menus and the user interface.
 		Capitalize the first letter in all lowercase names,
 		mixed case names are kept as is. Intended for use with
 		filenames and module names.
 	**/
-	static function display_name():Void;
+	static function display_name(name:Dynamic):Void;
 	/**
 		Performs the reverse of display_name using literal versions of characters
 		which aren’t supported in a filepath.
 	**/
-	static function display_name_to_filepath():Void;
+	static function display_name_to_filepath(name:Dynamic):Void;
 	/**
 		Returns the path stripped of directory and extension,
 		ensured to be utf8 compatible.
 	**/
-	static function display_name_from_filepath():Void;
+	static function display_name_from_filepath(name:Dynamic):Void;
 	/**
 		Return the path with the extension added if it is not already set.
 		@param ext The extension to check for, can be a compound extension. Should
 		                                        start with a dot, such as ‘.blend’ or ‘.tar.gz’. — string
 		@param case_sensitive Check for matching case when comparing extensions. — bool
 	**/
-	static function ensure_ext(ext:Dynamic, case_sensitive:Dynamic):Void;
+	static function ensure_ext(ext:String, case_sensitive:Dynamic):Void;
 	/**
 		Returns true if path in a subdirectory of directory.
 		Both paths must be absolute.
@@ -66,11 +66,11 @@ package bpy.path;
 		
 		@returns list
 	**/
-	static function module_names(path:Dynamic, recursive:Dynamic):Dynamic;
+	static function module_names(path:String, recursive:Dynamic):Array<Dynamic>;
 	/**
 		Replace the path separator with the systems native os.sep.
 	**/
-	static function native_pathsep():Void;
+	static function native_pathsep(path:Dynamic):Void;
 	/**
 		Given a sequence of directories, remove duplicates and
 		any directories nested in one of the other paths.
@@ -79,7 +79,7 @@ package bpy.path;
 		
 		@returns list
 	**/
-	static function reduce_dirs(dirs:Dynamic):Dynamic;
+	static function reduce_dirs(dirs:Dynamic):Array<Dynamic>;
 	/**
 		Returns the path relative to the current blend file using the “//” prefix.
 		@param path An absolute path. — string or bytes
@@ -91,5 +91,5 @@ package bpy.path;
 		Resolve a case insensitive path on a case sensitive system,
 		returning a string with the path if found else return the original path.
 	**/
-	static function resolve_ncase():Void;
+	static function resolve_ncase(path:Dynamic):Void;
 }

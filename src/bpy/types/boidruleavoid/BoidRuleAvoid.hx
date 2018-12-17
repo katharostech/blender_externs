@@ -1,5 +1,5 @@
 package bpy.types.boidruleavoid;
-@:pythonImport("bpy.types.BoidRuleAvoid") extern class BoidRuleAvoid {
+@:native("bpy.types.BoidRuleAvoid") extern class BoidRuleAvoid {
 	/**
 		Avoid object if danger from it is above this threshold
 		
@@ -24,14 +24,14 @@ package bpy.types.boidruleavoid;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Boid rule name
 		

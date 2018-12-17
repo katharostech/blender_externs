@@ -1,13 +1,13 @@
 package bpy.types.gpencilstroke;
 @:enum abstract Enum1(String) from String to String {
 	var SCREEN : String = "SCREEN";
-	var 3DSPACE : String = "3DSPACE";
-	var 2DSPACE : String = "2DSPACE";
-	var 2DIMAGE : String = "2DIMAGE";
+	var py3DSPACE : String = "3DSPACE";
+	var py2DSPACE : String = "2DSPACE";
+	var py2DIMAGE : String = "2DIMAGE";
 }/**
 	Freehand curve defining part of a sketch
 **/
-@:pythonImport("bpy.types.GPencilStroke") extern class GPencilStroke {
+@:native("bpy.types.GPencilStroke") extern class GPencilStroke {
 	/**
 		Coordinate space that stroke is in
 		
@@ -68,12 +68,12 @@ package bpy.types.gpencilstroke;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

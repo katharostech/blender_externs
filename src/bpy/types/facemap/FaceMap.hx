@@ -2,7 +2,7 @@ package bpy.types.facemap;
 /**
 	Group of faces, each face can only be part of one map
 **/
-@:pythonImport("bpy.types.FaceMap") extern class FaceMap {
+@:native("bpy.types.FaceMap") extern class FaceMap {
 	/**
 		Index number of the face map
 		
@@ -37,12 +37,12 @@ package bpy.types.facemap;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

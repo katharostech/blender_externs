@@ -2,7 +2,7 @@ package bpy.types.linesets;
 /**
 	Line sets for associating lines and style parameters
 **/
-@:pythonImport("bpy.types.Linesets") extern class Linesets {
+@:native("bpy.types.Linesets") extern class Linesets {
 	/**
 		Active line set being displayed
 		
@@ -21,7 +21,7 @@ package bpy.types.linesets;
 		
 		@returns FreestyleLineSet
 	**/
-	function new(name:String):bpy.types.freestylelineset.FreestyleLineSet;
+	function pyNew(name:String):bpy.types.freestylelineset.FreestyleLineSet;
 	/**
 		Remove a line set from scene render layer Freestyle settings
 		@param lineset Line set to remove — FreestyleLineSet, (never None)
@@ -33,12 +33,12 @@ package bpy.types.linesets;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,7 +2,7 @@ package bpy.types.nodeoutputs;
 /**
 	Collection of Node Sockets
 **/
-@:pythonImport("bpy.types.NodeOutputs") extern class NodeOutputs {
+@:native("bpy.types.NodeOutputs") extern class NodeOutputs {
 	/**
 		Add a socket to this node
 		@param type Type, Data type — string, (never None)
@@ -11,12 +11,12 @@ package bpy.types.nodeoutputs;
 		
 		@returns NodeSocket
 	**/
-	function new(type:String, name:String, identifier:String):bpy.types.nodesocket.NodeSocket;
+	function pyNew(type:String, name:String, identifier:String):bpy.types.nodesocket.NodeSocket;
 	/**
 		Remove a socket from this node
 		@param socket The socket to remove — NodeSocket
 	**/
-	function remove(socket:Dynamic):Void;
+	function remove(socket:bpy.types.nodesocket.NodeSocket):Void;
 	/**
 		Remove all sockets from this node
 	**/
@@ -33,12 +33,12 @@ package bpy.types.nodeoutputs;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -1,7 +1,7 @@
 package bpy.types.keymaps;
 @:enum abstract Enum1(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -30,7 +30,7 @@ package bpy.types.keymaps;
 	var NAVIGATION_BAR : String = "NAVIGATION_BAR";
 }@:enum abstract Enum3(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -60,7 +60,7 @@ package bpy.types.keymaps;
 }/**
 	Collection of keymaps
 **/
-@:pythonImport("bpy.types.KeyMaps") extern class KeyMaps {
+@:native("bpy.types.KeyMaps") extern class KeyMaps {
 	/**
 		new
 		@param name Name — string, (never None)
@@ -71,7 +71,7 @@ package bpy.types.keymaps;
 		
 		@returns KeyMap
 	**/
-	function new(name:String, space_type:bpy.types.keymaps.KeyMaps.Enum1, region_type:bpy.types.keymaps.KeyMaps.Enum2, modal:Bool, tool:Bool):bpy.types.keymap.KeyMap;
+	function pyNew(name:String, space_type:bpy.types.keymaps.KeyMaps.Enum1, region_type:bpy.types.keymaps.KeyMaps.Enum2, modal:Bool, tool:Bool):bpy.types.keymap.KeyMap;
 	/**
 		remove
 		@param keymap Key Map, Removed key map — KeyMap, (never None)
@@ -99,12 +99,12 @@ package bpy.types.keymaps;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

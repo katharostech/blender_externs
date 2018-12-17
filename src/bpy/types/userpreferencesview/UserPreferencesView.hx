@@ -19,7 +19,7 @@ package bpy.types.userpreferencesview;
 }/**
 	Preferences related to viewing data
 **/
-@:pythonImport("bpy.types.UserPreferencesView") extern class UserPreferencesView {
+@:native("bpy.types.UserPreferencesView") extern class UserPreferencesView {
 	/**
 		Diameter of the gizmo
 		
@@ -265,7 +265,7 @@ package bpy.types.userpreferencesview;
 		
 		Type: int in [1, 500], default 0
 	**/
-	var view2d_grid_spacing_min : Int;
+	var pyview2d_grid_spacing_min : Int;
 	/**
 		Keyframes around cursor that we zoom around
 		
@@ -290,12 +290,12 @@ package bpy.types.userpreferencesview;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

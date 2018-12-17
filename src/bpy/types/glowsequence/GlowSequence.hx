@@ -2,7 +2,7 @@ package bpy.types.glowsequence;
 /**
 	Sequence strip creating a glow effect
 **/
-@:pythonImport("bpy.types.GlowSequence") extern class GlowSequence {
+@:native("bpy.types.GlowSequence") extern class GlowSequence {
 	/**
 		Radius of glow effect
 		
@@ -26,7 +26,7 @@ package bpy.types.glowsequence;
 		
 		Type: Sequence, (never None)
 	**/
-	var input_1 : bpy.types.sequence.Sequence;
+	var pyinput_1 : bpy.types.sequence.Sequence;
 	/**
 		
 		
@@ -57,14 +57,14 @@ package bpy.types.glowsequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

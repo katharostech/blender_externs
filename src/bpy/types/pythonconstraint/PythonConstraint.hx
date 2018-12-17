@@ -2,7 +2,7 @@ package bpy.types.pythonconstraint;
 /**
 	Use Python script for constraint evaluation
 **/
-@:pythonImport("bpy.types.PythonConstraint") extern class PythonConstraint {
+@:native("bpy.types.PythonConstraint") extern class PythonConstraint {
 	/**
 		The linked Python script has thrown an error
 		
@@ -39,14 +39,14 @@ package bpy.types.pythonconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

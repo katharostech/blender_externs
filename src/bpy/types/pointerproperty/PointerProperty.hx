@@ -2,7 +2,7 @@ package bpy.types.pointerproperty;
 /**
 	RNA pointer property to point to another RNA struct
 **/
-@:pythonImport("bpy.types.PointerProperty") extern class PointerProperty {
+@:native("bpy.types.PointerProperty") extern class PointerProperty {
 	/**
 		Fixed pointer type, empty if variable type
 		
@@ -15,14 +15,14 @@ package bpy.types.pointerproperty;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Human readable name
 		

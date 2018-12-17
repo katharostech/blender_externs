@@ -2,7 +2,7 @@ package bpy.types.scenedisplay;
 /**
 	Scene display settings for 3d viewport
 **/
-@:pythonImport("bpy.types.SceneDisplay") extern class SceneDisplay {
+@:native("bpy.types.SceneDisplay") extern class SceneDisplay {
 	/**
 		Direction of the light for shadows and highlights
 		
@@ -45,12 +45,12 @@ package bpy.types.scenedisplay;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

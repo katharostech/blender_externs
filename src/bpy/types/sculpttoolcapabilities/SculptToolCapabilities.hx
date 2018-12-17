@@ -2,7 +2,7 @@ package bpy.types.sculpttoolcapabilities;
 /**
 	Read-only indications of which brush operations are supported by the current sculpt tool
 **/
-@:pythonImport("bpy.types.SculptToolCapabilities") extern class SculptToolCapabilities {
+@:native("bpy.types.SculptToolCapabilities") extern class SculptToolCapabilities {
 	/**
 		
 		
@@ -105,12 +105,12 @@ package bpy.types.sculpttoolcapabilities;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

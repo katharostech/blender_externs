@@ -2,7 +2,7 @@ package freestyle.functions;
 /**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVoid &gt; ChainingTimeStampF1D
 **/
-@:pythonImport("freestyle.functions.ChainingTimeStampF1D") extern class ChainingTimeStampF1D {
+@:native("freestyle.functions.ChainingTimeStampF1D") extern class ChainingTimeStampF1D {
 	/**
 		Builds a ChainingTimeStampF1D object.
 	**/
@@ -15,7 +15,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; Curvature2DAngleF0D
 **/
-@:pythonImport("freestyle.functions.Curvature2DAngleF0D") extern class Curvature2DAngleF0D {
+@:native("freestyle.functions.Curvature2DAngleF0D") extern class Curvature2DAngleF0D {
 	/**
 		Builds a Curvature2DAngleF0D object.
 	**/
@@ -29,11 +29,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; Curvature2DAngleF1D
 **/
-@:pythonImport("freestyle.functions.Curvature2DAngleF1D") extern class Curvature2DAngleF1D {
+@:native("freestyle.functions.Curvature2DAngleF1D") extern class Curvature2DAngleF1D {
 	/**
 		Builds a Curvature2DAngleF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -46,19 +46,19 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	A replacement of the built-in MaterialF0D for stroke creation.
 	MaterialF0D does not work with Curves and Strokes.  Line color
 	priority is used to pick one of the two materials at material
 	boundaries.
 **/
-@:pythonImport("freestyle.functions.CurveMaterialF0D") extern class CurveMaterialF0D {
+@:native("freestyle.functions.CurveMaterialF0D") extern class CurveMaterialF0D {
 
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DEdgeNature &gt; CurveNatureF0D
 **/
-@:pythonImport("freestyle.functions.CurveNatureF0D") extern class CurveNatureF0D {
+@:native("freestyle.functions.CurveNatureF0D") extern class CurveNatureF0D {
 	/**
 		Builds a CurveNatureF0D object.
 	**/
@@ -74,7 +74,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DEdgeNature &gt; CurveNatureF1D
 **/
-@:pythonImport("freestyle.functions.CurveNatureF1D") extern class CurveNatureF1D {
+@:native("freestyle.functions.CurveNatureF1D") extern class CurveNatureF1D {
 	/**
 		Builds a CurveNatureF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -97,14 +97,14 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; DensityF0D
 **/
-@:pythonImport("freestyle.functions.DensityF0D") extern class DensityF0D {
+@:native("freestyle.functions.DensityF0D") extern class DensityF0D {
 	/**
 		Builds a DensityF0D object.
 		@param sigma The gaussian sigma value indicating the X value for
 		                                        which the gaussian function is 0.5.  It leads to the window size
 		                                        value (the larger, the smoother). — float
 	**/
-	function __init__(sigma:Dynamic):Void;
+	function __init__(sigma:Float):Void;
 	/**
 		Returns the density of the (result) image evaluated at the
 		freestyle.types.Interface0D pointed by the
@@ -115,11 +115,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; DensityF1D
 **/
-@:pythonImport("freestyle.functions.DensityF1D") extern class DensityF1D {
+@:native("freestyle.functions.DensityF1D") extern class DensityF1D {
 	/**
 		Builds a DensityF1D object.
 		@param sigma The sigma used in DensityF0D and determining the window size
@@ -131,7 +131,7 @@ package freestyle.functions;
 		                                                the result is obtained by combining the resulting values into a
 		                                                single one, following the method specified by integration_type. — float
 	**/
-	function __init__(sigma:Dynamic, integration_type:Dynamic, sampling:Dynamic):Void;
+	function __init__(sigma:Float, integration_type:Dynamic, sampling:Float):Void;
 	/**
 		Returns the density evaluated for an Interface1D. The density is
 		evaluated for a set of points along the Interface1D (using the
@@ -142,11 +142,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetCompleteViewMapDensityF1D
 **/
-@:pythonImport("freestyle.functions.GetCompleteViewMapDensityF1D") extern class GetCompleteViewMapDensityF1D {
+@:native("freestyle.functions.GetCompleteViewMapDensityF1D") extern class GetCompleteViewMapDensityF1D {
 	/**
 		Builds a GetCompleteViewMapDensityF1D object.
 		@param level The level of the pyramid from which the pixel must be
@@ -158,7 +158,7 @@ package freestyle.functions;
 		                                                the result is obtained by combining the resulting values into a
 		                                                single one, following the method specified by integration_type. — float
 	**/
-	function __init__(level:Dynamic, integration_type:Dynamic, sampling:Dynamic):Void;
+	function __init__(level:Int, integration_type:Dynamic, sampling:Float):Void;
 	/**
 		Returns the density evaluated for an Interface1D in the complete
 		viewmap image.  The density is evaluated for a set of points along the
@@ -170,11 +170,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DFloat &gt; GetCurvilinearAbscissaF0D
 **/
-@:pythonImport("freestyle.functions.GetCurvilinearAbscissaF0D") extern class GetCurvilinearAbscissaF0D {
+@:native("freestyle.functions.GetCurvilinearAbscissaF0D") extern class GetCurvilinearAbscissaF0D {
 	/**
 		Builds a GetCurvilinearAbscissaF0D object.
 	**/
@@ -187,11 +187,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetDirectionalViewMapDensityF1D
 **/
-@:pythonImport("freestyle.functions.GetDirectionalViewMapDensityF1D") extern class GetDirectionalViewMapDensityF1D {
+@:native("freestyle.functions.GetDirectionalViewMapDensityF1D") extern class GetDirectionalViewMapDensityF1D {
 	/**
 		Builds a GetDirectionalViewMapDensityF1D object.
 		@param orientation The number of the directional map we must work
@@ -205,7 +205,7 @@ package freestyle.functions;
 		                                                the result is obtained by combining the resulting values into a
 		                                                single one, following the method specified by integration_type. — float
 	**/
-	function __init__(orientation:Dynamic, level:Dynamic, integration_type:Dynamic, sampling:Dynamic):Void;
+	function __init__(orientation:Int, level:Int, integration_type:Dynamic, sampling:Float):Void;
 	/**
 		Returns the density evaluated for an Interface1D in of the steerable
 		viewmaps image.  The direction telling which Directional map to choose
@@ -218,11 +218,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DViewShape &gt; GetOccludeeF0D
 **/
-@:pythonImport("freestyle.functions.GetOccludeeF0D") extern class GetOccludeeF0D {
+@:native("freestyle.functions.GetOccludeeF0D") extern class GetOccludeeF0D {
 	/**
 		Builds a GetOccludeeF0D object.
 	**/
@@ -238,7 +238,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVectorViewShape &gt; GetOccludeeF1D
 **/
-@:pythonImport("freestyle.functions.GetOccludeeF1D") extern class GetOccludeeF1D {
+@:native("freestyle.functions.GetOccludeeF1D") extern class GetOccludeeF1D {
 	/**
 		Builds a GetOccludeeF1D object.
 	**/
@@ -249,11 +249,11 @@ package freestyle.functions;
 		
 		@returns list of freestyle.types.ViewShape objects
 	**/
-	function __call__(inter:Dynamic):Array<Dynamic>;
+	function __call__(inter:Dynamic):freestyle.types.viewshape.ViewShape;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DVectorViewShape &gt; GetOccludersF0D
 **/
-@:pythonImport("freestyle.functions.GetOccludersF0D") extern class GetOccludersF0D {
+@:native("freestyle.functions.GetOccludersF0D") extern class GetOccludersF0D {
 	/**
 		Builds a GetOccludersF0D object.
 	**/
@@ -265,11 +265,11 @@ package freestyle.functions;
 		
 		@returns list of freestyle.types.ViewShape objects
 	**/
-	function __call__(it:Dynamic):Array<Dynamic>;
+	function __call__(it:Dynamic):freestyle.types.viewshape.ViewShape;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVectorViewShape &gt; GetOccludersF1D
 **/
-@:pythonImport("freestyle.functions.GetOccludersF1D") extern class GetOccludersF1D {
+@:native("freestyle.functions.GetOccludersF1D") extern class GetOccludersF1D {
 	/**
 		Builds a GetOccludersF1D object.
 	**/
@@ -280,11 +280,11 @@ package freestyle.functions;
 		
 		@returns list of freestyle.types.ViewShape objects
 	**/
-	function __call__(inter:Dynamic):Array<Dynamic>;
+	function __call__(inter:Dynamic):freestyle.types.viewshape.ViewShape;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DFloat &gt; GetParameterF0D
 **/
-@:pythonImport("freestyle.functions.GetParameterF0D") extern class GetParameterF0D {
+@:native("freestyle.functions.GetParameterF0D") extern class GetParameterF0D {
 	/**
 		Builds a GetParameterF0D object.
 	**/
@@ -296,11 +296,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; GetProjectedXF0D
 **/
-@:pythonImport("freestyle.functions.GetProjectedXF0D") extern class GetProjectedXF0D {
+@:native("freestyle.functions.GetProjectedXF0D") extern class GetProjectedXF0D {
 	/**
 		Builds a GetProjectedXF0D object.
 	**/
@@ -312,11 +312,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetProjectedXF1D
 **/
-@:pythonImport("freestyle.functions.GetProjectedXF1D") extern class GetProjectedXF1D {
+@:native("freestyle.functions.GetProjectedXF1D") extern class GetProjectedXF1D {
 	/**
 		Builds a GetProjectedXF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -329,11 +329,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; GetProjectedYF0D
 **/
-@:pythonImport("freestyle.functions.GetProjectedYF0D") extern class GetProjectedYF0D {
+@:native("freestyle.functions.GetProjectedYF0D") extern class GetProjectedYF0D {
 	/**
 		Builds a GetProjectedYF0D object.
 	**/
@@ -345,11 +345,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetProjectedYF1D
 **/
-@:pythonImport("freestyle.functions.GetProjectedYF1D") extern class GetProjectedYF1D {
+@:native("freestyle.functions.GetProjectedYF1D") extern class GetProjectedYF1D {
 	/**
 		Builds a GetProjectedYF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -362,11 +362,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; GetProjectedZF0D
 **/
-@:pythonImport("freestyle.functions.GetProjectedZF0D") extern class GetProjectedZF0D {
+@:native("freestyle.functions.GetProjectedZF0D") extern class GetProjectedZF0D {
 	/**
 		Builds a GetProjectedZF0D object.
 	**/
@@ -378,11 +378,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetProjectedZF1D
 **/
-@:pythonImport("freestyle.functions.GetProjectedZF1D") extern class GetProjectedZF1D {
+@:native("freestyle.functions.GetProjectedZF1D") extern class GetProjectedZF1D {
 	/**
 		Builds a GetProjectedZF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -395,11 +395,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DViewShape &gt; GetShapeF0D
 **/
-@:pythonImport("freestyle.functions.GetShapeF0D") extern class GetShapeF0D {
+@:native("freestyle.functions.GetShapeF0D") extern class GetShapeF0D {
 	/**
 		Builds a GetShapeF0D object.
 	**/
@@ -415,7 +415,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVectorViewShape &gt; GetShapeF1D
 **/
-@:pythonImport("freestyle.functions.GetShapeF1D") extern class GetShapeF1D {
+@:native("freestyle.functions.GetShapeF1D") extern class GetShapeF1D {
 	/**
 		Builds a GetShapeF1D object.
 	**/
@@ -426,11 +426,11 @@ package freestyle.functions;
 		
 		@returns list of freestyle.types.ViewShape objects
 	**/
-	function __call__(inter:Dynamic):Array<Dynamic>;
+	function __call__(inter:Dynamic):freestyle.types.viewshape.ViewShape;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetSteerableViewMapDensityF1D
 **/
-@:pythonImport("freestyle.functions.GetSteerableViewMapDensityF1D") extern class GetSteerableViewMapDensityF1D {
+@:native("freestyle.functions.GetSteerableViewMapDensityF1D") extern class GetSteerableViewMapDensityF1D {
 	/**
 		Builds a GetSteerableViewMapDensityF1D object.
 		@param level The level of the pyramid from which the pixel must be
@@ -442,7 +442,7 @@ package freestyle.functions;
 		                                                the result is obtained by combining the resulting values into a
 		                                                single one, following the method specified by integration_type. — float
 	**/
-	function __init__(level:Dynamic, integration_type:Dynamic, sampling:Dynamic):Void;
+	function __init__(level:Int, integration_type:Dynamic, sampling:Float):Void;
 	/**
 		Returns the density of the ViewMap for a given Interface1D.  The
 		density of each freestyle.types.FEdge is evaluated in the
@@ -452,17 +452,17 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DFloat &gt; GetViewMapGradientNormF0D
 **/
-@:pythonImport("freestyle.functions.GetViewMapGradientNormF0D") extern class GetViewMapGradientNormF0D {
+@:native("freestyle.functions.GetViewMapGradientNormF0D") extern class GetViewMapGradientNormF0D {
 	/**
 		Builds a GetViewMapGradientNormF0D object.
 		@param level The level of the pyramid from which the pixel must be
 		                                        read. — int
 	**/
-	function __init__(level:Dynamic):Void;
+	function __init__(level:Int):Void;
 	/**
 		Returns the norm of the gradient of the global viewmap density
 		image.
@@ -470,11 +470,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetViewMapGradientNormF1D
 **/
-@:pythonImport("freestyle.functions.GetViewMapGradientNormF1D") extern class GetViewMapGradientNormF1D {
+@:native("freestyle.functions.GetViewMapGradientNormF1D") extern class GetViewMapGradientNormF1D {
 	/**
 		Builds a GetViewMapGradientNormF1D object.
 		@param level The level of the pyramid from which the pixel must be
@@ -486,7 +486,7 @@ package freestyle.functions;
 		                                                the result is obtained by combining the resulting values into a
 		                                                single one, following the method specified by integration_type. — float
 	**/
-	function __init__(level:Dynamic, integration_type:Dynamic, sampling:Dynamic):Void;
+	function __init__(level:Int, integration_type:Dynamic, sampling:Float):Void;
 	/**
 		Returns the density of the ViewMap for a given Interface1D.  The
 		density of each freestyle.types.FEdge is evaluated in the
@@ -496,11 +496,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; GetXF0D
 **/
-@:pythonImport("freestyle.functions.GetXF0D") extern class GetXF0D {
+@:native("freestyle.functions.GetXF0D") extern class GetXF0D {
 	/**
 		Builds a GetXF0D object.
 	**/
@@ -512,11 +512,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetXF1D
 **/
-@:pythonImport("freestyle.functions.GetXF1D") extern class GetXF1D {
+@:native("freestyle.functions.GetXF1D") extern class GetXF1D {
 	/**
 		Builds a GetXF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -529,11 +529,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; GetYF0D
 **/
-@:pythonImport("freestyle.functions.GetYF0D") extern class GetYF0D {
+@:native("freestyle.functions.GetYF0D") extern class GetYF0D {
 	/**
 		Builds a GetYF0D object.
 	**/
@@ -545,11 +545,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetYF1D
 **/
-@:pythonImport("freestyle.functions.GetYF1D") extern class GetYF1D {
+@:native("freestyle.functions.GetYF1D") extern class GetYF1D {
 	/**
 		Builds a GetYF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -562,11 +562,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; GetZF0D
 **/
-@:pythonImport("freestyle.functions.GetZF0D") extern class GetZF0D {
+@:native("freestyle.functions.GetZF0D") extern class GetZF0D {
 	/**
 		Builds a GetZF0D object.
 	**/
@@ -578,11 +578,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; GetZF1D
 **/
-@:pythonImport("freestyle.functions.GetZF1D") extern class GetZF1D {
+@:native("freestyle.functions.GetZF1D") extern class GetZF1D {
 	/**
 		Builds a GetZF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -595,11 +595,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVoid &gt; IncrementChainingTimeStampF1D
 **/
-@:pythonImport("freestyle.functions.IncrementChainingTimeStampF1D") extern class IncrementChainingTimeStampF1D {
+@:native("freestyle.functions.IncrementChainingTimeStampF1D") extern class IncrementChainingTimeStampF1D {
 	/**
 		Builds an IncrementChainingTimeStampF1D object.
 	**/
@@ -612,12 +612,12 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; LocalAverageDepthF0D
 **/
-@:pythonImport("freestyle.functions.LocalAverageDepthF0D") extern class LocalAverageDepthF0D {
+@:native("freestyle.functions.LocalAverageDepthF0D") extern class LocalAverageDepthF0D {
 	/**
 		Builds a LocalAverageDepthF0D object.
 		@param mask_size The size of the mask. — float
 	**/
-	function __init__(mask_size:Dynamic):Void;
+	function __init__(mask_size:Float):Void;
 	/**
 		Returns the average depth around the
 		freestyle.types.Interface0D pointed by the
@@ -627,11 +627,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; LocalAverageDepthF1D
 **/
-@:pythonImport("freestyle.functions.LocalAverageDepthF1D") extern class LocalAverageDepthF1D {
+@:native("freestyle.functions.LocalAverageDepthF1D") extern class LocalAverageDepthF1D {
 	/**
 		Builds a LocalAverageDepthF1D object.
 		@param sigma The sigma used in DensityF0D and determining the window
@@ -639,7 +639,7 @@ package freestyle.functions;
 		@param integration_type The integration method used to compute a single value
 		                                                from a set of values. — freestyle.types.IntegrationType
 	**/
-	function __init__(sigma:Dynamic, integration_type:Dynamic):Void;
+	function __init__(sigma:Float, integration_type:Dynamic):Void;
 	/**
 		Returns the average depth evaluated for an Interface1D.  The average
 		depth is evaluated for a set of points along the Interface1D (using
@@ -650,11 +650,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DMaterial &gt; MaterialF0D
 **/
-@:pythonImport("freestyle.functions.MaterialF0D") extern class MaterialF0D {
+@:native("freestyle.functions.MaterialF0D") extern class MaterialF0D {
 	/**
 		Builds a MaterialF0D object.
 	**/
@@ -679,7 +679,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DVec2f &gt; Normal2DF0D
 **/
-@:pythonImport("freestyle.functions.Normal2DF0D") extern class Normal2DF0D {
+@:native("freestyle.functions.Normal2DF0D") extern class Normal2DF0D {
 	/**
 		Builds a Normal2DF0D object.
 	**/
@@ -697,7 +697,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVec2f &gt; Normal2DF1D
 **/
-@:pythonImport("freestyle.functions.Normal2DF1D") extern class Normal2DF1D {
+@:native("freestyle.functions.Normal2DF1D") extern class Normal2DF1D {
 	/**
 		Builds a Normal2DF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -714,7 +714,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVec2f &gt; Orientation2DF1D
 **/
-@:pythonImport("freestyle.functions.Orientation2DF1D") extern class Orientation2DF1D {
+@:native("freestyle.functions.Orientation2DF1D") extern class Orientation2DF1D {
 	/**
 		Builds an Orientation2DF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -731,7 +731,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVec3f &gt; Orientation3DF1D
 **/
-@:pythonImport("freestyle.functions.Orientation3DF1D") extern class Orientation3DF1D {
+@:native("freestyle.functions.Orientation3DF1D") extern class Orientation3DF1D {
 	/**
 		Builds an Orientation3DF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -748,7 +748,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DUnsigned &gt; QuantitativeInvisibilityF0D
 **/
-@:pythonImport("freestyle.functions.QuantitativeInvisibilityF0D") extern class QuantitativeInvisibilityF0D {
+@:native("freestyle.functions.QuantitativeInvisibilityF0D") extern class QuantitativeInvisibilityF0D {
 	/**
 		Builds a QuantitativeInvisibilityF0D object.
 	**/
@@ -766,11 +766,11 @@ package freestyle.functions;
 		
 		@returns int
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Int;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DUnsigned &gt; QuantitativeInvisibilityF1D
 **/
-@:pythonImport("freestyle.functions.QuantitativeInvisibilityF1D") extern class QuantitativeInvisibilityF1D {
+@:native("freestyle.functions.QuantitativeInvisibilityF1D") extern class QuantitativeInvisibilityF1D {
 	/**
 		Builds a QuantitativeInvisibilityF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -787,46 +787,46 @@ package freestyle.functions;
 		
 		@returns int
 	**/
-	function __call__(inter:Dynamic):Dynamic;
+	function __call__(inter:Dynamic):Int;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DFloat &gt; ReadCompleteViewMapPixelF0D
 **/
-@:pythonImport("freestyle.functions.ReadCompleteViewMapPixelF0D") extern class ReadCompleteViewMapPixelF0D {
+@:native("freestyle.functions.ReadCompleteViewMapPixelF0D") extern class ReadCompleteViewMapPixelF0D {
 	/**
 		Builds a ReadCompleteViewMapPixelF0D object.
 		@param level The level of the pyramid from which the pixel must be
 		                                        read. — int
 	**/
-	function __init__(level:Dynamic):Void;
+	function __init__(level:Int):Void;
 	/**
 		Reads a pixel in one of the level of the complete viewmap.
 		@param it An Interface0DIterator object. — freestyle.types.Interface0DIterator
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DFloat &gt; ReadMapPixelF0D
 **/
-@:pythonImport("freestyle.functions.ReadMapPixelF0D") extern class ReadMapPixelF0D {
+@:native("freestyle.functions.ReadMapPixelF0D") extern class ReadMapPixelF0D {
 	/**
 		Builds a ReadMapPixelF0D object.
 		@param map_name The name of the map to be read. — str
 		@param level The level of the pyramid from which the pixel must be
 		                                                read. — int
 	**/
-	function __init__(map_name:Dynamic, level:Dynamic):Void;
+	function __init__(map_name:Dynamic, level:Int):Void;
 	/**
 		Reads a pixel in a map.
 		@param it An Interface0DIterator object. — freestyle.types.Interface0DIterator
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DFloat &gt; ReadSteerableViewMapPixelF0D
 **/
-@:pythonImport("freestyle.functions.ReadSteerableViewMapPixelF0D") extern class ReadSteerableViewMapPixelF0D {
+@:native("freestyle.functions.ReadSteerableViewMapPixelF0D") extern class ReadSteerableViewMapPixelF0D {
 	/**
 		Builds a ReadSteerableViewMapPixelF0D object.
 		@param orientation The integer belonging to [0, 4] indicating the
@@ -834,18 +834,18 @@ package freestyle.functions;
 		@param level The level of the pyramid from which the pixel must be
 		                                                read. — int
 	**/
-	function __init__(orientation:Dynamic, level:Dynamic):Void;
+	function __init__(orientation:Int, level:Int):Void;
 	/**
 		Reads a pixel in one of the level of one of the steerable viewmaps.
 		@param it An Interface0DIterator object. — freestyle.types.Interface0DIterator
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DId &gt; ShapeIdF0D
 **/
-@:pythonImport("freestyle.functions.ShapeIdF0D") extern class ShapeIdF0D {
+@:native("freestyle.functions.ShapeIdF0D") extern class ShapeIdF0D {
 	/**
 		Builds a ShapeIdF0D object.
 	**/
@@ -868,7 +868,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DVoid &gt; TimeStampF1D
 **/
-@:pythonImport("freestyle.functions.TimeStampF1D") extern class TimeStampF1D {
+@:native("freestyle.functions.TimeStampF1D") extern class TimeStampF1D {
 	/**
 		Builds a TimeStampF1D object.
 	**/
@@ -881,7 +881,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DVec2f &gt; VertexOrientation2DF0D
 **/
-@:pythonImport("freestyle.functions.VertexOrientation2DF0D") extern class VertexOrientation2DF0D {
+@:native("freestyle.functions.VertexOrientation2DF0D") extern class VertexOrientation2DF0D {
 	/**
 		Builds a VertexOrientation2DF0D object.
 	**/
@@ -899,7 +899,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DVec3f &gt; VertexOrientation3DF0D
 **/
-@:pythonImport("freestyle.functions.VertexOrientation3DF0D") extern class VertexOrientation3DF0D {
+@:native("freestyle.functions.VertexOrientation3DF0D") extern class VertexOrientation3DF0D {
 	/**
 		Builds a VertexOrientation3DF0D object.
 	**/
@@ -917,7 +917,7 @@ package freestyle.functions;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction0D &gt; freestyle.types.UnaryFunction0DDouble &gt; ZDiscontinuityF0D
 **/
-@:pythonImport("freestyle.functions.ZDiscontinuityF0D") extern class ZDiscontinuityF0D {
+@:native("freestyle.functions.ZDiscontinuityF0D") extern class ZDiscontinuityF0D {
 	/**
 		Builds a ZDiscontinuityF0D object.
 	**/
@@ -933,11 +933,11 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(it:Dynamic):Dynamic;
+	function __call__(it:Dynamic):Float;
 }/**
 	Class hierarchy: freestyle.types.UnaryFunction1D &gt; freestyle.types.UnaryFunction1DDouble &gt; ZDiscontinuityF1D
 **/
-@:pythonImport("freestyle.functions.ZDiscontinuityF1D") extern class ZDiscontinuityF1D {
+@:native("freestyle.functions.ZDiscontinuityF1D") extern class ZDiscontinuityF1D {
 	/**
 		Builds a ZDiscontinuityF1D object.
 		@param integration_type The integration method used to compute a single value
@@ -954,33 +954,33 @@ package freestyle.functions;
 		
 		@returns float
 	**/
-	function __call__(inter:Dynamic):Dynamic;
-}@:pythonImport("freestyle.functions.pyCurvilinearLengthF0D") extern class PyCurvilinearLengthF0D {
+	function __call__(inter:Dynamic):Float;
+}@:native("freestyle.functions.pyCurvilinearLengthF0D") extern class PyCurvilinearLengthF0D {
 
 }/**
 	Estimates the anisotropy of density.
 **/
-@:pythonImport("freestyle.functions.pyDensityAnisotropyF0D") extern class PyDensityAnisotropyF0D {
+@:native("freestyle.functions.pyDensityAnisotropyF0D") extern class PyDensityAnisotropyF0D {
 
-}@:pythonImport("freestyle.functions.pyDensityAnisotropyF1D") extern class PyDensityAnisotropyF1D {
+}@:native("freestyle.functions.pyDensityAnisotropyF1D") extern class PyDensityAnisotropyF1D {
 
-}@:pythonImport("freestyle.functions.pyGetInverseProjectedZF1D") extern class PyGetInverseProjectedZF1D {
+}@:native("freestyle.functions.pyGetInverseProjectedZF1D") extern class PyGetInverseProjectedZF1D {
 
-}@:pythonImport("freestyle.functions.pyGetSquareInverseProjectedZF1D") extern class PyGetSquareInverseProjectedZF1D {
+}@:native("freestyle.functions.pyGetSquareInverseProjectedZF1D") extern class PyGetSquareInverseProjectedZF1D {
 
-}@:pythonImport("freestyle.functions.pyInverseCurvature2DAngleF0D") extern class PyInverseCurvature2DAngleF0D {
+}@:native("freestyle.functions.pyInverseCurvature2DAngleF0D") extern class PyInverseCurvature2DAngleF0D {
 
-}@:pythonImport("freestyle.functions.pyViewMapGradientNormF0D") extern class PyViewMapGradientNormF0D {
+}@:native("freestyle.functions.pyViewMapGradientNormF0D") extern class PyViewMapGradientNormF0D {
 
-}@:pythonImport("freestyle.functions.pyViewMapGradientNormF1D") extern class PyViewMapGradientNormF1D {
+}@:native("freestyle.functions.pyViewMapGradientNormF1D") extern class PyViewMapGradientNormF1D {
 
 }/**
 	Returns the gradient vector for a pixel.
 **/
-@:pythonImport("freestyle.functions.pyViewMapGradientVectorF0D") extern class PyViewMapGradientVectorF0D {
+@:native("freestyle.functions.pyViewMapGradientVectorF0D") extern class PyViewMapGradientVectorF0D {
 	/**
 		Builds a pyViewMapGradientVectorF0D object.
 		@param level the level at which to compute the gradient — int
 	**/
-	function __init__(level:Dynamic):Void;
+	function __init__(level:Int):Void;
 }

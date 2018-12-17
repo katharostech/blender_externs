@@ -2,7 +2,7 @@ package bpy.types.sequenceelements;
 /**
 	Collection of SequenceElement
 **/
-@:pythonImport("bpy.types.SequenceElements") extern class SequenceElements {
+@:native("bpy.types.SequenceElements") extern class SequenceElements {
 	/**
 		Push an image from ImageSequence.directory
 		@param filename Filepath to image — string, (never None)
@@ -21,12 +21,12 @@ package bpy.types.sequenceelements;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

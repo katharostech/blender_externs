@@ -78,7 +78,7 @@ package bpy.ops.particle;
 	/**
 		Add new particle settings
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Add a new particle target
 	**/

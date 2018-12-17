@@ -2,7 +2,7 @@ package bpy.types.scenerenderview;
 /**
 	Render viewpoint for 3D stereo and multiview rendering
 **/
-@:pythonImport("bpy.types.SceneRenderView") extern class SceneRenderView {
+@:native("bpy.types.SceneRenderView") extern class SceneRenderView {
 	/**
 		Suffix to identify the cameras to use, and added to the render images for this view
 		
@@ -33,12 +33,12 @@ package bpy.types.scenerenderview;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

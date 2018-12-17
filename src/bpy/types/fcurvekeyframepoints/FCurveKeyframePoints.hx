@@ -8,7 +8,7 @@ package bpy.types.fcurvekeyframepoints;
 }/**
 	Collection of keyframe points
 **/
-@:pythonImport("bpy.types.FCurveKeyframePoints") extern class FCurveKeyframePoints {
+@:native("bpy.types.FCurveKeyframePoints") extern class FCurveKeyframePoints {
 	/**
 		Add a keyframe point to a F-Curve
 		@param frame X Value of this keyframe point — float in [-inf, inf]
@@ -36,12 +36,12 @@ package bpy.types.fcurvekeyframepoints;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,7 +2,7 @@ package bpy.types.buildmodifier;
 /**
 	Build effect modifier
 **/
-@:pythonImport("bpy.types.BuildModifier") extern class BuildModifier {
+@:native("bpy.types.BuildModifier") extern class BuildModifier {
 	/**
 		Total time the build effect requires
 		
@@ -39,14 +39,14 @@ package bpy.types.buildmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

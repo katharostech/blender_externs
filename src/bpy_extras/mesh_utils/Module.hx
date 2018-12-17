@@ -10,7 +10,7 @@ package bpy_extras.mesh_utils;
 		
 		@returns list
 	**/
-	static function mesh_linked_uv_islands(mesh:Dynamic):Dynamic;
+	static function mesh_linked_uv_islands(mesh:Dynamic):Array<Dynamic>;
 	/**
 		Splits the mesh into connected triangles, use this for separating cubes from
 		other mesh elements within 1 mesh datablock.
@@ -18,19 +18,19 @@ package bpy_extras.mesh_utils;
 		
 		@returns list
 	**/
-	static function mesh_linked_triangles(mesh:Dynamic):Dynamic;
+	static function mesh_linked_triangles(mesh:Dynamic):Array<Dynamic>;
 	/**
 		
 		
 		@returns dict
 	**/
-	static function edge_face_count_dict():Dynamic;
+	static function edge_face_count_dict(mesh:Dynamic):Dynamic;
 	/**
 		
 		
 		@returns list
 	**/
-	static function edge_face_count():Dynamic;
+	static function edge_face_count(mesh:Dynamic):Array<Dynamic>;
 	/**
 		Edge loops defined by edges
 		
@@ -41,7 +41,7 @@ package bpy_extras.mesh_utils;
 		
 		closed loops have matching start and end values.
 	**/
-	static function edge_loops_from_edges():Void;
+	static function edge_loops_from_edges(mesh:Dynamic, edges:Dynamic):Void;
 	/**
 		Takes a polyline of indices (fgon) and returns a list of face
 		index lists. Designed to be used for importers that need indices for an
@@ -54,7 +54,7 @@ package bpy_extras.mesh_utils;
 		                                        that use loops to make multiple
 		                                        polylines are delt with correctly. — bool
 	**/
-	static function ngon_tessellate(from_data:list, indices:Dynamic, fix_loops:Dynamic):Void;
+	static function ngon_tessellate(from_data:Array<Dynamic>, indices:Array<Dynamic>, fix_loops:Dynamic):Void;
 	/**
 		Generates a list of random points over mesh loop triangles.
 		@param num_points the number of random points to generate on each triangle. — 
@@ -62,5 +62,5 @@ package bpy_extras.mesh_utils;
 		
 		@returns list
 	**/
-	static function triangle_random_points(num_points:Dynamic, loop_triangles:Dynamic):Dynamic;
+	static function triangle_random_points(num_points:Dynamic, loop_triangles:Dynamic):Array<Dynamic>;
 }

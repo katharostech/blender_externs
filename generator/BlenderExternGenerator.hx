@@ -32,17 +32,22 @@ class BlenderExternGenerator {
 
 		trace('============== PARSING API DATA ==============');
 
+		var moduleCount = 0;
 		// Instantiate modules
 		for (filePath in filePaths) {
 			var module = new BlenderModule('$inputDir/$filePath', this);
 			modules.set(module.moduleName, module);
+			moduleCount++;
 		}
 
 		// Parse modules
+		var completedCount = 0;
 		for (module in modules) {
 			if (module.isParsed == false) {
-				trace(module.moduleName);
+				trace('[${Math.round(completedCount/moduleCount*100)}%] ${module.moduleName}');
+				// if (module.moduleName == "bpy.types.UILayout") {
 				module.parseData();
+				// }
 			}
 			
 			// Write data
@@ -63,6 +68,8 @@ class BlenderExternGenerator {
 			if (hasModuleExterns) {
 				File.saveContent('$dir/Module.hx', moduleExterns);
 			}
+
+			completedCount++;
 		}
 
 		// Print warning messages

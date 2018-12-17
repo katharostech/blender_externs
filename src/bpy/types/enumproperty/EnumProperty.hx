@@ -4,13 +4,13 @@ package bpy.types.enumproperty;
 }/**
 	RNA enumeration property definition, to choose from a number of predefined options
 **/
-@:pythonImport("bpy.types.EnumProperty") extern class EnumProperty {
+@:native("bpy.types.EnumProperty") extern class EnumProperty {
 	/**
 		Default value for this enum
 		
 		Type: enum in [‘DUMMY’], default ‘DUMMY’, (readonly)
 	**/
-	var default(default, never) : bpy.types.enumproperty.EnumProperty.Enum1;
+	var pyDefault(default, never) : bpy.types.enumproperty.EnumProperty.Enum1;
 	/**
 		Default value for this enum
 		
@@ -35,14 +35,14 @@ package bpy.types.enumproperty;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Human readable name
 		

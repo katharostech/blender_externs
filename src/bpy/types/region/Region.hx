@@ -22,7 +22,7 @@ package bpy.types.region;
 }/**
 	Region in a subdivided screen area
 **/
-@:pythonImport("bpy.types.Region") extern class Region {
+@:native("bpy.types.Region") extern class Region {
 	/**
 		Alignment of the region within the area
 		
@@ -46,7 +46,7 @@ package bpy.types.region;
 		
 		Type: View2D, (readonly, never None)
 	**/
-	var view2d(default, never) : bpy.types.view2d.View2D;
+	var pyview2d(default, never) : bpy.types.view2d.View2D;
 	/**
 		Region width
 		
@@ -75,12 +75,12 @@ package bpy.types.region;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,7 +2,7 @@ package bpy.types.movietrackingreconstructedcameras;
 /**
 	Collection of solved cameras
 **/
-@:pythonImport("bpy.types.MovieTrackingReconstructedCameras") extern class MovieTrackingReconstructedCameras {
+@:native("bpy.types.MovieTrackingReconstructedCameras") extern class MovieTrackingReconstructedCameras {
 	/**
 		Find a reconstructed camera for a give frame number
 		@param frame Frame, Frame number to find camera for — int in [0, 1048574], (optional)
@@ -23,12 +23,12 @@ package bpy.types.movietrackingreconstructedcameras;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

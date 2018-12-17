@@ -29,7 +29,7 @@ package bpy.ops.paintcurve;
 	/**
 		Add new paint curve
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Select a paint curve point
 		@param location Location, Location of vertex in area space — int array of 2 items in [0, 32767], (optional)

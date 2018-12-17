@@ -5,7 +5,7 @@ package bpy.types.sequenceeditor;
 }/**
 	Sequence editing data for a Scene data-block
 **/
-@:pythonImport("bpy.types.SequenceEditor") extern class SequenceEditor {
+@:native("bpy.types.SequenceEditor") extern class SequenceEditor {
 	/**
 		Sequencer’s active strip
 		
@@ -66,12 +66,12 @@ package bpy.types.sequenceeditor;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

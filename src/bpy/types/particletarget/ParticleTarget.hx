@@ -6,7 +6,7 @@ package bpy.types.particletarget;
 }/**
 	Target particle system
 **/
-@:pythonImport("bpy.types.ParticleTarget") extern class ParticleTarget {
+@:native("bpy.types.ParticleTarget") extern class ParticleTarget {
 	/**
 		
 		
@@ -55,12 +55,12 @@ package bpy.types.particletarget;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,21 +2,21 @@ package bpy.types.fmodifierpython;
 /**
 	Perform user-defined operation on the modified F-Curve
 **/
-@:pythonImport("bpy.types.FModifierPython") extern class FModifierPython {
+@:native("bpy.types.FModifierPython") extern class FModifierPython {
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		F-Curve Modifier Type
 		

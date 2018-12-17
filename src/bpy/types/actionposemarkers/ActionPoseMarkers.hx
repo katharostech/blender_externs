@@ -2,7 +2,7 @@ package bpy.types.actionposemarkers;
 /**
 	Collection of timeline markers
 **/
-@:pythonImport("bpy.types.ActionPoseMarkers") extern class ActionPoseMarkers {
+@:native("bpy.types.ActionPoseMarkers") extern class ActionPoseMarkers {
 	/**
 		Active pose marker for this action
 		
@@ -21,7 +21,7 @@ package bpy.types.actionposemarkers;
 		
 		@returns TimelineMarker
 	**/
-	function new(name:String):bpy.types.timelinemarker.TimelineMarker;
+	function pyNew(name:String):bpy.types.timelinemarker.TimelineMarker;
 	/**
 		Remove a timeline marker
 		@param marker Timeline marker to remove — TimelineMarker, (never None)
@@ -33,12 +33,12 @@ package bpy.types.actionposemarkers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

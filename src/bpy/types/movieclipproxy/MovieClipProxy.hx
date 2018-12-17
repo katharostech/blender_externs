@@ -8,31 +8,31 @@ package bpy.types.movieclipproxy;
 }/**
 	Proxy parameters for a movie clip
 **/
-@:pythonImport("bpy.types.MovieClipProxy") extern class MovieClipProxy {
+@:native("bpy.types.MovieClipProxy") extern class MovieClipProxy {
 	/**
 		Build proxy resolution 100% of the original footage dimension
 		
 		Type: boolean, default False
 	**/
-	var build_100 : Bool;
+	var pybuild_100 : Bool;
 	/**
 		Build proxy resolution 25% of the original footage dimension
 		
 		Type: boolean, default False
 	**/
-	var build_25 : Bool;
+	var pybuild_25 : Bool;
 	/**
 		Build proxy resolution 50% of the original footage dimension
 		
 		Type: boolean, default False
 	**/
-	var build_50 : Bool;
+	var pybuild_50 : Bool;
 	/**
 		Build proxy resolution 75% of the original footage dimension
 		
 		Type: boolean, default False
 	**/
-	var build_75 : Bool;
+	var pybuild_75 : Bool;
 	/**
 		Build free run time code index
 		
@@ -56,25 +56,25 @@ package bpy.types.movieclipproxy;
 		
 		Type: boolean, default False
 	**/
-	var build_undistorted_100 : Bool;
+	var pybuild_undistorted_100 : Bool;
 	/**
 		Build proxy resolution 25% of the original undistorted footage dimension
 		
 		Type: boolean, default False
 	**/
-	var build_undistorted_25 : Bool;
+	var pybuild_undistorted_25 : Bool;
 	/**
 		Build proxy resolution 50% of the original undistorted footage dimension
 		
 		Type: boolean, default False
 	**/
-	var build_undistorted_50 : Bool;
+	var pybuild_undistorted_50 : Bool;
 	/**
 		Build proxy resolution 75% of the original undistorted footage dimension
 		
 		Type: boolean, default False
 	**/
-	var build_undistorted_75 : Bool;
+	var pybuild_undistorted_75 : Bool;
 	/**
 		Location to store the proxy files
 		
@@ -99,12 +99,12 @@ package bpy.types.movieclipproxy;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

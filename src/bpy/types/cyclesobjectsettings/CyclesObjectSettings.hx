@@ -1,5 +1,5 @@
 package bpy.types.cyclesobjectsettings;
-@:pythonImport("bpy.types.CyclesObjectSettings") extern class CyclesObjectSettings {
+@:native("bpy.types.CyclesObjectSettings") extern class CyclesObjectSettings {
 	/**
 		Multiplier for scene dicing rate (located in the Geometry Panel)
 		
@@ -60,12 +60,12 @@ package bpy.types.cyclesobjectsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

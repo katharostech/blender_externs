@@ -8,10 +8,10 @@ package bpy_extras.keyconfig_utils;
 		
 		See ‘blender_defaults.py’ for examples of the format this takes.
 	**/
-	static function addon_keymap_register():Void;
+	static function addon_keymap_register(keymap_data:Dynamic):Void;
 	/**
 		Unregister a set of keymaps for addons.
 	**/
-	static function addon_keymap_unregister():Void;
-	static function keyconfig_test():Void;
+	static function addon_keymap_unregister(keymap_data:Dynamic):Void;
+	static function keyconfig_test(kc:Dynamic):Void;
 }

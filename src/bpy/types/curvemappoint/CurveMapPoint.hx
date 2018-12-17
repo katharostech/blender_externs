@@ -6,7 +6,7 @@ package bpy.types.curvemappoint;
 }/**
 	Point of a curve used for a curve mapping
 **/
-@:pythonImport("bpy.types.CurveMapPoint") extern class CurveMapPoint {
+@:native("bpy.types.CurveMapPoint") extern class CurveMapPoint {
 	/**
 		Curve interpolation at this point: Bezier or vector
 		
@@ -31,12 +31,12 @@ package bpy.types.curvemappoint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

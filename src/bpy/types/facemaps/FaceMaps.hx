@@ -2,7 +2,7 @@ package bpy.types.facemaps;
 /**
 	Collection of face maps
 **/
-@:pythonImport("bpy.types.FaceMaps") extern class FaceMaps {
+@:native("bpy.types.FaceMaps") extern class FaceMaps {
 	/**
 		Face maps of the object
 		
@@ -21,7 +21,7 @@ package bpy.types.facemaps;
 		
 		@returns FaceMap
 	**/
-	function new(name:String):bpy.types.facemap.FaceMap;
+	function pyNew(name:String):bpy.types.facemap.FaceMap;
 	/**
 		Delete vertex group from object
 		@param group Face map to remove — FaceMap, (never None)
@@ -37,12 +37,12 @@ package bpy.types.facemaps;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

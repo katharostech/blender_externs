@@ -2,7 +2,7 @@ package bpy.types.blenddatafonts;
 /**
 	Collection of fonts
 **/
-@:pythonImport("bpy.types.BlendDataFonts") extern class BlendDataFonts {
+@:native("bpy.types.BlendDataFonts") extern class BlendDataFonts {
 	/**
 		Load a new font into the main database
 		@param filepath path of the font to load — string, (never None)
@@ -23,19 +23,19 @@ package bpy.types.blenddatafonts;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

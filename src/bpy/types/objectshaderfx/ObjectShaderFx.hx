@@ -13,7 +13,7 @@ package bpy.types.objectshaderfx;
 }/**
 	Collection of object effects
 **/
-@:pythonImport("bpy.types.ObjectShaderFx") extern class ObjectShaderFx {
+@:native("bpy.types.ObjectShaderFx") extern class ObjectShaderFx {
 	/**
 		Add a new shader fx
 		@param name New name for the effect — string, (never None)
@@ -21,7 +21,7 @@ package bpy.types.objectshaderfx;
 		
 		@returns ShaderFx
 	**/
-	function new(name:String, type:bpy.types.objectshaderfx.ObjectShaderFx.Enum1):bpy.types.shaderfx.ShaderFx;
+	function pyNew(name:String, type:bpy.types.objectshaderfx.ObjectShaderFx.Enum1):bpy.types.shaderfx.ShaderFx;
 	/**
 		Remove an existing effect from the object
 		@param shader_fx Effect to remove — ShaderFx, (never None)
@@ -37,12 +37,12 @@ package bpy.types.objectshaderfx;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

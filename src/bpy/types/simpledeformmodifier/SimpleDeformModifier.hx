@@ -11,7 +11,7 @@ package bpy.types.simpledeformmodifier;
 }/**
 	Simple deformation modifier to apply effects such as twisting and bending
 **/
-@:pythonImport("bpy.types.SimpleDeformModifier") extern class SimpleDeformModifier {
+@:native("bpy.types.SimpleDeformModifier") extern class SimpleDeformModifier {
 	/**
 		Angle of deformation
 		
@@ -84,14 +84,14 @@ package bpy.types.simpledeformmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

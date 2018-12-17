@@ -2,7 +2,7 @@ package bpy.types.curvemappoints;
 /**
 	Collection of Curve Map Points
 **/
-@:pythonImport("bpy.types.CurveMapPoints") extern class CurveMapPoints {
+@:native("bpy.types.CurveMapPoints") extern class CurveMapPoints {
 	/**
 		Add point to CurveMap
 		@param position Position, Position to add point — float in [-inf, inf]
@@ -10,7 +10,7 @@ package bpy.types.curvemappoints;
 		
 		@returns CurveMapPoint
 	**/
-	function new(position:Float, value:Float):bpy.types.curvemappoint.CurveMapPoint;
+	function pyNew(position:Float, value:Float):bpy.types.curvemappoint.CurveMapPoint;
 	/**
 		Delete point from CurveMap
 		@param point PointElement to remove — CurveMapPoint, (never None)
@@ -22,12 +22,12 @@ package bpy.types.curvemappoints;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

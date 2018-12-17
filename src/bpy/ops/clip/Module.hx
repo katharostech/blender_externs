@@ -355,27 +355,27 @@ package bpy.ops.clip;
 	/**
 		Add selected tracks to 2D translation stabilization
 	**/
-	static function stabilize_2d_add():Void;
+	static function pystabilize_2d_add():Void;
 	/**
 		Remove selected track from translation stabilization
 	**/
-	static function stabilize_2d_remove():Void;
+	static function pystabilize_2d_remove():Void;
 	/**
 		Add selected tracks to 2D rotation stabilization
 	**/
-	static function stabilize_2d_rotation_add():Void;
+	static function pystabilize_2d_rotation_add():Void;
 	/**
 		Remove selected track from rotation stabilization
 	**/
-	static function stabilize_2d_rotation_remove():Void;
+	static function pystabilize_2d_rotation_remove():Void;
 	/**
 		Select tracks which are used for rotation stabilization
 	**/
-	static function stabilize_2d_rotation_select():Void;
+	static function pystabilize_2d_rotation_select():Void;
 	/**
 		Select tracks which are used for translation stabilization
 	**/
-	static function stabilize_2d_select():Void;
+	static function pystabilize_2d_select():Void;
 	/**
 		Toggle clip tools panel
 	**/

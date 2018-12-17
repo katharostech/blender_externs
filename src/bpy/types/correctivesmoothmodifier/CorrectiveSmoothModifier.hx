@@ -8,7 +8,7 @@ package bpy.types.correctivesmoothmodifier;
 }/**
 	Correct distortion caused by deformation
 **/
-@:pythonImport("bpy.types.CorrectiveSmoothModifier") extern class CorrectiveSmoothModifier {
+@:native("bpy.types.CorrectiveSmoothModifier") extern class CorrectiveSmoothModifier {
 	/**
 		Smooth factor effect
 		
@@ -69,14 +69,14 @@ package bpy.types.correctivesmoothmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

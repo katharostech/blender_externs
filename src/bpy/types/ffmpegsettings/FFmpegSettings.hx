@@ -2,29 +2,29 @@ package bpy.types.ffmpegsettings;
 @:enum abstract Enum1(String) from String to String {
 	var MONO : String = "MONO";
 	var STEREO : String = "STEREO";
-	var SURROUND4 : String = "SURROUND4";
-	var SURROUND51 : String = "SURROUND51";
-	var SURROUND71 : String = "SURROUND71";
+	var pySURROUND4 : String = "SURROUND4";
+	var pySURROUND51 : String = "SURROUND51";
+	var pySURROUND71 : String = "SURROUND71";
 }@:enum abstract Enum2(String) from String to String {
 	var NONE : String = "NONE";
 	var AAC : String = "AAC";
-	var AC3 : String = "AC3";
+	var pyAC3 : String = "AC3";
 	var FLAC : String = "FLAC";
-	var MP2 : String = "MP2";
-	var MP3 : String = "MP3";
+	var pyMP2 : String = "MP2";
+	var pyMP3 : String = "MP3";
 	var PCM : String = "PCM";
 	var VORBIS : String = "VORBIS";
 }@:enum abstract Enum3(String) from String to String {
 	var NONE : String = "NONE";
 	var DNXHD : String = "DNXHD";
 	var DV : String = "DV";
-	var FFV1 : String = "FFV1";
+	var pyFFV1 : String = "FFV1";
 	var FLASH : String = "FLASH";
-	var H264 : String = "H264";
+	var pyH264 : String = "H264";
 	var HUFFYUV : String = "HUFFYUV";
-	var MPEG1 : String = "MPEG1";
-	var MPEG2 : String = "MPEG2";
-	var MPEG4 : String = "MPEG4";
+	var pyMPEG1 : String = "MPEG1";
+	var pyMPEG2 : String = "MPEG2";
+	var pyMPEG4 : String = "MPEG4";
 	var PNG : String = "PNG";
 	var QTRLE : String = "QTRLE";
 	var THEORA : String = "THEORA";
@@ -43,9 +43,9 @@ package bpy.types.ffmpegsettings;
 	var GOOD : String = "GOOD";
 	var REALTIME : String = "REALTIME";
 }@:enum abstract Enum6(String) from String to String {
-	var MPEG1 : String = "MPEG1";
-	var MPEG2 : String = "MPEG2";
-	var MPEG4 : String = "MPEG4";
+	var pyMPEG1 : String = "MPEG1";
+	var pyMPEG2 : String = "MPEG2";
+	var pyMPEG4 : String = "MPEG4";
 	var AVI : String = "AVI";
 	var QUICKTIME : String = "QUICKTIME";
 	var DV : String = "DV";
@@ -55,7 +55,7 @@ package bpy.types.ffmpegsettings;
 }/**
 	FFmpeg related settings for the scene
 **/
-@:pythonImport("bpy.types.FFmpegSettings") extern class FFmpegSettings {
+@:native("bpy.types.FFmpegSettings") extern class FFmpegSettings {
 	/**
 		Audio bitrate (kb/s)
 		
@@ -182,12 +182,12 @@ package bpy.types.ffmpegsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

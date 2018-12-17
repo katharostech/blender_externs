@@ -56,7 +56,7 @@ package bpy.ops.file;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/
-	static function filepath_drop():Void;
+	static function filepath_drop(filepath:Dynamic):Void;
 	/**
 		Try to find missing external files
 		@param find_all Find All, Find all files in the search path (not just missing) — boolean, (optional)

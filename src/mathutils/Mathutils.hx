@@ -2,7 +2,7 @@ package mathutils;
 /**
 	This object gives access to Colors in Blender.
 **/
-@:pythonImport("mathutils.Color") extern class Color {
+@:native("mathutils.Color") extern class Color {
 	/**
 		Returns a copy of this color.
 		
@@ -20,19 +20,19 @@ package mathutils;
 		
 		Type: float
 	**/
-	var b : Dynamic;
+	var b : Float;
 	/**
 		Green color channel.
 		
 		Type: float
 	**/
-	var g : Dynamic;
+	var g : Float;
 	/**
 		HSV Hue component in [0, 1].
 		
 		Type: float
 	**/
-	var h : Dynamic;
+	var h : Float;
 	/**
 		HSV Values in [0, 1].
 		
@@ -44,13 +44,13 @@ package mathutils;
 		
 		Type: boolean
 	**/
-	var is_frozen : Dynamic;
+	var is_frozen : Bool;
 	/**
 		True when this object wraps external data (read-only).
 		
 		Type: boolean
 	**/
-	var is_wrapped : Dynamic;
+	var is_wrapped : Bool;
 	/**
 		The item this is wrapping or None  (read-only).
 	**/
@@ -60,23 +60,23 @@ package mathutils;
 		
 		Type: float
 	**/
-	var r : Dynamic;
+	var r : Float;
 	/**
 		HSV Saturation component in [0, 1].
 		
 		Type: float
 	**/
-	var s : Dynamic;
+	var s : Float;
 	/**
 		HSV Value component in [0, 1].
 		
 		Type: float
 	**/
-	var v : Dynamic;
+	var v : Float;
 }/**
 	This object gives access to Eulers in Blender.
 **/
-@:pythonImport("mathutils.Euler") extern class Euler {
+@:native("mathutils.Euler") extern class Euler {
 	/**
 		Returns a copy of this euler.
 		
@@ -93,7 +93,7 @@ package mathutils;
 		Make this euler compatible with another,
 		so interpolating between them works as intended.
 	**/
-	function make_compatible():Void;
+	function make_compatible(other:Dynamic):Void;
 	/**
 		Rotates the euler by another mathutils value.
 		@param other rotation component of mathutils value — Euler, Quaternion or Matrix
@@ -105,7 +105,7 @@ package mathutils;
 		@param axis single character in [‘X, ‘Y’, ‘Z’]. — string
 		@param angle angle in radians. — float
 	**/
-	function rotate_axis(axis:Dynamic, angle:Dynamic):Void;
+	function rotate_axis(axis:String, angle:Float):Void;
 	/**
 		Return a matrix representation of the euler.
 		
@@ -127,13 +127,13 @@ package mathutils;
 		
 		Type: boolean
 	**/
-	var is_frozen : Dynamic;
+	var is_frozen : Bool;
 	/**
 		True when this object wraps external data (read-only).
 		
 		Type: boolean
 	**/
-	var is_wrapped : Dynamic;
+	var is_wrapped : Bool;
 	/**
 		Euler rotation order.
 		
@@ -149,31 +149,31 @@ package mathutils;
 		
 		Type: float
 	**/
-	var x : Dynamic;
+	var x : Float;
 	/**
 		Euler axis angle in radians.
 		
 		Type: float
 	**/
-	var y : Dynamic;
+	var y : Float;
 	/**
 		Euler axis angle in radians.
 		
 		Type: float
 	**/
-	var z : Dynamic;
+	var z : Float;
 }/**
 	This object gives access to Matrices in Blender, supporting square and rectangular
 	matrices from 2x2 up to 4x4.
 **/
-@:pythonImport("mathutils.Matrix") extern class Matrix {
+@:native("mathutils.Matrix") extern class Matrix {
 	/**
 		Create an identity matrix.
 		@param size The size of the identity matrix to construct [2, 4]. — int
 		
 		@returns Matrix
 	**/
-	static function Identity(size:Dynamic):mathutils.matrix.Matrix;
+	static function Identity(size:Int):mathutils.matrix.Matrix;
 	/**
 		Create a matrix to represent an orthographic projection.
 		@param axis Can be any of the following: [‘X’, ‘Y’, ‘XY’, ‘XZ’, ‘YZ’],
@@ -183,7 +183,7 @@ package mathutils;
 		
 		@returns Matrix
 	**/
-	static function OrthoProjection(axis:String, size:Dynamic):mathutils.matrix.Matrix;
+	static function OrthoProjection(axis:String, size:Int):mathutils.matrix.Matrix;
 	/**
 		Create a matrix representing a rotation.
 		@param angle The angle of rotation desired, in radians. — float
@@ -193,7 +193,7 @@ package mathutils;
 		
 		@returns Matrix
 	**/
-	static function Rotation(angle:Dynamic, size:Dynamic, axis:String):mathutils.matrix.Matrix;
+	static function Rotation(angle:Float, size:Int, axis:String):mathutils.matrix.Matrix;
 	/**
 		Create a matrix representing a scaling.
 		@param factor The factor of scaling to apply. — float
@@ -202,7 +202,7 @@ package mathutils;
 		
 		@returns Matrix
 	**/
-	static function Scale(factor:Dynamic, size:Dynamic, axis:Dynamic):mathutils.matrix.Matrix;
+	static function Scale(factor:Float, size:Int, axis:Dynamic):mathutils.matrix.Matrix;
 	/**
 		Create a matrix to represent an shear transformation.
 		@param plane Can be any of the following: [‘X’, ‘Y’, ‘XY’, ‘XZ’, ‘YZ’],
@@ -213,7 +213,7 @@ package mathutils;
 		
 		@returns Matrix
 	**/
-	static function Shear(plane:Dynamic, size:Dynamic, factor:Float):mathutils.matrix.Matrix;
+	static function Shear(plane:String, size:Int, factor:Float):mathutils.matrix.Matrix;
 	/**
 		Create a matrix representing a translation.
 		@param vector The translation vector. — Vector
@@ -248,7 +248,7 @@ package mathutils;
 		
 		@returns float
 	**/
-	function determinant():Dynamic;
+	function determinant():Float;
 	/**
 		Make this object immutable.
 		
@@ -264,7 +264,7 @@ package mathutils;
 		@param fallback Set the matrix to this value when the inverse cannot be calculated
 		                                        (instead of raising a ValueError exception). — Matrix
 	**/
-	function invert(fallback:Dynamic):Void;
+	function invert(fallback:gpu.matrix.Matrix):Void;
 	/**
 		Set the matrix to its inverse, will never error.
 		If degenerated (e.g. zero scale on an axis), add some epsilon to its diagonal, to get an invertible one.
@@ -294,7 +294,7 @@ package mathutils;
 		
 		@returns Matrix
 	**/
-	static function lerp(other:Dynamic, factor:Dynamic):mathutils.matrix.Matrix;
+	static function lerp(other:gpu.matrix.Matrix, factor:Float):mathutils.matrix.Matrix;
 	/**
 		Normalize each of the matrix columns.
 	**/
@@ -308,7 +308,7 @@ package mathutils;
 	/**
 		Resize the matrix to 4x4.
 	**/
-	function resize_4x4():Void;
+	function pyresize_4x4():Void;
 	/**
 		Rotates the matrix by another mathutils value.
 		@param other rotation component of mathutils value — Euler, Quaternion or Matrix
@@ -319,13 +319,13 @@ package mathutils;
 		
 		@returns Matrix
 	**/
-	function to_3x3():mathutils.matrix.Matrix;
+	function pyto_3x3():mathutils.matrix.Matrix;
 	/**
 		Return a 4x4 copy of this matrix.
 		
 		@returns Matrix
 	**/
-	function to_4x4():mathutils.matrix.Matrix;
+	function pyto_4x4():mathutils.matrix.Matrix;
 	/**
 		Return an Euler representation of the rotation matrix
 		(3x3 or 4x4 matrix only).
@@ -337,7 +337,7 @@ package mathutils;
 		
 		@returns Euler
 	**/
-	function to_euler(order:Dynamic, euler_compat:Dynamic):mathutils.euler.Euler;
+	function to_euler(order:String, euler_compat:Dynamic):mathutils.euler.Euler;
 	/**
 		Return a quaternion representation of the rotation matrix.
 		
@@ -383,7 +383,7 @@ package mathutils;
 		
 		Type: boolean
 	**/
-	var is_frozen : Dynamic;
+	var is_frozen : Bool;
 	/**
 		True if this matrix results in a negative scale, 3x3 and 4x4 only, (read-only).
 		
@@ -407,13 +407,13 @@ package mathutils;
 		
 		Type: boolean
 	**/
-	var is_wrapped : Dynamic;
+	var is_wrapped : Bool;
 	/**
 		The average scale applied to each axis (read-only).
 		
 		Type: float
 	**/
-	var median_scale : Dynamic;
+	var median_scale : Float;
 	/**
 		The item this is wrapping or None  (read-only).
 	**/
@@ -435,7 +435,7 @@ package mathutils;
 	
 	The constructor takes arguments in various forms:
 **/
-@:pythonImport("mathutils.Quaternion") extern class Quaternion {
+@:native("mathutils.Quaternion") extern class Quaternion {
 	/**
 		Set the quaternion to its conjugate (negate x, y, z).
 	**/
@@ -523,7 +523,7 @@ package mathutils;
 		
 		@returns Quaternion
 	**/
-	static function slerp(other:Dynamic, factor:Dynamic):mathutils.quaternion.Quaternion;
+	static function slerp(other:Dynamic, factor:Float):mathutils.quaternion.Quaternion;
 	/**
 		Return the axis, angle representation of the quaternion.
 		
@@ -540,7 +540,7 @@ package mathutils;
 		
 		@returns Euler
 	**/
-	function to_euler(order:Dynamic, euler_compat:Dynamic):mathutils.euler.Euler;
+	function to_euler(order:String, euler_compat:Dynamic):mathutils.euler.Euler;
 	/**
 		Return the exponential map representation of the quaternion.
 		
@@ -562,7 +562,7 @@ package mathutils;
 		
 		Type: float
 	**/
-	var angle : Dynamic;
+	var angle : Float;
 	/**
 		Quaternion axis as a vector.
 		
@@ -574,19 +574,19 @@ package mathutils;
 		
 		Type: boolean
 	**/
-	var is_frozen : Dynamic;
+	var is_frozen : Bool;
 	/**
 		True when this object wraps external data (read-only).
 		
 		Type: boolean
 	**/
-	var is_wrapped : Dynamic;
+	var is_wrapped : Bool;
 	/**
 		Size of the quaternion (read-only).
 		
 		Type: float
 	**/
-	var magnitude : Dynamic;
+	var magnitude : Float;
 	/**
 		The item this is wrapping or None  (read-only).
 	**/
@@ -596,55 +596,55 @@ package mathutils;
 		
 		Type: float
 	**/
-	var w : Dynamic;
+	var w : Float;
 	/**
 		Quaternion axis value.
 		
 		Type: float
 	**/
-	var x : Dynamic;
+	var x : Float;
 	/**
 		Quaternion axis value.
 		
 		Type: float
 	**/
-	var y : Dynamic;
+	var y : Float;
 	/**
 		Quaternion axis value.
 		
 		Type: float
 	**/
-	var z : Dynamic;
+	var z : Float;
 }/**
 	This object gives access to Vectors in Blender.
 **/
-@:pythonImport("mathutils.Vector") extern class Vector {
+@:native("mathutils.Vector") extern class Vector {
 	/**
 		Create a vector of length size with all values set to fill.
 		@param size The length of the vector to be created. — int
 		@param fill The value used to fill the vector. — float
 	**/
-	static function Fill(size:Dynamic, fill:Dynamic):Void;
+	static function Fill(size:Int, fill:Float):Void;
 	/**
 		Create a vector of the specified size which is filled with linearly spaced values between start and stop values.
 		@param start The start of the range used to fill the vector. — int
 		@param stop The end of the range used to fill the vector. — int
 		@param size The size of the vector to be created. — int
 	**/
-	static function Linspace(start:Dynamic, stop:Dynamic, size:Dynamic):Void;
+	static function Linspace(start:Int, stop:Int, size:Int):Void;
 	/**
 		Create a filled with a range of values.
 		@param start The start of the range used to fill the vector. — int
 		@param stop The end of the range used to fill the vector. — int
 		@param step The step between successive values in the vector. — int
 	**/
-	static function Range(start:Dynamic, stop:Dynamic, step:Dynamic):Void;
+	static function Range(start:Int, stop:Int, step:Int):Void;
 	/**
 		Create a vector by repeating the values in vector until the required size is reached.
 		@param tuple The vector to draw values from. — mathutils.Vector
 		@param size The size of the vector to be created. — int
 	**/
-	static function Repeat(tuple:Dynamic, size:Dynamic):Void;
+	static function Repeat(tuple:Dynamic, size:Int):Void;
 	/**
 		Return the angle between two vectors.
 		@param other another vector to compare the angle with — Vector
@@ -653,7 +653,7 @@ package mathutils;
 		
 		@returns float
 	**/
-	static function angle(other:Dynamic, fallback:Dynamic):Dynamic;
+	static function angle(other:Dynamic, fallback:Dynamic):Float;
 	/**
 		Return the signed angle between two 2D vectors (clockwise is positive).
 		@param other another vector to compare the angle with — Vector
@@ -662,7 +662,7 @@ package mathutils;
 		
 		@returns float
 	**/
-	static function angle_signed(other:Dynamic, fallback:Dynamic):Dynamic;
+	static function angle_signed(other:Dynamic, fallback:Dynamic):Float;
 	/**
 		Returns a copy of this vector.
 		
@@ -696,7 +696,7 @@ package mathutils;
 		
 		@returns Vector
 	**/
-	static function lerp(other:Dynamic, factor:Dynamic):mathutils.vector.Vector;
+	static function lerp(other:Dynamic, factor:Float):mathutils.vector.Vector;
 	/**
 		Set all values to their negative.
 	**/
@@ -734,25 +734,25 @@ package mathutils;
 	/**
 		Resize the vector to have size number of elements.
 	**/
-	function resize():Void;
+	function resize(size:Dynamic):Void;
 	/**
 		Resize the vector to 2D  (x, y).
 	**/
-	function resize_2d():Void;
+	function pyresize_2d():Void;
 	/**
 		Resize the vector to 3D  (x, y, z).
 	**/
-	function resize_3d():Void;
+	function pyresize_3d():Void;
 	/**
 		Resize the vector to 4D (x, y, z, w).
 	**/
-	function resize_4d():Void;
+	function pyresize_4d():Void;
 	/**
 		Return a resized copy of the vector with size number of elements.
 		
 		@returns Vector
 	**/
-	function resized():mathutils.vector.Vector;
+	function resized(size:Dynamic):mathutils.vector.Vector;
 	/**
 		Rotate the vector by a rotation value.
 		@param other rotation component of mathutils value — Euler, Quaternion or Matrix
@@ -775,25 +775,25 @@ package mathutils;
 		
 		@returns Vector
 	**/
-	static function slerp(other:Dynamic, factor:Dynamic, fallback:Dynamic):mathutils.vector.Vector;
+	static function slerp(other:Dynamic, factor:Float, fallback:Dynamic):mathutils.vector.Vector;
 	/**
 		Return a 2d copy of the vector.
 		
 		@returns Vector
 	**/
-	function to_2d():mathutils.vector.Vector;
+	function pyto_2d():mathutils.vector.Vector;
 	/**
 		Return a 3d copy of the vector.
 		
 		@returns Vector
 	**/
-	function to_3d():mathutils.vector.Vector;
+	function pyto_3d():mathutils.vector.Vector;
 	/**
 		Return a 4d copy of the vector.
 		
 		@returns Vector
 	**/
-	function to_4d():mathutils.vector.Vector;
+	function pyto_4d():mathutils.vector.Vector;
 	/**
 		Return a quaternion rotation from the vector and the track and up axis.
 		@param track Track axis in [‘X’, ‘Y’, ‘Z’, ‘-X’, ‘-Y’, ‘-Z’]. — string
@@ -801,14 +801,14 @@ package mathutils;
 		
 		@returns Quaternion
 	**/
-	function to_track_quat(track:Dynamic, up:Dynamic):mathutils.quaternion.Quaternion;
+	function to_track_quat(track:String, up:String):mathutils.quaternion.Quaternion;
 	/**
 		Return this vector as a tuple with.
 		@param precision The number to round the value to in [-1, 21]. — int
 		
 		@returns tuple
 	**/
-	function to_tuple(precision:Dynamic):Dynamic;
+	function to_tuple(precision:Int):Dynamic;
 	/**
 		Set all values to zero.
 	**/
@@ -818,31 +818,31 @@ package mathutils;
 		
 		Type: boolean
 	**/
-	var is_frozen : Dynamic;
+	var is_frozen : Bool;
 	/**
 		True when this object wraps external data (read-only).
 		
 		Type: boolean
 	**/
-	var is_wrapped : Dynamic;
+	var is_wrapped : Bool;
 	/**
 		Vector Length.
 		
 		Type: float
 	**/
-	var length : Dynamic;
+	var length : Float;
 	/**
 		Vector length squared (v.dot(v)).
 		
 		Type: float
 	**/
-	var length_squared : Dynamic;
+	var length_squared : Float;
 	/**
 		Vector Length.
 		
 		Type: float
 	**/
-	var magnitude : Dynamic;
+	var magnitude : Float;
 	/**
 		The item this is wrapping or None  (read-only).
 	**/
@@ -852,7 +852,7 @@ package mathutils;
 		
 		Type: float
 	**/
-	var w : Dynamic;
+	var w : Float;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/
@@ -1194,7 +1194,7 @@ package mathutils;
 		
 		Type: float
 	**/
-	var x : Dynamic;
+	var x : Float;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/
@@ -1536,7 +1536,7 @@ package mathutils;
 		
 		Type: float
 	**/
-	var y : Dynamic;
+	var y : Float;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/
@@ -1878,7 +1878,7 @@ package mathutils;
 		
 		Type: float
 	**/
-	var z : Dynamic;
+	var z : Float;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/

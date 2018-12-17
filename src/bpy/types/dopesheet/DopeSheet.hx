@@ -2,7 +2,7 @@ package bpy.types.dopesheet;
 /**
 	Settings for filtering the channels shown in animation editors
 **/
-@:pythonImport("bpy.types.DopeSheet") extern class DopeSheet {
+@:native("bpy.types.DopeSheet") extern class DopeSheet {
 	/**
 		Collection that included object should be a member of
 		
@@ -62,7 +62,7 @@ package bpy.types.dopesheet;
 		
 		Type: boolean, default False
 	**/
-	var show_gpencil_3d_only : Bool;
+	var pyshow_gpencil_3d_only : Bool;
 	/**
 		Include channels from objects/bone that are not visible
 		
@@ -207,12 +207,12 @@ package bpy.types.dopesheet;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

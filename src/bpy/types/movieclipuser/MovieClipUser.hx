@@ -1,14 +1,14 @@
 package bpy.types.movieclipuser;
 @:enum abstract Enum1(String) from String to String {
-	var PROXY_25 : String = "PROXY_25";
-	var PROXY_50 : String = "PROXY_50";
-	var PROXY_75 : String = "PROXY_75";
-	var PROXY_100 : String = "PROXY_100";
+	var pyPROXY_25 : String = "PROXY_25";
+	var pyPROXY_50 : String = "PROXY_50";
+	var pyPROXY_75 : String = "PROXY_75";
+	var pyPROXY_100 : String = "PROXY_100";
 	var FULL : String = "FULL";
 }/**
 	Parameters defining how a MovieClip data-block is used by another data-block
 **/
-@:pythonImport("bpy.types.MovieClipUser") extern class MovieClipUser {
+@:native("bpy.types.MovieClipUser") extern class MovieClipUser {
 	/**
 		Current frame number in movie or image sequence
 		
@@ -33,12 +33,12 @@ package bpy.types.movieclipuser;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

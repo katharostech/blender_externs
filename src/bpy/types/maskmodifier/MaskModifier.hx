@@ -5,7 +5,7 @@ package bpy.types.maskmodifier;
 }/**
 	Mask modifier to hide parts of the mesh
 **/
-@:pythonImport("bpy.types.MaskModifier") extern class MaskModifier {
+@:native("bpy.types.MaskModifier") extern class MaskModifier {
 	/**
 		Armature to use as source of bones to mask
 		
@@ -42,14 +42,14 @@ package bpy.types.maskmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

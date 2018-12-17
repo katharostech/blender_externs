@@ -37,7 +37,7 @@ package bpy.types.depsgraph;
 	var WINDOWMANAGER : String = "WINDOWMANAGER";
 	var WORLD : String = "WORLD";
 	var WORKSPACE : String = "WORKSPACE";
-}@:pythonImport("bpy.types.Depsgraph") extern class Depsgraph {
+}@:native("bpy.types.Depsgraph") extern class Depsgraph {
 	/**
 		All evaluated datablocks
 		
@@ -119,26 +119,26 @@ package bpy.types.depsgraph;
 		
 		@returns ID
 	**/
-	function id_eval_get(id:Dynamic):bpy.types.id.ID;
+	function id_eval_get(id:bpy.types.id.ID):bpy.types.id.ID;
 	/**
 		id_type_updated
 		@param id_type ID Type — enum in ['ACTION', 'ARMATURE', 'BRUSH', 'CAMERA', 'CACHEFILE', 'CURVE', 'FONT', 'GREASEPENCIL', 'COLLECTION', 'IMAGE', 'KEY', 'LIGHT', 'LIBRARY', 'LINESTYLE', 'LATTICE', 'MASK', 'MATERIAL', 'META', 'MESH', 'MOVIECLIP', 'NODETREE', 'OBJECT', 'PAINTCURVE', 'PALETTE', 'PARTICLE', 'LIGHT_PROBE', 'SCENE', 'SOUND', 'SPEAKER', 'TEXT', 'TEXTURE', 'WINDOWMANAGER', 'WORLD', 'WORKSPACE']
 		
 		@returns boolean
 	**/
-	function id_type_updated(id_type:bpy.types.depsgraph.Depsgraph.Enum2):Dynamic;
+	function id_type_updated(id_type:bpy.types.depsgraph.Depsgraph.Enum2):Bool;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

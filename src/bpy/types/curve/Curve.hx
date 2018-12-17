@@ -8,8 +8,8 @@ package bpy.types.curve;
 	var SEGMENTS : String = "SEGMENTS";
 	var SPLINE : String = "SPLINE";
 }@:enum abstract Enum3(String) from String to String {
-	var 2D : String = "2D";
-	var 3D : String = "3D";
+	var py2D : String = "2D";
+	var py3D : String = "3D";
 }@:enum abstract Enum4(String) from String to String {
 	var FULL : String = "FULL";
 	var BACK : String = "BACK";
@@ -22,7 +22,7 @@ package bpy.types.curve;
 }/**
 	Curve data-block storing curves, splines and NURBS
 **/
-@:pythonImport("bpy.types.Curve") extern class Curve {
+@:native("bpy.types.Curve") extern class Curve {
 	/**
 		Animation data for this data-block
 		
@@ -262,7 +262,7 @@ package bpy.types.curve;
 		
 		@returns boolean
 	**/
-	function validate_material_indices():Dynamic;
+	function validate_material_indices():Bool;
 	/**
 		update_gpu_tag
 	**/
@@ -273,14 +273,14 @@ package bpy.types.curve;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

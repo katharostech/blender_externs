@@ -15,7 +15,7 @@ package bpy.types.voronoitexture;
 }/**
 	Procedural voronoi texture
 **/
-@:pythonImport("bpy.types.VoronoiTexture") extern class VoronoiTexture {
+@:native("bpy.types.VoronoiTexture") extern class VoronoiTexture {
 	/**
 		
 		
@@ -57,25 +57,25 @@ package bpy.types.voronoitexture;
 		
 		Type: float in [-2, 2], default 0.0
 	**/
-	var weight_1 : Float;
+	var pyweight_1 : Float;
 	/**
 		Voronoi feature weight 2
 		
 		Type: float in [-2, 2], default 0.0
 	**/
-	var weight_2 : Float;
+	var pyweight_2 : Float;
 	/**
 		Voronoi feature weight 3
 		
 		Type: float in [-2, 2], default 0.0
 	**/
-	var weight_3 : Float;
+	var pyweight_3 : Float;
 	/**
 		Voronoi feature weight 4
 		
 		Type: float in [-2, 2], default 0.0
 	**/
-	var weight_4 : Float;
+	var pyweight_4 : Float;
 	/**
 		Materials that use this texture
 		(readonly)
@@ -92,14 +92,14 @@ package bpy.types.voronoitexture;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		
@@ -328,5 +328,5 @@ package bpy.types.voronoitexture;
 		
 		@returns float array of 4 items in [-inf, inf]
 	**/
-	function evaluate():Array<Float>;
+	function evaluate(value:Dynamic):Array<Float>;
 }

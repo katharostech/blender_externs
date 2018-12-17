@@ -83,7 +83,7 @@ package bpy.ops.action;
 	/**
 		Create new action
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Paste keyframes from copy/paste buffer for the selected channels, starting on the current frame
 		@param offset Offset, Paste time offset of keysSTART Frame Start, Paste keys starting at current frame.END Frame End, Paste keys ending at current frame.RELATIVE Frame Relative, Paste keys relative to the current frame when copying.NONE No Offset, Paste keys from original time. — enum in ['START', 'END', 'RELATIVE', 'NONE'], (optional)

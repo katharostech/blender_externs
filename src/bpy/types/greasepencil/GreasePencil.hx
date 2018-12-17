@@ -5,12 +5,12 @@ package bpy.types.greasepencil;
 	var SELECTED : String = "SELECTED";
 }@:enum abstract Enum2(String) from String to String {
 	var FRONT : String = "FRONT";
-	var 3DSPACE : String = "3DSPACE";
+	var py3DSPACE : String = "3DSPACE";
 	var BACK : String = "BACK";
 }/**
 	Freehand annotation sketchbook
 **/
-@:pythonImport("bpy.types.GreasePencil") extern class GreasePencil {
+@:native("bpy.types.GreasePencil") extern class GreasePencil {
 	/**
 		Base color for ghosts after the active frame
 		
@@ -195,14 +195,14 @@ package bpy.types.greasepencil;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

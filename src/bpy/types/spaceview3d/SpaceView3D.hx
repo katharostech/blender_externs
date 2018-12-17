@@ -2,7 +2,7 @@ package bpy.types.spaceview3d;
 @:enum abstract Enum1(String) from String to String {
 	var LEFT : String = "LEFT";
 	var RIGHT : String = "RIGHT";
-	var S3D : String = "S3D";
+	var pyS3D : String = "S3D";
 }@:enum abstract Enum2(String) from String to String {
 	var LEFT_EYE : String = "LEFT_EYE";
 	var RIGHT_EYE : String = "RIGHT_EYE";
@@ -17,7 +17,7 @@ package bpy.types.spaceview3d;
 }/**
 	3D View space data
 **/
-@:pythonImport("bpy.types.SpaceView3D") extern class SpaceView3D {
+@:native("bpy.types.SpaceView3D") extern class SpaceView3D {
 	/**
 		Active camera used in this view (when unlocked from the scene’s active camera)
 		
@@ -101,7 +101,7 @@ package bpy.types.spaceview3d;
 		
 		Type: RegionView3D, (readonly)
 	**/
-	var region_3d(default, never) : bpy.types.regionview3d.RegionView3D;
+	var pyregion_3d(default, never) : bpy.types.regionview3d.RegionView3D;
 	/**
 		3D regions (the third one defines quad view settings, the fourth one is same as ‘region_3d’)
 		
@@ -341,19 +341,19 @@ package bpy.types.spaceview3d;
 		
 		Type: boolean, default False
 	**/
-	var show_stereo_3d_cameras : Bool;
+	var pyshow_stereo_3d_cameras : Bool;
 	/**
 		Show the stereo 3d convergence plane
 		
 		Type: boolean, default False
 	**/
-	var show_stereo_3d_convergence_plane : Bool;
+	var pyshow_stereo_3d_convergence_plane : Bool;
 	/**
 		Show the stereo 3d frustum volume
 		
 		Type: boolean, default False
 	**/
-	var show_stereo_3d_volume : Bool;
+	var pyshow_stereo_3d_volume : Bool;
 	/**
 		Display face-assigned textures in solid view
 		
@@ -365,25 +365,25 @@ package bpy.types.spaceview3d;
 		
 		Type: enum in [‘LEFT’, ‘RIGHT’, ‘S3D’], default ‘LEFT’
 	**/
-	var stereo_3d_camera : bpy.types.spaceview3d.SpaceView3D.Enum1;
+	var pystereo_3d_camera : bpy.types.spaceview3d.SpaceView3D.Enum1;
 	/**
 		Opacity (alpha) of the convergence plane
 		
 		Type: float in [0, 1], default 0.0
 	**/
-	var stereo_3d_convergence_plane_alpha : Float;
+	var pystereo_3d_convergence_plane_alpha : Float;
 	/**
 		Current stereo eye being drawn
 		
 		Type: enum in [‘LEFT_EYE’, ‘RIGHT_EYE’], default ‘LEFT_EYE’, (readonly)
 	**/
-	var stereo_3d_eye(default, never) : bpy.types.spaceview3d.SpaceView3D.Enum2;
+	var pystereo_3d_eye(default, never) : bpy.types.spaceview3d.SpaceView3D.Enum2;
 	/**
 		Opacity (alpha) of the cameras’ frustum volume
 		
 		Type: float in [0, 1], default 0.0
 	**/
-	var stereo_3d_volume_alpha : Float;
+	var pystereo_3d_volume_alpha : Float;
 	/**
 		Display size of tracks from reconstructed data
 		
@@ -408,14 +408,14 @@ package bpy.types.spaceview3d;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/

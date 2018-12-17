@@ -8,7 +8,7 @@ package bpy.types.metaballelements;
 }/**
 	Collection of metaball elements
 **/
-@:pythonImport("bpy.types.MetaBallElements") extern class MetaBallElements {
+@:native("bpy.types.MetaBallElements") extern class MetaBallElements {
 	/**
 		Last selected element
 		
@@ -21,7 +21,7 @@ package bpy.types.metaballelements;
 		
 		@returns MetaElement
 	**/
-	function new(type:bpy.types.metaballelements.MetaBallElements.Enum1):bpy.types.metaelement.MetaElement;
+	function pyNew(type:bpy.types.metaballelements.MetaBallElements.Enum1):bpy.types.metaelement.MetaElement;
 	/**
 		Remove an element from the metaball
 		@param element The element to remove — MetaElement, (never None)
@@ -37,12 +37,12 @@ package bpy.types.metaballelements;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

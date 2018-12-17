@@ -7,12 +7,12 @@ package bpy_extras.io_utils;
 		A decorator for import/export classes, generating properties needed by the axis conversion system and IO helpers,
 		with specified default values (axes).
 	**/
-	static function orientation_helper():Void;
+	static function orientation_helper(axis_forward:Dynamic, axis_up:Dynamic):Void;
 	/**
 		Each argument us an axis in [‘X’, ‘Y’, ‘Z’, ‘-X’, ‘-Y’, ‘-Z’]
 		where the first 2 are a source and the second 2 are the target.
 	**/
-	static function axis_conversion():Void;
+	static function axis_conversion(from_forward:Dynamic, from_up:Dynamic, to_forward:Dynamic, to_up:Dynamic):Void;
 	/**
 		Function to ensure an operator has valid axis conversion settings, intended
 		to be used from bpy.types.Operator.check.
@@ -22,11 +22,11 @@ package bpy_extras.io_utils;
 		
 		@returns boolean
 	**/
-	static function axis_conversion_ensure(operator:Dynamic, forward_attr:Dynamic, up_attr:Dynamic):Dynamic;
-	static function create_derived_objects():Void;
-	static function free_derived_objects():Void;
-	static function unpack_list():Void;
-	static function unpack_face_list():Void;
+	static function axis_conversion_ensure(operator:Dynamic, forward_attr:String, up_attr:String):Bool;
+	static function create_derived_objects(scene:Dynamic, ob:Dynamic):Void;
+	static function free_derived_objects(ob:Dynamic):Void;
+	static function unpack_list(list_of_tuples:Dynamic):Void;
+	static function unpack_face_list(list_of_tuples:Dynamic):Void;
 	/**
 		Return a filepath relative to a destination directory, for use with
 		exporters.
@@ -45,7 +45,7 @@ package bpy_extras.io_utils;
 		
 		@returns string
 	**/
-	static function path_reference(filepath:Dynamic, base_src:Dynamic, base_dst:Dynamic, mode:Dynamic, copy_subdir:Dynamic, copy_set:Dynamic, library:Dynamic):Dynamic;
+	static function path_reference(filepath:String, base_src:String, base_dst:String, mode:String, copy_subdir:String, copy_set:Dynamic, library:Dynamic):String;
 	/**
 		Execute copying files of path_reference
 		@param copy_set set of (from, to) pairs to copy. — set
@@ -66,7 +66,7 @@ package bpy_extras.io_utils;
 		@param sep Separator to use when between the name and a number when a
 		                                        duplicate name is found. — string
 	**/
-	static function unique_name(key:Dynamic, name:Dynamic, name_dict:Dynamic, clean_func:Dynamic, sep:Dynamic):Void;
+	static function unique_name(key:Dynamic, name:String, name_dict:Dynamic, clean_func:Dynamic, sep:String):Void;
 	/**
 		constant value (&lt;built-in function EnumProperty&gt;, {‘name’: ‘Path Mode’, ‘description’: ‘Method used to reference paths’, ‘items’: ((‘AUTO’, ‘Auto’, ‘Use Relative paths with subdirectories only’), (‘ABSOLUTE’, ‘Absolute’, ‘Always write absolute paths’), (‘RELATIVE’, ‘Relative’, ‘Always write relative paths (where possible)’), (‘MATCH’, ‘Match’, ‘Match Absolute/Relative setting with input path’), (‘STRIP’, ‘Strip Path’, ‘Filename only’), (‘COPY’, ‘Copy’, ‘Copy the file to the destination path (or subdirectory)’)), ‘default’: ‘AUTO’, ‘attr’: ‘path_mode’})
 	**/

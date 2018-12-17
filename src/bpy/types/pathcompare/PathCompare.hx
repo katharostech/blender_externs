@@ -2,7 +2,7 @@ package bpy.types.pathcompare;
 /**
 	Match paths against this value
 **/
-@:pythonImport("bpy.types.PathCompare") extern class PathCompare {
+@:native("bpy.types.PathCompare") extern class PathCompare {
 	/**
 		
 		
@@ -21,12 +21,12 @@ package bpy.types.pathcompare;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

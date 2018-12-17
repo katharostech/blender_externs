@@ -47,7 +47,7 @@ package bpy.types.fieldsettings;
 }/**
 	Field settings for an object in physics simulation
 **/
-@:pythonImport("bpy.types.FieldSettings") extern class FieldSettings {
+@:native("bpy.types.FieldSettings") extern class FieldSettings {
 	/**
 		Effect particles’ location
 		
@@ -257,7 +257,7 @@ package bpy.types.fieldsettings;
 		
 		Type: boolean, default False
 	**/
-	var use_2d_force : Bool;
+	var pyuse_2d_force : Bool;
 	/**
 		Force gets absorbed by collision objects
 		
@@ -348,12 +348,12 @@ package bpy.types.fieldsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

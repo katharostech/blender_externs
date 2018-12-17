@@ -9,17 +9,17 @@ package bpy.types.musgravetexture;
 	var BLENDER_ORIGINAL : String = "BLENDER_ORIGINAL";
 	var ORIGINAL_PERLIN : String = "ORIGINAL_PERLIN";
 	var IMPROVED_PERLIN : String = "IMPROVED_PERLIN";
-	var VORONOI_F1 : String = "VORONOI_F1";
-	var VORONOI_F2 : String = "VORONOI_F2";
-	var VORONOI_F3 : String = "VORONOI_F3";
-	var VORONOI_F4 : String = "VORONOI_F4";
-	var VORONOI_F2_F1 : String = "VORONOI_F2_F1";
+	var pyVORONOI_F1 : String = "VORONOI_F1";
+	var pyVORONOI_F2 : String = "VORONOI_F2";
+	var pyVORONOI_F3 : String = "VORONOI_F3";
+	var pyVORONOI_F4 : String = "VORONOI_F4";
+	var pyVORONOI_F2_F1 : String = "VORONOI_F2_F1";
 	var VORONOI_CRACKLE : String = "VORONOI_CRACKLE";
 	var CELL_NOISE : String = "CELL_NOISE";
 }/**
 	Procedural musgrave texture
 **/
-@:pythonImport("bpy.types.MusgraveTexture") extern class MusgraveTexture {
+@:native("bpy.types.MusgraveTexture") extern class MusgraveTexture {
 	/**
 		Highest fractal dimension
 		
@@ -96,14 +96,14 @@ package bpy.types.musgravetexture;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		
@@ -332,5 +332,5 @@ package bpy.types.musgravetexture;
 		
 		@returns float array of 4 items in [-inf, inf]
 	**/
-	function evaluate():Array<Float>;
+	function evaluate(value:Dynamic):Array<Float>;
 }

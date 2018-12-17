@@ -6,7 +6,7 @@ package bpy.types.cyclescurverendersettings;
 }@:enum abstract Enum2(String) from String to String {
 	var RIBBONS : String = "RIBBONS";
 	var THICK : String = "THICK";
-}@:pythonImport("bpy.types.CyclesCurveRenderSettings") extern class CyclesCurveRenderSettings {
+}@:native("bpy.types.CyclesCurveRenderSettings") extern class CyclesCurveRenderSettings {
 	/**
 		Do not test the back-face of each strand
 		
@@ -61,12 +61,12 @@ package bpy.types.cyclescurverendersettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

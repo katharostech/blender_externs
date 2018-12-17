@@ -138,7 +138,7 @@ package bpy.ops.anim;
 	/**
 		Remove all keyframe animation for selected objects
 	**/
-	static function keyframe_clear_v3d():Void;
+	static function pykeyframe_clear_v3d():Void;
 	/**
 		Delete keyframes on the current frame for all properties in the specified Keying Set
 		@param type Keying Set, The Keying Set to use — enum in ['DEFAULT'], (optional)
@@ -153,7 +153,7 @@ package bpy.ops.anim;
 	/**
 		Remove keyframes on current frame for selected objects and bones
 	**/
-	static function keyframe_delete_v3d():Void;
+	static function pykeyframe_delete_v3d():Void;
 	/**
 		Insert keyframes on the current frame for all properties in the specified Keying Set
 		@param type Keying Set, The Keying Set to use — enum in ['DEFAULT'], (optional)

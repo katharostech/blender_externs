@@ -2,7 +2,7 @@ package bpy.types.timelinemarkers;
 /**
 	Collection of timeline markers
 **/
-@:pythonImport("bpy.types.TimelineMarkers") extern class TimelineMarkers {
+@:native("bpy.types.TimelineMarkers") extern class TimelineMarkers {
 	/**
 		Add a keyframe to the curve
 		@param name New name for the marker (not unique) — string, (never None)
@@ -10,7 +10,7 @@ package bpy.types.timelinemarkers;
 		
 		@returns TimelineMarker
 	**/
-	function new(name:String, frame:Int):bpy.types.timelinemarker.TimelineMarker;
+	function pyNew(name:String, frame:Int):bpy.types.timelinemarker.TimelineMarker;
 	/**
 		Remove a timeline marker
 		@param marker Timeline marker to remove — TimelineMarker, (never None)
@@ -26,12 +26,12 @@ package bpy.types.timelinemarkers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

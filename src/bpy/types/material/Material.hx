@@ -21,7 +21,7 @@ package bpy.types.material;
 }/**
 	Material data-block to define the appearance of geometric objects for rendering
 **/
-@:pythonImport("bpy.types.Material") extern class Material {
+@:native("bpy.types.Material") extern class Material {
 	/**
 		A pixel is rendered only if its alpha value is above this threshold
 		
@@ -184,14 +184,14 @@ package bpy.types.material;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

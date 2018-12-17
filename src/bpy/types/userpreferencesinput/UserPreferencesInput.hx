@@ -21,7 +21,7 @@ package bpy.types.userpreferencesinput;
 }/**
 	Settings for input devices
 **/
-@:pythonImport("bpy.types.UserPreferencesInput") extern class UserPreferencesInput {
+@:native("bpy.types.UserPreferencesInput") extern class UserPreferencesInput {
 	/**
 		The name of the active key configuration
 		
@@ -195,7 +195,7 @@ package bpy.types.userpreferencesinput;
 		
 		Type: boolean, default False
 	**/
-	var use_mouse_emulate_3_button : Bool;
+	var pyuse_mouse_emulate_3_button : Bool;
 	/**
 		In text window, paste with middle mouse button instead of panning
 		
@@ -250,12 +250,12 @@ package bpy.types.userpreferencesinput;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

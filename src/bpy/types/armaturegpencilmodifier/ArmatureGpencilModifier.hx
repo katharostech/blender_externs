@@ -2,7 +2,7 @@ package bpy.types.armaturegpencilmodifier;
 /**
 	Change stroke using armature to deform modifier
 **/
-@:pythonImport("bpy.types.ArmatureGpencilModifier") extern class ArmatureGpencilModifier {
+@:native("bpy.types.ArmatureGpencilModifier") extern class ArmatureGpencilModifier {
 	/**
 		Invert vertex group influence
 		
@@ -45,14 +45,14 @@ package bpy.types.armaturegpencilmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

@@ -11,7 +11,7 @@ package bpy.types.gizmogroup;
 	var NAVIGATION_BAR : String = "NAVIGATION_BAR";
 }@:enum abstract Enum2(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -31,7 +31,7 @@ package bpy.types.gizmogroup;
 }/**
 	Storage of an operator being executed, or registered after execution
 **/
-@:pythonImport("bpy.types.GizmoGroup") extern class GizmoGroup {
+@:native("bpy.types.GizmoGroup") extern class GizmoGroup {
 	/**
 		
 		
@@ -91,41 +91,41 @@ package bpy.types.gizmogroup;
 		
 		@returns boolean
 	**/
-	static function poll():Dynamic;
+	static function poll(context:Dynamic):Bool;
 	/**
 		Initialize keymaps for this gizmo group, use fallback keymap when not present
 		
 		@returns KeyMap, (never None)
 	**/
-	static function setup_keymap():bpy.types.keymap.KeyMap;
+	static function setup_keymap(keyconfig:Dynamic):bpy.types.keymap.KeyMap;
 	/**
 		Create gizmos function for the gizmo group
 	**/
-	function setup():Void;
+	function setup(context:Dynamic):Void;
 	/**
 		Refresh data (called on common state changes such as selection)
 	**/
-	function refresh():Void;
+	function refresh(context:Dynamic):Void;
 	/**
 		Run before each redraw
 	**/
-	function draw_prepare():Void;
+	function draw_prepare(context:Dynamic):Void;
 	/**
 		Run before invoke
 	**/
-	function invoke_prepare():Void;
+	function invoke_prepare(context:Dynamic, gizmo:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

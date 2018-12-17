@@ -9,7 +9,7 @@ package bpy.types.userpreferencesfilepaths;
 }/**
 	Default paths for external files
 **/
-@:pythonImport("bpy.types.UserPreferencesFilePaths") extern class UserPreferencesFilePaths {
+@:native("bpy.types.UserPreferencesFilePaths") extern class UserPreferencesFilePaths {
 	/**
 		Path to a custom animation/frame sequence player
 		
@@ -51,7 +51,7 @@ package bpy.types.userpreferencesfilepaths;
 		
 		Type: string, default “”, (never None)
 	**/
-	var i18n_branches_directory : String;
+	var pyi18n_branches_directory : String;
 	/**
 		Path to an image editor
 		
@@ -166,12 +166,12 @@ package bpy.types.userpreferencesfilepaths;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

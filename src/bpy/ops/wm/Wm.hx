@@ -14,7 +14,7 @@ package bpy.ops.wm;
 	var FILE_SORT_SIZE : String = "FILE_SORT_SIZE";
 }@:enum abstract Enum4(String) from String to String {
 	var OGAWA : String = "OGAWA";
-	var HDF5 : String = "HDF5";
+	var pyHDF5 : String = "HDF5";
 }@:enum abstract Enum5(String) from String to String {
 	var BEAUTY : String = "BEAUTY";
 	var FIXED : String = "FIXED";
@@ -56,14 +56,14 @@ package bpy.ops.wm;
 	var FILE_SORT_TIME : String = "FILE_SORT_TIME";
 	var FILE_SORT_SIZE : String = "FILE_SORT_SIZE";
 }@:enum abstract Enum13(String) from String to String {
-	var 'main' : String = "\'main\'";
-	var  'geometry' : String = " \'geometry\'";
-	var  'armature' : String = " \'armature\'";
-	var  'animation' : String = " \'animation\'";
-	var  'collada' : String = " \'collada\'";
+	var main : String = "main";
+	var geometry : String = "geometry";
+	var armature : String = "armature";
+	var animation : String = "animation";
+	var collada : String = "collada";
 }@:enum abstract Enum14(String) from String to String {
-	var 'view' : String = "\'view\'";
-	var  'render' : String = " \'render\'";
+	var view : String = "view";
+	var render : String = "render";
 }@:enum abstract Enum15(String) from String to String {
 	var DEFAULT : String = "DEFAULT";
 	var LIST_SHORT : String = "LIST_SHORT";
@@ -176,7 +176,7 @@ package bpy.ops.wm;
 	var STUDIO : String = "STUDIO";
 }@:enum abstract Enum37(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";

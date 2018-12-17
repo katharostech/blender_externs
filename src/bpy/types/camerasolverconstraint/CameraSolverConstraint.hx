@@ -2,7 +2,7 @@ package bpy.types.camerasolverconstraint;
 /**
 	Lock motion to the reconstructed camera movement
 **/
-@:pythonImport("bpy.types.CameraSolverConstraint") extern class CameraSolverConstraint {
+@:native("bpy.types.CameraSolverConstraint") extern class CameraSolverConstraint {
 	/**
 		Movie Clip to get tracking data from
 		
@@ -21,14 +21,14 @@ package bpy.types.camerasolverconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

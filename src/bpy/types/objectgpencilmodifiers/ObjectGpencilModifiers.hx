@@ -19,7 +19,7 @@ package bpy.types.objectgpencilmodifiers;
 }/**
 	Collection of object grease pencil modifiers
 **/
-@:pythonImport("bpy.types.ObjectGpencilModifiers") extern class ObjectGpencilModifiers {
+@:native("bpy.types.ObjectGpencilModifiers") extern class ObjectGpencilModifiers {
 	/**
 		Add a new greasepencil_modifier
 		@param name New name for the greasepencil_modifier — string, (never None)
@@ -27,7 +27,7 @@ package bpy.types.objectgpencilmodifiers;
 		
 		@returns GpencilModifier
 	**/
-	function new(name:String, type:bpy.types.objectgpencilmodifiers.ObjectGpencilModifiers.Enum1):bpy.types.gpencilmodifier.GpencilModifier;
+	function pyNew(name:String, type:bpy.types.objectgpencilmodifiers.ObjectGpencilModifiers.Enum1):bpy.types.gpencilmodifier.GpencilModifier;
 	/**
 		Remove an existing greasepencil_modifier from the object
 		@param greasepencil_modifier Modifier to remove — GpencilModifier, (never None)
@@ -43,12 +43,12 @@ package bpy.types.objectgpencilmodifiers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

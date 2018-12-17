@@ -22,14 +22,14 @@ package bgl;
 		@param op The accumulation buffer operation. — Enumerated constant
 		@param value a value used in the accumulation buffer operation. — float
 	**/
-	static function glAccum(op, value):(op:Dynamic, value:Dynamic):Void;
+	static function glAccum(op,value):(op:Dynamic, value:Float):Void;
 	/**
 		Specify the alpha test function.
 		@param func Specifies the alpha comparison function. — Enumerated constant
 		@param ref The reference value that incoming alpha values are compared to.
 		                                        Clamped between 0 and 1. — float
 	**/
-	static function glAlphaFunc(func, ref):(func:Dynamic, ref:Dynamic):Void;
+	static function glAlphaFunc(func,ref):(func:Dynamic, ref:Float):Void;
 	/**
 		Determine if textures are loaded in texture memory
 		@param n Specifies the number of textures to be queried. — int
@@ -38,7 +38,7 @@ package bgl;
 		                                        The residence status of a texture named by an element of textures is
 		                                        returned in the corresponding element of residences. — bgl.Buffer object I{type GL_INT}(boolean)
 	**/
-	static function glAreTexturesResident(n, textures, residences):(n:Dynamic, textures:Dynamic, residences:Dynamic):Void;
+	static function glAreTexturesResident(n,textures,residences):(n:Int, textures:Dynamic, residences:Dynamic):Void;
 	/**
 		Delimit the vertices of a primitive or a group of like primitives
 		@param mode Specifies the primitive that will be create from vertices between
@@ -50,7 +50,7 @@ package bgl;
 		@param target Specifies the target to which the texture is bound. — Enumerated constant
 		@param texture Specifies the name of a texture. — unsigned int
 	**/
-	static function glBindTexture(target, texture):(target:Dynamic, texture:Dynamic):Void;
+	static function glBindTexture(target,texture):(target:Dynamic, texture:Dynamic):Void;
 	/**
 		Draw a bitmap
 		@param height Specify the pixel width and height of the bitmap image. — width,
@@ -60,7 +60,7 @@ package bgl;
 		                                        the bitmap is drawn. — xmove,
 		@param bitmap Specifies the address of the bitmap image. — bgl.Buffer object I{type GL_BYTE}
 	**/
-	static function glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap):(height:Dynamic, yorig:Dynamic, ymove:Dynamic, bitmap:Dynamic):Void;
+	static function glBitmap(width,height,xorig,yorig,xmove,ymove,bitmap):(height:Dynamic, yorig:Dynamic, ymove:Dynamic, bitmap:Dynamic):Void;
 	/**
 		Specify pixel arithmetic
 		@param sfactor Specifies how the red, green, blue, and alpha source blending factors are
@@ -68,7 +68,7 @@ package bgl;
 		@param dfactor Specifies how the red, green, blue, and alpha destination
 		                                        blending factors are computed. — Enumerated constant
 	**/
-	static function glBlendFunc(sfactor, dfactor):(sfactor:Dynamic, dfactor:Dynamic):Void;
+	static function glBlendFunc(sfactor,dfactor):(sfactor:Dynamic, dfactor:Dynamic):Void;
 	/**
 		Execute a display list
 		@param list Specifies the integer name of the display list to be executed. — unsigned int
@@ -82,7 +82,7 @@ package bgl;
 		                                        The pointer type is void because the offsets can be bytes, shorts, ints, or floats,
 		                                        depending on the value of type. — bgl.Buffer object
 	**/
-	static function glCallLists(n, type, lists):(n:Dynamic, type:Dynamic, lists:Dynamic):Void;
+	static function glCallLists(n,type,lists):(n:Int, type:Dynamic, lists:Dynamic):Void;
 	/**
 		Clear buffers to preset values
 		@param mask Bitwise OR of masks that indicate the buffers to be cleared. — Enumerated constant(s)
@@ -93,37 +93,37 @@ package bgl;
 		@param green, Specify the red, green, blue, and alpha values used when the
 		                                accumulation buffer is cleared. The initial values are all 0. — red,
 	**/
-	static function glClearAccum(red, green, blue, alpha):(green,:Dynamic):Void;
+	static function glClearAccum(red,green,blue,alpha):(green,:Dynamic):Void;
 	/**
 		Specify clear values for the color buffers
 		@param green, Specify the red, green, blue, and alpha values used when the
 		                                color buffers are cleared. The initial values are all 0. — red,
 	**/
-	static function glClearColor(red, green, blue, alpha):(green,:Dynamic):Void;
+	static function glClearColor(red,green,blue,alpha):(green,:Dynamic):Void;
 	/**
 		Specify the clear value for the depth buffer
 		@param depth Specifies the depth value used when the depth buffer is cleared.
 		                                The initial value is 1. — int
 	**/
-	static function glClearDepth(depth):(depth:Dynamic):Void;
+	static function glClearDepth(depth):(depth:Int):Void;
 	/**
 		Specify the clear value for the color index buffers
 		@param c Specifies the index used when the color index buffers are cleared.
 		                                The initial value is 0. — float
 	**/
-	static function glClearIndex(c):(c:Dynamic):Void;
+	static function glClearIndex(c):(c:Float):Void;
 	/**
 		Specify the clear value for the stencil buffer
 		@param s Specifies the index used when the stencil buffer is cleared. The initial value is 0. — int
 	**/
-	static function glClearStencil(s):(s:Dynamic):Void;
+	static function glClearStencil(s):(s:Int):Void;
 	/**
 		Specify a plane against which all geometry is clipped
 		@param plane Specifies which clipping plane is being positioned. — Enumerated constant
 		@param equation Specifies the address of an array of four double- precision
 		                                        floating-point values. These values are interpreted as a plane equation. — bgl.Buffer object I{type GL_FLOAT}(double)
 	**/
-	static function glClipPlane (plane, equation):(plane:Dynamic, equation:Dynamic):Void;
+	static function glClipPlane(plane,equation):(plane:Dynamic, equation:Dynamic):Void;
 	/**
 		B{glColor3b, glColor3d, glColor3f, glColor3i, glColor3s, glColor3ub, glColor3ui, glColor3us,
 		glColor4b, glColor4d, glColor4f, glColor4i, glColor4s, glColor4ub, glColor4ui, glColor4us,
@@ -136,21 +136,21 @@ package bgl;
 		@param alpha Specifies a new alpha value for the current color. Included only in the
 		                                        four-argument glColor4 commands. (With ‘4’ colors only) — With ‘4’ colors only
 	**/
-	static function glColor (red, green, blue, alpha):(green,:Dynamic, alpha:Dynamic):Void;
+	static function glColor(red,green,blue,alpha):(green,:Dynamic, alpha:Dynamic):Void;
 	/**
 		Enable and disable writing of frame buffer color components
 		@param green, Specify whether red, green, blue, and alpha can or cannot be
 		                                written into the frame buffer. The initial values are all GL_TRUE, indicating that the
 		                                color components can be written. — red,
 	**/
-	static function glColorMask(red, green, blue, alpha):(green,:Dynamic):Void;
+	static function glColorMask(red,green,blue,alpha):(green,:Dynamic):Void;
 	/**
 		Cause a material color to track the current color
 		@param face Specifies whether front, back, or both front and back material parameters should
 		                                        track the current color. — Enumerated constant
 		@param mode Specifies which of several material parameters track the current color. — Enumerated constant
 	**/
-	static function glColorMaterial(face, mode):(face:Dynamic, mode:Dynamic):Void;
+	static function glColorMaterial(face,mode):(face:Dynamic, mode:Dynamic):Void;
 	/**
 		Copy pixels in the frame buffer
 		
@@ -163,7 +163,7 @@ package bgl;
 		                                        Both must be non-negative. — 
 		@param type Specifies whether color values, depth values, or stencil values are to be copied. — Enumerated constant
 	**/
-	static function glCopyPixels(x, y, width, height, type):(y:Dynamic, width,height:Dynamic, type:Dynamic):Void;
+	static function glCopyPixels(x,y,width,height,type):(y:Dynamic, width,height:Dynamic, type:Dynamic):Void;
 	/**
 		Specify whether front- or back-facing facets can be culled
 		@param mode Specifies whether front- or back-facing facets are candidates for culling. — Enumerated constant
@@ -174,13 +174,13 @@ package bgl;
 		@param list Specifies the integer name of the first display list to delete — unsigned int
 		@param range Specifies the number of display lists to delete — int
 	**/
-	static function glDeleteLists(list, range):(list:Dynamic, range:Dynamic):Void;
+	static function glDeleteLists(list,range):(list:Dynamic, range:Int):Void;
 	/**
 		Delete named textures
 		@param n Specifies the number of textures to be deleted — int
 		@param textures Specifies an array of textures to be deleted — bgl.Buffer I{GL_INT}
 	**/
-	static function glDeleteTextures(n, textures):(n:Dynamic, textures:Dynamic):Void;
+	static function glDeleteTextures(n,textures):(n:Int, textures:Dynamic):Void;
 	/**
 		Specify the value used for depth buffer comparisons
 		@param func Specifies the depth comparison function. — Enumerated constant
@@ -200,7 +200,7 @@ package bgl;
 		@param zFar Specifies the mapping of the far clipping plane to window coordinates.
 		                                        The initial value is 1. — int
 	**/
-	static function glDepthRange(zNear, zFar):(zNear:Dynamic, zFar:Dynamic):Void;
+	static function glDepthRange(zNear,zFar):(zNear:Int, zFar:Int):Void;
 	/**
 		Disable server-side GL capabilities
 		@param cap Specifies a symbolic constant indicating a GL capability. — Enumerated constant
@@ -219,14 +219,14 @@ package bgl;
 		@param type Specifies the data type for pixels. — Enumerated constant
 		@param pixels Specifies a pointer to the pixel data. — bgl.Buffer object
 	**/
-	static function glDrawPixels(width, height, format, type, pixels):(height:Dynamic, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
+	static function glDrawPixels(width,height,format,type,pixels):(height:Dynamic, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
 	/**
 		B{glEdgeFlag, glEdgeFlagv}
 		
 		Flag edges as either boundary or non-boundary
 		@param flag Specifies the current edge flag value.The initial value is GL_TRUE. — Depends of function prototype
 	**/
-	static function glEdgeFlag (flag):(flag:Dynamic):Void;
+	static function glEdgeFlag(flag):(flag:Dynamic):Void;
 	/**
 		Enable server-side GL capabilities
 		@param cap Specifies a symbolic constant indicating a GL capability. — Enumerated constant
@@ -252,16 +252,16 @@ package bgl;
 		@param v Specifies a value that is the domain coordinate v to the basis function defined
 		                                        in a previous glMap2 command. This argument is not present in a glEvalCoord1 command. — Depends on function prototype. (only with '2' prototypes)
 	**/
-	static function glEvalCoord (u,v):(u:Dynamic, v:Dynamic):Void;
+	static function glEvalCoord(u,v):(u:Dynamic, v:Dynamic):Void;
 	/**
 		B{glEvalMesh1 or glEvalMesh2}
 		
 		Compute a one- or two-dimensional grid of points or lines
 		@param mode In glEvalMesh1, specifies whether to compute a one-dimensional
 		                                        mesh of points or lines. — Enumerated constant
-		@param i2 Specify the first and last integer values for the grid domain variable i. — i1,
+		@param pyi2 Specify the first and last integer values for the grid domain variable i. — i1,
 	**/
-	static function glEvalMesh (mode, i1, i2):(mode:Dynamic, i2:Dynamic):Void;
+	static function pyglEvalMesh(mode,i1,i2):(mode:Dynamic, pyi2:Dynamic):Void;
 	/**
 		B{glEvalPoint1 and glEvalPoint2}
 		
@@ -269,7 +269,7 @@ package bgl;
 		@param i Specifies the integer value for grid domain variable i. — int
 		@param j Specifies the integer value for grid domain variable j (glEvalPoint2 only). — int (only with '2' prototypes)
 	**/
-	static function glEvalPoint (i, j):(i:Dynamic, j:Int):Void;
+	static function glEvalPoint(i,j):(i:Int, j:Int):Void;
 	/**
 		Controls feedback mode
 		@param size Specifies the maximum number of values that can be written into buffer. — int
@@ -277,7 +277,7 @@ package bgl;
 		                                        will be returned for each vertex. — Enumerated constant
 		@param buffer Returns the feedback data. — bgl.Buffer object I{GL_FLOAT}
 	**/
-	static function glFeedbackBuffer (size, type, buffer):(size:Dynamic, type:Dynamic, buffer:Dynamic):Void;
+	static function glFeedbackBuffer(size,type,buffer):(size:Int, type:Dynamic, buffer:Dynamic):Void;
 	/**
 		Block until all GL execution is complete
 	**/
@@ -296,7 +296,7 @@ package bgl;
 		                                        requires an array of four values. All other parameters accept an array containing
 		                                        only a single value. — Depends on function prototype.
 	**/
-	static function glFog (pname, param):(pname:Dynamic, param:Dynamic):Void;
+	static function glFog(pname,param):(pname:Dynamic, param:Dynamic):Void;
 	/**
 		Define front- and back-facing polygons
 		@param mode Specifies the orientation of front-facing polygons. — Enumerated constant
@@ -311,18 +311,18 @@ package bgl;
 		@param zFar Specify the distances to the near and far depth clipping planes.
 		                                        Both distances must be positive. — zNear,
 	**/
-	static function glFrustum(left, right, bottom, top, zNear, zFar):(right:Dynamic, bottom:Dynamic, zFar:Dynamic):Void;
+	static function glFrustum(left,right,bottom,top,zNear,zFar):(right:Dynamic, bottom:Dynamic, zFar:Dynamic):Void;
 	/**
 		Generate a contiguous set of empty display lists
 		@param range Specifies the number of contiguous empty display lists to be generated. — int
 	**/
-	static function glGenLists(range):(range:Dynamic):Void;
+	static function glGenLists(range):(range:Int):Void;
 	/**
 		Generate texture names
 		@param n Specifies the number of textures name to be generated. — int
 		@param textures Specifies an array in which the generated textures names are stored. — bgl.Buffer object I{type GL_INT}
 	**/
-	static function glGenTextures(n, textures):(n:Dynamic, textures:Dynamic):Void;
+	static function glGenTextures(n,textures):(n:Int, textures:Dynamic):Void;
 	/**
 		B{glGetBooleanv, glGetfloatv, glGetFloatv, glGetIntegerv}
 		
@@ -330,7 +330,7 @@ package bgl;
 		@param pname Specifies the parameter value to be returned. — Enumerated constant
 		@param param Returns the value or values of the specified parameter. — Depends on function prototype.
 	**/
-	static function glGet (pname, param):(pname:Dynamic, param:Dynamic):Void;
+	static function glGet(pname,param):(pname:Dynamic, param:Dynamic):Void;
 	/**
 		Return the coefficients of the specified clipping plane
 		@param plane Specifies a clipping plane. The number of clipping planes depends on the
@@ -339,7 +339,7 @@ package bgl;
 		@param equation Returns four float (double)-precision values that are the coefficients of the
 		                                        plane equation of plane in eye coordinates. The initial value is (0, 0, 0, 0). — bgl.Buffer object I{type GL_FLOAT}
 	**/
-	static function glGetClipPlane(plane, equation):(plane:Dynamic, equation:Dynamic):Void;
+	static function glGetClipPlane(plane,equation):(plane:Dynamic, equation:Dynamic):Void;
 	/**
 		Return error information
 	**/
@@ -354,7 +354,7 @@ package bgl;
 		@param pname Specifies a light source parameter for light. — Enumerated constant
 		@param params Returns the requested data. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetLight (light, pname, params):(light:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glGetLight(light,pname,params):(light:Dynamic, pname:Dynamic, params:Dynamic):Void;
 	/**
 		B{glGetMapdv, glGetMapfv, glGetMapiv}
 		
@@ -363,7 +363,7 @@ package bgl;
 		@param query Specifies which parameter to return. — Enumerated constant
 		@param v Returns the requested data. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetMap (target, query, v):(target:Dynamic, query:Dynamic, v:Dynamic):Void;
+	static function glGetMap(target,query,v):(target:Dynamic, query:Dynamic, v:Dynamic):Void;
 	/**
 		B{glGetMaterialfv, glGetMaterialiv}
 		
@@ -373,7 +373,7 @@ package bgl;
 		@param pname Specifies the material parameter to return. — Enumerated constant
 		@param params Returns the requested data. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetMaterial (face, pname, params):(face:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glGetMaterial(face,pname,params):(face:Dynamic, pname:Dynamic, params:Dynamic):Void;
 	/**
 		B{glGetPixelMapfv, glGetPixelMapuiv, glGetPixelMapusv}
 		
@@ -381,7 +381,7 @@ package bgl;
 		@param map Specifies the name of the pixel map to return. — Enumerated constant
 		@param values Returns the pixel map contents. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetPixelMap (map, values):(map:Dynamic, values:Dynamic):Void;
+	static function glGetPixelMap(map,values):(map:Dynamic, values:Dynamic):Void;
 	/**
 		Return the polygon stipple pattern
 		@param mask Returns the stipple pattern. The initial value is all 1’s. — bgl.Buffer object I{type GL_BYTE}
@@ -400,7 +400,7 @@ package bgl;
 		@param pname Specifies the symbolic name of a texture environment parameter. — Enumerated constant
 		@param params Returns the requested data. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetTexEnv (target, pname, params):(target:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glGetTexEnv(target,pname,params):(target:Dynamic, pname:Dynamic, params:Dynamic):Void;
 	/**
 		B{glGetTexGendv, glGetTexGenfv, glGetTexGeniv}
 		
@@ -409,7 +409,7 @@ package bgl;
 		@param pname Specifies the symbolic name of the value(s) to be returned. — Enumerated constant
 		@param params Returns the requested data. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetTexGen (coord, pname, params):(coord:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glGetTexGen(coord,pname,params):(coord:Dynamic, pname:Dynamic, params:Dynamic):Void;
 	/**
 		Return a texture image
 		@param target Specifies which texture is to be obtained. — Enumerated constant
@@ -420,7 +420,7 @@ package bgl;
 		@param pixels Returns the texture image. Should be a pointer to an array of the
 		                                        type specified by type — bgl.Buffer object.
 	**/
-	static function glGetTexImage(target, level, format, type, pixels):(target:Dynamic, level:Dynamic, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
+	static function glGetTexImage(target,level,format,type,pixels):(target:Dynamic, level:Int, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
 	/**
 		B{glGetTexLevelParameterfv, glGetTexLevelParameteriv}
 		
@@ -431,7 +431,7 @@ package bgl;
 		@param pname Specifies the symbolic name of a texture parameter. — Enumerated constant
 		@param params Returns the requested data. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetTexLevelParameter (target, level, pname, params):(target:Dynamic, level:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glGetTexLevelParameter(target,level,pname,params):(target:Dynamic, level:Int, pname:Dynamic, params:Dynamic):Void;
 	/**
 		B{glGetTexParameterfv, glGetTexParameteriv}
 		
@@ -440,14 +440,14 @@ package bgl;
 		@param pname Specifies the symbolic name the target texture. — Enumerated constant
 		@param params Returns the texture parameters. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glGetTexParameter (target, pname, params):(target:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glGetTexParameter(target,pname,params):(target:Dynamic, pname:Dynamic, params:Dynamic):Void;
 	/**
 		Specify implementation-specific hints
 		@param target Specifies a symbolic constant indicating the behavior to be
 		                                        controlled. — Enumerated constant
 		@param mode Specifies a symbolic constant indicating the desired behavior. — Enumerated constant
 	**/
-	static function glHint(target, mode):(target:Dynamic, mode:Dynamic):Void;
+	static function glHint(target,mode):(target:Dynamic, mode:Dynamic):Void;
 	/**
 		B{glIndexd, glIndexf, glIndexi, glIndexs,  glIndexdv, glIndexfv, glIndexiv, glIndexsv}
 		
@@ -462,7 +462,7 @@ package bgl;
 		                                in the color index buffers.
 		                                Initially, the mask is all 1’s. — int
 	**/
-	static function glIndexMask(mask):(mask:Dynamic):Void;
+	static function glIndexMask(mask):(mask:Int):Void;
 	/**
 		Initialize the name stack
 	**/
@@ -494,7 +494,7 @@ package bgl;
 		                                        If function prototype ends in ‘v’ specifies a pointer to the value or values that
 		                                        parameter pname of light source light will be set to. — Depends on function prototype.
 	**/
-	static function glLight (light, pname, param):(light:Dynamic, pname:Dynamic, param:Dynamic):Void;
+	static function glLight(light,pname,param):(light:Dynamic, pname:Dynamic, param:Dynamic):Void;
 	/**
 		B{glLightModelf, glLightModeli, glLightModelfv, glLightModeliv}
 		
@@ -503,7 +503,7 @@ package bgl;
 		@param param Specifies the value that param will be set to. If function prototype ends in ‘v’
 		                                        specifies a pointer to the value or values that param will be set to. — Depends on function prototype.
 	**/
-	static function glLightModel (pname, param):(pname:Dynamic, param:Dynamic):Void;
+	static function glLightModel(pname,param):(pname:Dynamic, param:Dynamic):Void;
 	/**
 		Specify the line stipple pattern
 		@param factor Specifies a multiplier for each bit in the line stipple pattern.
@@ -514,12 +514,12 @@ package bgl;
 		                                        of a line will be drawn when the line is rasterized. Bit zero is used first; the default
 		                                        pattern is all 1’s. — unsigned short int
 	**/
-	static function glLineStipple(factor, pattern):(factor:Dynamic, pattern:Dynamic):Void;
+	static function glLineStipple(factor,pattern):(factor:Int, pattern:Dynamic):Void;
 	/**
 		Specify the width of rasterized lines.
 		@param width Specifies the width of rasterized lines. The initial value is 1. — float
 	**/
-	static function glLineWidth(width):(width:Dynamic):Void;
+	static function glLineWidth(width):(width:Float):Void;
 	/**
 		Set the display-list base for glCallLists
 		@param base Specifies an integer offset that will be added to glCallLists
@@ -537,7 +537,7 @@ package bgl;
 		@param m Specifies a pointer to 16 consecutive values, which are used as the elements
 		                                of a 4x4 column-major matrix. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glLoadMatrix (m):(m:Dynamic):Void;
+	static function glLoadMatrix(m):(m:Dynamic):Void;
 	/**
 		Load a name onto the name stack.
 		@param name Specifies a name that will replace the top value on the name stack. — unsigned int
@@ -553,7 +553,7 @@ package bgl;
 		
 		Define a one-dimensional evaluator
 		@param target Specifies the kind of values that are generated by the evaluator. — Enumerated constant
-		@param u1,u2 Specify a linear mapping of u, as presented to glEvalCoord1, to ^, t
+		@param pyu1,u2 Specify a linear mapping of u, as presented to glEvalCoord1, to ^, t
 		                                        he variable that is evaluated by the equations specified by this command. — 
 		@param stride Specifies the number of floats or float (double)s between the beginning
 		                                        of one control point and the beginning of the next one in the data structure
@@ -563,13 +563,13 @@ package bgl;
 		@param order Specifies the number of control points. Must be positive. — int
 		@param points Specifies a pointer to the array of control points. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glMap1 (target, u1, u2, stride, order, points):(target:Dynamic, u1,u2:Dynamic, stride:Dynamic, order:Dynamic, points:Dynamic):Void;
+	static function pyglMap1(target,u1,u2,stride,order,points):(target:Dynamic, pyu1,u2:Dynamic, stride:Int, order:Int, points:Dynamic):Void;
 	/**
 		B{glMap2d, glMap2f}
 		
 		Define a two-dimensional evaluator
 		@param target Specifies the kind of values that are generated by the evaluator. — Enumerated constant
-		@param u1,u2 Specify a linear mapping of u, as presented to glEvalCoord2, to ^, t
+		@param pyu1,u2 Specify a linear mapping of u, as presented to glEvalCoord2, to ^, t
 		                                        he variable that is evaluated by the equations specified by this command. Initially
 		                                        u1 is 0 and u2 is 1. — 
 		@param ustride Specifies the number of floats or float (double)s between the beginning
@@ -579,7 +579,7 @@ package bgl;
 		                                        control point must occupy contiguous memory locations. The initial value of ustride is 0. — int
 		@param uorder Specifies the dimension of the control point array in the u axis.
 		                                        Must be positive. The initial value is 1. — int
-		@param v2 Specify a linear mapping of v, as presented to glEvalCoord2,
+		@param pyv2 Specify a linear mapping of v, as presented to glEvalCoord2,
 		                                        to ^, one of the two variables that are evaluated by the equations
 		                                        specified by this command. Initially, v1 is 0 and v2 is 1. — v1,
 		@param vstride Specifies the number of floats or float (double)s between the
@@ -592,20 +592,20 @@ package bgl;
 		                                        Must be positive. The initial value is 1. — int
 		@param points Specifies a pointer to the array of control points. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glMap2 (target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points):(target:Dynamic, u1,u2:Dynamic, ustride:Dynamic, uorder:Dynamic, v2:Dynamic, vstride:Dynamic, vorder:Dynamic, points:Dynamic):Void;
+	static function pyglMap2(target,u1,u2,ustride,uorder,v1,v2,vstride,vorder,points):(target:Dynamic, pyu1,u2:Dynamic, ustride:Int, uorder:Int, pyv2:Dynamic, vstride:Int, vorder:Int, points:Dynamic):Void;
 	/**
 		B{glMapGrid1d, glMapGrid1f, glMapGrid2d, glMapGrid2f}
 		
 		Define a one- or two-dimensional mesh
 		@param un Specifies the number of partitions in the grid range interval
 		                                        [u1, u2]. Must be positive. — int
-		@param u2 Specify the mappings for integer grid domain values i=0 and i=un. — u1,
+		@param pyu2 Specify the mappings for integer grid domain values i=0 and i=un. — u1,
 		@param vn Specifies the number of partitions in the grid range interval
 		                                        [v1, v2] (glMapGrid2 only). — int
-		@param v2 Specify the mappings for integer grid domain values j=0 and j=vn
+		@param pyv2 Specify the mappings for integer grid domain values j=0 and j=vn
 		                                        (glMapGrid2 only). — v1,
 	**/
-	static function glMapGrid (un, u1,u2 ,vn, v1, v2):(un:Dynamic, u2:Dynamic, vn:Dynamic, v2:Dynamic):Void;
+	static function pyglMapGrid(un,u1,u2,vn,v1,v2):(un:Int, pyu2:Dynamic, vn:Int, pyv2:Dynamic):Void;
 	/**
 		Specify material parameters for the lighting model.
 		@param face Specifies which face or faces are being updated. Must be one of: — Enumerated constant
@@ -615,7 +615,7 @@ package bgl;
 		                                        If function prototype ends in ‘v’ specifies a pointer to the value or values that
 		                                        pname will be set to. — int
 	**/
-	static function glMaterial (face, pname, params):(face:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glMaterial(face,pname,params):(face:Dynamic, pname:Dynamic, params:Int):Void;
 	/**
 		Specify which matrix is the current matrix.
 		@param mode Specifies which matrix stack is the target for subsequent matrix operations. — Enumerated constant
@@ -628,13 +628,13 @@ package bgl;
 		@param m Points to 16 consecutive values that are used as the elements of a 4x4 column
 		                                major matrix. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glMultMatrix (m):(m:Dynamic):Void;
+	static function glMultMatrix(m):(m:Dynamic):Void;
 	/**
 		Create or replace a display list
 		@param list Specifies the display list name — unsigned int
 		@param mode Specifies the compilation mode. — Enumerated constant
 	**/
-	static function glNewList(list, mode):(list:Dynamic, mode:Dynamic):Void;
+	static function glNewList(list,mode):(list:Dynamic, mode:Dynamic):Void;
 	/**
 		B{Normal3b, Normal3bv, Normal3d, Normal3dv, Normal3f, Normal3fv, Normal3i, Normal3iv,
 		Normal3s, Normal3sv}
@@ -645,7 +645,7 @@ package bgl;
 		@param v Specifies a pointer to an array of three elements: the x, y, and z coordinates
 		                                        of the new current normal. — bgl.Buffer object. Depends on function prototype. (‘v’ prototypes)
 	**/
-	static function glNormal3 (nx, ny, nz, v):(ny,:Dynamic, v:Dynamic):Void;
+	static function pyglNormal3(nx,ny,nz,v):(ny,:Dynamic, v:Dynamic):Void;
 	/**
 		Multiply the current matrix with an orthographic matrix
 		@param right Specify the coordinates for the left and
@@ -655,13 +655,13 @@ package bgl;
 		@param zFar Specify the distances to the nearer and farther
 		                                        depth clipping planes. These values are negative if the plane is to be behind the viewer. — zNear,
 	**/
-	static function glOrtho(left, right, bottom, top, zNear, zFar):(right:Dynamic, top:Dynamic, zFar:Dynamic):Void;
+	static function glOrtho(left,right,bottom,top,zNear,zFar):(right:Dynamic, top:Dynamic, zFar:Dynamic):Void;
 	/**
 		Place a marker in the feedback buffer
 		@param token Specifies a marker value to be placed in the feedback
 		                                buffer following a GL_PASS_THROUGH_TOKEN. — float
 	**/
-	static function glPassThrough(token):(token:Dynamic):Void;
+	static function glPassThrough(token):(token:Float):Void;
 	/**
 		B{glPixelMapfv, glPixelMapuiv, glPixelMapusv}
 		
@@ -670,7 +670,7 @@ package bgl;
 		@param mapsize Specifies the size of the map being defined. — int
 		@param values Specifies an array of mapsize values. — bgl.Buffer object. Depends on function prototype.
 	**/
-	static function glPixelMap (map, mapsize, values):(map:Dynamic, mapsize:Dynamic, values:Dynamic):Void;
+	static function glPixelMap(map,mapsize,values):(map:Dynamic, mapsize:Int, values:Dynamic):Void;
 	/**
 		B{glPixelStoref, glPixelStorei}
 		
@@ -680,7 +680,7 @@ package bgl;
 		                                        Six more affect the unpacking of pixel data from memory. — Enumerated constant
 		@param param Specifies the value that pname is set to. — Depends on function prototype.
 	**/
-	static function glPixelStore (pname, param):(pname:Dynamic, param:Dynamic):Void;
+	static function glPixelStore(pname,param):(pname:Dynamic, param:Dynamic):Void;
 	/**
 		B{glPixelTransferf, glPixelTransferi}
 		
@@ -688,17 +688,17 @@ package bgl;
 		@param pname Specifies the symbolic name of the pixel transfer parameter to be set. — Enumerated constant
 		@param param Specifies the value that pname is set to. — Depends on function prototype.
 	**/
-	static function glPixelTransfer (pname, param):(pname:Dynamic, param:Dynamic):Void;
+	static function glPixelTransfer(pname,param):(pname:Dynamic, param:Dynamic):Void;
 	/**
 		Specify the pixel zoom factors
 		@param yfactor Specify the x and y zoom factors for pixel write operations. — xfactor,
 	**/
-	static function glPixelZoom(xfactor, yfactor):(yfactor:Dynamic):Void;
+	static function glPixelZoom(xfactor,yfactor):(yfactor:Dynamic):Void;
 	/**
 		Specify the diameter of rasterized points
 		@param size Specifies the diameter of rasterized points. The initial value is 1. — float
 	**/
-	static function glPointSize(size):(size:Dynamic):Void;
+	static function glPointSize(size):(size:Float):Void;
 	/**
 		Select a polygon rasterization mode
 		@param face Specifies the polygons that mode applies to.
@@ -707,7 +707,7 @@ package bgl;
 		@param mode Specifies how polygons will be rasterized.
 		                                        The initial value is GL_FILL for both front- and back- facing polygons. — Enumerated constant
 	**/
-	static function glPolygonMode(face, mode):(face:Dynamic, mode:Dynamic):Void;
+	static function glPolygonMode(face,mode):(face:Dynamic, mode:Dynamic):Void;
 	/**
 		Set the scale and units used to calculate depth values
 		@param factor Specifies a scale factor that is used to create a variable depth
@@ -715,7 +715,7 @@ package bgl;
 		@param units Is multiplied by an implementation-specific value to create a
 		                                        constant depth offset. The initial value is 0. — float
 	**/
-	static function glPolygonOffset(factor, units):(factor:Dynamic, units:Dynamic):Void;
+	static function glPolygonOffset(factor,units):(factor:Float, units:Float):Void;
 	/**
 		Set the polygon stippling pattern
 		@param mask Specifies a pointer to a 32x32 stipple pattern that will be unpacked
@@ -746,7 +746,7 @@ package bgl;
 		                                        A priority given in an element of priorities applies to the texture named
 		                                        by the corresponding element of textures. — bgl.Buffer I{type GL_FLOAT}
 	**/
-	static function glPrioritizeTextures(n, textures, priorities):(n:Dynamic, textures:Dynamic, priorities:Dynamic):Void;
+	static function glPrioritizeTextures(n,textures,priorities):(n:Int, textures:Dynamic, priorities:Dynamic):Void;
 	/**
 		Push the server attribute stack
 		@param mask Specifies a mask that indicates which attributes to save. — Enumerated constant(s)
@@ -778,7 +778,7 @@ package bgl;
 		                                raster position.  If function prototype ends in ‘v’ specifies a pointer to an array of two,
 		                                three, or four elements, specifying x, y, z, and w coordinates, respectively. — x,
 	**/
-	static function glRasterPos (x,y,z,w):(y,:Dynamic):Void;
+	static function glRasterPos(x,y,z,w):(y,:Dynamic):Void;
 	/**
 		Select a color buffer source for pixels.
 		@param mode Specifies a color buffer. — Enumerated constant
@@ -795,17 +795,17 @@ package bgl;
 		@param type Specifies the data type of the pixel data. — Enumerated constant
 		@param pixels Returns the pixel data. — bgl.Buffer object
 	**/
-	static function glReadPixels(x, y, width, height, format, type, pixels):(y:Dynamic, height:Dynamic, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
+	static function glReadPixels(x,y,width,height,format,type,pixels):(y:Dynamic, height:Dynamic, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
 	/**
 		B{glRectd, glRectf, glRecti, glRects, glRectdv, glRectfv, glRectiv, glRectsv}
 		
 		Draw a rectangle
-		@param y1 Specify one vertex of a rectangle — x1,
-		@param y2 Specify the opposite vertex of the rectangle — x2,
-		@param v2 Specifies a pointer to one vertex of a rectangle and the pointer
+		@param pyy1 Specify one vertex of a rectangle — x1,
+		@param pyy2 Specify the opposite vertex of the rectangle — x2,
+		@param pyv2 Specifies a pointer to one vertex of a rectangle and the pointer
 		                                        to the opposite vertex of the rectangle — v1,
 	**/
-	static function glRect (x1,y1,x2,y2,v1,v2):(y1:Dynamic, y2:Dynamic, v2:Dynamic):Void;
+	static function pyglRect(x1,y1,x2,y2,v1,v2):(pyy1:Dynamic, pyy2:Dynamic, pyv2:Dynamic):Void;
 	/**
 		Set rasterization mode
 		@param mode Specifies the rasterization mode. — Enumerated constant
@@ -818,14 +818,14 @@ package bgl;
 		@param angle Specifies the angle of rotation in degrees. — Depends on function prototype.
 		@param y, Specify the x, y, and z coordinates of a vector respectively. — x,
 	**/
-	static function glRotate (angle, x, y, z):(angle:Dynamic, y,:Dynamic):Void;
+	static function glRotate(angle,x,y,z):(angle:Dynamic, y,:Dynamic):Void;
 	/**
 		B{glScaled, glScalef}
 		
 		Multiply the current matrix by a general scaling matrix
 		@param y, Specify scale factors along the x, y, and z axes, respectively. — x,
 	**/
-	static function glScale (x,y,z):(y,:Dynamic):Void;
+	static function glScale(x,y,z):(y,:Dynamic):Void;
 	/**
 		Define the scissor box
 		@param y Specify the lower left corner of the scissor box. Initially (0, 0). — x,
@@ -839,7 +839,7 @@ package bgl;
 		@param size Specifies the size of buffer — int
 		@param buffer Returns the selection data — bgl.Buffer I{type GL_INT}
 	**/
-	static function glSelectBuffer(size, buffer):(size:Dynamic, buffer:Dynamic):Void;
+	static function glSelectBuffer(size,buffer):(size:Int, buffer:Dynamic):Void;
 	/**
 		Select flat or smooth shading
 		@param mode Specifies a symbolic value representing a shading technique. — Enumerated constant
@@ -854,7 +854,7 @@ package bgl;
 		@param mask Specifies a mask that is ANDed with both the reference value and
 		                                        the stored stencil value when the test is done. The initial value is all 1’s. — unsigned int
 	**/
-	static function glStencilFunc(func, ref, mask):(func:Dynamic, ref:Dynamic, mask:Dynamic):Void;
+	static function glStencilFunc(func,ref,mask):(func:Dynamic, ref:Int, mask:Dynamic):Void;
 	/**
 		Control the writing of individual bits in the stencil planes
 		@param mask Specifies a bit mask to enable and disable writing of individual bits
@@ -874,7 +874,7 @@ package bgl;
 		                                        symbolic constants
 		                                        as fail. The initial value is GL_KEEP. — Enumerated constant
 	**/
-	static function glStencilOp(fail, zfail, zpass):(fail:Dynamic, zfail:Dynamic, zpass:Dynamic):Void;
+	static function glStencilOp(fail,zfail,zpass):(fail:Dynamic, zfail:Dynamic, zpass:Dynamic):Void;
 	/**
 		B{glTexCoord1d, glTexCoord1f, glTexCoord1i, glTexCoord1s, glTexCoord2d, glTexCoord2f,
 		glTexCoord2i, glTexCoord2s, glTexCoord3d, glTexCoord3f, glTexCoord3i, glTexCoord3s,
@@ -889,7 +889,7 @@ package bgl;
 		@param v Specifies a pointer to an array of one, two, three, or four elements,
 		                                        which in turn specify the s, t, r, and q texture coordinates. — bgl.Buffer object. Depends on function prototype. (for ‘v’ prototypes only)
 	**/
-	static function glTexCoord (s,t,r,q,v):(t,:Dynamic, v:Dynamic):Void;
+	static function glTexCoord(s,t,r,q,v):(t,:Dynamic, v:Dynamic):Void;
 	/**
 		B{glTextEnvf, glTextEnvi, glTextEnvfv, glTextEnviv}
 		
@@ -901,7 +901,7 @@ package bgl;
 		                                        specifies a pointer to a parameter array that contains either a single
 		                                        symbolic constant or an RGBA color — Depends on function prototype.
 	**/
-	static function glTexEnv  (target, pname, param):(target:Dynamic, pname:Dynamic, param:Dynamic):Void;
+	static function glTexEnv(target,pname,param):(target:Dynamic, pname:Dynamic, param:Dynamic):Void;
 	/**
 		B{glTexGend, glTexGenf, glTexGeni, glTexGendv, glTexGenfv, glTexGeniv}
 		
@@ -914,7 +914,7 @@ package bgl;
 		                                        contain a single symbolic constant. Otherwise, params holds the coefficients
 		                                        for the texture-coordinate generation function specified by pname. — Depends on function prototype.
 	**/
-	static function glTexGen (coord, pname, param):(coord:Dynamic, pname:Dynamic, param:Dynamic):Void;
+	static function glTexGen(coord,pname,param):(coord:Dynamic, pname:Dynamic, param:Dynamic):Void;
 	/**
 		Specify a one-dimensional texture image
 		@param target Specifies the target texture. — Enumerated constant
@@ -929,7 +929,7 @@ package bgl;
 		@param type Specifies the data type of the pixel data. — Enumerated constant
 		@param pixels Specifies a pointer to the image data in memory. — bgl.Buffer object.
 	**/
-	static function glTexImage1D(target, level, internalformat, width, border, format, type, pixels):(target:Dynamic, level:Dynamic, internalformat:Dynamic, width:Dynamic, border:Dynamic, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
+	static function pyglTexImage1D(target,level,internalformat,width,border,format,type,pixels):(target:Dynamic, level:Int, internalformat:Int, width:Int, border:Int, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
 	/**
 		Specify a two-dimensional texture image
 		@param target Specifies the target texture. — Enumerated constant
@@ -947,7 +947,7 @@ package bgl;
 		@param type Specifies the data type of the pixel data. — Enumerated constant
 		@param pixels Specifies a pointer to the image data in memory. — bgl.Buffer object.
 	**/
-	static function glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels):(target:Dynamic, level:Dynamic, internalformat:Dynamic, width:Dynamic, height:Dynamic, border:Dynamic, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
+	static function pyglTexImage2D(target,level,internalformat,width,height,border,format,type,pixels):(target:Dynamic, level:Int, internalformat:Int, width:Int, height:Int, border:Int, format:Dynamic, type:Dynamic, pixels:Dynamic):Void;
 	/**
 		B{glTexParameterf, glTexParameteri, glTexParameterfv, glTexParameteriv}
 		
@@ -957,14 +957,14 @@ package bgl;
 		@param param Specifies the value of pname. If function prototype ends in ‘v’ specifies
 		                                        a pointer to an array where the value or values of pname are stored. — Depends on function prototype.
 	**/
-	static function glTexParameter (target, pname, param):(target:Dynamic, pname:Dynamic, param:Dynamic):Void;
+	static function glTexParameter(target,pname,param):(target:Dynamic, pname:Dynamic, param:Dynamic):Void;
 	/**
 		B{glTranslatef, glTranslated}
 		
 		Multiply the current matrix by a translation matrix
 		@param y, Specify the x, y, and z coordinates of a translation vector. — x,
 	**/
-	static function glTranslate (x, y, z):(y,:Dynamic):Void;
+	static function glTranslate(x,y,z):(y,:Dynamic):Void;
 	/**
 		B{glVertex2d, glVertex2f, glVertex2i, glVertex2s, glVertex3d, glVertex3f, glVertex3i,
 		glVertex3s, glVertex4d, glVertex4f, glVertex4i, glVertex4s, glVertex2dv, glVertex2fv,
@@ -979,7 +979,7 @@ package bgl;
 		                                        x, y, and z; and of a four-element array, x, y, z, and w. — bgl.Buffer object. Depends of function prototype (for ‘v’
 		                                        prototypes only)
 	**/
-	static function glVertex (x,y,z,w,v):(y,:Dynamic, v:Dynamic):Void;
+	static function glVertex(x,y,z,w,v):(y,:Dynamic, v:Dynamic):Void;
 	/**
 		Set the viewport
 		@param y Specify the lower left corner of the viewport rectangle,
@@ -997,27 +997,27 @@ package bgl;
 		@param zNear Specifies the distance from the viewer to the near clipping plane (always positive). — double
 		@param zFar Specifies the distance from the viewer to the far clipping plane (always positive). — double
 	**/
-	static function gluPerspective(fovY, aspect, zNear, zFar):(fovY:Dynamic, aspect:Dynamic, zNear:Dynamic, zFar:Dynamic):Void;
+	static function gluPerspective(fovY,aspect,zNear,zFar):(fovY:Dynamic, aspect:Dynamic, zNear:Dynamic, zFar:Dynamic):Void;
 	/**
 		Define a viewing transformation.
 		@param eyey, Specifies the position of the eye point. — eyex,
 		@param centery, Specifies the position of the reference point. — centerx,
 		@param upy, Specifies the direction of the up vector. — upx,
 	**/
-	static function gluLookAt(eyex, eyey, eyez, centerx, centery, centerz, upx, upy, upz):(eyey,:Dynamic, centery,:Dynamic, upy,:Dynamic):Void;
+	static function gluLookAt(eyex,eyey,eyez,centerx,centery,centerz,upx,upy,upz):(eyey,:Dynamic, centery,:Dynamic, upy,:Dynamic):Void;
 	/**
 		Define a 2-D orthographic projection matrix.
 		@param right Specify the coordinates for the left and right vertical clipping planes. — left,
 		@param top Specify the coordinates for the bottom and top horizontal clipping planes. — bottom,
 	**/
-	static function gluOrtho2D(left, right, bottom, top):(right:Dynamic, top:Dynamic):Void;
+	static function pygluOrtho2D(left,right,bottom,top):(right:Dynamic, top:Dynamic):Void;
 	/**
 		Define a picking region.
 		@param y Specify the center of a picking region in window coordinates. — x,
 		@param height Specify the width and height, respectively, of the picking region in window coordinates. — width,
 		@param viewport Specifies the current viewport. — bgl.Buffer object. [int]
 	**/
-	static function gluPickMatrix(x, y, width, height, viewport):(y:Dynamic, height:Dynamic, viewport:Dynamic):Void;
+	static function gluPickMatrix(x,y,width,height,viewport):(y:Dynamic, height:Dynamic, viewport:Dynamic):Void;
 	/**
 		Map object coordinates to window coordinates.
 		@param objy, Specify the object coordinates. — objx,
@@ -1026,7 +1026,7 @@ package bgl;
 		@param viewport Specifies the current viewport (as from a glGetIntegerv call). — bgl.Buffer object. [int]
 		@param winy, Return the computed window coordinates. — winx,
 	**/
-	static function gluProject(objx, objy, objz, modelMatrix, projMatrix, viewport, winx, winy, winz):(objy,:Dynamic, modelMatrix:Dynamic, projMatrix:Dynamic, viewport:Dynamic, winy,:Dynamic):Void;
+	static function gluProject(objx,objy,objz,modelMatrix,projMatrix,viewport,winx,winy,winz):(objy,:Dynamic, modelMatrix:Dynamic, projMatrix:Dynamic, viewport:Dynamic, winy,:Dynamic):Void;
 	/**
 		Map object coordinates to window coordinates.
 		@param winy, Specify the window coordinates to be mapped. — winx,
@@ -1035,44 +1035,44 @@ package bgl;
 		@param viewport Specifies the current viewport (as from a glGetIntegerv call). — bgl.Buffer object. [int]
 		@param objy, Return the computed object coordinates. — objx,
 	**/
-	static function gluUnProject(winx, winy, winz, modelMatrix, projMatrix, viewport, objx, objy, objz):(winy,:Dynamic, modelMatrix:Dynamic, projMatrix:Dynamic, viewport:Dynamic, objy,:Dynamic):Void;
+	static function gluUnProject(winx,winy,winz,modelMatrix,projMatrix,viewport,objx,objy,objz):(winy,:Dynamic, modelMatrix:Dynamic, projMatrix:Dynamic, viewport:Dynamic, objy,:Dynamic):Void;
 	/**
 		Installs a program object as part of current rendering state
 		@param program Specifies the handle of the program object whose executables are to be used as part of current rendering state. — int
 	**/
-	static function glUseProgram(program):(program:Dynamic):Void;
+	static function glUseProgram(program):(program:Int):Void;
 	/**
 		Validates a program object
 		@param program Specifies the handle of the program object to be validated. — int
 	**/
-	static function glValidateProgram(program):(program:Dynamic):Void;
+	static function glValidateProgram(program):(program:Int):Void;
 	/**
 		Links a program object.
 		@param program Specifies the handle of the program object to be linked. — int
 	**/
-	static function glLinkProgram(program):(program:Dynamic):Void;
+	static function glLinkProgram(program):(program:Int):Void;
 	/**
 		Select active texture unit.
 		@param texture Constant in GL_TEXTURE0 0 - 8 — int
 	**/
-	static function glActiveTexture(texture):(texture:Dynamic):Void;
+	static function glActiveTexture(texture):(texture:Int):Void;
 	/**
 		Attaches a shader object to a program object.
 		@param program Specifies the program object to which a shader object will be attached. — int
 		@param shader Specifies the shader object that is to be attached. — int
 	**/
-	static function glAttachShader(program, shader):(program:Dynamic, shader:Dynamic):Void;
+	static function glAttachShader(program,shader):(program:Int, shader:Int):Void;
 	/**
 		Compiles a shader object.
 		@param shader Specifies the shader object to be compiled. — int
 	**/
-	static function glCompileShader(shader):(shader:Dynamic):Void;
+	static function glCompileShader(shader):(shader:Int):Void;
 	/**
 		Creates a program object
 		
 		@returns int
 	**/
-	static function glCreateProgram():():Dynamic;
+	static function glCreateProgram():():Int;
 	/**
 		Creates a shader object.
 		@param shaderType  — Specifies the type of shader to be created.
@@ -1084,23 +1084,23 @@ package bgl;
 		
 		@returns int
 	**/
-	static function glCreateShader(shaderType):(shaderType:Dynamic):Dynamic;
+	static function glCreateShader(shaderType):(shaderType:Dynamic):Int;
 	/**
 		Deletes a program object.
 		@param program Specifies the program object to be deleted. — int
 	**/
-	static function glDeleteProgram(program):(program:Dynamic):Void;
+	static function glDeleteProgram(program):(program:Int):Void;
 	/**
 		Deletes a shader object.
 		@param shader Specifies the shader object to be deleted. — int
 	**/
-	static function glDeleteShader(shader):(shader:Dynamic):Void;
+	static function glDeleteShader(shader):(shader:Int):Void;
 	/**
 		Detaches a shader object from a program object to which it is attached.
 		@param program Specifies the program object from which to detach the shader object. — int
 		@param shader pecifies the program object from which to detach the shader object. — int
 	**/
-	static function glDetachShader(program, shader):(program:Dynamic, shader:Dynamic):Void;
+	static function glDetachShader(program,shader):(program:Int, shader:Int):Void;
 	/**
 		Returns the handles of the shader objects attached to a program object.
 		@param program Specifies the program object to be queried. — int
@@ -1108,7 +1108,7 @@ package bgl;
 		@param count Returns the number of names actually returned in objects. — bgl.Buffer int buffer.
 		@param shaders Specifies an array that is used to return the names of attached shader objects. — bgl.Buffer int buffer.
 	**/
-	static function glGetAttachedShaders(program, maxCount, count, shaders):(program:Dynamic, maxCount:Dynamic, count:Dynamic, shaders:Dynamic):Void;
+	static function glGetAttachedShaders(program,maxCount,count,shaders):(program:Int, maxCount:Int, count:Dynamic, shaders:Dynamic):Void;
 	/**
 		Returns the information log for a program object.
 		@param program Specifies the program object whose information log is to be queried. — int
@@ -1116,7 +1116,7 @@ package bgl;
 		@param length Returns the length of the string returned in infoLog (excluding the null terminator). — bgl.Buffer int buffer.
 		@param infoLog Specifies an array of characters that is used to return the information log. — bgl.Buffer char buffer.
 	**/
-	static function glGetProgramInfoLog(program, maxLength, length, infoLog):(program:Dynamic, maxLength:Dynamic, length:Dynamic, infoLog:Dynamic):Void;
+	static function glGetProgramInfoLog(program,maxLength,length,infoLog):(program:Int, maxLength:Int, length:Dynamic, infoLog:Dynamic):Void;
 	/**
 		Returns the information log for a shader object.
 		@param shader Specifies the shader object whose information log is to be queried. — int
@@ -1124,24 +1124,24 @@ package bgl;
 		@param length Returns the length of the string returned in infoLog (excluding the null terminator). — bgl.Buffer int buffer.
 		@param infoLog Specifies an array of characters that is used to return the information log. — bgl.Buffer char buffer.
 	**/
-	static function glGetShaderInfoLog(program, maxLength, length, infoLog):(shader:Dynamic, maxLength:Dynamic, length:Dynamic, infoLog:Dynamic):Void;
+	static function glGetShaderInfoLog(program,maxLength,length,infoLog):(shader:Int, maxLength:Int, length:Dynamic, infoLog:Dynamic):Void;
 	/**
 		Returns a parameter from a program object.
 		@param program Specifies the program object to be queried. — int
 		@param pname Specifies the object parameter. — int
 		@param params Returns the requested object parameter. — bgl.Buffer int buffer.
 	**/
-	static function glGetProgramiv(program, pname, params):(program:Dynamic, pname:Dynamic, params:Dynamic):Void;
+	static function glGetProgramiv(program,pname,params):(program:Int, pname:Int, params:Dynamic):Void;
 	/**
 		Determines if a name corresponds to a shader object.
 		@param shader Specifies a potential shader object. — int
 	**/
-	static function glIsShader(shader):(shader:Dynamic):Void;
+	static function glIsShader(shader):(shader:Int):Void;
 	/**
 		Determines if a name corresponds to a program object
 		@param program Specifies a potential program object. — int
 	**/
-	static function glIsProgram(program):(program:Dynamic):Void;
+	static function glIsProgram(program):(program:Int):Void;
 	/**
 		Returns the source code string from a shader object
 		@param shader Specifies the shader object to be queried. — int
@@ -1149,11 +1149,11 @@ package bgl;
 		@param length Returns the length of the string returned in source (excluding the null terminator). — bgl.Buffer int buffer.
 		@param source Specifies an array of characters that is used to return the source code string. — bgl.Buffer char.
 	**/
-	static function glGetShaderSource(shader, bufSize, length, source):(shader:Dynamic, bufSize:Dynamic, length:Dynamic, source:Dynamic):Void;
+	static function glGetShaderSource(shader,bufSize,length,source):(shader:Int, bufSize:Int, length:Dynamic, source:Dynamic):Void;
 	/**
 		Replaces the source code in a shader object.
 		@param shader Specifies the handle of the shader object whose source code is to be replaced. — int
 		@param shader_string The shader string. — string
 	**/
-	static function glShaderSource(shader, shader_string):(shader:Dynamic, shader_string:Dynamic):Void;
+	static function glShaderSource(shader,shader_string):(shader:Int, shader_string:String):Void;
 }

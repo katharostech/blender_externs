@@ -7,7 +7,7 @@ package bpy.types.metaball;
 }/**
 	Metaball data-block to defined blobby surfaces
 **/
-@:pythonImport("bpy.types.MetaBall") extern class MetaBall {
+@:native("bpy.types.MetaBall") extern class MetaBall {
 	/**
 		Animation data for this data-block
 		
@@ -95,14 +95,14 @@ package bpy.types.metaball;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

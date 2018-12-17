@@ -20,7 +20,7 @@ package bpy.types.gpencilinterpolatesettings;
 }/**
 	Settings for Grease Pencil interpolation tools
 **/
-@:pythonImport("bpy.types.GPencilInterpolateSettings") extern class GPencilInterpolateSettings {
+@:native("bpy.types.GPencilInterpolateSettings") extern class GPencilInterpolateSettings {
 	/**
 		Amount to boost elastic bounces for ‘elastic’ easing
 		
@@ -75,12 +75,12 @@ package bpy.types.gpencilinterpolatesettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

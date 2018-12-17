@@ -18,7 +18,7 @@ package bpy.types.textcurve;
 }/**
 	Curve data-block used for storing text
 **/
-@:pythonImport("bpy.types.TextCurve") extern class TextCurve {
+@:native("bpy.types.TextCurve") extern class TextCurve {
 	/**
 		
 		
@@ -181,14 +181,14 @@ package bpy.types.textcurve;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		
@@ -547,7 +547,7 @@ package bpy.types.textcurve;
 		
 		@returns boolean
 	**/
-	function validate_material_indices():Dynamic;
+	function validate_material_indices():Bool;
 	/**
 		update_gpu_tag
 	**/

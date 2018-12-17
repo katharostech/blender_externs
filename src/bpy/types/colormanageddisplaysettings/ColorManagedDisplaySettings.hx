@@ -4,7 +4,7 @@ package bpy.types.colormanageddisplaysettings;
 }/**
 	Color management specific to display device
 **/
-@:pythonImport("bpy.types.ColorManagedDisplaySettings") extern class ColorManagedDisplaySettings {
+@:native("bpy.types.ColorManagedDisplaySettings") extern class ColorManagedDisplaySettings {
 	/**
 		Display device name
 		
@@ -17,12 +17,12 @@ package bpy.types.colormanageddisplaysettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

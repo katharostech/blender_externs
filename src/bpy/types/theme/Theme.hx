@@ -3,7 +3,7 @@ package bpy.types.theme;
 	var USER_INTERFACE : String = "USER_INTERFACE";
 	var STYLE : String = "STYLE";
 	var BONE_COLOR_SETS : String = "BONE_COLOR_SETS";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var GRAPH_EDITOR : String = "GRAPH_EDITOR";
 	var DOPESHEET_EDITOR : String = "DOPESHEET_EDITOR";
 	var NLA_EDITOR : String = "NLA_EDITOR";
@@ -23,7 +23,7 @@ package bpy.types.theme;
 }/**
 	Theme settings defining draw style and colors in the user interface
 **/
-@:pythonImport("bpy.types.Theme") extern class Theme {
+@:native("bpy.types.Theme") extern class Theme {
 	/**
 		
 		
@@ -149,19 +149,19 @@ package bpy.types.theme;
 		
 		Type: ThemeView3D, (readonly, never None)
 	**/
-	var view_3d(default, never) : bpy.types.themeview3d.ThemeView3D;
+	var pyview_3d(default, never) : bpy.types.themeview3d.ThemeView3D;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

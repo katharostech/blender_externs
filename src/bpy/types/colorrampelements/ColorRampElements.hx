@@ -2,14 +2,14 @@ package bpy.types.colorrampelements;
 /**
 	Collection of Color Ramp Elements
 **/
-@:pythonImport("bpy.types.ColorRampElements") extern class ColorRampElements {
+@:native("bpy.types.ColorRampElements") extern class ColorRampElements {
 	/**
 		Add element to ColorRamp
 		@param position Position, Position to add element — float in [0, 1]
 		
 		@returns ColorRampElement
 	**/
-	function new(position:Float):bpy.types.colorrampelement.ColorRampElement;
+	function pyNew(position:Float):bpy.types.colorrampelement.ColorRampElement;
 	/**
 		Delete element from ColorRamp
 		@param element Element to remove — ColorRampElement, (never None)
@@ -21,12 +21,12 @@ package bpy.types.colorrampelements;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

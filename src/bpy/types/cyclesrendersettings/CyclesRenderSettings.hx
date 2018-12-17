@@ -13,9 +13,9 @@ package bpy.types.cyclesrendersettings;
 	var TRANSMISSION : String = "TRANSMISSION";
 	var SUBSURFACE : String = "SUBSURFACE";
 }@:enum abstract Enum2(String) from String to String {
-	var BVH2 : String = "BVH2";
-	var BVH4 : String = "BVH4";
-	var BVH8 : String = "BVH8";
+	var pyBVH2 : String = "BVH2";
+	var pyBVH4 : String = "BVH4";
+	var pyBVH8 : String = "BVH8";
 }@:enum abstract Enum3(String) from String to String {
 	var DYNAMIC_BVH : String = "DYNAMIC_BVH";
 	var STATIC_BVH : String = "STATIC_BVH";
@@ -59,22 +59,22 @@ package bpy.types.cyclesrendersettings;
 	var CORRELATED_MUTI_JITTER : String = "CORRELATED_MUTI_JITTER";
 }@:enum abstract Enum14(String) from String to String {
 	var OFF : String = "OFF";
-	var 128 : String = "128";
-	var 256 : String = "256";
-	var 512 : String = "512";
-	var 1024 : String = "1024";
-	var 2048 : String = "2048";
-	var 4096 : String = "4096";
-	var 8192 : String = "8192";
+	var py128 : String = "128";
+	var py256 : String = "256";
+	var py512 : String = "512";
+	var py1024 : String = "1024";
+	var py2048 : String = "2048";
+	var py4096 : String = "4096";
+	var py8192 : String = "8192";
 }@:enum abstract Enum15(String) from String to String {
 	var OFF : String = "OFF";
-	var 128 : String = "128";
-	var 256 : String = "256";
-	var 512 : String = "512";
-	var 1024 : String = "1024";
-	var 2048 : String = "2048";
-	var 4096 : String = "4096";
-	var 8192 : String = "8192";
+	var py128 : String = "128";
+	var py256 : String = "256";
+	var py512 : String = "512";
+	var py1024 : String = "1024";
+	var py2048 : String = "2048";
+	var py4096 : String = "4096";
+	var py8192 : String = "8192";
 }@:enum abstract Enum16(String) from String to String {
 	var CENTER : String = "CENTER";
 	var RIGHT_TO_LEFT : String = "RIGHT_TO_LEFT";
@@ -86,7 +86,7 @@ package bpy.types.cyclesrendersettings;
 	var USE : String = "USE";
 	var BOUNDED : String = "BOUNDED";
 	var IGNORE : String = "IGNORE";
-}@:pythonImport("bpy.types.CyclesRenderSettings") extern class CyclesRenderSettings {
+}@:native("bpy.types.CyclesRenderSettings") extern class CyclesRenderSettings {
 	/**
 		Number of antialiasing samples to render for each pixel
 		
@@ -218,7 +218,7 @@ package bpy.types.cyclesrendersettings;
 		
 		Type: boolean, default True
 	**/
-	var debug_use_cpu_avx2 : Bool;
+	var pydebug_use_cpu_avx2 : Bool;
 	/**
 		
 		
@@ -230,19 +230,19 @@ package bpy.types.cyclesrendersettings;
 		
 		Type: boolean, default True
 	**/
-	var debug_use_cpu_sse2 : Bool;
+	var pydebug_use_cpu_sse2 : Bool;
 	/**
 		
 		
 		Type: boolean, default True
 	**/
-	var debug_use_cpu_sse3 : Bool;
+	var pydebug_use_cpu_sse3 : Bool;
 	/**
 		
 		
 		Type: boolean, default True
 	**/
-	var debug_use_cpu_sse41 : Bool;
+	var pydebug_use_cpu_sse41 : Bool;
 	/**
 		
 		
@@ -615,12 +615,12 @@ package bpy.types.cyclesrendersettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

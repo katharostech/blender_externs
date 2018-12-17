@@ -2,7 +2,7 @@ package bpy.types.mask;
 /**
 	Mask data-block defining mask for compositing
 **/
-@:pythonImport("bpy.types.Mask") extern class Mask {
+@:native("bpy.types.Mask") extern class Mask {
 	/**
 		Index of active layer in list of all mask’s layers
 		
@@ -39,14 +39,14 @@ package bpy.types.mask;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

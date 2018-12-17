@@ -10,7 +10,7 @@ package bpy.types.sequencemodifiers;
 }/**
 	Collection of strip modifiers
 **/
-@:pythonImport("bpy.types.SequenceModifiers") extern class SequenceModifiers {
+@:native("bpy.types.SequenceModifiers") extern class SequenceModifiers {
 	/**
 		Add a new modifier
 		@param name New name for the modifier — string, (never None)
@@ -18,7 +18,7 @@ package bpy.types.sequencemodifiers;
 		
 		@returns SequenceModifier
 	**/
-	function new(name:String, type:bpy.types.sequencemodifiers.SequenceModifiers.Enum1):bpy.types.sequencemodifier.SequenceModifier;
+	function pyNew(name:String, type:bpy.types.sequencemodifiers.SequenceModifiers.Enum1):bpy.types.sequencemodifier.SequenceModifier;
 	/**
 		Remove an existing modifier from the sequence
 		@param modifier Modifier to remove — SequenceModifier, (never None)
@@ -34,12 +34,12 @@ package bpy.types.sequencemodifiers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

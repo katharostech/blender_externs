@@ -6,7 +6,7 @@ package bpy.types.limitdistanceconstraint;
 }/**
 	Limit the distance from target object
 **/
-@:pythonImport("bpy.types.LimitDistanceConstraint") extern class LimitDistanceConstraint {
+@:native("bpy.types.LimitDistanceConstraint") extern class LimitDistanceConstraint {
 	/**
 		Radius of limiting sphere
 		
@@ -55,14 +55,14 @@ package bpy.types.limitdistanceconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

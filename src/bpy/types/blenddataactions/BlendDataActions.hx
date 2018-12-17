@@ -2,14 +2,14 @@ package bpy.types.blenddataactions;
 /**
 	Collection of actions
 **/
-@:pythonImport("bpy.types.BlendDataActions") extern class BlendDataActions {
+@:native("bpy.types.BlendDataActions") extern class BlendDataActions {
 	/**
 		Add a new action to the main database
 		@param name New name for the data-block — string, (never None)
 		
 		@returns Action
 	**/
-	function new(name:String):bpy.types.action.Action;
+	function pyNew(name:String):bpy.types.action.Action;
 	/**
 		Remove a action from the current blendfile
 		@param action Action to remove — Action, (never None)
@@ -22,19 +22,19 @@ package bpy.types.blenddataactions;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

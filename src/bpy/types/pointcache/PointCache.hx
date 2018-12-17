@@ -6,7 +6,7 @@ package bpy.types.pointcache;
 }/**
 	Active point cache for physics simulations
 **/
-@:pythonImport("bpy.types.PointCache") extern class PointCache {
+@:native("bpy.types.PointCache") extern class PointCache {
 	/**
 		Compression method to be used
 		
@@ -109,12 +109,12 @@ package bpy.types.pointcache;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

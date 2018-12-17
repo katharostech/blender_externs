@@ -2,7 +2,7 @@ package bpy.types.depsgraphobjectinstance;
 /**
 	Extended information about dependency graph object iterator (WARNING: all data here is evaluated one, not original .blend IDs…)
 **/
-@:pythonImport("bpy.types.DepsgraphObjectInstance") extern class DepsgraphObjectInstance {
+@:native("bpy.types.DepsgraphObjectInstance") extern class DepsgraphObjectInstance {
 	/**
 		Evaluated object which is being instanced by this iterator
 		
@@ -69,12 +69,12 @@ package bpy.types.depsgraphobjectinstance;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

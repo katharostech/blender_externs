@@ -17,7 +17,7 @@ package bpy.types.rigidbodyobject;
 }/**
 	Settings for object participating in Rigid Body Simulation
 **/
-@:pythonImport("bpy.types.RigidBodyObject") extern class RigidBodyObject {
+@:native("bpy.types.RigidBodyObject") extern class RigidBodyObject {
 	/**
 		Amount of angular velocity that is lost over time
 		
@@ -132,12 +132,12 @@ package bpy.types.rigidbodyobject;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

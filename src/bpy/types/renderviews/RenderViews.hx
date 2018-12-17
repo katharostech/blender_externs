@@ -2,7 +2,7 @@ package bpy.types.renderviews;
 /**
 	Collection of render views
 **/
-@:pythonImport("bpy.types.RenderViews") extern class RenderViews {
+@:native("bpy.types.RenderViews") extern class RenderViews {
 	/**
 		Active Render View
 		
@@ -21,7 +21,7 @@ package bpy.types.renderviews;
 		
 		@returns SceneRenderView
 	**/
-	function new(name:String):bpy.types.scenerenderview.SceneRenderView;
+	function pyNew(name:String):bpy.types.scenerenderview.SceneRenderView;
 	/**
 		Remove a render view
 		@param view Render view to remove — SceneRenderView, (never None)
@@ -33,12 +33,12 @@ package bpy.types.renderviews;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

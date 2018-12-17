@@ -17,7 +17,7 @@ package bpy.types.warpmodifier;
 }/**
 	Warp modifier
 **/
-@:pythonImport("bpy.types.WarpModifier") extern class WarpModifier {
+@:native("bpy.types.WarpModifier") extern class WarpModifier {
 	/**
 		Custom falloff curve
 		
@@ -96,14 +96,14 @@ package bpy.types.warpmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

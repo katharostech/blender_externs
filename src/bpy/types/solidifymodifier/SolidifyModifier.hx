@@ -2,7 +2,7 @@ package bpy.types.solidifymodifier;
 /**
 	Create a solid skin by extruding, compensating for sharp angles
 **/
-@:pythonImport("bpy.types.SolidifyModifier") extern class SolidifyModifier {
+@:native("bpy.types.SolidifyModifier") extern class SolidifyModifier {
 	/**
 		Assign a crease to inner edges
 		
@@ -105,14 +105,14 @@ package bpy.types.solidifymodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

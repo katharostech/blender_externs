@@ -29,7 +29,7 @@ package bpy.types.bakesettings;
 }/**
 	Bake data for a Scene data-block
 **/
-@:pythonImport("bpy.types.BakeSettings") extern class BakeSettings {
+@:native("bpy.types.BakeSettings") extern class BakeSettings {
 	/**
 		Distance to use for the inward ray cast when using selected to active
 		
@@ -198,12 +198,12 @@ package bpy.types.bakesettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

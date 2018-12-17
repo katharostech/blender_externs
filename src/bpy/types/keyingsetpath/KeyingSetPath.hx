@@ -41,7 +41,7 @@ package bpy.types.keyingsetpath;
 }/**
 	Path to a setting for use in a Keying Set
 **/
-@:pythonImport("bpy.types.KeyingSetPath") extern class KeyingSetPath {
+@:native("bpy.types.KeyingSetPath") extern class KeyingSetPath {
 	/**
 		Index to the specific setting if applicable
 		
@@ -126,12 +126,12 @@ package bpy.types.keyingsetpath;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

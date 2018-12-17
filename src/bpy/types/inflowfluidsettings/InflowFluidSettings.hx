@@ -6,7 +6,7 @@ package bpy.types.inflowfluidsettings;
 }/**
 	Fluid simulation settings for objects adding fluids in the simulation
 **/
-@:pythonImport("bpy.types.InflowFluidSettings") extern class InflowFluidSettings {
+@:native("bpy.types.InflowFluidSettings") extern class InflowFluidSettings {
 	/**
 		Initial velocity of fluid
 		
@@ -43,14 +43,14 @@ package bpy.types.inflowfluidsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Type of participation in the fluid simulation
 		

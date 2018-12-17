@@ -31,5 +31,5 @@ package bpy_extras.image_utils;
 		
 		@returns bpy.types.Image
 	**/
-	static function load_image(filepath:Dynamic, dirname:Dynamic, place_holder:Dynamic, recursive:Dynamic, ncase_cmp:Dynamic, convert_callback:Dynamic, relpath:Dynamic, check_existing:Dynamic, force_reload:Dynamic):bpy.types.image.Image;
+	static function load_image(filepath:String, dirname:String, place_holder:Dynamic, recursive:Dynamic, ncase_cmp:Dynamic, convert_callback:Dynamic, relpath:Dynamic, check_existing:Dynamic, force_reload:Dynamic):bpy.types.image.Image;
 }

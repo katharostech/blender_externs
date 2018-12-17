@@ -32,7 +32,7 @@ package bpy.types.window;
 }/**
 	Open window
 **/
-@:pythonImport("bpy.types.Window") extern class Window {
+@:native("bpy.types.Window") extern class Window {
 	/**
 		Window height
 		
@@ -62,7 +62,7 @@ package bpy.types.window;
 		
 		Type: Stereo3dDisplay, (readonly, never None)
 	**/
-	var stereo_3d_display(default, never) : bpy.types.stereo3ddisplay.Stereo3dDisplay;
+	var pystereo_3d_display(default, never) : bpy.types.stereo3ddisplay.Stereo3dDisplay;
 	/**
 		The active workspace view layer showing in the window
 		
@@ -96,7 +96,7 @@ package bpy.types.window;
 	/**
 		Set the cursor position
 	**/
-	function cursor_warp():Void;
+	function cursor_warp(x:Dynamic, y:Dynamic):Void;
 	/**
 		Set the cursor
 		@param cursor cursor — enum in ['DEFAULT', 'NONE', 'WAIT', 'CROSSHAIR', 'MOVE_X', 'MOVE_Y', 'KNIFE', 'TEXT', 'PAINT_BRUSH', 'HAND', 'SCROLL_X', 'SCROLL_Y', 'SCROLL_XY', 'EYEDROPPER']
@@ -117,12 +117,12 @@ package bpy.types.window;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

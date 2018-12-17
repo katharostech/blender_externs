@@ -6,7 +6,7 @@ package bpy.types.followtrackconstraint;
 }/**
 	Lock motion to the target motion track
 **/
-@:pythonImport("bpy.types.FollowTrackConstraint") extern class FollowTrackConstraint {
+@:native("bpy.types.FollowTrackConstraint") extern class FollowTrackConstraint {
 	/**
 		Camera to which motion is parented (if empty active scene camera is used)
 		
@@ -48,7 +48,7 @@ package bpy.types.followtrackconstraint;
 		
 		Type: boolean, default False
 	**/
-	var use_3d_position : Bool;
+	var pyuse_3d_position : Bool;
 	/**
 		Use active clip defined in scene
 		
@@ -67,14 +67,14 @@ package bpy.types.followtrackconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

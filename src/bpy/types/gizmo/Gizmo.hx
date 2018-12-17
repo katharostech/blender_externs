@@ -16,7 +16,7 @@ package bpy.types.gizmo;
 }/**
 	Collection of gizmos
 **/
-@:pythonImport("bpy.types.Gizmo") extern class Gizmo {
+@:native("bpy.types.Gizmo") extern class Gizmo {
 	/**
 		
 		
@@ -167,8 +167,8 @@ package bpy.types.gizmo;
 		Type: boolean, default False
 	**/
 	var use_select_background : Bool;
-	function draw():Void;
-	function draw_select():Void;
+	function draw(context:Dynamic):Void;
+	function draw_select(context:Dynamic, select_id:Dynamic):Void;
 	/**
 		
 		@param location Location, Region coordinates — int array of 2 items in [-inf, inf], (never None)
@@ -189,12 +189,12 @@ package bpy.types.gizmo;
 		
 		@returns enum set in {‘RUNNING_MODAL’, ‘CANCELLED’, ‘FINISHED’, ‘PASS_THROUGH’, ‘INTERFACE’}
 	**/
-	function invoke():Dynamic;
+	function invoke(context:Dynamic, event:Dynamic):Dynamic;
 	/**
 		
 		@param cancel Cancel, otherwise confirm — boolean
 	**/
-	function exit(cancel:Dynamic):Void;
+	function exit(cancel:Bool):Void;
 	function select_refresh():Void;
 	/**
 		Draw a box
@@ -244,7 +244,7 @@ package bpy.types.gizmo;
 		
 		@returns boolean
 	**/
-	function target_is_valid(property:String):Dynamic;
+	function target_is_valid(property:String):Bool;
 	/**
 		Draw a shape created form bpy.types.Gizmo.draw_custom_shape.
 		@param shape The cached shape to draw. — Undefined.
@@ -262,21 +262,21 @@ package bpy.types.gizmo;
 		
 		@returns Undefined (it may change)
 	**/
-	static function new_custom_shape(type:Dynamic, verts:Dynamic, display_name:Dynamic):Dynamic;
+	static function new_custom_shape(type:String, verts:Dynamic, display_name:Dynamic):Dynamic;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Get the range for this target property.
 		@param target Target property name. — 
@@ -290,17 +290,17 @@ package bpy.types.gizmo;
 		
 		@returns Single value or array based on the target type
 	**/
-	function target_get_value(target):(target:Dynamic):Array<Dynamic>;
+	function target_get_value(target):(target:String):Array<Dynamic>;
 	/**
 		Assigns callbacks to a gizmos property.
 		@param get Function that returns the value for this property (single value or sequence). — callable
 		@param set Function that takes a single value argument and applies it. — callable
 		@param range Function that returns a (min, max) tuple for gizmos that use a range. — callable
 	**/
-	function target_set_handler(target, get, set, range=None):(get:Dynamic, set:Dynamic, range:Dynamic):Void;
+	function target_set_handler(target,get,set,range=None):(get:Dynamic, set:Dynamic, range:Dynamic):Void;
 	/**
 		Set the value of this target property.
 		@param target Target property name. — string
 	**/
-	function target_set_value(target):(target:Dynamic):Void;
+	function target_set_value(target):(target:String):Void;
 }

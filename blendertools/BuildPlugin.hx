@@ -85,7 +85,8 @@ class BuildPlugin {
 	 */
 	public static function addBlInfo(bl_info:String, pluginClassName:String) {
 		var outFile = Compiler.getOutput();
-		var extraContent = '
+		var preFileContent = "import bpy\n";
+		var postFileContent = '
 # Global Data
 $bl_info
 register = ${pluginClassName}.register
@@ -95,7 +96,7 @@ unregister = ${pluginClassName}.unregister\n';
 		// If the content has not already been added
 		if (content.indexOf("# Global Data") == -1) {
 			// Add the additional assignments
-			File.saveContent(outFile, content + extraContent);
+			File.saveContent(outFile, preFileContent + content + postFileContent);
 		}
 	}
 }

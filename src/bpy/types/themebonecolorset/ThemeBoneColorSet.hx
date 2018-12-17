@@ -2,7 +2,7 @@ package bpy.types.themebonecolorset;
 /**
 	Theme settings for bone color sets
 **/
-@:pythonImport("bpy.types.ThemeBoneColorSet") extern class ThemeBoneColorSet {
+@:native("bpy.types.ThemeBoneColorSet") extern class ThemeBoneColorSet {
 	/**
 		Color used for active bones
 		
@@ -33,12 +33,12 @@ package bpy.types.themebonecolorset;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -11,7 +11,7 @@ package bpy.types.fcurvemodifiers;
 }/**
 	Collection of F-Curve Modifiers
 **/
-@:pythonImport("bpy.types.FCurveModifiers") extern class FCurveModifiers {
+@:native("bpy.types.FCurveModifiers") extern class FCurveModifiers {
 	/**
 		Active F-Curve Modifier
 		
@@ -24,7 +24,7 @@ package bpy.types.fcurvemodifiers;
 		
 		@returns FModifier
 	**/
-	function new(type:bpy.types.fcurvemodifiers.FCurveModifiers.Enum1):bpy.types.fmodifier.FModifier;
+	function pyNew(type:bpy.types.fcurvemodifiers.FCurveModifiers.Enum1):bpy.types.fmodifier.FModifier;
 	/**
 		Remove a modifier from this F-Curve
 		@param modifier Removed modifier — FModifier, (never None)
@@ -36,12 +36,12 @@ package bpy.types.fcurvemodifiers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

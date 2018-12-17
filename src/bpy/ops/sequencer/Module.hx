@@ -90,13 +90,13 @@ package bpy.ops.sequencer;
 	static function effect_strip_add(frame_start:Int, frame_end:Int, channel:Int, replace_sel:Bool, overlap:Bool, type:bpy.ops.sequencer.Sequencer.Enum8, color:Array<Float>):Void;
 	/**
 		Enable selected proxies on all selected Movie strips
-		@param proxy_25 25% — boolean, (optional)
-		@param proxy_50 50% — boolean, (optional)
-		@param proxy_75 75% — boolean, (optional)
-		@param proxy_100 100% — boolean, (optional)
+		@param pyproxy_25 25% — boolean, (optional)
+		@param pyproxy_50 50% — boolean, (optional)
+		@param pyproxy_75 75% — boolean, (optional)
+		@param pyproxy_100 100% — boolean, (optional)
 		@param overwrite Overwrite — boolean, (optional)
 	**/
-	static function enable_proxies(proxy_25:Bool, proxy_50:Bool, proxy_75:Bool, proxy_100:Bool, overwrite:Bool):Void;
+	static function enable_proxies(pyproxy_25:Bool, pyproxy_50:Bool, pyproxy_75:Bool, pyproxy_100:Bool, overwrite:Bool):Void;
 	/**
 		Export .srt file containing text strips
 		@param filepath File Path, Path to file — string, (optional, never None)

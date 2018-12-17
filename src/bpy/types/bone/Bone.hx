@@ -12,7 +12,7 @@ package bpy.types.bone;
 }/**
 	Bone in an Armature data-block
 **/
-@:pythonImport("bpy.types.Bone") extern class Bone {
+@:native("bpy.types.Bone") extern class Bone {
 	/**
 		X-axis handle offset for start of the B-Bone’s curve, adjusts curvature
 		
@@ -300,11 +300,6 @@ package bpy.types.bone;
 	**/
 	var center(default, never) : Dynamic;
 	/**
-		A list of all the bones children. Warning: takes O(len(bones)) time.
-		(readonly)
-	**/
-	var children(default, never) : Dynamic;
-	/**
 		A list of all children from this bone. Warning: takes O(len(bones)**2) time.
 		(readonly)
 	**/
@@ -373,23 +368,23 @@ package bpy.types.bone;
 		The same as ‘bone in other_bone.parent_recursive’
 		but saved generating a list.
 	**/
-	function parent_index():Void;
+	function parent_index(parent_test:Dynamic):Void;
 	/**
 		Utility function to add vec to the head and tail of this bone
 	**/
-	function translate():Void;
+	function translate(vec:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

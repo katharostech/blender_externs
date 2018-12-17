@@ -11,7 +11,7 @@ package bpy.types.userpreferences;
 }/**
 	Global user preferences
 **/
-@:pythonImport("bpy.types.UserPreferences") extern class UserPreferences {
+@:native("bpy.types.UserPreferences") extern class UserPreferences {
 	/**
 		Active section of the user preferences shown in the user interface
 		
@@ -96,12 +96,12 @@ package bpy.types.userpreferences;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

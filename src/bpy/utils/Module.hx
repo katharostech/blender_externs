@@ -14,14 +14,14 @@ package bpy.utils;
 		
 		@returns list of strings
 	**/
-	static function blend_paths(absolute:Dynamic, packed:Dynamic, local:Dynamic):Array<Dynamic>;
+	static function blend_paths(absolute:Bool, packed:Bool, local:Bool):Array<Dynamic>;
 	/**
 		Simple string escaping function used for animation paths.
 		@param string text — string
 		
 		@returns string
 	**/
-	static function escape_identifier(string:Dynamic):Dynamic;
+	static function escape_identifier(string:String):String;
 	/**
 		Register a subclass of a blender type in (bpy.types.Panel,
 		bpy.types.UIList, bpy.types.Menu, bpy.types.Header,
@@ -31,7 +31,7 @@ package bpy.utils;
 		If the class has a register class method it will be called
 		before registration.
 	**/
-	function register_class():Void;
+	static function register_class(cls:Dynamic):Void;
 	/**
 		Return the base path for storing system files.
 		@param type string in [‘USER’, ‘LOCAL’, ‘SYSTEM’]. — string
@@ -40,16 +40,16 @@ package bpy.utils;
 		
 		@returns string
 	**/
-	static function resource_path(type:Dynamic, major:Dynamic, minor:Dynamic):Dynamic;
+	static function resource_path(type:String, major:Int, minor:String):String;
 	/**
 		Unload the python class from blender.
 		
 		If the class has an unregister class method it will be called
 		before unregistering.
 	**/
-	function unregister_class():Void;
+	static function unregister_class(cls:Dynamic):Void;
 	static function keyconfig_init():Void;
-	static function keyconfig_set():Void;
+	static function keyconfig_set(filepath:Dynamic, report:Dynamic):Void;
 	/**
 		Load scripts and run each modules register function.
 		@param reload_scripts Causes all scripts to have their unregister method
@@ -66,15 +66,15 @@ package bpy.utils;
 		
 		@returns list
 	**/
-	static function modules_from_path(path:Dynamic, loaded_modules:Dynamic):Dynamic;
-	static function preset_find():Void;
+	static function modules_from_path(path:String, loaded_modules:Dynamic):Array<Dynamic>;
+	static function preset_find(name:Dynamic, preset_path:Dynamic, display_name:Dynamic, ext:Dynamic):Void;
 	/**
 		Returns a list of paths for a specific preset.
 		@param subdir preset subdirectory (must not be an absolute path). — string
 		
 		@returns list
 	**/
-	static function preset_paths(subdir:Dynamic):Dynamic;
+	static function preset_paths(subdir:String):Array<Dynamic>;
 	/**
 		Run this after creating new script paths to update sys.path
 	**/
@@ -85,14 +85,14 @@ package bpy.utils;
 		
 		@returns generator
 	**/
-	static function app_template_paths(subdir:Dynamic):Dynamic;
-	static function register_manual_map():Void;
-	static function unregister_manual_map():Void;
+	static function app_template_paths(subdir:String):Dynamic;
+	static function register_manual_map(manual_hook:Dynamic):Void;
+	static function unregister_manual_map(manual_hook:Dynamic):Void;
 	/**
 		Utility function to create register and unregister functions
 		which simply registers and unregisters a sequence of classes.
 	**/
-	static function register_classes_factory():Void;
+	static function register_classes_factory(classes:Dynamic):Void;
 	/**
 		Utility function to create register and unregister functions
 		which simply load submodules,
@@ -102,7 +102,7 @@ package bpy.utils;
 		
 		@returns tuple pair of functions
 	**/
-	static function register_submodule_factory(module_name:Dynamic, submodule_names:Array<Dynamic>):Dynamic;
+	static function register_submodule_factory(module_name:String, submodule_names:Array<Dynamic>):Dynamic;
 	/**
 		Create RNA “paths” from given names.
 		@param struct_name Name of a RNA struct (like e.g. “Scene”). — string
@@ -111,7 +111,7 @@ package bpy.utils;
 		
 		@returns tuple of strings
 	**/
-	static function make_rna_paths(struct_name:Dynamic, prop_name:Dynamic, enum_name:Dynamic):Dynamic;
+	static function make_rna_paths(struct_name:String, prop_name:String, enum_name:String):Dynamic;
 	static function manual_map():Void;
 	/**
 		returns the env var and falls back to home dir or None
@@ -130,7 +130,7 @@ package bpy.utils;
 		
 		@returns list
 	**/
-	static function script_paths(subdir:Dynamic, user_pref:Dynamic, check_all:Dynamic):Dynamic;
+	static function script_paths(subdir:String, user_pref:Dynamic, check_all:Dynamic):Array<Dynamic>;
 	/**
 		Returns an SMPTE formatted string from the frame:
 		HH:MM:SS:FF.
@@ -140,7 +140,7 @@ package bpy.utils;
 		
 		@returns string
 	**/
-	static function smpte_from_frame(frame:Int):Dynamic;
+	static function smpte_from_frame(frame:Int):String;
 	/**
 		Returns an SMPTE formatted string from the time:
 		HH:MM:SS:FF.
@@ -150,7 +150,7 @@ package bpy.utils;
 		
 		@returns string
 	**/
-	static function smpte_from_seconds(time:Int):Dynamic;
+	static function smpte_from_seconds(time:Int):String;
 	/**
 		Return a user resource path (normally from the users home directory).
 		@param type Resource type in [‘DATAFILES’, ‘CONFIG’, ‘SCRIPTS’, ‘AUTOSAVE’]. — string
@@ -160,6 +160,6 @@ package bpy.utils;
 		
 		@returns string
 	**/
-	static function user_resource(type:Dynamic, subdir:Dynamic, create:Dynamic):Dynamic;
-	static function execfile():Void;
+	static function user_resource(type:String, subdir:String, create:Bool):String;
+	static function execfile(filepath:Dynamic, mod:Dynamic):Void;
 }

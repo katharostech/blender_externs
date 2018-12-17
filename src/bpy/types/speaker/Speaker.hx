@@ -2,7 +2,7 @@ package bpy.types.speaker;
 /**
 	Speaker data-block for 3D audio speaker objects
 **/
-@:pythonImport("bpy.types.Speaker") extern class Speaker {
+@:native("bpy.types.Speaker") extern class Speaker {
 	/**
 		Animation data for this data-block
 		
@@ -93,14 +93,14 @@ package bpy.types.speaker;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

@@ -20,7 +20,7 @@ package bpy.types.scene;
 	var CURSOR : String = "CURSOR";
 }@:enum abstract Enum4(String) from String to String {
 	var OGAWA : String = "OGAWA";
-	var HDF5 : String = "HDF5";
+	var pyHDF5 : String = "HDF5";
 }@:enum abstract Enum5(String) from String to String {
 	var BEAUTY : String = "BEAUTY";
 	var FIXED : String = "FIXED";
@@ -34,7 +34,7 @@ package bpy.types.scene;
 }/**
 	Scene data-block, consisting in objects and defining time and render related settings
 **/
-@:pythonImport("bpy.types.Scene") extern class Scene {
+@:native("bpy.types.Scene") extern class Scene {
 	/**
 		Active movie clip used for constraints and viewport drawing
 		
@@ -440,14 +440,14 @@ package bpy.types.scene;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

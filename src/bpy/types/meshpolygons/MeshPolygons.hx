@@ -2,7 +2,7 @@ package bpy.types.meshpolygons;
 /**
 	Collection of mesh polygons
 **/
-@:pythonImport("bpy.types.MeshPolygons") extern class MeshPolygons {
+@:native("bpy.types.MeshPolygons") extern class MeshPolygons {
 	/**
 		The active polygon for this mesh
 		
@@ -20,12 +20,12 @@ package bpy.types.meshpolygons;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

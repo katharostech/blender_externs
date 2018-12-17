@@ -1,5 +1,5 @@
 package idprop.types;
-@:pythonImport("idprop.types.IDPropertyArray") extern class IDPropertyArray {
+@:native("idprop.types.IDPropertyArray") extern class IDPropertyArray {
 	/**
 		Return the array as a list.
 	**/
@@ -8,7 +8,7 @@ package idprop.types;
 		The type of the data in the array {‘f’: float, ‘d’: double, ‘i’: int}.
 	**/
 	var typecode : Dynamic;
-}@:pythonImport("idprop.types.IDPropertyGroup") extern class IDPropertyGroup {
+}@:native("idprop.types.IDPropertyGroup") extern class IDPropertyGroup {
 	/**
 		Clear all members from this group.
 	**/
@@ -16,7 +16,7 @@ package idprop.types;
 	/**
 		Return the value for key, if it exists, else default.
 	**/
-	function get():Void;
+	function get(key:Dynamic, pyDefault:Dynamic):Void;
 	/**
 		Return the items associated with this group.
 	**/
@@ -32,9 +32,9 @@ package idprop.types;
 	/**
 		Remove an item from the group, returning a Python representation.
 		@param key Name of item to remove. — string
-		@param default Value to return when key isn’t found, otherwise raise an exception. — Undefined
+		@param pyDefault Value to return when key isn’t found, otherwise raise an exception. — Undefined
 	**/
-	function pop(key:Dynamic, default:Dynamic):Void;
+	function pop(key:String, pyDefault:Dynamic):Void;
 	/**
 		Return a purely python version of the group.
 	**/
@@ -52,6 +52,6 @@ package idprop.types;
 		The name of this Group.
 	**/
 	var name : Dynamic;
-}@:pythonImport("idprop.types.IDPropertyGroupIter") extern class IDPropertyGroupIter {
+}@:native("idprop.types.IDPropertyGroupIter") extern class IDPropertyGroupIter {
 
 }

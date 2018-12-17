@@ -3,7 +3,7 @@ package bpy.types.linestylethicknessmodifiers;
 	var ALONG_STROKE : String = "ALONG_STROKE";
 	var CALLIGRAPHY : String = "CALLIGRAPHY";
 	var CREASE_ANGLE : String = "CREASE_ANGLE";
-	var CURVATURE_3D : String = "CURVATURE_3D";
+	var pyCURVATURE_3D : String = "CURVATURE_3D";
 	var DISTANCE_FROM_CAMERA : String = "DISTANCE_FROM_CAMERA";
 	var DISTANCE_FROM_OBJECT : String = "DISTANCE_FROM_OBJECT";
 	var MATERIAL : String = "MATERIAL";
@@ -12,7 +12,7 @@ package bpy.types.linestylethicknessmodifiers;
 }/**
 	Thickness modifiers for changing line thickness
 **/
-@:pythonImport("bpy.types.LineStyleThicknessModifiers") extern class LineStyleThicknessModifiers {
+@:native("bpy.types.LineStyleThicknessModifiers") extern class LineStyleThicknessModifiers {
 	/**
 		Add a thickness modifier to line style
 		@param name New name for the thickness modifier (not unique) — string, (never None)
@@ -20,7 +20,7 @@ package bpy.types.linestylethicknessmodifiers;
 		
 		@returns LineStyleThicknessModifier
 	**/
-	function new(name:String, type:bpy.types.linestylethicknessmodifiers.LineStyleThicknessModifiers.Enum1):bpy.types.linestylethicknessmodifier.LineStyleThicknessModifier;
+	function pyNew(name:String, type:bpy.types.linestylethicknessmodifiers.LineStyleThicknessModifiers.Enum1):bpy.types.linestylethicknessmodifier.LineStyleThicknessModifier;
 	/**
 		Remove a thickness modifier from line style
 		@param modifier Thickness modifier to remove — LineStyleThicknessModifier, (never None)
@@ -32,12 +32,12 @@ package bpy.types.linestylethicknessmodifiers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

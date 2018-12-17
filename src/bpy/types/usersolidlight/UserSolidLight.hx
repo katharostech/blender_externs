@@ -2,7 +2,7 @@ package bpy.types.usersolidlight;
 /**
 	Light used for OpenGL lighting in solid draw mode
 **/
-@:pythonImport("bpy.types.UserSolidLight") extern class UserSolidLight {
+@:native("bpy.types.UserSolidLight") extern class UserSolidLight {
 	/**
 		Color of the light’s diffuse highlight
 		
@@ -39,12 +39,12 @@ package bpy.types.usersolidlight;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

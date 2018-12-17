@@ -8,7 +8,7 @@ package bpy.types.curvesplines;
 }/**
 	Collection of curve splines
 **/
-@:pythonImport("bpy.types.CurveSplines") extern class CurveSplines {
+@:native("bpy.types.CurveSplines") extern class CurveSplines {
 	/**
 		Active curve spline
 		
@@ -21,7 +21,7 @@ package bpy.types.curvesplines;
 		
 		@returns Spline
 	**/
-	function new(type:bpy.types.curvesplines.CurveSplines.Enum1):bpy.types.spline.Spline;
+	function pyNew(type:bpy.types.curvesplines.CurveSplines.Enum1):bpy.types.spline.Spline;
 	/**
 		Remove a spline from a curve
 		@param spline The spline to remove — Spline, (never None)
@@ -37,12 +37,12 @@ package bpy.types.curvesplines;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

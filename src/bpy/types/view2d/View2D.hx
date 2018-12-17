@@ -2,7 +2,7 @@ package bpy.types.view2d;
 /**
 	Scroll and zoom for a 2D region
 **/
-@:pythonImport("bpy.types.View2D") extern class View2D {
+@:native("bpy.types.View2D") extern class View2D {
 	/**
 		Transform region coordinates to 2D view
 		@param x x, Region x coordinate — int in [-inf, inf]
@@ -26,12 +26,12 @@ package bpy.types.view2d;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,19 +2,19 @@ package bpy.types.blenddatagreasepencils;
 /**
 	Collection of grease pencils
 **/
-@:pythonImport("bpy.types.BlendDataGreasePencils") extern class BlendDataGreasePencils {
+@:native("bpy.types.BlendDataGreasePencils") extern class BlendDataGreasePencils {
 	/**
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		new
 		@param name New name for the data-block — string, (never None)
 		
 		@returns GreasePencil
 	**/
-	static function new(name:String):bpy.types.greasepencil.GreasePencil;
+	static function pyNew(name:String):bpy.types.greasepencil.GreasePencil;
 	/**
 		Remove a grease pencil instance from the current blendfile
 		@param grease_pencil Grease Pencil to remove — GreasePencil, (never None)
@@ -29,12 +29,12 @@ package bpy.types.blenddatagreasepencils;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

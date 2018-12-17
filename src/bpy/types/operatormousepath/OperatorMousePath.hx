@@ -2,7 +2,7 @@ package bpy.types.operatormousepath;
 /**
 	Mouse path values for operators that record such paths
 **/
-@:pythonImport("bpy.types.OperatorMousePath") extern class OperatorMousePath {
+@:native("bpy.types.OperatorMousePath") extern class OperatorMousePath {
 	/**
 		Mouse location
 		
@@ -21,12 +21,18 @@ package bpy.types.operatormousepath;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
+	/**
+		Unique name used in the code and scripting
+		
+		Type: string, default “”, (never None)
+	**/
+	var name : String;
 }

@@ -79,7 +79,7 @@ package gpu.matrix;
 		
 		@param scale Scale the current stack matrix. — float
 	**/
-	static function scale_uniform(scale:Dynamic):Void;
+	static function scale_uniform(scale:Float):Void;
 	/**
 		Scale the current stack matrix.
 		@param offset Translate the current stack matrix. — sequence of 2 or 3 floats

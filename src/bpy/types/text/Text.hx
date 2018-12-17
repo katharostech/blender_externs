@@ -2,7 +2,7 @@ package bpy.types.text;
 /**
 	Text data-block referencing an external or packed text file
 **/
-@:pythonImport("bpy.types.Text") extern class Text {
+@:native("bpy.types.Text") extern class Text {
 	/**
 		Index of current character in current line, and also start index of character in selection if one exists
 		
@@ -91,21 +91,21 @@ package bpy.types.text;
 	/**
 		Replace text with this string.
 	**/
-	function from_string():Void;
+	function from_string(string:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

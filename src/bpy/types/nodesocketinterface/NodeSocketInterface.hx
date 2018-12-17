@@ -2,7 +2,7 @@ package bpy.types.nodesocketinterface;
 /**
 	Parameters to define node sockets
 **/
-@:pythonImport("bpy.types.NodeSocketInterface") extern class NodeSocketInterface {
+@:native("bpy.types.NodeSocketInterface") extern class NodeSocketInterface {
 	/**
 		
 		
@@ -37,12 +37,12 @@ package bpy.types.nodesocketinterface;
 		
 		@returns float array of 4 items in [0, 1]
 	**/
-	function draw_color():Array<Float>;
+	function draw_color(context:Dynamic):Array<Float>;
 	/**
 		Define RNA properties of a socket
 		@param data_rna_type Data RNA Type, RNA type for special socket properties — Struct
 	**/
-	function register_properties(data_rna_type:Dynamic):Void;
+	function register_properties(data_rna_type:bpy.types.struct.Struct):Void;
 	/**
 		Initialize a node socket instance
 		@param node Node, Node of the socket to initialize — Node, (never None)
@@ -62,12 +62,12 @@ package bpy.types.nodesocketinterface;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,7 +2,7 @@ package bpy.types.texpaintslot;
 /**
 	Slot that contains information about texture painting
 **/
-@:pythonImport("bpy.types.TexPaintSlot") extern class TexPaintSlot {
+@:native("bpy.types.TexPaintSlot") extern class TexPaintSlot {
 	/**
 		Slot has a valid image and UV map
 		
@@ -21,12 +21,12 @@ package bpy.types.texpaintslot;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

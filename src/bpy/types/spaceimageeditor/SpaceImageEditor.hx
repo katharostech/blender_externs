@@ -29,7 +29,7 @@ package bpy.types.spaceimageeditor;
 }/**
 	Image and UV editor space data
 **/
-@:pythonImport("bpy.types.SpaceImageEditor") extern class SpaceImageEditor {
+@:native("bpy.types.SpaceImageEditor") extern class SpaceImageEditor {
 	/**
 		2D cursor location for this view
 		
@@ -149,7 +149,7 @@ package bpy.types.spaceimageeditor;
 		
 		Type: boolean, default False
 	**/
-	var show_stereo_3d : Bool;
+	var pyshow_stereo_3d : Bool;
 	/**
 		Show UV editing related properties
 		
@@ -186,14 +186,14 @@ package bpy.types.spaceimageeditor;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/

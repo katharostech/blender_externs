@@ -2,7 +2,7 @@ package bpy.types.boolproperty;
 /**
 	RNA boolean property definition
 **/
-@:pythonImport("bpy.types.BoolProperty") extern class BoolProperty {
+@:native("bpy.types.BoolProperty") extern class BoolProperty {
 	/**
 		Length of each dimension of the array
 		
@@ -20,7 +20,7 @@ package bpy.types.boolproperty;
 		
 		Type: boolean, default False, (readonly)
 	**/
-	var default(default, never) : Bool;
+	var pyDefault(default, never) : Bool;
 	/**
 		Default value for this array
 		
@@ -39,14 +39,14 @@ package bpy.types.boolproperty;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Human readable name
 		

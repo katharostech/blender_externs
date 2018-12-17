@@ -1,7 +1,7 @@
 package bpy.types.area;
 @:enum abstract Enum1(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -23,7 +23,7 @@ package bpy.types.area;
 }/**
 	Area in a subdivided screen, containing an editor
 **/
-@:pythonImport("bpy.types.Area") extern class Area {
+@:native("bpy.types.Area") extern class Area {
 	/**
 		Area height
 		
@@ -86,19 +86,19 @@ package bpy.types.area;
 		Set the header status text
 		@param text Text, New string for the header, None clears the text — string
 	**/
-	function header_text_set(text:Dynamic):Void;
+	function header_text_set(text:String):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

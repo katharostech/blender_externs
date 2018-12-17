@@ -2,7 +2,7 @@ package bpy.types.meshloop;
 /**
 	Loop in a Mesh data-block
 **/
-@:pythonImport("bpy.types.MeshLoop") extern class MeshLoop {
+@:native("bpy.types.MeshLoop") extern class MeshLoop {
 	/**
 		Bitangent vector of this vertex for this polygon (must be computed beforehand using calc_tangents, use it only if really needed, slower access than bitangent_sign)
 		
@@ -51,12 +51,12 @@ package bpy.types.meshloop;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

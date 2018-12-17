@@ -2,13 +2,13 @@ package bpy.types.camerabackgroundimages;
 /**
 	Collection of background images
 **/
-@:pythonImport("bpy.types.CameraBackgroundImages") extern class CameraBackgroundImages {
+@:native("bpy.types.CameraBackgroundImages") extern class CameraBackgroundImages {
 	/**
 		Add new background image
 		
 		@returns CameraBackgroundImage
 	**/
-	function new():bpy.types.camerabackgroundimage.CameraBackgroundImage;
+	function pyNew():bpy.types.camerabackgroundimage.CameraBackgroundImage;
 	/**
 		Remove background image
 		@param image Image displayed as viewport background — CameraBackgroundImage, (never None)
@@ -24,12 +24,12 @@ package bpy.types.camerabackgroundimages;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

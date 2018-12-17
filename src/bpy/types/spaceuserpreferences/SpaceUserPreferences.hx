@@ -5,7 +5,7 @@ package bpy.types.spaceuserpreferences;
 }/**
 	User preferences space data
 **/
-@:pythonImport("bpy.types.SpaceUserPreferences") extern class SpaceUserPreferences {
+@:native("bpy.types.SpaceUserPreferences") extern class SpaceUserPreferences {
 	/**
 		Search term for filtering in the UI
 		
@@ -24,14 +24,14 @@ package bpy.types.spaceuserpreferences;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/

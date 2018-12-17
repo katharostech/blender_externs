@@ -15,7 +15,7 @@ package bpy.types.armature;
 }/**
 	Armature data-block containing a hierarchy of bones, usually used for rigging characters
 **/
-@:pythonImport("bpy.types.Armature") extern class Armature {
+@:native("bpy.types.Armature") extern class Armature {
 	/**
 		Animation data for this data-block
 		
@@ -153,14 +153,14 @@ package bpy.types.armature;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

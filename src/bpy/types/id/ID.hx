@@ -2,7 +2,7 @@ package bpy.types.id;
 /**
 	Base type for data-blocks, defining a unique name, linking from other libraries and garbage collection
 **/
-@:pythonImport("bpy.types.ID") extern class ID {
+@:native("bpy.types.ID") extern class ID {
 	/**
 		Whether this ID is runtime-only, evaluated data-block, or actual data from .blend file
 		
@@ -128,12 +128,12 @@ package bpy.types.id;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

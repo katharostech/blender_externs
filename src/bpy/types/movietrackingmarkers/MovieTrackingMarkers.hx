@@ -2,7 +2,7 @@ package bpy.types.movietrackingmarkers;
 /**
 	Collection of markers for movie tracking track
 **/
-@:pythonImport("bpy.types.MovieTrackingMarkers") extern class MovieTrackingMarkers {
+@:native("bpy.types.MovieTrackingMarkers") extern class MovieTrackingMarkers {
 	/**
 		Get marker for specified frame
 		@param frame Frame, Frame number to find marker for — int in [0, 1048574]
@@ -30,12 +30,12 @@ package bpy.types.movietrackingmarkers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

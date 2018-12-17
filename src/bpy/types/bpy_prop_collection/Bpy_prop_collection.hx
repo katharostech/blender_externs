@@ -2,7 +2,7 @@ package bpy.types.bpy_prop_collection;
 /**
 	built-in class used for all collections.
 **/
-@:pythonImport("bpy.types.bpy_prop_collection") extern class Bpy_prop_collection {
+@:native("bpy.types.bpy_prop_collection") extern class Bpy_prop_collection {
 	/**
 		Returns the index of a key in a collection or -1 when not found
 		(matches pythons string find function of the same name).
@@ -10,29 +10,29 @@ package bpy.types.bpy_prop_collection;
 		
 		@returns int
 	**/
-	function find(key:Dynamic):Dynamic;
+	function find(key:String):Int;
 	/**
 		This is a function to give fast access to attributes within a collection.
 		
 		Only works for ‘basic type’ properties (bool, int and float)!
 		Multi-dimensional arrays (like array of vectors) will be flattened into seq.
 	**/
-	function foreach_get():Void;
+	function foreach_get(attr:Dynamic, seq:Dynamic):Void;
 	/**
 		This is a function to give fast access to attributes within a collection.
 		
 		Only works for ‘basic type’ properties (bool, int and float)!
 		seq must be uni-dimensional, multi-dimensional arrays (like array of vectors) will be re-created from it.
 	**/
-	function foreach_set():Void;
+	function foreach_set(attr:Dynamic, seq:Dynamic):Void;
 	/**
 		Returns the value of the item assigned to key or default when not found
 		(matches pythons dictionary function of the same name).
 		@param key The identifier for the collection member. — string
-		@param default Optional argument for the value to return if
+		@param pyDefault Optional argument for the value to return if
 		                                                key is not found. — Undefined
 	**/
-	function get(key:Dynamic, default:Dynamic):Void;
+	function get(key:String, pyDefault:Dynamic):Void;
 	/**
 		Return the identifiers of collection members
 		(matching pythons dict.items() functionality).
@@ -53,5 +53,5 @@ package bpy.types.bpy_prop_collection;
 		
 		@returns list
 	**/
-	function values():Dynamic;
+	function values():Array<Dynamic>;
 }

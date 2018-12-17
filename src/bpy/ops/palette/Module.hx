@@ -14,5 +14,5 @@ package bpy.ops.palette;
 	/**
 		Add new palette
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 }

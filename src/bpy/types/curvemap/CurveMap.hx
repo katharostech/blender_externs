@@ -5,7 +5,7 @@ package bpy.types.curvemap;
 }/**
 	Curve in a curve mapping
 **/
-@:pythonImport("bpy.types.CurveMap") extern class CurveMap {
+@:native("bpy.types.CurveMap") extern class CurveMap {
 	/**
 		Extrapolate the curve or extend it horizontally
 		
@@ -31,12 +31,12 @@ package bpy.types.curvemap;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,7 +2,7 @@ package bpy.types.renderslots;
 /**
 	Collection of render layers
 **/
-@:pythonImport("bpy.types.RenderSlots") extern class RenderSlots {
+@:native("bpy.types.RenderSlots") extern class RenderSlots {
 	/**
 		Active render slot of the image
 		
@@ -21,19 +21,19 @@ package bpy.types.renderslots;
 		
 		@returns RenderSlot
 	**/
-	function new(name:String):bpy.types.renderslot.RenderSlot;
+	function pyNew(name:String):bpy.types.renderslot.RenderSlot;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

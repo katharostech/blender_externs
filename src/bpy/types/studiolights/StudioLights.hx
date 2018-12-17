@@ -6,7 +6,7 @@ package bpy.types.studiolights;
 }/**
 	Collection of studio lights
 **/
-@:pythonImport("bpy.types.StudioLights") extern class StudioLights {
+@:native("bpy.types.StudioLights") extern class StudioLights {
 	/**
 		Load studiolight from file
 		@param path File Path, File path where the studio light file can be found — string, (never None)
@@ -21,7 +21,7 @@ package bpy.types.studiolights;
 		
 		@returns StudioLight
 	**/
-	function new(path:String):bpy.types.studiolight.StudioLight;
+	function pyNew(path:String):bpy.types.studiolight.StudioLight;
 	/**
 		Remove a studio light
 		@param studio_light The studio light to remove — StudioLight, (never None)
@@ -37,12 +37,12 @@ package bpy.types.studiolights;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

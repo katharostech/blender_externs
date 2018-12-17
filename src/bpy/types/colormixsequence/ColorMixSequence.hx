@@ -24,7 +24,7 @@ package bpy.types.colormixsequence;
 }/**
 	Color Mix Sequence
 **/
-@:pythonImport("bpy.types.ColorMixSequence") extern class ColorMixSequence {
+@:native("bpy.types.ColorMixSequence") extern class ColorMixSequence {
 	/**
 		Method for controlling how the strip combines with other strips
 		
@@ -42,13 +42,13 @@ package bpy.types.colormixsequence;
 		
 		Type: Sequence, (never None)
 	**/
-	var input_1 : bpy.types.sequence.Sequence;
+	var pyinput_1 : bpy.types.sequence.Sequence;
 	/**
 		Second input for the effect strip
 		
 		Type: Sequence, (never None)
 	**/
-	var input_2 : bpy.types.sequence.Sequence;
+	var pyinput_2 : bpy.types.sequence.Sequence;
 	/**
 		
 		
@@ -61,14 +61,14 @@ package bpy.types.colormixsequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

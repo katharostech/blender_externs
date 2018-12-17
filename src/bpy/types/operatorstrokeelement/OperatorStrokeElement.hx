@@ -1,5 +1,5 @@
 package bpy.types.operatorstrokeelement;
-@:pythonImport("bpy.types.OperatorStrokeElement") extern class OperatorStrokeElement {
+@:native("bpy.types.OperatorStrokeElement") extern class OperatorStrokeElement {
 	/**
 		
 		
@@ -48,12 +48,18 @@ package bpy.types.operatorstrokeelement;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
+	/**
+		Unique name used in the code and scripting
+		
+		Type: string, default “”, (never None)
+	**/
+	var name : String;
 }

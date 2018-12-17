@@ -1,18 +1,18 @@
 package bpy.types.movietrackingtrack;
 @:enum abstract Enum1(String) from String to String {
-	var P : String = "P";
-	var A : String = "A";
-	var L : String = "L";
-	var L : String = "L";
-	var L : String = "L";
-	var L : String = "L";
+	var Perspective : String = "Perspective";
+	var Affine : String = "Affine";
+	var LocRotScale : String = "LocRotScale";
+	var LocScale : String = "LocScale";
+	var LocRot : String = "LocRot";
+	var Loc : String = "Loc";
 }@:enum abstract Enum2(String) from String to String {
 	var KEYFRAME : String = "KEYFRAME";
 	var PREV_FRAME : String = "PREV_FRAME";
 }/**
 	Match-moving track data for tracking
 **/
-@:pythonImport("bpy.types.MovieTrackingTrack") extern class MovieTrackingTrack {
+@:native("bpy.types.MovieTrackingTrack") extern class MovieTrackingTrack {
 	/**
 		Average error of re-projection
 		
@@ -199,12 +199,12 @@ package bpy.types.movietrackingtrack;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

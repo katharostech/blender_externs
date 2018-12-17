@@ -2,14 +2,14 @@ package bpy.types.blenddatatexts;
 /**
 	Collection of texts
 **/
-@:pythonImport("bpy.types.BlendDataTexts") extern class BlendDataTexts {
+@:native("bpy.types.BlendDataTexts") extern class BlendDataTexts {
 	/**
 		Add a new text to the main database
 		@param name New name for the data-block — string, (never None)
 		
 		@returns Text
 	**/
-	function new(name:String):bpy.types.text.Text;
+	function pyNew(name:String):bpy.types.text.Text;
 	/**
 		Remove a text from the current blendfile
 		@param text Text to remove — Text, (never None)
@@ -30,19 +30,19 @@ package bpy.types.blenddatatexts;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

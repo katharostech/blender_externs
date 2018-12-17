@@ -56,7 +56,7 @@ package bpy.types.sequence;
 }/**
 	Sequence strip in the sequence editor
 **/
-@:pythonImport("bpy.types.Sequence") extern class Sequence {
+@:native("bpy.types.Sequence") extern class Sequence {
 	/**
 		Percentage of how much the strip’s colors affect other strips
 		
@@ -224,12 +224,12 @@ package bpy.types.sequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

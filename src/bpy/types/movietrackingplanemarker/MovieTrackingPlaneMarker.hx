@@ -2,7 +2,7 @@ package bpy.types.movietrackingplanemarker;
 /**
 	Match-moving plane marker data for tracking
 **/
-@:pythonImport("bpy.types.MovieTrackingPlaneMarker") extern class MovieTrackingPlaneMarker {
+@:native("bpy.types.MovieTrackingPlaneMarker") extern class MovieTrackingPlaneMarker {
 	/**
 		Array of coordinates which represents UI rectangle corners in frame normalized coordinates
 		
@@ -27,12 +27,12 @@ package bpy.types.movietrackingplanemarker;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

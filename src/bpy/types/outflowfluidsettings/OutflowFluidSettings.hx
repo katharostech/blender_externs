@@ -6,7 +6,7 @@ package bpy.types.outflowfluidsettings;
 }/**
 	Fluid simulation settings for objects removing fluids from the simulation
 **/
-@:pythonImport("bpy.types.OutflowFluidSettings") extern class OutflowFluidSettings {
+@:native("bpy.types.OutflowFluidSettings") extern class OutflowFluidSettings {
 	/**
 		Object contributes to the fluid simulation
 		
@@ -31,14 +31,14 @@ package bpy.types.outflowfluidsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Type of participation in the fluid simulation
 		

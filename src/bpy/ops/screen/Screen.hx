@@ -17,7 +17,7 @@ package bpy.ops.screen;
 	var NEXT : String = "NEXT";
 }@:enum abstract Enum5(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";

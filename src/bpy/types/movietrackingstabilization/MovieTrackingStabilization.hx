@@ -6,7 +6,7 @@ package bpy.types.movietrackingstabilization;
 }/**
 	2D stabilization based on tracking markers
 **/
-@:pythonImport("bpy.types.MovieTrackingStabilization") extern class MovieTrackingStabilization {
+@:native("bpy.types.MovieTrackingStabilization") extern class MovieTrackingStabilization {
 	/**
 		Index of active track in rotation stabilization tracks list
 		
@@ -96,7 +96,7 @@ package bpy.types.movietrackingstabilization;
 		
 		Type: boolean, default False
 	**/
-	var use_2d_stabilization : Bool;
+	var pyuse_2d_stabilization : Bool;
 	/**
 		Automatically scale footage to cover unfilled areas when stabilizing
 		
@@ -121,12 +121,12 @@ package bpy.types.movietrackingstabilization;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

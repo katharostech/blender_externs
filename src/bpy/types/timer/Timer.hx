@@ -2,7 +2,7 @@ package bpy.types.timer;
 /**
 	Window event timer
 **/
-@:pythonImport("bpy.types.Timer") extern class Timer {
+@:native("bpy.types.Timer") extern class Timer {
 	/**
 		Time since last step in seconds
 		
@@ -27,12 +27,12 @@ package bpy.types.timer;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

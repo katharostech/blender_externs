@@ -8,7 +8,7 @@ package bpy.types.movietrackingcamera;
 }/**
 	Match-moving camera data for tracking
 **/
-@:pythonImport("bpy.types.MovieTrackingCamera") extern class MovieTrackingCamera {
+@:native("bpy.types.MovieTrackingCamera") extern class MovieTrackingCamera {
 	/**
 		Distortion model used for camera lenses
 		
@@ -20,13 +20,13 @@ package bpy.types.movietrackingcamera;
 		
 		Type: float in [-inf, inf], default 0.0
 	**/
-	var division_k1 : Float;
+	var pydivision_k1 : Float;
 	/**
 		First coefficient of second order division distortion
 		
 		Type: float in [-inf, inf], default 0.0
 	**/
-	var division_k2 : Float;
+	var pydivision_k2 : Float;
 	/**
 		Camera’s focal length
 		
@@ -44,19 +44,19 @@ package bpy.types.movietrackingcamera;
 		
 		Type: float in [-inf, inf], default 0.0
 	**/
-	var k1 : Float;
+	var pyk1 : Float;
 	/**
 		Second coefficient of third order polynomial radial distortion
 		
 		Type: float in [-inf, inf], default 0.0
 	**/
-	var k2 : Float;
+	var pyk2 : Float;
 	/**
 		Third coefficient of third order polynomial radial distortion
 		
 		Type: float in [-inf, inf], default 0.0
 	**/
-	var k3 : Float;
+	var pyk3 : Float;
 	/**
 		Pixel aspect ratio
 		
@@ -87,12 +87,12 @@ package bpy.types.movietrackingcamera;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

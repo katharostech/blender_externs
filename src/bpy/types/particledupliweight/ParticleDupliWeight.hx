@@ -2,7 +2,7 @@ package bpy.types.particledupliweight;
 /**
 	Weight of a particle dupliobject in a collection
 **/
-@:pythonImport("bpy.types.ParticleDupliWeight") extern class ParticleDupliWeight {
+@:native("bpy.types.ParticleDupliWeight") extern class ParticleDupliWeight {
 	/**
 		The number of times this object is repeated with respect to other objects
 		
@@ -21,12 +21,12 @@ package bpy.types.particledupliweight;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -167,7 +167,7 @@ package bpy.ops.wm;
 	/**
 		Check and fix all strings in current .blend file to be valid UTF-8 Unicode (needed for some old, 2.4x area files)
 	**/
-	static function blend_strings_utf8_validate():Void;
+	static function pyblend_strings_utf8_validate():Void;
 	/**
 		Call (draw) a pre-defined menu
 		@param name Name, Name of the menu — string, (optional, never None)
@@ -355,10 +355,10 @@ package bpy.ops.wm;
 	/**
 		Toggle a context value
 		@param data_path Context Attributes, RNA context string — string, (optional, never None)
-		@param value_1 Value, Toggle enum — string, (optional, never None)
-		@param value_2 Value, Toggle enum — string, (optional, never None)
+		@param pyvalue_1 Value, Toggle enum — string, (optional, never None)
+		@param pyvalue_2 Value, Toggle enum — string, (optional, never None)
 	**/
-	static function context_toggle_enum(data_path:String, value_1:String, value_2:String):Void;
+	static function context_toggle_enum(data_path:String, pyvalue_1:String, pyvalue_2:String):Void;
 	/**
 		Copy settings from previous version
 	**/
@@ -805,7 +805,7 @@ package bpy.ops.wm;
 		@param use_interlace_swap Swap Left/Right, Swap left and right stereo channels — boolean, (optional)
 		@param use_sidebyside_crosseyed Cross-Eyed, Right eye should see left image and vice-versa — boolean, (optional)
 	**/
-	static function set_stereo_3d(display_mode:bpy.ops.wm.Wm.Enum33, anaglyph_type:bpy.ops.wm.Wm.Enum34, interlace_type:bpy.ops.wm.Wm.Enum35, use_interlace_swap:Bool, use_sidebyside_crosseyed:Bool):Void;
+	static function pyset_stereo_3d(display_mode:bpy.ops.wm.Wm.Enum33, anaglyph_type:bpy.ops.wm.Wm.Enum34, interlace_type:bpy.ops.wm.Wm.Enum35, use_interlace_swap:Bool, use_sidebyside_crosseyed:Bool):Void;
 	/**
 		Open the splash screen with release info
 	**/

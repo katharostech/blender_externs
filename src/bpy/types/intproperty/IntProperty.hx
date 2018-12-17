@@ -2,7 +2,7 @@ package bpy.types.intproperty;
 /**
 	RNA integer number property definition
 **/
-@:pythonImport("bpy.types.IntProperty") extern class IntProperty {
+@:native("bpy.types.IntProperty") extern class IntProperty {
 	/**
 		Length of each dimension of the array
 		
@@ -20,7 +20,7 @@ package bpy.types.intproperty;
 		
 		Type: int in [-inf, inf], default 0, (readonly)
 	**/
-	var default(default, never) : Int;
+	var pyDefault(default, never) : Int;
 	/**
 		Default value for this array
 		
@@ -69,14 +69,14 @@ package bpy.types.intproperty;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Human readable name
 		

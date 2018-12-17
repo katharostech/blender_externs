@@ -37,7 +37,7 @@ package bpy.types.action;
 }/**
 	A collection of F-Curves for animation
 **/
-@:pythonImport("bpy.types.Action") extern class Action {
+@:native("bpy.types.Action") extern class Action {
 	/**
 		The individual F-Curves that make up the action
 		
@@ -74,14 +74,14 @@ package bpy.types.action;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

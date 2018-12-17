@@ -10,7 +10,7 @@ package bpy.types.pivotconstraint;
 }/**
 	Rotate around a different point
 **/
-@:pythonImport("bpy.types.PivotConstraint") extern class PivotConstraint {
+@:native("bpy.types.PivotConstraint") extern class PivotConstraint {
 	/**
 		Target along length of bone: Head=0, Tail=1
 		
@@ -59,14 +59,14 @@ package bpy.types.pivotconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

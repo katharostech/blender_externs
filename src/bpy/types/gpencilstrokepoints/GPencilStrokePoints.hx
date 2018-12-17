@@ -2,7 +2,7 @@ package bpy.types.gpencilstrokepoints;
 /**
 	Collection of grease pencil stroke points
 **/
-@:pythonImport("bpy.types.GPencilStrokePoints") extern class GPencilStrokePoints {
+@:native("bpy.types.GPencilStrokePoints") extern class GPencilStrokePoints {
 	/**
 		Add a new grease pencil stroke point
 		@param count Number, Number of points to add to the stroke — int in [0, inf]
@@ -21,12 +21,12 @@ package bpy.types.gpencilstrokepoints;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

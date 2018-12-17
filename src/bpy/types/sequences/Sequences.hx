@@ -21,7 +21,7 @@ package bpy.types.sequences;
 }/**
 	Collection of Sequences
 **/
-@:pythonImport("bpy.types.Sequences") extern class Sequences {
+@:native("bpy.types.Sequences") extern class Sequences {
 	/**
 		Add a new movie clip sequence
 		@param name Name for the new sequence — string, (never None)
@@ -89,13 +89,13 @@ package bpy.types.sequences;
 		@param channel Channel, The channel for the new sequence — int in [1, 32]
 		@param frame_start The start frame for the new sequence — int in [-inf, inf]
 		@param frame_end The end frame for the new sequence — int in [-inf, inf], (optional)
-		@param seq1 Sequence 1 for effect — Sequence, (optional)
-		@param seq2 Sequence 2 for effect — Sequence, (optional)
-		@param seq3 Sequence 3 for effect — Sequence, (optional)
+		@param pyseq1 Sequence 1 for effect — Sequence, (optional)
+		@param pyseq2 Sequence 2 for effect — Sequence, (optional)
+		@param pyseq3 Sequence 3 for effect — Sequence, (optional)
 		
 		@returns Sequence
 	**/
-	function new_effect(name:String, type:bpy.types.sequences.Sequences.Enum1, channel:Int, frame_start:Int, frame_end:Int, seq1:bpy.types.sequence.Sequence, seq2:bpy.types.sequence.Sequence, seq3:bpy.types.sequence.Sequence):bpy.types.sequence.Sequence;
+	function new_effect(name:String, type:bpy.types.sequences.Sequences.Enum1, channel:Int, frame_start:Int, frame_end:Int, pyseq1:bpy.types.sequence.Sequence, pyseq2:bpy.types.sequence.Sequence, pyseq3:bpy.types.sequence.Sequence):bpy.types.sequence.Sequence;
 	/**
 		Remove a Sequence
 		@param sequence Sequence to remove — Sequence, (never None)
@@ -107,12 +107,12 @@ package bpy.types.sequences;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

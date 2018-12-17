@@ -8,7 +8,7 @@ package bpy.types.boidrule;
 	var FOLLOW_LEADER : String = "FOLLOW_LEADER";
 	var AVERAGE_SPEED : String = "AVERAGE_SPEED";
 	var FIGHT : String = "FIGHT";
-}@:pythonImport("bpy.types.BoidRule") extern class BoidRule {
+}@:native("bpy.types.BoidRule") extern class BoidRule {
 	/**
 		Boid rule name
 		
@@ -39,12 +39,12 @@ package bpy.types.boidrule;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,7 +2,7 @@ package bpy.types.colorrampelement;
 /**
 	Element defining a color at a position in the color ramp
 **/
-@:pythonImport("bpy.types.ColorRampElement") extern class ColorRampElement {
+@:native("bpy.types.ColorRampElement") extern class ColorRampElement {
 	/**
 		Set alpha of selected color stop
 		
@@ -27,12 +27,12 @@ package bpy.types.colorrampelement;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

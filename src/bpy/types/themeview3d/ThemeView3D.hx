@@ -2,7 +2,7 @@ package bpy.types.themeview3d;
 /**
 	Theme settings for the 3D View
 **/
-@:pythonImport("bpy.types.ThemeView3D") extern class ThemeView3D {
+@:native("bpy.types.ThemeView3D") extern class ThemeView3D {
 	/**
 		
 		
@@ -50,7 +50,7 @@ package bpy.types.themeview3d;
 		
 		Type: float array of 4 items in [0, 1], default (0.0, 0.0, 0.0, 0.0)
 	**/
-	var clipping_border_3d : Array<Float>;
+	var pyclipping_border_3d : Array<Float>;
 	/**
 		
 		
@@ -411,12 +411,12 @@ package bpy.types.themeview3d;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

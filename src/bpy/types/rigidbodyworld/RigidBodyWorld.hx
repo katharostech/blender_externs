@@ -2,7 +2,7 @@ package bpy.types.rigidbodyworld;
 /**
 	Self-contained rigid body simulation environment and settings
 **/
-@:pythonImport("bpy.types.RigidBodyWorld") extern class RigidBodyWorld {
+@:native("bpy.types.RigidBodyWorld") extern class RigidBodyWorld {
 	/**
 		Collection containing objects participating in this simulation
 		
@@ -68,12 +68,12 @@ package bpy.types.rigidbodyworld;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

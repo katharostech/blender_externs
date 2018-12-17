@@ -1,30 +1,30 @@
 package bpy.types.imageformatsettings;
 @:enum abstract Enum1(String) from String to String {
-	var 8 : String = "8";
-	var 10 : String = "10";
-	var 12 : String = "12";
-	var 16 : String = "16";
-	var 32 : String = "32";
+	var py8 : String = "8";
+	var py10 : String = "10";
+	var py12 : String = "12";
+	var py16 : String = "16";
+	var py32 : String = "32";
 }@:enum abstract Enum2(String) from String to String {
 	var BW : String = "BW";
 	var RGB : String = "RGB";
 	var RGBA : String = "RGBA";
 }@:enum abstract Enum3(String) from String to String {
 	var NONE : String = "NONE";
-	var PXR24 : String = "PXR24";
+	var pyPXR24 : String = "PXR24";
 	var ZIP : String = "ZIP";
 	var PIZ : String = "PIZ";
 	var RLE : String = "RLE";
 	var ZIPS : String = "ZIPS";
-	var B44 : String = "B44";
-	var B44A : String = "B44A";
+	var pyB44 : String = "B44";
+	var pyB44A : String = "B44A";
 	var DWAA : String = "DWAA";
 }@:enum abstract Enum4(String) from String to String {
 	var BMP : String = "BMP";
 	var IRIS : String = "IRIS";
 	var PNG : String = "PNG";
 	var JPEG : String = "JPEG";
-	var JPEG2000 : String = "JPEG2000";
+	var pyJPEG2000 : String = "JPEG2000";
 	var TARGA : String = "TARGA";
 	var TARGA_RAW : String = "TARGA_RAW";
 	var CINEON : String = "CINEON";
@@ -37,8 +37,8 @@ package bpy.types.imageformatsettings;
 	var AVI_RAW : String = "AVI_RAW";
 	var FFMPEG : String = "FFMPEG";
 }@:enum abstract Enum5(String) from String to String {
-	var JP2 : String = "JP2";
-	var J2K : String = "J2K";
+	var pyJP2 : String = "JP2";
+	var pyJ2K : String = "J2K";
 }@:enum abstract Enum6(String) from String to String {
 	var NONE : String = "NONE";
 	var DEFLATE : String = "DEFLATE";
@@ -46,11 +46,11 @@ package bpy.types.imageformatsettings;
 	var PACKBITS : String = "PACKBITS";
 }@:enum abstract Enum7(String) from String to String {
 	var INDIVIDUAL : String = "INDIVIDUAL";
-	var STEREO_3D : String = "STEREO_3D";
+	var pySTEREO_3D : String = "STEREO_3D";
 }/**
 	Settings for image formats
 **/
-@:pythonImport("bpy.types.ImageFormatSettings") extern class ImageFormatSettings {
+@:native("bpy.types.ImageFormatSettings") extern class ImageFormatSettings {
 	/**
 		Log conversion reference blackpoint
 		
@@ -110,7 +110,7 @@ package bpy.types.imageformatsettings;
 		
 		Type: enum in [‘JP2’, ‘J2K’], default ‘JP2’
 	**/
-	var jpeg2k_codec : bpy.types.imageformatsettings.ImageFormatSettings.Enum5;
+	var pyjpeg2k_codec : bpy.types.imageformatsettings.ImageFormatSettings.Enum5;
 	/**
 		Quality for image formats that support lossy compression
 		
@@ -122,7 +122,7 @@ package bpy.types.imageformatsettings;
 		
 		Type: Stereo3dFormat, (readonly, never None)
 	**/
-	var stereo_3d_format(default, never) : bpy.types.stereo3dformat.Stereo3dFormat;
+	var pystereo_3d_format(default, never) : bpy.types.stereo3dformat.Stereo3dFormat;
 	/**
 		Compression mode for TIFF
 		
@@ -140,19 +140,19 @@ package bpy.types.imageformatsettings;
 		
 		Type: boolean, default False
 	**/
-	var use_jpeg2k_cinema_48 : Bool;
+	var pyuse_jpeg2k_cinema_48 : Bool;
 	/**
 		Use Openjpeg Cinema Preset
 		
 		Type: boolean, default False
 	**/
-	var use_jpeg2k_cinema_preset : Bool;
+	var pyuse_jpeg2k_cinema_preset : Bool;
 	/**
 		Save luminance-chrominance-chrominance channels instead of RGB colors
 		
 		Type: boolean, default False
 	**/
-	var use_jpeg2k_ycc : Bool;
+	var pyuse_jpeg2k_ycc : Bool;
 	/**
 		When rendering animations, save JPG preview images in same directory
 		
@@ -183,12 +183,12 @@ package bpy.types.imageformatsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

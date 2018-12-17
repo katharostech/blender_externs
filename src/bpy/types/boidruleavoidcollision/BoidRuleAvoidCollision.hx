@@ -1,5 +1,5 @@
 package bpy.types.boidruleavoidcollision;
-@:pythonImport("bpy.types.BoidRuleAvoidCollision") extern class BoidRuleAvoidCollision {
+@:native("bpy.types.BoidRuleAvoidCollision") extern class BoidRuleAvoidCollision {
 	/**
 		Time to look ahead in seconds
 		
@@ -24,14 +24,14 @@ package bpy.types.boidruleavoidcollision;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Boid rule name
 		

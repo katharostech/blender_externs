@@ -1,7 +1,7 @@
 package bpy.types.rigidbodyconstraint;
 @:enum abstract Enum1(String) from String to String {
-	var SPRING1 : String = "SPRING1";
-	var SPRING2 : String = "SPRING2";
+	var pySPRING1 : String = "SPRING1";
+	var pySPRING2 : String = "SPRING2";
 }@:enum abstract Enum2(String) from String to String {
 	var FIXED : String = "FIXED";
 	var POINT : String = "POINT";
@@ -14,7 +14,7 @@ package bpy.types.rigidbodyconstraint;
 }/**
 	Constraint influencing Objects inside Rigid Body Simulation
 **/
-@:pythonImport("bpy.types.RigidBodyConstraint") extern class RigidBodyConstraint {
+@:native("bpy.types.RigidBodyConstraint") extern class RigidBodyConstraint {
 	/**
 		Impulse threshold that must be reached for the constraint to break
 		
@@ -134,13 +134,13 @@ package bpy.types.rigidbodyconstraint;
 		
 		Type: Object
 	**/
-	var object1 : bpy.types.object.Object;
+	var pyobject1 : bpy.types.object.Object;
 	/**
 		Second Rigid Body Object to be constrained
 		
 		Type: Object
 	**/
-	var object2 : bpy.types.object.Object;
+	var pyobject2 : bpy.types.object.Object;
 	/**
 		Number of constraint solver iterations made per simulation step (higher values are more accurate but slower)
 		
@@ -333,12 +333,12 @@ package bpy.types.rigidbodyconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

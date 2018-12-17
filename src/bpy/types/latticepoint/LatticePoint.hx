@@ -2,7 +2,7 @@ package bpy.types.latticepoint;
 /**
 	Point in the lattice grid
 **/
-@:pythonImport("bpy.types.LatticePoint") extern class LatticePoint {
+@:native("bpy.types.LatticePoint") extern class LatticePoint {
 	/**
 		Original undeformed location used to calculate the strength of the deform effect (edit/animate the Deformed Location instead)
 		
@@ -39,12 +39,12 @@ package bpy.types.latticepoint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

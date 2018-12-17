@@ -2,13 +2,13 @@ package bpy.types.stringproperty;
 /**
 	RNA text string property definition
 **/
-@:pythonImport("bpy.types.StringProperty") extern class StringProperty {
+@:native("bpy.types.StringProperty") extern class StringProperty {
 	/**
 		string default value
 		
 		Type: string, default “”, (readonly, never None)
 	**/
-	var default(default, never) : String;
+	var pyDefault(default, never) : String;
 	/**
 		Maximum length of the string, 0 means unlimited
 		
@@ -21,14 +21,14 @@ package bpy.types.stringproperty;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Human readable name
 		

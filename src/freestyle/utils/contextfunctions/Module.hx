@@ -10,19 +10,19 @@ package freestyle.utils.contextfunctions;
 		
 		@returns tuple
 	**/
-	function get_border():Dynamic;
+	static function get_border():Dynamic;
 	/**
 		Returns the canvas height.
 		
 		@returns int
 	**/
-	function get_canvas_height():Dynamic;
+	static function get_canvas_height():Int;
 	/**
 		Returns the canvas width.
 		
 		@returns int
 	**/
-	function get_canvas_width():Dynamic;
+	static function get_canvas_width():Int;
 	/**
 		Returns the selected FEdge.
 		
@@ -34,7 +34,7 @@ package freestyle.utils.contextfunctions;
 		
 		@returns int
 	**/
-	static function get_time_stamp():Dynamic;
+	static function get_time_stamp():Int;
 	/**
 		Loads an image map for further reading.
 		@param file_name The name of the image file. — str
@@ -44,7 +44,7 @@ package freestyle.utils.contextfunctions;
 		                                        built. — int
 		@param sigma The sigma value of the gaussian function. — float
 	**/
-	static function load_map(file_name:Dynamic, map_name:Dynamic, num_levels:Dynamic, sigma:Dynamic):Void;
+	static function load_map(file_name:Dynamic, map_name:Dynamic, num_levels:Int, sigma:Float):Void;
 	/**
 		Reads a pixel in the complete view map.
 		@param level The level of the pyramid in which we wish to read the
@@ -56,7 +56,7 @@ package freestyle.utils.contextfunctions;
 		
 		@returns float
 	**/
-	static function read_complete_view_map_pixel(level:Dynamic, x:Dynamic, y:Dynamic):Dynamic;
+	static function read_complete_view_map_pixel(level:Int, x:Int, y:Int):Float;
 	/**
 		Reads a pixel in one of the oriented view map images.
 		@param orientation The number telling which orientation we want to
@@ -70,7 +70,7 @@ package freestyle.utils.contextfunctions;
 		
 		@returns float
 	**/
-	static function read_directional_view_map_pixel(orientation:Dynamic, level:Dynamic, x:Dynamic, y:Dynamic):Dynamic;
+	static function read_directional_view_map_pixel(orientation:Int, level:Int, x:Int, y:Int):Float;
 	/**
 		Reads a pixel in a user-defined map.
 		@param map_name The name of the map. — str
@@ -83,5 +83,5 @@ package freestyle.utils.contextfunctions;
 		
 		@returns float
 	**/
-	static function read_map_pixel(map_name:Dynamic, level:Dynamic, x:Dynamic, y:Dynamic):Dynamic;
+	static function read_map_pixel(map_name:Dynamic, level:Int, x:Int, y:Int):Float;
 }

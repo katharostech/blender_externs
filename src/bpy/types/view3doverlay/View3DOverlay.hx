@@ -2,7 +2,7 @@ package bpy.types.view3doverlay;
 /**
 	Settings for display of overlays in the 3D viewport
 **/
-@:pythonImport("bpy.types.View3DOverlay") extern class View3DOverlay {
+@:native("bpy.types.View3DOverlay") extern class View3DOverlay {
 	/**
 		Opacity when rendering transparent wires
 		
@@ -411,12 +411,12 @@ package bpy.types.view3doverlay;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -3,7 +3,7 @@ package bpy.types.brushtextureslot;
 	var VIEW_PLANE : String = "VIEW_PLANE";
 	var AREA_PLANE : String = "AREA_PLANE";
 	var TILED : String = "TILED";
-	var 3D : String = "3D";
+	var py3D : String = "3D";
 	var RANDOM : String = "RANDOM";
 	var STENCIL : String = "STENCIL";
 }@:enum abstract Enum2(String) from String to String {
@@ -14,13 +14,13 @@ package bpy.types.brushtextureslot;
 }@:enum abstract Enum3(String) from String to String {
 	var VIEW_PLANE : String = "VIEW_PLANE";
 	var TILED : String = "TILED";
-	var 3D : String = "3D";
+	var py3D : String = "3D";
 	var RANDOM : String = "RANDOM";
 	var STENCIL : String = "STENCIL";
 }/**
 	Texture slot for textures in a Brush data-block
 **/
-@:pythonImport("bpy.types.BrushTextureSlot") extern class BrushTextureSlot {
+@:native("bpy.types.BrushTextureSlot") extern class BrushTextureSlot {
 	/**
 		Brush texture rotation
 		
@@ -87,14 +87,14 @@ package bpy.types.brushtextureslot;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Texture data-block used by this texture slot
 		

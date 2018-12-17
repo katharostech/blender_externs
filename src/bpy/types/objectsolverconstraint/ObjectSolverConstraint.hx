@@ -2,7 +2,7 @@ package bpy.types.objectsolverconstraint;
 /**
 	Lock motion to the reconstructed object movement
 **/
-@:pythonImport("bpy.types.ObjectSolverConstraint") extern class ObjectSolverConstraint {
+@:native("bpy.types.ObjectSolverConstraint") extern class ObjectSolverConstraint {
 	/**
 		Camera to which motion is parented (if empty active scene camera is used)
 		
@@ -33,14 +33,14 @@ package bpy.types.objectsolverconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

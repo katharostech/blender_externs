@@ -19,7 +19,7 @@ package bpy_extras.anim_utils;
 		
 		@returns sequence of bpy.types.Action
 	**/
-	static function bake_action_objects(frames:Dynamic):Dynamic;
+	static function bake_action_objects(frames:Dynamic):bpy.types.action.Action;
 	/**
 		An coroutine that bakes action for a single object.
 		@param obj Object to bake. — bpy.types.Object

@@ -5,7 +5,7 @@ package bpy.types.pose;
 }/**
 	A collection of pose channels, including settings for animating bones
 **/
-@:pythonImport("bpy.types.Pose") extern class Pose {
+@:native("bpy.types.Pose") extern class Pose {
 	/**
 		Animation data for this data-block
 		
@@ -42,12 +42,12 @@ package bpy.types.pose;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

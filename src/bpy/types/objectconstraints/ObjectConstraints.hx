@@ -31,7 +31,7 @@ package bpy.types.objectconstraints;
 }/**
 	Collection of object constraints
 **/
-@:pythonImport("bpy.types.ObjectConstraints") extern class ObjectConstraints {
+@:native("bpy.types.ObjectConstraints") extern class ObjectConstraints {
 	/**
 		Active Object constraint
 		
@@ -44,7 +44,7 @@ package bpy.types.objectconstraints;
 		
 		@returns Constraint
 	**/
-	function new(type:bpy.types.objectconstraints.ObjectConstraints.Enum1):bpy.types.constraint.Constraint;
+	function pyNew(type:bpy.types.objectconstraints.ObjectConstraints.Enum1):bpy.types.constraint.Constraint;
 	/**
 		Remove a constraint from this object
 		@param constraint Removed constraint — Constraint, (never None)
@@ -60,12 +60,12 @@ package bpy.types.objectconstraints;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

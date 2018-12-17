@@ -2,7 +2,7 @@ package gpu.types;
 /**
 	Reusable container for drawable geometry.
 **/
-@:pythonImport("gpu.types.GPUBatch") extern class GPUBatch {
+@:native("gpu.types.GPUBatch") extern class GPUBatch {
 	/**
 		Run the drawing program with the parameters assigned to the batch.
 		@param program Program that performs the drawing operations.
@@ -28,12 +28,12 @@ package gpu.types;
 }/**
 	Contains an index buffer.
 **/
-@:pythonImport("gpu.types.GPUIndexBuf") extern class GPUIndexBuf {
+@:native("gpu.types.GPUIndexBuf") extern class GPUIndexBuf {
 
 }/**
 	This object gives access to off screen buffers.
 **/
-@:pythonImport("gpu.types.GPUOffScreen") extern class GPUOffScreen {
+@:native("gpu.types.GPUOffScreen") extern class GPUOffScreen {
 	/**
 		Bind the offscreen object.
 		To make sure that the offscreen gets unbind whether an exception occurs or not, pack it into a with statement.
@@ -44,12 +44,12 @@ package gpu.types;
 		Draw the 3d viewport in the offscreen object.
 		@param scene Scene to draw. — bpy.types.Scene
 		@param view_layer View layer to draw. — bpy.types.ViewLayer
-		@param view3d 3D View to get the drawing settings from. — bpy.types.SpaceView3D
+		@param pyview3d 3D View to get the drawing settings from. — bpy.types.SpaceView3D
 		@param region Region of the 3D View (required as temporary draw target). — bpy.types.Region
 		@param view_matrix View Matrix (e.g. camera.matrix_world.inverted()). — mathutils.Matrix
 		@param projection_matrix Projection Matrix (e.g. camera.calc_matrix_camera(...)). — mathutils.Matrix
 	**/
-	function draw_view3d(scene:Dynamic, view_layer:Dynamic, view3d:Dynamic, region:Dynamic, view_matrix:Dynamic, projection_matrix:Dynamic):Void;
+	function pydraw_view3d(scene:Dynamic, view_layer:Dynamic, pyview3d:Dynamic, region:Dynamic, view_matrix:Dynamic, projection_matrix:Dynamic):Void;
 	/**
 		Free the offscreen object.
 		The framebuffer, texture and render objects will no longer be accessible.
@@ -91,14 +91,14 @@ package gpu.types;
 	
 	To debug shaders, use the –debug-gpu-shaders command line option   to see full GLSL shader compilation and linking errors.
 **/
-@:pythonImport("gpu.types.GPUShader") extern class GPUShader {
+@:native("gpu.types.GPUShader") extern class GPUShader {
 	/**
 		Get attribute location by name.
 		@param name The name of the attribute variable whose location is to be queried. — str
 		
 		@returns int
 	**/
-	function attr_from_name(name:Dynamic):Dynamic;
+	function attr_from_name(name:Dynamic):Int;
 	/**
 		Bind the shader object. Required to be able to change uniforms of this shader.
 	**/
@@ -148,21 +148,21 @@ package gpu.types;
 		@param length Size of the uniform data type:1: float2: vec2 or float[2]3: vec3 or float[3]4: vec4 or float[4]9: mat316: mat4 — int
 		@param count Specifies the number of elements, vector or matrices that are to be modified. — int
 	**/
-	function uniform_vector_float(location:Dynamic, buffer:Dynamic, length:Dynamic, count:Dynamic):Void;
+	function uniform_vector_float(location:Int, buffer:Dynamic, length:Int, count:Int):Void;
 	/**
 		See GPUShader.uniform_vector_float(…) description.
 	**/
-	function uniform_vector_int():Void;
+	function uniform_vector_int(location:Dynamic, buffer:Dynamic, length:Dynamic, count:Dynamic):Void;
 	/**
 		The name of the program object for use by the OpenGL API (read-only).
 		
 		Type: int
 	**/
-	var program : Dynamic;
+	var program : Int;
 }/**
 	Contains a VBO.
 **/
-@:pythonImport("gpu.types.GPUVertBuf") extern class GPUVertBuf {
+@:native("gpu.types.GPUVertBuf") extern class GPUVertBuf {
 	/**
 		Insert data into the buffer for a single attribute.
 		@param id Either the name or the id of the attribute. — int or str
@@ -172,7 +172,7 @@ package gpu.types;
 }/**
 	This object contains information about the structure of a vertex buffer.
 **/
-@:pythonImport("gpu.types.GPUVertFormat") extern class GPUVertFormat {
+@:native("gpu.types.GPUVertFormat") extern class GPUVertFormat {
 	/**
 		Add a new attribute to the format.
 		@param id Name the attribute. Often position, normal, … — str
@@ -184,5 +184,5 @@ package gpu.types;
 		                                                E.g. you can store a float in only 1 byte but it will be converted to a normal 4 byte float when used.
 		                                                Possible values are FLOAT, INT, INT_TO_FLOAT_UNIT and INT_TO_FLOAT. — str
 	**/
-	function attr_add(id:Dynamic, comp_type:Dynamic, len:Dynamic, fetch_mode:Dynamic):Void;
+	function attr_add(id:Dynamic, comp_type:Dynamic, len:Int, fetch_mode:Dynamic):Void;
 }

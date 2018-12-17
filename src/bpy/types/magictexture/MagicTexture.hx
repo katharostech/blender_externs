@@ -2,7 +2,7 @@ package bpy.types.magictexture;
 /**
 	Procedural noise texture
 **/
-@:pythonImport("bpy.types.MagicTexture") extern class MagicTexture {
+@:native("bpy.types.MagicTexture") extern class MagicTexture {
 	/**
 		Depth of the noise
 		
@@ -31,14 +31,14 @@ package bpy.types.magictexture;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		
@@ -267,5 +267,5 @@ package bpy.types.magictexture;
 		
 		@returns float array of 4 items in [-inf, inf]
 	**/
-	function evaluate():Array<Float>;
+	function evaluate(value:Dynamic):Array<Float>;
 }

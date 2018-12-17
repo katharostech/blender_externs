@@ -2,7 +2,7 @@ package bpy.types.filebrowserfsmenuentry;
 /**
 	File Select Parameters
 **/
-@:pythonImport("bpy.types.FileBrowserFSMenuEntry") extern class FileBrowserFSMenuEntry {
+@:native("bpy.types.FileBrowserFSMenuEntry") extern class FileBrowserFSMenuEntry {
 	/**
 		Whether this path is currently reachable
 		
@@ -33,12 +33,12 @@ package bpy.types.filebrowserfsmenuentry;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

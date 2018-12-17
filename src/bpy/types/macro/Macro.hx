@@ -2,7 +2,7 @@ package bpy.types.macro;
 /**
 	Storage of a macro operator being executed, or registered after execution
 **/
-@:pythonImport("bpy.types.Macro") extern class Macro {
+@:native("bpy.types.Macro") extern class Macro {
 	/**
 		
 		
@@ -62,23 +62,23 @@ package bpy.types.macro;
 		
 		@returns boolean
 	**/
-	static function poll():Dynamic;
+	static function poll(context:Dynamic):Bool;
 	/**
 		Draw function for the operator
 	**/
-	function draw():Void;
+	function draw(context:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

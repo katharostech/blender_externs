@@ -15,7 +15,7 @@ package bpy.types.blenddatabrushes;
 }/**
 	Collection of brushes
 **/
-@:pythonImport("bpy.types.BlendDataBrushes") extern class BlendDataBrushes {
+@:native("bpy.types.BlendDataBrushes") extern class BlendDataBrushes {
 	/**
 		Add a new brush to the main database
 		@param name New name for the data-block — string, (never None)
@@ -23,7 +23,7 @@ package bpy.types.blenddatabrushes;
 		
 		@returns Brush
 	**/
-	function new(name:String, mode:bpy.types.blenddatabrushes.BlendDataBrushes.Enum1):bpy.types.brush.Brush;
+	function pyNew(name:String, mode:bpy.types.blenddatabrushes.BlendDataBrushes.Enum1):bpy.types.brush.Brush;
 	/**
 		Remove a brush from the current blendfile
 		@param brush Brush to remove — Brush, (never None)
@@ -36,7 +36,7 @@ package bpy.types.blenddatabrushes;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		Add grease pencil brush settings
 		@param brush Brush — Brush, (never None)
@@ -48,12 +48,12 @@ package bpy.types.blenddatabrushes;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

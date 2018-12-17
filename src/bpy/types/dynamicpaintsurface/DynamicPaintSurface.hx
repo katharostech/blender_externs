@@ -25,7 +25,7 @@ package bpy.types.dynamicpaintsurface;
 }/**
 	A canvas surface layer
 **/
-@:pythonImport("bpy.types.DynamicPaintSurface") extern class DynamicPaintSurface {
+@:native("bpy.types.DynamicPaintSurface") extern class DynamicPaintSurface {
 	/**
 		Only use brush objects from this collection
 		
@@ -368,19 +368,19 @@ package bpy.types.dynamicpaintsurface;
 		
 		@returns boolean
 	**/
-	function output_exists(index:Int):Dynamic;
+	function output_exists(index:Int):Bool;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

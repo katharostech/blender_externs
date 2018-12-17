@@ -5,7 +5,7 @@ package bpy.types.effectsequence;
 }/**
 	Sequence strip applying an effect on the images created by other strips
 **/
-@:pythonImport("bpy.types.EffectSequence") extern class EffectSequence {
+@:native("bpy.types.EffectSequence") extern class EffectSequence {
 	/**
 		Representation of alpha information in the RGBA pixels
 		
@@ -102,14 +102,14 @@ package bpy.types.effectsequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

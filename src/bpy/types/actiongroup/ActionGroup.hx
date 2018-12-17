@@ -1,31 +1,31 @@
 package bpy.types.actiongroup;
 @:enum abstract Enum1(String) from String to String {
 	var DEFAULT : String = "DEFAULT";
-	var THEME01 : String = "THEME01";
-	var THEME02 : String = "THEME02";
-	var THEME03 : String = "THEME03";
-	var THEME04 : String = "THEME04";
-	var THEME05 : String = "THEME05";
-	var THEME06 : String = "THEME06";
-	var THEME07 : String = "THEME07";
-	var THEME08 : String = "THEME08";
-	var THEME09 : String = "THEME09";
-	var THEME10 : String = "THEME10";
-	var THEME11 : String = "THEME11";
-	var THEME12 : String = "THEME12";
-	var THEME13 : String = "THEME13";
-	var THEME14 : String = "THEME14";
-	var THEME15 : String = "THEME15";
-	var THEME16 : String = "THEME16";
-	var THEME17 : String = "THEME17";
-	var THEME18 : String = "THEME18";
-	var THEME19 : String = "THEME19";
-	var THEME20 : String = "THEME20";
+	var pyTHEME01 : String = "THEME01";
+	var pyTHEME02 : String = "THEME02";
+	var pyTHEME03 : String = "THEME03";
+	var pyTHEME04 : String = "THEME04";
+	var pyTHEME05 : String = "THEME05";
+	var pyTHEME06 : String = "THEME06";
+	var pyTHEME07 : String = "THEME07";
+	var pyTHEME08 : String = "THEME08";
+	var pyTHEME09 : String = "THEME09";
+	var pyTHEME10 : String = "THEME10";
+	var pyTHEME11 : String = "THEME11";
+	var pyTHEME12 : String = "THEME12";
+	var pyTHEME13 : String = "THEME13";
+	var pyTHEME14 : String = "THEME14";
+	var pyTHEME15 : String = "THEME15";
+	var pyTHEME16 : String = "THEME16";
+	var pyTHEME17 : String = "THEME17";
+	var pyTHEME18 : String = "THEME18";
+	var pyTHEME19 : String = "THEME19";
+	var pyTHEME20 : String = "THEME20";
 	var CUSTOM : String = "CUSTOM";
 }/**
 	Groups of F-Curves
 **/
-@:pythonImport("bpy.types.ActionGroup") extern class ActionGroup {
+@:native("bpy.types.ActionGroup") extern class ActionGroup {
 	/**
 		F-Curves in this group
 		
@@ -80,12 +80,12 @@ package bpy.types.actiongroup;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

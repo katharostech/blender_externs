@@ -6,7 +6,7 @@ package bpy.types.booleanmodifier;
 }/**
 	Boolean operations modifier
 **/
-@:pythonImport("bpy.types.BooleanModifier") extern class BooleanModifier {
+@:native("bpy.types.BooleanModifier") extern class BooleanModifier {
 	/**
 		Debugging options, only when started with ‘-d’
 		
@@ -37,14 +37,14 @@ package bpy.types.booleanmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

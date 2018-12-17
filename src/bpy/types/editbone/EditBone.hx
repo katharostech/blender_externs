@@ -12,7 +12,7 @@ package bpy.types.editbone;
 }/**
 	Editmode bone in an Armature data-block
 **/
-@:pythonImport("bpy.types.EditBone") extern class EditBone {
+@:native("bpy.types.EditBone") extern class EditBone {
 	/**
 		X-axis handle offset for start of the B-Bone’s curve, adjusts curvature
 		
@@ -345,12 +345,12 @@ package bpy.types.editbone;
 		Align this bone to another by moving its tail and settings its roll
 		the length of the other bone is not used.
 	**/
-	function align_orientation():Void;
+	function align_orientation(other:Dynamic):Void;
 	/**
 		The same as ‘bone in other_bone.parent_recursive’
 		but saved generating a list.
 	**/
-	function parent_index():Void;
+	function parent_index(parent_test:Dynamic):Void;
 	/**
 		Transform the the bones head, tail, roll and envelope
 		(when the matrix has a scale component).
@@ -363,19 +363,19 @@ package bpy.types.editbone;
 	/**
 		Utility function to add vec to the head and tail of this bone
 	**/
-	function translate():Void;
+	function translate(vec:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -7,7 +7,7 @@ package bpy.types.splineikconstraint;
 }/**
 	Align ‘n’ bones along a curve
 **/
-@:pythonImport("bpy.types.SplineIKConstraint") extern class SplineIKConstraint {
+@:native("bpy.types.SplineIKConstraint") extern class SplineIKConstraint {
 	/**
 		Factor between volume variation and stretching
 		
@@ -98,14 +98,14 @@ package bpy.types.splineikconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

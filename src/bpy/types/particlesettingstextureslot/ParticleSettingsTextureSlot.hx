@@ -28,7 +28,7 @@ package bpy.types.particlesettingstextureslot;
 }/**
 	Texture slot for textures in a Particle Settings data-block
 **/
-@:pythonImport("bpy.types.ParticleSettingsTextureSlot") extern class ParticleSettingsTextureSlot {
+@:native("bpy.types.ParticleSettingsTextureSlot") extern class ParticleSettingsTextureSlot {
 	/**
 		Amount texture affects child clump
 		
@@ -245,14 +245,14 @@ package bpy.types.particlesettingstextureslot;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Texture data-block used by this texture slot
 		

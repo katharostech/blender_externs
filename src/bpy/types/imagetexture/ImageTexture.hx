@@ -10,7 +10,7 @@ package bpy.types.imagetexture;
 	var EWA : String = "EWA";
 	var FELINE : String = "FELINE";
 	var AREA : String = "AREA";
-}@:pythonImport("bpy.types.ImageTexture") extern class ImageTexture {
+}@:native("bpy.types.ImageTexture") extern class ImageTexture {
 	/**
 		Distance between checker tiles
 		
@@ -189,14 +189,14 @@ package bpy.types.imagetexture;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		
@@ -425,5 +425,5 @@ package bpy.types.imagetexture;
 		
 		@returns float array of 4 items in [-inf, inf]
 	**/
-	function evaluate():Array<Float>;
+	function evaluate(value:Dynamic):Array<Float>;
 }

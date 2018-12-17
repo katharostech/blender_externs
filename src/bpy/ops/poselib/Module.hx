@@ -20,7 +20,7 @@ package bpy.ops.poselib;
 	/**
 		Add New Pose Library to active Object
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Add the current Pose to the active Pose Library
 		@param frame Frame, Frame to store pose on — int in [0, inf], (optional)

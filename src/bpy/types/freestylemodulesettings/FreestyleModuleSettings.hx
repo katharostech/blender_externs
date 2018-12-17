@@ -2,7 +2,7 @@ package bpy.types.freestylemodulesettings;
 /**
 	Style module configuration for specifying a style module
 **/
-@:pythonImport("bpy.types.FreestyleModuleSettings") extern class FreestyleModuleSettings {
+@:native("bpy.types.FreestyleModuleSettings") extern class FreestyleModuleSettings {
 	/**
 		Python script to define a style module
 		
@@ -21,12 +21,12 @@ package bpy.types.freestylemodulesettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

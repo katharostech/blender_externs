@@ -2,14 +2,14 @@ package bpy.types.blenddataprobes;
 /**
 	Collection of light probes
 **/
-@:pythonImport("bpy.types.BlendDataProbes") extern class BlendDataProbes {
+@:native("bpy.types.BlendDataProbes") extern class BlendDataProbes {
 	/**
 		Add a new probe to the main database
 		@param name New name for the data-block — string, (never None)
 		
 		@returns LightProbe
 	**/
-	function new(name:String):bpy.types.lightprobe.LightProbe;
+	function pyNew(name:String):bpy.types.lightprobe.LightProbe;
 	/**
 		Remove a probe from the current blendfile
 		@param lightprobe Probe to remove — LightProbe, (never None)
@@ -22,19 +22,19 @@ package bpy.types.blenddataprobes;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

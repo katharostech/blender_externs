@@ -16,20 +16,20 @@
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Operator.py" xml:space="preserve">import bpy
 
 
-class HelloWorldOperator(bpy.types.Operator):
-    bl_idname = "wm.hello_world"
-    bl_label = "Minimal Operator"
+                class HelloWorldOperator(bpy.types.Operator):
+                    bl_idname = "wm.hello_world"
+                    bl_label = "Minimal Operator"
 
-    def execute(self, context):
-        print("Hello World")
-        return {'FINISHED'}
+                    def execute(self, context):
+                        print("Hello World")
+                        return {'FINISHED'}
 
 
-bpy.utils.register_class(HelloWorldOperator)
+                bpy.utils.register_class(HelloWorldOperator)
 
-# test call to the newly defined operator
-bpy.ops.wm.hello_world()
-</literal_block>
+                # test call to the newly defined operator
+                bpy.ops.wm.hello_world()
+            </literal_block>
         </section>
         <section ids="invoke-function" names="invoke\ function">
             <title>Invoke Function</title>
@@ -49,38 +49,38 @@ bpy.ops.wm.hello_world()
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Operator.1.py" xml:space="preserve">import bpy
 
 
-class SimpleMouseOperator(bpy.types.Operator):
-    """ This operator shows the mouse location,
-        this string is used for the tooltip and API docs
-    """
-    bl_idname = "wm.mouse_position"
-    bl_label = "Invoke Mouse Operator"
+                class SimpleMouseOperator(bpy.types.Operator):
+                    """ This operator shows the mouse location,
+                        this string is used for the tooltip and API docs
+                    """
+                    bl_idname = "wm.mouse_position"
+                    bl_label = "Invoke Mouse Operator"
 
-    x = bpy.props.IntProperty()
-    y = bpy.props.IntProperty()
+                    x = bpy.props.IntProperty()
+                    y = bpy.props.IntProperty()
 
-    def execute(self, context):
-        # rather than printing, use the report function,
-        # this way the message appears in the header,
-        self.report({'INFO'}, "Mouse coords are %d %d" % (self.x, self.y))
-        return {'FINISHED'}
+                    def execute(self, context):
+                        # rather than printing, use the report function,
+                        # this way the message appears in the header,
+                        self.report({'INFO'}, "Mouse coords are %d %d" % (self.x, self.y))
+                        return {'FINISHED'}
 
-    def invoke(self, context, event):
-        self.x = event.mouse_x
-        self.y = event.mouse_y
-        return self.execute(context)
+                    def invoke(self, context, event):
+                        self.x = event.mouse_x
+                        self.y = event.mouse_y
+                        return self.execute(context)
 
 
-bpy.utils.register_class(SimpleMouseOperator)
+                bpy.utils.register_class(SimpleMouseOperator)
 
-# Test call to the newly defined operator.
-# Here we call the operator and invoke it, meaning that the settings are taken
-# from the mouse.
-bpy.ops.wm.mouse_position('INVOKE_DEFAULT')
+                # Test call to the newly defined operator.
+                # Here we call the operator and invoke it, meaning that the settings are taken
+                # from the mouse.
+                bpy.ops.wm.mouse_position('INVOKE_DEFAULT')
 
-# Another test call, this time call execute() directly with pre-defined settings.
-bpy.ops.wm.mouse_position('EXEC_DEFAULT', x=20, y=66)
-</literal_block>
+                # Another test call, this time call execute() directly with pre-defined settings.
+                bpy.ops.wm.mouse_position('EXEC_DEFAULT', x=20, y=66)
+            </literal_block>
         </section>
         <section ids="calling-a-file-selector" names="calling\ a\ file\ selector">
             <title>Calling a File Selector</title>
@@ -95,41 +95,41 @@ bpy.ops.wm.mouse_position('EXEC_DEFAULT', x=20, y=66)
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Operator.2.py" xml:space="preserve">import bpy
 
 
-class ExportSomeData(bpy.types.Operator):
-    """Test exporter which just writes hello world"""
-    bl_idname = "export.some_data"
-    bl_label = "Export Some Data"
+                class ExportSomeData(bpy.types.Operator):
+                    """Test exporter which just writes hello world"""
+                    bl_idname = "export.some_data"
+                    bl_label = "Export Some Data"
 
-    filepath = bpy.props.StringProperty(subtype="FILE_PATH")
+                    filepath = bpy.props.StringProperty(subtype="FILE_PATH")
 
-    @classmethod
-    def poll(cls, context):
-        return context.object is not None
+                    @classmethod
+                    def poll(cls, context):
+                        return context.object is not None
 
-    def execute(self, context):
-        file = open(self.filepath, 'w')
-        file.write("Hello World " + context.object.name)
-        return {'FINISHED'}
+                    def execute(self, context):
+                        file = open(self.filepath, 'w')
+                        file.write("Hello World " + context.object.name)
+                        return {'FINISHED'}
 
-    def invoke(self, context, event):
-        context.window_manager.fileselect_add(self)
-        return {'RUNNING_MODAL'}
-
-
-# Only needed if you want to add into a dynamic menu
-def menu_func(self, context):
-    self.layout.operator_context = 'INVOKE_DEFAULT'
-    self.layout.operator(ExportSomeData.bl_idname, text="Text Export Operator")
+                    def invoke(self, context, event):
+                        context.window_manager.fileselect_add(self)
+                        return {'RUNNING_MODAL'}
 
 
-# Register and add to the file selector
-bpy.utils.register_class(ExportSomeData)
-bpy.types.TOPBAR_MT_file_export.append(menu_func)
+                # Only needed if you want to add into a dynamic menu
+                def menu_func(self, context):
+                    self.layout.operator_context = 'INVOKE_DEFAULT'
+                    self.layout.operator(ExportSomeData.bl_idname, text="Text Export Operator")
 
 
-# test call
-bpy.ops.export.some_data('INVOKE_DEFAULT')
-</literal_block>
+                # Register and add to the file selector
+                bpy.utils.register_class(ExportSomeData)
+                bpy.types.TOPBAR_MT_file_export.append(menu_func)
+
+
+                # test call
+                bpy.ops.export.some_data('INVOKE_DEFAULT')
+            </literal_block>
         </section>
         <section ids="dialog-box" names="dialog\ box">
             <title>Dialog Box</title>
@@ -137,30 +137,30 @@ bpy.ops.export.some_data('INVOKE_DEFAULT')
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Operator.3.py" xml:space="preserve">import bpy
 
 
-class DialogOperator(bpy.types.Operator):
-    bl_idname = "object.dialog_operator"
-    bl_label = "Simple Dialog Operator"
+                class DialogOperator(bpy.types.Operator):
+                    bl_idname = "object.dialog_operator"
+                    bl_label = "Simple Dialog Operator"
 
-    my_float = bpy.props.FloatProperty(name="Some Floating Point")
-    my_bool = bpy.props.BoolProperty(name="Toggle Option")
-    my_string = bpy.props.StringProperty(name="String Value")
+                    my_float = bpy.props.FloatProperty(name="Some Floating Point")
+                    my_bool = bpy.props.BoolProperty(name="Toggle Option")
+                    my_string = bpy.props.StringProperty(name="String Value")
 
-    def execute(self, context):
-        message = "Popup Values: %f, %d, '%s'" % \
-            (self.my_float, self.my_bool, self.my_string)
-        self.report({'INFO'}, message)
-        return {'FINISHED'}
+                    def execute(self, context):
+                        message = "Popup Values: %f, %d, '%s'" % \
+                            (self.my_float, self.my_bool, self.my_string)
+                        self.report({'INFO'}, message)
+                        return {'FINISHED'}
 
-    def invoke(self, context, event):
-        wm = context.window_manager
-        return wm.invoke_props_dialog(self)
+                    def invoke(self, context, event):
+                        wm = context.window_manager
+                        return wm.invoke_props_dialog(self)
 
 
-bpy.utils.register_class(DialogOperator)
+                bpy.utils.register_class(DialogOperator)
 
-# test call
-bpy.ops.object.dialog_operator('INVOKE_DEFAULT')
-</literal_block>
+                # test call
+                bpy.ops.object.dialog_operator('INVOKE_DEFAULT')
+            </literal_block>
         </section>
         <section ids="custom-drawing" names="custom\ drawing">
             <title>Custom Drawing</title>
@@ -172,41 +172,41 @@ bpy.ops.object.dialog_operator('INVOKE_DEFAULT')
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Operator.4.py" xml:space="preserve">import bpy
 
 
-class CustomDrawOperator(bpy.types.Operator):
-    bl_idname = "object.custom_draw"
-    bl_label = "Simple Modal Operator"
+                class CustomDrawOperator(bpy.types.Operator):
+                    bl_idname = "object.custom_draw"
+                    bl_label = "Simple Modal Operator"
 
-    filepath = bpy.props.StringProperty(subtype="FILE_PATH")
+                    filepath = bpy.props.StringProperty(subtype="FILE_PATH")
 
-    my_float = bpy.props.FloatProperty(name="Float")
-    my_bool = bpy.props.BoolProperty(name="Toggle Option")
-    my_string = bpy.props.StringProperty(name="String Value")
+                    my_float = bpy.props.FloatProperty(name="Float")
+                    my_bool = bpy.props.BoolProperty(name="Toggle Option")
+                    my_string = bpy.props.StringProperty(name="String Value")
 
-    def execute(self, context):
-        print("Test", self)
-        return {'FINISHED'}
+                    def execute(self, context):
+                        print("Test", self)
+                        return {'FINISHED'}
 
-    def invoke(self, context, event):
-        wm = context.window_manager
-        return wm.invoke_props_dialog(self)
+                    def invoke(self, context, event):
+                        wm = context.window_manager
+                        return wm.invoke_props_dialog(self)
 
-    def draw(self, context):
-        layout = self.layout
-        col = layout.column()
-        col.label(text="Custom Interface!")
+                    def draw(self, context):
+                        layout = self.layout
+                        col = layout.column()
+                        col.label(text="Custom Interface!")
 
-        row = col.row()
-        row.prop(self, "my_float")
-        row.prop(self, "my_bool")
+                        row = col.row()
+                        row.prop(self, "my_float")
+                        row.prop(self, "my_bool")
 
-        col.prop(self, "my_string")
+                        col.prop(self, "my_string")
 
 
-bpy.utils.register_class(CustomDrawOperator)
+                bpy.utils.register_class(CustomDrawOperator)
 
-# test call
-bpy.ops.object.custom_draw('INVOKE_DEFAULT')
-</literal_block>
+                # test call
+                bpy.ops.object.custom_draw('INVOKE_DEFAULT')
+            </literal_block>
         </section>
         <section ids="modal-execution" names="modal\ execution">
             <title>Modal Execution</title>
@@ -225,83 +225,83 @@ bpy.ops.object.custom_draw('INVOKE_DEFAULT')
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Operator.5.py" xml:space="preserve">import bpy
 
 
-class ModalOperator(bpy.types.Operator):
-    bl_idname = "object.modal_operator"
-    bl_label = "Simple Modal Operator"
+                class ModalOperator(bpy.types.Operator):
+                    bl_idname = "object.modal_operator"
+                    bl_label = "Simple Modal Operator"
 
-    def __init__(self):
-        print("Start")
+                    def __init__(self):
+                        print("Start")
 
-    def __del__(self):
-        print("End")
+                    def __del__(self):
+                        print("End")
 
-    def execute(self, context):
-        context.object.location.x = self.value / 100.0
-        return {'FINISHED'}
+                    def execute(self, context):
+                        context.object.location.x = self.value / 100.0
+                        return {'FINISHED'}
 
-    def modal(self, context, event):
-        if event.type == 'MOUSEMOVE':  # Apply
-            self.value = event.mouse_x
-            self.execute(context)
-        elif event.type == 'LEFTMOUSE':  # Confirm
-            return {'FINISHED'}
-        elif event.type in {'RIGHTMOUSE', 'ESC'}:  # Cancel
-            context.object.location.x = self.init_loc_x
-            return {'CANCELLED'}
+                    def modal(self, context, event):
+                        if event.type == 'MOUSEMOVE':  # Apply
+                            self.value = event.mouse_x
+                            self.execute(context)
+                        elif event.type == 'LEFTMOUSE':  # Confirm
+                            return {'FINISHED'}
+                        elif event.type in {'RIGHTMOUSE', 'ESC'}:  # Cancel
+                            context.object.location.x = self.init_loc_x
+                            return {'CANCELLED'}
 
-        return {'RUNNING_MODAL'}
+                        return {'RUNNING_MODAL'}
 
-    def invoke(self, context, event):
-        self.init_loc_x = context.object.location.x
-        self.value = event.mouse_x
-        self.execute(context)
+                    def invoke(self, context, event):
+                        self.init_loc_x = context.object.location.x
+                        self.value = event.mouse_x
+                        self.execute(context)
 
-        context.window_manager.modal_handler_add(self)
-        return {'RUNNING_MODAL'}
+                        context.window_manager.modal_handler_add(self)
+                        return {'RUNNING_MODAL'}
 
 
-bpy.utils.register_class(ModalOperator)
+                bpy.utils.register_class(ModalOperator)
 
-# test call
-bpy.ops.object.modal_operator('INVOKE_DEFAULT')
-</literal_block>
+                # test call
+                bpy.ops.object.modal_operator('INVOKE_DEFAULT')
+            </literal_block>
         </section>
         <section ids="enum-search-popup" names="enum\ search\ popup">
             <title>Enum Search Popup</title>
             <paragraph>You may want to have an operator prompt the user to select an item
                 from a search field, this can be done using <literal classes="xref py py-class">bpy.types.Operator.invoke_search_popup</literal>.</paragraph>
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Operator.6.py" xml:space="preserve">import bpy
-from bpy.props import EnumProperty
+                from bpy.props import EnumProperty
 
 
-class SearchEnumOperator(bpy.types.Operator):
-    bl_idname = "object.search_enum_operator"
-    bl_label = "Search Enum Operator"
-    bl_property = "my_search"
+                class SearchEnumOperator(bpy.types.Operator):
+                    bl_idname = "object.search_enum_operator"
+                    bl_label = "Search Enum Operator"
+                    bl_property = "my_search"
 
-    my_search = EnumProperty(
-        name="My Search",
-        items=(
-            ('FOO', "Foo", ""),
-            ('BAR', "Bar", ""),
-            ('BAZ', "Baz", ""),
-        ),
-    )
+                    my_search = EnumProperty(
+                        name="My Search",
+                        items=(
+                            ('FOO', "Foo", ""),
+                            ('BAR', "Bar", ""),
+                            ('BAZ', "Baz", ""),
+                        ),
+                    )
 
-    def execute(self, context):
-        self.report({'INFO'}, "Selected:" + self.my_search)
-        return {'FINISHED'}
+                    def execute(self, context):
+                        self.report({'INFO'}, "Selected:" + self.my_search)
+                        return {'FINISHED'}
 
-    def invoke(self, context, event):
-        context.window_manager.invoke_search_popup(self)
-        return {'RUNNING_MODAL'}
+                    def invoke(self, context, event):
+                        context.window_manager.invoke_search_popup(self)
+                        return {'RUNNING_MODAL'}
 
 
-bpy.utils.register_class(SearchEnumOperator)
+                bpy.utils.register_class(SearchEnumOperator)
 
-# test call
-bpy.ops.object.search_enum_operator('INVOKE_DEFAULT')
-</literal_block>
+                # test call
+                bpy.ops.object.search_enum_operator('INVOKE_DEFAULT')
+            </literal_block>
             <paragraph>base class — <reference internal="True" reftitle="bpy.types.bpy_struct" refuri="bpy.types.bpy_struct#bpy.types.bpy_struct"><literal classes="xref py py-class">bpy_struct</literal></reference></paragraph>
             <index entries="['single',\ u'Operator\ (class\ in\ bpy.types)',\ u'bpy.types.Operator',\ '',\ None]"></index>
             <desc desctype="class" domain="py" noindex="False" objtype="class">

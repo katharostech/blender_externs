@@ -8,31 +8,31 @@ package bpy.types.sequenceproxy;
 }/**
 	Proxy parameters for a sequence strip
 **/
-@:pythonImport("bpy.types.SequenceProxy") extern class SequenceProxy {
+@:native("bpy.types.SequenceProxy") extern class SequenceProxy {
 	/**
 		Build 100% proxy resolution
 		
 		Type: boolean, default False
 	**/
-	var build_100 : Bool;
+	var pybuild_100 : Bool;
 	/**
 		Build 25% proxy resolution
 		
 		Type: boolean, default False
 	**/
-	var build_25 : Bool;
+	var pybuild_25 : Bool;
 	/**
 		Build 50% proxy resolution
 		
 		Type: boolean, default False
 	**/
-	var build_50 : Bool;
+	var pybuild_50 : Bool;
 	/**
 		Build 75% proxy resolution
 		
 		Type: boolean, default False
 	**/
-	var build_75 : Bool;
+	var pybuild_75 : Bool;
 	/**
 		Build free run time code index
 		
@@ -99,12 +99,12 @@ package bpy.types.sequenceproxy;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

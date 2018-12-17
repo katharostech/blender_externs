@@ -5,7 +5,7 @@ package bpy.types.curvemapping;
 }/**
 	Curve mapping to map color, vector and scalar values to other values using a user defined curve
 **/
-@:pythonImport("bpy.types.CurveMapping") extern class CurveMapping {
+@:native("bpy.types.CurveMapping") extern class CurveMapping {
 	/**
 		For RGB curves, the color that black is mapped to
 		
@@ -74,12 +74,12 @@ package bpy.types.curvemapping;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

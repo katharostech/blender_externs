@@ -5,7 +5,7 @@ package bpy.types.shadernodetexwave;
 }@:enum abstract Enum2(String) from String to String {
 	var BANDS : String = "BANDS";
 	var RINGS : String = "RINGS";
-}@:pythonImport("bpy.types.ShaderNodeTexWave") extern class ShaderNodeTexWave {
+}@:native("bpy.types.ShaderNodeTexWave") extern class ShaderNodeTexWave {
 	/**
 		Color mapping settings
 		
@@ -35,7 +35,7 @@ package bpy.types.shadernodetexwave;
 		
 		@returns boolean
 	**/
-	static function is_registered_node_type():Dynamic;
+	static function is_registered_node_type():Bool;
 	/**
 		Input socket template
 		@param index Index — int in [0, inf]
@@ -56,14 +56,14 @@ package bpy.types.shadernodetexwave;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Node type (deprecated, use bl_static_type or bl_idname for the actual identifier string)
 		
@@ -253,27 +253,27 @@ package bpy.types.shadernodetexwave;
 	/**
 		Update after property changes
 	**/
-	function socket_value_update():Void;
+	function socket_value_update(context:Dynamic):Void;
 	/**
 		True if a registered node type
 		
 		@returns boolean
 	**/
-	static function is_registered_node_type():Dynamic;
+	static function is_registered_node_type():Bool;
 	/**
 		If non-null output is returned, the node type can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	static function poll(node_tree:Dynamic):Dynamic;
+	static function poll(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		If non-null output is returned, the node can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	function poll_instance(node_tree:Dynamic):Dynamic;
+	function poll_instance(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		Update on editor changes
 	**/
@@ -286,7 +286,7 @@ package bpy.types.shadernodetexwave;
 	/**
 		Initialize a new instance of this node
 	**/
-	function init():Void;
+	function init(context:Dynamic):Void;
 	/**
 		Initialize a new instance of this node from an existing node
 		@param node Node, Existing node to copy — Node, (never None)
@@ -318,42 +318,42 @@ package bpy.types.shadernodetexwave;
 		
 		@returns boolean
 	**/
-	static function poll(node_tree:Dynamic):Dynamic;
+	static function poll(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		If non-null output is returned, the node type can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	static function poll(node_tree:Dynamic):Dynamic;
+	static function poll(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		If non-null output is returned, the node type can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	static function poll(node_tree:Dynamic):Dynamic;
+	static function poll(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		If non-null output is returned, the node type can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	static function poll(node_tree:Dynamic):Dynamic;
+	static function poll(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		If non-null output is returned, the node can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	function poll_instance(node_tree:Dynamic):Dynamic;
+	function poll_instance(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		If non-null output is returned, the node can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	function poll_instance(node_tree:Dynamic):Dynamic;
+	function poll_instance(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		Update on editor changes
 	**/

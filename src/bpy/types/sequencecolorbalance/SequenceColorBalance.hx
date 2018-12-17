@@ -2,21 +2,21 @@ package bpy.types.sequencecolorbalance;
 /**
 	Color balance parameters for a sequence strip
 **/
-@:pythonImport("bpy.types.SequenceColorBalance") extern class SequenceColorBalance {
+@:native("bpy.types.SequenceColorBalance") extern class SequenceColorBalance {
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Color balance lift (shadows)
 		

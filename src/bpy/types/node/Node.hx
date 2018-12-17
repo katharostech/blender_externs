@@ -82,10 +82,10 @@ package bpy.types.node;
 	var SPEAKER : String = "SPEAKER";
 	var TOOL_SETTINGS : String = "TOOL_SETTINGS";
 	var SHADERFX : String = "SHADERFX";
-	var BLANK1 : String = "BLANK1";
+	var pyBLANK1 : String = "BLANK1";
 	var FAKE_USER_OFF : String = "FAKE_USER_OFF";
 	var FAKE_USER_ON : String = "FAKE_USER_ON";
-	var VIEW3D : String = "VIEW3D";
+	var pyVIEW3D : String = "VIEW3D";
 	var GRAPH : String = "GRAPH";
 	var OUTLINER : String = "OUTLINER";
 	var PROPERTIES : String = "PROPERTIES";
@@ -474,10 +474,10 @@ package bpy.types.node;
 	var PASTEDOWN : String = "PASTEDOWN";
 	var PASTEFLIPUP : String = "PASTEFLIPUP";
 	var PASTEFLIPDOWN : String = "PASTEFLIPDOWN";
-	var VIS_SEL_11 : String = "VIS_SEL_11";
-	var VIS_SEL_10 : String = "VIS_SEL_10";
-	var VIS_SEL_01 : String = "VIS_SEL_01";
-	var VIS_SEL_00 : String = "VIS_SEL_00";
+	var pyVIS_SEL_11 : String = "VIS_SEL_11";
+	var pyVIS_SEL_10 : String = "VIS_SEL_10";
+	var pyVIS_SEL_01 : String = "VIS_SEL_01";
+	var pyVIS_SEL_00 : String = "VIS_SEL_00";
 	var AUTOMERGE_ON : String = "AUTOMERGE_ON";
 	var AUTOMERGE_OFF : String = "AUTOMERGE_OFF";
 	var UV_VERTEXSEL : String = "UV_VERTEXSEL";
@@ -609,30 +609,30 @@ package bpy.types.node;
 	var BRUSH_THUMB : String = "BRUSH_THUMB";
 	var BRUSH_ROTATE : String = "BRUSH_ROTATE";
 	var BRUSH_VERTEXDRAW : String = "BRUSH_VERTEXDRAW";
-	var MATCAP_01 : String = "MATCAP_01";
-	var MATCAP_02 : String = "MATCAP_02";
-	var MATCAP_03 : String = "MATCAP_03";
-	var MATCAP_04 : String = "MATCAP_04";
-	var MATCAP_05 : String = "MATCAP_05";
-	var MATCAP_06 : String = "MATCAP_06";
-	var MATCAP_07 : String = "MATCAP_07";
-	var MATCAP_08 : String = "MATCAP_08";
-	var MATCAP_09 : String = "MATCAP_09";
-	var MATCAP_10 : String = "MATCAP_10";
-	var MATCAP_11 : String = "MATCAP_11";
-	var MATCAP_12 : String = "MATCAP_12";
-	var MATCAP_13 : String = "MATCAP_13";
-	var MATCAP_14 : String = "MATCAP_14";
-	var MATCAP_15 : String = "MATCAP_15";
-	var MATCAP_16 : String = "MATCAP_16";
-	var MATCAP_17 : String = "MATCAP_17";
-	var MATCAP_18 : String = "MATCAP_18";
-	var MATCAP_19 : String = "MATCAP_19";
-	var MATCAP_20 : String = "MATCAP_20";
-	var MATCAP_21 : String = "MATCAP_21";
-	var MATCAP_22 : String = "MATCAP_22";
-	var MATCAP_23 : String = "MATCAP_23";
-	var MATCAP_24 : String = "MATCAP_24";
+	var pyMATCAP_01 : String = "MATCAP_01";
+	var pyMATCAP_02 : String = "MATCAP_02";
+	var pyMATCAP_03 : String = "MATCAP_03";
+	var pyMATCAP_04 : String = "MATCAP_04";
+	var pyMATCAP_05 : String = "MATCAP_05";
+	var pyMATCAP_06 : String = "MATCAP_06";
+	var pyMATCAP_07 : String = "MATCAP_07";
+	var pyMATCAP_08 : String = "MATCAP_08";
+	var pyMATCAP_09 : String = "MATCAP_09";
+	var pyMATCAP_10 : String = "MATCAP_10";
+	var pyMATCAP_11 : String = "MATCAP_11";
+	var pyMATCAP_12 : String = "MATCAP_12";
+	var pyMATCAP_13 : String = "MATCAP_13";
+	var pyMATCAP_14 : String = "MATCAP_14";
+	var pyMATCAP_15 : String = "MATCAP_15";
+	var pyMATCAP_16 : String = "MATCAP_16";
+	var pyMATCAP_17 : String = "MATCAP_17";
+	var pyMATCAP_18 : String = "MATCAP_18";
+	var pyMATCAP_19 : String = "MATCAP_19";
+	var pyMATCAP_20 : String = "MATCAP_20";
+	var pyMATCAP_21 : String = "MATCAP_21";
+	var pyMATCAP_22 : String = "MATCAP_22";
+	var pyMATCAP_23 : String = "MATCAP_23";
+	var pyMATCAP_24 : String = "MATCAP_24";
 	var GPBRUSH_SMOOTH : String = "GPBRUSH_SMOOTH";
 	var GPBRUSH_THICKNESS : String = "GPBRUSH_THICKNESS";
 	var GPBRUSH_STRENGTH : String = "GPBRUSH_STRENGTH";
@@ -665,26 +665,26 @@ package bpy.types.node;
 	var HANDLETYPE_VECTOR_VEC : String = "HANDLETYPE_VECTOR_VEC";
 	var HANDLETYPE_AUTO_VEC : String = "HANDLETYPE_AUTO_VEC";
 	var HANDLETYPE_AUTO_CLAMP_VEC : String = "HANDLETYPE_AUTO_CLAMP_VEC";
-	var COLORSET_01_VEC : String = "COLORSET_01_VEC";
-	var COLORSET_02_VEC : String = "COLORSET_02_VEC";
-	var COLORSET_03_VEC : String = "COLORSET_03_VEC";
-	var COLORSET_04_VEC : String = "COLORSET_04_VEC";
-	var COLORSET_05_VEC : String = "COLORSET_05_VEC";
-	var COLORSET_06_VEC : String = "COLORSET_06_VEC";
-	var COLORSET_07_VEC : String = "COLORSET_07_VEC";
-	var COLORSET_08_VEC : String = "COLORSET_08_VEC";
-	var COLORSET_09_VEC : String = "COLORSET_09_VEC";
-	var COLORSET_10_VEC : String = "COLORSET_10_VEC";
-	var COLORSET_11_VEC : String = "COLORSET_11_VEC";
-	var COLORSET_12_VEC : String = "COLORSET_12_VEC";
-	var COLORSET_13_VEC : String = "COLORSET_13_VEC";
-	var COLORSET_14_VEC : String = "COLORSET_14_VEC";
-	var COLORSET_15_VEC : String = "COLORSET_15_VEC";
-	var COLORSET_16_VEC : String = "COLORSET_16_VEC";
-	var COLORSET_17_VEC : String = "COLORSET_17_VEC";
-	var COLORSET_18_VEC : String = "COLORSET_18_VEC";
-	var COLORSET_19_VEC : String = "COLORSET_19_VEC";
-	var COLORSET_20_VEC : String = "COLORSET_20_VEC";
+	var pyCOLORSET_01_VEC : String = "COLORSET_01_VEC";
+	var pyCOLORSET_02_VEC : String = "COLORSET_02_VEC";
+	var pyCOLORSET_03_VEC : String = "COLORSET_03_VEC";
+	var pyCOLORSET_04_VEC : String = "COLORSET_04_VEC";
+	var pyCOLORSET_05_VEC : String = "COLORSET_05_VEC";
+	var pyCOLORSET_06_VEC : String = "COLORSET_06_VEC";
+	var pyCOLORSET_07_VEC : String = "COLORSET_07_VEC";
+	var pyCOLORSET_08_VEC : String = "COLORSET_08_VEC";
+	var pyCOLORSET_09_VEC : String = "COLORSET_09_VEC";
+	var pyCOLORSET_10_VEC : String = "COLORSET_10_VEC";
+	var pyCOLORSET_11_VEC : String = "COLORSET_11_VEC";
+	var pyCOLORSET_12_VEC : String = "COLORSET_12_VEC";
+	var pyCOLORSET_13_VEC : String = "COLORSET_13_VEC";
+	var pyCOLORSET_14_VEC : String = "COLORSET_14_VEC";
+	var pyCOLORSET_15_VEC : String = "COLORSET_15_VEC";
+	var pyCOLORSET_16_VEC : String = "COLORSET_16_VEC";
+	var pyCOLORSET_17_VEC : String = "COLORSET_17_VEC";
+	var pyCOLORSET_18_VEC : String = "COLORSET_18_VEC";
+	var pyCOLORSET_19_VEC : String = "COLORSET_19_VEC";
+	var pyCOLORSET_20_VEC : String = "COLORSET_20_VEC";
 	var EVENT_A : String = "EVENT_A";
 	var EVENT_B : String = "EVENT_B";
 	var EVENT_C : String = "EVENT_C";
@@ -715,18 +715,18 @@ package bpy.types.node;
 	var EVENT_CTRL : String = "EVENT_CTRL";
 	var EVENT_ALT : String = "EVENT_ALT";
 	var EVENT_OS : String = "EVENT_OS";
-	var EVENT_F1 : String = "EVENT_F1";
-	var EVENT_F2 : String = "EVENT_F2";
-	var EVENT_F3 : String = "EVENT_F3";
-	var EVENT_F4 : String = "EVENT_F4";
-	var EVENT_F5 : String = "EVENT_F5";
-	var EVENT_F6 : String = "EVENT_F6";
-	var EVENT_F7 : String = "EVENT_F7";
-	var EVENT_F8 : String = "EVENT_F8";
-	var EVENT_F9 : String = "EVENT_F9";
-	var EVENT_F10 : String = "EVENT_F10";
-	var EVENT_F11 : String = "EVENT_F11";
-	var EVENT_F12 : String = "EVENT_F12";
+	var pyEVENT_F1 : String = "EVENT_F1";
+	var pyEVENT_F2 : String = "EVENT_F2";
+	var pyEVENT_F3 : String = "EVENT_F3";
+	var pyEVENT_F4 : String = "EVENT_F4";
+	var pyEVENT_F5 : String = "EVENT_F5";
+	var pyEVENT_F6 : String = "EVENT_F6";
+	var pyEVENT_F7 : String = "EVENT_F7";
+	var pyEVENT_F8 : String = "EVENT_F8";
+	var pyEVENT_F9 : String = "EVENT_F9";
+	var pyEVENT_F10 : String = "EVENT_F10";
+	var pyEVENT_F11 : String = "EVENT_F11";
+	var pyEVENT_F12 : String = "EVENT_F12";
 	var EVENT_ESC : String = "EVENT_ESC";
 	var EVENT_TAB : String = "EVENT_TAB";
 	var EVENT_PAGEUP : String = "EVENT_PAGEUP";
@@ -741,7 +741,7 @@ package bpy.types.node;
 }/**
 	Node in a node tree
 **/
-@:pythonImport("bpy.types.Node") extern class Node {
+@:native("bpy.types.Node") extern class Node {
 	/**
 		
 		
@@ -931,27 +931,27 @@ package bpy.types.node;
 	/**
 		Update after property changes
 	**/
-	function socket_value_update():Void;
+	function socket_value_update(context:Dynamic):Void;
 	/**
 		True if a registered node type
 		
 		@returns boolean
 	**/
-	static function is_registered_node_type():Dynamic;
+	static function is_registered_node_type():Bool;
 	/**
 		If non-null output is returned, the node type can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	static function poll(node_tree:Dynamic):Dynamic;
+	static function poll(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		If non-null output is returned, the node can be added to the tree
 		@param node_tree Node Tree — NodeTree
 		
 		@returns boolean
 	**/
-	function poll_instance(node_tree:Dynamic):Dynamic;
+	function poll_instance(node_tree:bpy.types.nodetree.NodeTree):Bool;
 	/**
 		Update on editor changes
 	**/
@@ -964,7 +964,7 @@ package bpy.types.node;
 	/**
 		Initialize a new instance of this node
 	**/
-	function init():Void;
+	function init(context:Dynamic):Void;
 	/**
 		Initialize a new instance of this node from an existing node
 		@param node Node, Existing node to copy — Node, (never None)
@@ -996,12 +996,12 @@ package bpy.types.node;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

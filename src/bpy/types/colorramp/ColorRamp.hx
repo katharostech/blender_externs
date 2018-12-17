@@ -17,7 +17,7 @@ package bpy.types.colorramp;
 }/**
 	Color ramp mapping a scalar value to a color
 **/
-@:pythonImport("bpy.types.ColorRamp") extern class ColorRamp {
+@:native("bpy.types.ColorRamp") extern class ColorRamp {
 	/**
 		Set color mode to use for interpolation
 		
@@ -55,12 +55,12 @@ package bpy.types.colorramp;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

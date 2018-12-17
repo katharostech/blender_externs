@@ -21,7 +21,7 @@ package bpy.types.freestylelineset;
 }/**
 	Line set for associating lines and style parameters
 **/
-@:pythonImport("bpy.types.FreestyleLineSet") extern class FreestyleLineSet {
+@:native("bpy.types.FreestyleLineSet") extern class FreestyleLineSet {
 	/**
 		A collection of objects based on which feature edges are selected
 		
@@ -238,12 +238,12 @@ package bpy.types.freestylelineset;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

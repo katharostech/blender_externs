@@ -2,7 +2,7 @@ package bpy.types.sequencetransform;
 /**
 	Transform parameters for a sequence strip
 **/
-@:pythonImport("bpy.types.SequenceTransform") extern class SequenceTransform {
+@:native("bpy.types.SequenceTransform") extern class SequenceTransform {
 	/**
 		Amount to move the input on the X axis within its boundaries
 		
@@ -21,12 +21,12 @@ package bpy.types.sequencetransform;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

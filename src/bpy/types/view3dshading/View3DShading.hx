@@ -26,7 +26,7 @@ package bpy.types.view3dshading;
 }/**
 	Settings for shading in the 3D viewport
 **/
-@:pythonImport("bpy.types.View3DShading") extern class View3DShading {
+@:native("bpy.types.View3DShading") extern class View3DShading {
 	/**
 		Color for custom background color
 		
@@ -201,12 +201,12 @@ package bpy.types.view3dshading;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

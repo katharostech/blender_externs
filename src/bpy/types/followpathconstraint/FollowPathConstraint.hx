@@ -13,7 +13,7 @@ package bpy.types.followpathconstraint;
 }/**
 	Lock motion to the target path
 **/
-@:pythonImport("bpy.types.FollowPathConstraint") extern class FollowPathConstraint {
+@:native("bpy.types.FollowPathConstraint") extern class FollowPathConstraint {
 	/**
 		Axis that points forward along the path
 		
@@ -68,14 +68,14 @@ package bpy.types.followpathconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

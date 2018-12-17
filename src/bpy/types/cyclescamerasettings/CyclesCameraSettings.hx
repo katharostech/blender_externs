@@ -7,7 +7,7 @@ package bpy.types.cyclescamerasettings;
 	var FISHEYE_EQUIDISTANT : String = "FISHEYE_EQUIDISTANT";
 	var FISHEYE_EQUISOLID : String = "FISHEYE_EQUISOLID";
 	var MIRRORBALL : String = "MIRRORBALL";
-}@:pythonImport("bpy.types.CyclesCameraSettings") extern class CyclesCameraSettings {
+}@:native("bpy.types.CyclesCameraSettings") extern class CyclesCameraSettings {
 	/**
 		Number of blades in aperture for polygonal bokeh (at least 3)
 		
@@ -92,12 +92,12 @@ package bpy.types.cyclescamerasettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -2,7 +2,7 @@ package bpy.types.propertygroupitem;
 /**
 	Property that stores arbitrary, user defined properties
 **/
-@:pythonImport("bpy.types.PropertyGroupItem") extern class PropertyGroupItem {
+@:native("bpy.types.PropertyGroupItem") extern class PropertyGroupItem {
 	/**
 		
 		
@@ -75,12 +75,12 @@ package bpy.types.propertygroupitem;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

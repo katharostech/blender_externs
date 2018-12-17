@@ -6,7 +6,7 @@ package bpy.types.colormanagedviewsettings;
 }/**
 	Color management settings used for displaying images on the display
 **/
-@:pythonImport("bpy.types.ColorManagedViewSettings") extern class ColorManagedViewSettings {
+@:native("bpy.types.ColorManagedViewSettings") extern class ColorManagedViewSettings {
 	/**
 		Color curve mapping applied before display transform
 		
@@ -49,12 +49,12 @@ package bpy.types.colormanagedviewsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

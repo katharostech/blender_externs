@@ -1,45 +1,45 @@
 package bpy.types.sceneeevee;
 @:enum abstract Enum1(String) from String to String {
-	var 64 : String = "64";
-	var 128 : String = "128";
-	var 256 : String = "256";
-	var 512 : String = "512";
-	var 1024 : String = "1024";
-	var 2048 : String = "2048";
-	var 4096 : String = "4096";
+	var py64 : String = "64";
+	var py128 : String = "128";
+	var py256 : String = "256";
+	var py512 : String = "512";
+	var py1024 : String = "1024";
+	var py2048 : String = "2048";
+	var py4096 : String = "4096";
 }@:enum abstract Enum2(String) from String to String {
-	var 8 : String = "8";
-	var 16 : String = "16";
-	var 32 : String = "32";
-	var 64 : String = "64";
+	var py8 : String = "8";
+	var py16 : String = "16";
+	var py32 : String = "32";
+	var py64 : String = "64";
 }@:enum abstract Enum3(String) from String to String {
-	var 64 : String = "64";
-	var 128 : String = "128";
-	var 256 : String = "256";
-	var 512 : String = "512";
-	var 1024 : String = "1024";
-	var 2048 : String = "2048";
-	var 4096 : String = "4096";
+	var py64 : String = "64";
+	var py128 : String = "128";
+	var py256 : String = "256";
+	var py512 : String = "512";
+	var py1024 : String = "1024";
+	var py2048 : String = "2048";
+	var py4096 : String = "4096";
 }@:enum abstract Enum4(String) from String to String {
-	var 64 : String = "64";
-	var 128 : String = "128";
-	var 256 : String = "256";
-	var 512 : String = "512";
-	var 1024 : String = "1024";
-	var 2048 : String = "2048";
-	var 4096 : String = "4096";
+	var py64 : String = "64";
+	var py128 : String = "128";
+	var py256 : String = "256";
+	var py512 : String = "512";
+	var py1024 : String = "1024";
+	var py2048 : String = "2048";
+	var py4096 : String = "4096";
 }@:enum abstract Enum5(String) from String to String {
 	var ESM : String = "ESM";
 	var VSM : String = "VSM";
 }@:enum abstract Enum6(String) from String to String {
-	var 2 : String = "2";
-	var 4 : String = "4";
-	var 8 : String = "8";
-	var 16 : String = "16";
+	var py2 : String = "2";
+	var py4 : String = "4";
+	var py8 : String = "8";
+	var py16 : String = "16";
 }/**
 	Scene display settings for 3d viewport
 **/
-@:pythonImport("bpy.types.SceneEEVEE") extern class SceneEEVEE {
+@:native("bpy.types.SceneEEVEE") extern class SceneEEVEE {
 	/**
 		Maximum intensity a bloom pixel can have
 		
@@ -430,12 +430,12 @@ package bpy.types.sceneeevee;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

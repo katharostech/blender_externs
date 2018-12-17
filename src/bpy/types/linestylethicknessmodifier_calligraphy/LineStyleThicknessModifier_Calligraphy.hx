@@ -12,7 +12,7 @@ package bpy.types.linestylethicknessmodifier_calligraphy;
 	var ALONG_STROKE : String = "ALONG_STROKE";
 	var CALLIGRAPHY : String = "CALLIGRAPHY";
 	var CREASE_ANGLE : String = "CREASE_ANGLE";
-	var CURVATURE_3D : String = "CURVATURE_3D";
+	var pyCURVATURE_3D : String = "CURVATURE_3D";
 	var DISTANCE_FROM_CAMERA : String = "DISTANCE_FROM_CAMERA";
 	var DISTANCE_FROM_OBJECT : String = "DISTANCE_FROM_OBJECT";
 	var MATERIAL : String = "MATERIAL";
@@ -21,7 +21,7 @@ package bpy.types.linestylethicknessmodifier_calligraphy;
 }/**
 	Change line thickness so that stroke looks like made with a calligraphic pen
 **/
-@:pythonImport("bpy.types.LineStyleThicknessModifier_Calligraphy") extern class LineStyleThicknessModifier_Calligraphy {
+@:native("bpy.types.LineStyleThicknessModifier_Calligraphy") extern class LineStyleThicknessModifier_Calligraphy {
 	/**
 		Specify how the modifier value is blended into the base value
 		
@@ -82,12 +82,12 @@ package bpy.types.linestylethicknessmodifier_calligraphy;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

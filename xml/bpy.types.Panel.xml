@@ -17,18 +17,18 @@
             <literal_block force_highlighting="False" highlight_args="{'linenostart': 1}" language="default" linenos="False" source="/home/zicklag/git/other/blender/doc/python_api/examples/bpy.types.Panel.py" xml:space="preserve">import bpy
 
 
-class HelloWorldPanel(bpy.types.Panel):
-    bl_idname = "OBJECT_PT_hello_world"
-    bl_label = "Hello World"
-    bl_space_type = 'PROPERTIES'
-    bl_region_type = 'WINDOW'
-    bl_context = "object"
+                class HelloWorldPanel(bpy.types.Panel):
+                    bl_idname = "OBJECT_PT_hello_world"
+                    bl_label = "Hello World"
+                    bl_space_type = 'PROPERTIES'
+                    bl_region_type = 'WINDOW'
+                    bl_context = "object"
 
-    def draw(self, context):
-        self.layout.label(text="Hello World")
+                    def draw(self, context):
+                        self.layout.label(text="Hello World")
 
 
-bpy.utils.register_class(HelloWorldPanel)
+                bpy.utils.register_class(HelloWorldPanel)
 </literal_block>
         </section>
         <section ids="simple-object-panel" names="simple\ object\ panel">

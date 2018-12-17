@@ -13,7 +13,7 @@ package bmesh.utils;
 		
 		@returns bmesh.types.BMEdge
 	**/
-	function edge_rotate(edge:Dynamic, ccw:Dynamic):bmesh.types.bmedge.BMEdge;
+	static function edge_rotate(edge:Dynamic, ccw:Bool):bmesh.types.bmedge.BMEdge;
 	/**
 		Split an edge, return the newly created data.
 		@param edge The edge to split. — bmesh.types.BMEdge
@@ -22,12 +22,12 @@ package bmesh.utils;
 		
 		@returns tuple
 	**/
-	function edge_split(edge:Dynamic, vert:Dynamic, fac:Dynamic):Dynamic;
+	static function edge_split(edge:Dynamic, vert:Dynamic, fac:Float):Dynamic;
 	/**
 		Flip the faces direction.
 		@param face Face to flip. — bmesh.types.BMFace
 	**/
-	function face_flip(face:Dynamic):Void;
+	static function face_flip(face:Dynamic):Void;
 	/**
 		Joins a sequence of faces.
 		@param faces Sequence of faces. — bmesh.types.BMFace
@@ -35,7 +35,7 @@ package bmesh.utils;
 		
 		@returns bmesh.types.BMFace
 	**/
-	function face_join(faces:Dynamic, remove:Dynamic):bmesh.types.bmface.BMFace;
+	static function face_join(faces:Dynamic, remove:Bool):bmesh.types.bmface.BMFace;
 	/**
 		Face split with optional intermediate points.
 		@param face The face to cut. — bmesh.types.BMFace
@@ -47,7 +47,7 @@ package bmesh.utils;
 		
 		@returns (bmesh.types.BMFace, bmesh.types.BMLoop) pair
 	**/
-	function face_split(face:Dynamic, vert_a:Dynamic, vert_b:Dynamic, coords:Dynamic, use_exist:Dynamic, example:Dynamic):bmesh.types.bmface.BMFace;
+	static function face_split(face:Dynamic, vert_a:Dynamic, vert_b:Dynamic, coords:Dynamic, use_exist:Bool, example:Dynamic):bmesh.types.bmface.BMFace;
 	/**
 		Splits a face into any number of regions defined by an edgenet.
 		@param face The face to split. — bmesh.types.BMFace
@@ -56,18 +56,18 @@ package bmesh.utils;
 		
 		@returns tuple of (bmesh.types.BMFace)
 	**/
-	function face_split_edgenet(face:Dynamic, face:Dynamic, edgenet:Dynamic):Dynamic;
+	static function face_split_edgenet(face:Dynamic, face:Dynamic, edgenet:Dynamic):bmesh.types.bmface.BMFace;
 	/**
 		Rip a vertex in a face away and add a new vertex.
 		@param face The face to separate. — bmesh.types.BMFace
 		@param vert A vertex in the face to separate. — bmesh.types.BMVert
 	**/
-	function face_vert_separate(face:Dynamic, vert:Dynamic):Void;
+	static function face_vert_separate(face:Dynamic, vert:Dynamic):Void;
 	/**
 		Rip a vertex in a face away and add a new vertex.
 		@param loop The loop to separate. — bmesh.types.BMLoop
 	**/
-	function loop_separate(loop:Dynamic):Void;
+	static function loop_separate(loop:Dynamic):Void;
 	/**
 		Collapse a vertex into an edge.
 		@param vert The vert that will be collapsed. — bmesh.types.BMVert
@@ -75,7 +75,7 @@ package bmesh.utils;
 		
 		@returns bmesh.types.BMEdge
 	**/
-	function vert_collapse_edge(vert:Dynamic, edge:Dynamic):bmesh.types.bmedge.BMEdge;
+	static function vert_collapse_edge(vert:Dynamic, edge:Dynamic):bmesh.types.bmedge.BMEdge;
 	/**
 		Collapses a vertex that has only two manifold edges onto a vertex it shares an edge with.
 		@param vert The vert that will be collapsed. — bmesh.types.BMVert
@@ -84,14 +84,14 @@ package bmesh.utils;
 		
 		@returns bmesh.types.BMEdge
 	**/
-	function vert_collapse_faces(vert:Dynamic, edge:Dynamic, fac:Dynamic):bmesh.types.bmedge.BMEdge;
+	static function vert_collapse_faces(vert:Dynamic, edge:Dynamic, fac:Float):bmesh.types.bmedge.BMEdge;
 	/**
 		Dissolve this vertex (will be removed).
 		@param vert The vert to be dissolved. — bmesh.types.BMVert
 		
 		@returns boolean
 	**/
-	function vert_dissolve(vert:Dynamic):Dynamic;
+	static function vert_dissolve(vert:Dynamic):Bool;
 	/**
 		Separate this vertex at every edge.
 		@param vert The vert to be separated. — bmesh.types.BMVert
@@ -99,11 +99,11 @@ package bmesh.utils;
 		
 		@returns tuple of bmesh.types.BMVert
 	**/
-	function vert_separate(vert:Dynamic, edges:Dynamic):Dynamic;
+	static function vert_separate(vert:Dynamic, edges:Dynamic):bmesh.types.bmvert.BMVert;
 	/**
 		Splice vert into vert_target.
 		@param vert The vertex to be removed. — bmesh.types.BMVert
 		@param vert_target The vertex to use. — bmesh.types.BMVert
 	**/
-	function vert_splice(vert:Dynamic, vert_target:Dynamic):Void;
+	static function vert_splice(vert:Dynamic, vert_target:Dynamic):Void;
 }

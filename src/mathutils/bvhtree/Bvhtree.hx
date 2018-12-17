@@ -1,11 +1,11 @@
 package mathutils.bvhtree;
-@:pythonImport("mathutils.bvhtree.BVHTree") extern class BVHTree {
+@:native("mathutils.bvhtree.BVHTree") extern class BVHTree {
 	/**
 		BVH tree based on BMesh data.
 		@param bmesh BMesh data. — BMesh
 		@param epsilon Increase the threshold for detecting overlap and raycast hits. — float
 	**/
-	static function FromBMesh(bmesh:Dynamic, epsilon:Dynamic):Void;
+	static function FromBMesh(bmesh:Dynamic, epsilon:Float):Void;
 	/**
 		BVH tree based on Object data.
 		@param object Object data. — Object
@@ -15,7 +15,7 @@ package mathutils.bvhtree;
 		@param cage Use render settings. — bool
 		@param epsilon Increase the threshold for detecting overlap and raycast hits. — float
 	**/
-	static function FromObject(object:Dynamic, scene:Dynamic, deform:Dynamic, render:Dynamic, cage:Dynamic, epsilon:Dynamic):Void;
+	static function FromObject(object:Dynamic, scene:Dynamic, deform:Dynamic, render:Dynamic, cage:Dynamic, epsilon:Float):Void;
 	/**
 		BVH tree constructed geometry passed in as arguments.
 		@param vertices float triplets each representing (x, y, z) — float triplet sequence
@@ -23,7 +23,7 @@ package mathutils.bvhtree;
 		@param all_triangles Use when all polygons are triangles for more efficient conversion. — bool
 		@param epsilon Increase the threshold for detecting overlap and raycast hits. — float
 	**/
-	static function FromPolygons(vertices:Float, polygons:bpy.types.sequence.Sequence, all_triangles:Dynamic, epsilon:Dynamic):Void;
+	static function FromPolygons(vertices:Float, polygons:bpy.types.sequence.Sequence, all_triangles:Dynamic, epsilon:Float):Void;
 	/**
 		Find the nearest element (typically face index) to a point.
 		@param co Find nearest element to this point. — Vector
@@ -31,7 +31,7 @@ package mathutils.bvhtree;
 		
 		@returns tuple
 	**/
-	function find_nearest(co:Dynamic, distance:Dynamic):Dynamic;
+	function find_nearest(co:Dynamic, distance:Float):Dynamic;
 	/**
 		Find the nearest elements (typically face index) to a point in the distance range.
 		@param co Find nearest elements to this point. — Vector
@@ -39,7 +39,7 @@ package mathutils.bvhtree;
 		
 		@returns list
 	**/
-	function find_nearest_range(co:Dynamic, distance:Dynamic):Dynamic;
+	function find_nearest_range(co:Dynamic, distance:Float):Dynamic;
 	/**
 		Find overlapping indices between 2 trees.
 		@param other_tree Other tree to perform overlap test on. — BVHTree
@@ -55,5 +55,5 @@ package mathutils.bvhtree;
 		
 		@returns tuple
 	**/
-	function ray_cast(co:Dynamic, direction:Dynamic, distance:Dynamic):Dynamic;
+	function ray_cast(co:Dynamic, direction:Dynamic, distance:Float):Dynamic;
 }

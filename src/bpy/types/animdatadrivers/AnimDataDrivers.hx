@@ -2,7 +2,7 @@ package bpy.types.animdatadrivers;
 /**
 	Collection of Driver F-Curves
 **/
-@:pythonImport("bpy.types.AnimDataDrivers") extern class AnimDataDrivers {
+@:native("bpy.types.AnimDataDrivers") extern class AnimDataDrivers {
 	/**
 		Add a new driver given an existing one
 		@param src_driver Existing Driver F-Curve to use as template for a new one — FCurve, (optional)
@@ -24,12 +24,12 @@ package bpy.types.animdatadrivers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

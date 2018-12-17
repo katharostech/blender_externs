@@ -2,7 +2,7 @@ package bpy.types.nlatracks;
 /**
 	Collection of NLA Tracks
 **/
-@:pythonImport("bpy.types.NlaTracks") extern class NlaTracks {
+@:native("bpy.types.NlaTracks") extern class NlaTracks {
 	/**
 		Active Object constraint
 		
@@ -15,7 +15,7 @@ package bpy.types.nlatracks;
 		
 		@returns NlaTrack
 	**/
-	function new(prev:bpy.types.nlatrack.NlaTrack):bpy.types.nlatrack.NlaTrack;
+	function pyNew(prev:bpy.types.nlatrack.NlaTrack):bpy.types.nlatrack.NlaTrack;
 	/**
 		Remove a NLA Track
 		@param track NLA Track to remove — NlaTrack, (never None)
@@ -27,12 +27,12 @@ package bpy.types.nlatracks;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

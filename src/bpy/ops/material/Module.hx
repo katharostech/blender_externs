@@ -10,7 +10,7 @@ package bpy.ops.material;
 	/**
 		Add a new material
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Paste the material settings and nodes
 	**/

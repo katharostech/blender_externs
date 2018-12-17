@@ -1,7 +1,7 @@
 package bpy.types.space;
 @:enum abstract Enum1(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -21,7 +21,7 @@ package bpy.types.space;
 }/**
 	Space data for a screen area
 **/
-@:pythonImport("bpy.types.Space") extern class Space {
+@:native("bpy.types.Space") extern class Space {
 	/**
 		
 		
@@ -40,14 +40,14 @@ package bpy.types.space;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/

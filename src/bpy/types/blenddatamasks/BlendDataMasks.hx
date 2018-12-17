@@ -2,19 +2,19 @@ package bpy.types.blenddatamasks;
 /**
 	Collection of masks
 **/
-@:pythonImport("bpy.types.BlendDataMasks") extern class BlendDataMasks {
+@:native("bpy.types.BlendDataMasks") extern class BlendDataMasks {
 	/**
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		Add a new mask with a given name to the main database
 		@param name Mask, Name of new mask data-block — string, (never None)
 		
 		@returns Mask
 	**/
-	function new(name:String):bpy.types.mask.Mask;
+	function pyNew(name:String):bpy.types.mask.Mask;
 	/**
 		Remove a masks from the current blendfile.
 		@param mask Mask to remove — Mask, (never None)
@@ -29,12 +29,12 @@ package bpy.types.blenddatamasks;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

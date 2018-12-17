@@ -2,7 +2,7 @@ package bpy.types.nlastrips;
 /**
 	Collection of Nla Strips
 **/
-@:pythonImport("bpy.types.NlaStrips") extern class NlaStrips {
+@:native("bpy.types.NlaStrips") extern class NlaStrips {
 	/**
 		Add a new Action-Clip strip to the track
 		@param name Name for the NLA Strips — string, (never None)
@@ -11,7 +11,7 @@ package bpy.types.nlastrips;
 		
 		@returns NlaStrip
 	**/
-	function new(name:String, start:Int, action:Dynamic):bpy.types.nlastrip.NlaStrip;
+	function pyNew(name:String, start:Int, action:Dynamic):bpy.types.nlastrip.NlaStrip;
 	/**
 		Remove a NLA Strip
 		@param strip NLA Strip to remove — NlaStrip, (never None)
@@ -23,12 +23,12 @@ package bpy.types.nlastrips;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

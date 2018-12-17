@@ -2,14 +2,14 @@ package bpy.types.blenddatameshes;
 /**
 	Collection of meshes
 **/
-@:pythonImport("bpy.types.BlendDataMeshes") extern class BlendDataMeshes {
+@:native("bpy.types.BlendDataMeshes") extern class BlendDataMeshes {
 	/**
 		Add a new mesh to the main database
 		@param name New name for the data-block — string, (never None)
 		
 		@returns Mesh
 	**/
-	function new(name:String):bpy.types.mesh.Mesh;
+	function pyNew(name:String):bpy.types.mesh.Mesh;
 	/**
 		Add a new mesh created from object with modifiers applied
 		@param depsgraph Dependency Graph, Evaluated dependency graph within which to evaluate modifiers — Depsgraph, (never None)
@@ -19,7 +19,7 @@ package bpy.types.blenddatameshes;
 		
 		@returns Mesh
 	**/
-	function new_from_object(depsgraph:bpy.types.depsgraph.Depsgraph, object:Dynamic, apply_modifiers:Dynamic, calc_undeformed:Bool):bpy.types.mesh.Mesh;
+	function new_from_object(depsgraph:bpy.types.depsgraph.Depsgraph, object:Dynamic, apply_modifiers:Bool, calc_undeformed:Bool):bpy.types.mesh.Mesh;
 	/**
 		Remove a mesh from the current blendfile
 		@param mesh Mesh to remove — Mesh, (never None)
@@ -32,19 +32,19 @@ package bpy.types.blenddatameshes;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

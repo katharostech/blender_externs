@@ -2,14 +2,14 @@ package bpy.types.blenddatalattices;
 /**
 	Collection of lattices
 **/
-@:pythonImport("bpy.types.BlendDataLattices") extern class BlendDataLattices {
+@:native("bpy.types.BlendDataLattices") extern class BlendDataLattices {
 	/**
 		Add a new lattice to the main database
 		@param name New name for the data-block — string, (never None)
 		
 		@returns Lattice
 	**/
-	function new(name:String):bpy.types.lattice.Lattice;
+	function pyNew(name:String):bpy.types.lattice.Lattice;
 	/**
 		Remove a lattice from the current blendfile
 		@param lattice Lattice to remove — Lattice, (never None)
@@ -22,19 +22,19 @@ package bpy.types.blenddatalattices;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

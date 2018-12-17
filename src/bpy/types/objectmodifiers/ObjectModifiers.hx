@@ -56,7 +56,7 @@ package bpy.types.objectmodifiers;
 }/**
 	Collection of object modifiers
 **/
-@:pythonImport("bpy.types.ObjectModifiers") extern class ObjectModifiers {
+@:native("bpy.types.ObjectModifiers") extern class ObjectModifiers {
 	/**
 		Add a new modifier
 		@param name New name for the modifier — string, (never None)
@@ -64,7 +64,7 @@ package bpy.types.objectmodifiers;
 		
 		@returns Modifier
 	**/
-	function new(name:String, type:bpy.types.objectmodifiers.ObjectModifiers.Enum1):bpy.types.modifier.Modifier;
+	function pyNew(name:String, type:bpy.types.objectmodifiers.ObjectModifiers.Enum1):bpy.types.modifier.Modifier;
 	/**
 		Remove an existing modifier from the object
 		@param modifier Modifier to remove — Modifier, (never None)
@@ -80,12 +80,12 @@ package bpy.types.objectmodifiers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

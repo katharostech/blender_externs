@@ -2,7 +2,7 @@ package bpy.types.collectionproperty;
 /**
 	RNA collection property to define lists, arrays and mappings
 **/
-@:pythonImport("bpy.types.CollectionProperty") extern class CollectionProperty {
+@:native("bpy.types.CollectionProperty") extern class CollectionProperty {
 	/**
 		Fixed pointer type, empty if variable type
 		
@@ -15,14 +15,14 @@ package bpy.types.collectionproperty;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Human readable name
 		

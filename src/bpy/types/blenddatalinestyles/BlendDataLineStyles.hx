@@ -2,19 +2,19 @@ package bpy.types.blenddatalinestyles;
 /**
 	Collection of line styles
 **/
-@:pythonImport("bpy.types.BlendDataLineStyles") extern class BlendDataLineStyles {
+@:native("bpy.types.BlendDataLineStyles") extern class BlendDataLineStyles {
 	/**
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		Add a new line style instance to the main database
 		@param name New name for the data-block — string, (never None)
 		
 		@returns FreestyleLineStyle
 	**/
-	function new(name:String):bpy.types.freestylelinestyle.FreestyleLineStyle;
+	function pyNew(name:String):bpy.types.freestylelinestyle.FreestyleLineStyle;
 	/**
 		Remove a line style instance from the current blendfile
 		@param linestyle Line style to remove — FreestyleLineStyle, (never None)
@@ -29,12 +29,12 @@ package bpy.types.blenddatalinestyles;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

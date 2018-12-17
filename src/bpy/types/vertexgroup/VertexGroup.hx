@@ -6,7 +6,7 @@ package bpy.types.vertexgroup;
 }/**
 	Group of vertices, used for armature deform and other purposes
 **/
-@:pythonImport("bpy.types.VertexGroup") extern class VertexGroup {
+@:native("bpy.types.VertexGroup") extern class VertexGroup {
 	/**
 		Index number of the vertex group
 		
@@ -50,12 +50,12 @@ package bpy.types.vertexgroup;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

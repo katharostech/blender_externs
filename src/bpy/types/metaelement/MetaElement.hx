@@ -8,7 +8,7 @@ package bpy.types.metaelement;
 }/**
 	Blobby element in a Metaball data-block
 **/
-@:pythonImport("bpy.types.MetaElement") extern class MetaElement {
+@:native("bpy.types.MetaElement") extern class MetaElement {
 	/**
 		
 		
@@ -75,12 +75,12 @@ package bpy.types.metaelement;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -14,14 +14,14 @@ package bpy.ops.object;
 	var SPEAKER : String = "SPEAKER";
 	var LIGHT_PROBE : String = "LIGHT_PROBE";
 }@:enum abstract Enum2(String) from String to String {
-	var OPT_1 : String = "OPT_1";
-	var OPT_2 : String = "OPT_2";
-	var OPT_3 : String = "OPT_3";
+	var pyOPT_1 : String = "OPT_1";
+	var pyOPT_2 : String = "OPT_2";
+	var pyOPT_3 : String = "OPT_3";
 }@:enum abstract Enum3(String) from String to String {
-	var OPT_1 : String = "OPT_1";
-	var OPT_2 : String = "OPT_2";
-	var OPT_3 : String = "OPT_3";
-	var OPT_4 : String = "OPT_4";
+	var pyOPT_1 : String = "OPT_1";
+	var pyOPT_2 : String = "OPT_2";
+	var pyOPT_3 : String = "OPT_3";
+	var pyOPT_4 : String = "OPT_4";
 }@:enum abstract Enum4(String) from String to String {
 	var COMBINED : String = "COMBINED";
 	var AO : String = "AO";

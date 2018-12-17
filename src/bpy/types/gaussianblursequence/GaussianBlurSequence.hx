@@ -2,13 +2,13 @@ package bpy.types.gaussianblursequence;
 /**
 	Sequence strip creating a gaussian blur
 **/
-@:pythonImport("bpy.types.GaussianBlurSequence") extern class GaussianBlurSequence {
+@:native("bpy.types.GaussianBlurSequence") extern class GaussianBlurSequence {
 	/**
 		First input for the effect strip
 		
 		Type: Sequence, (never None)
 	**/
-	var input_1 : bpy.types.sequence.Sequence;
+	var pyinput_1 : bpy.types.sequence.Sequence;
 	/**
 		
 		
@@ -33,14 +33,14 @@ package bpy.types.gaussianblursequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

@@ -91,7 +91,7 @@ package bpy.ops.text;
 	/**
 		Create a new text data-block
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Open a new text data-block
 		@param filepath File Path, Path to file — string, (optional, never None)
@@ -213,7 +213,7 @@ package bpy.ops.text;
 		Create 3D text object from active text data-block
 		@param split_lines Split Lines, Create one object per line in the text — boolean, (optional)
 	**/
-	static function to_3d_object(split_lines:Bool):Void;
+	static function pyto_3d_object(split_lines:Bool):Void;
 	/**
 		Convert selected comment to text
 	**/

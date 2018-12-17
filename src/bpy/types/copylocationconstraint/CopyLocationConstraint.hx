@@ -2,7 +2,7 @@ package bpy.types.copylocationconstraint;
 /**
 	Copy the location of the target
 **/
-@:pythonImport("bpy.types.CopyLocationConstraint") extern class CopyLocationConstraint {
+@:native("bpy.types.CopyLocationConstraint") extern class CopyLocationConstraint {
 	/**
 		Target along length of bone: Head=0, Tail=1
 		
@@ -75,14 +75,14 @@ package bpy.types.copylocationconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

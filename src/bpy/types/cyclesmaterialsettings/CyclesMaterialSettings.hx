@@ -10,7 +10,7 @@ package bpy.types.cyclesmaterialsettings;
 	var DISTANCE : String = "DISTANCE";
 	var EQUIANGULAR : String = "EQUIANGULAR";
 	var MULTIPLE_IMPORTANCE : String = "MULTIPLE_IMPORTANCE";
-}@:pythonImport("bpy.types.CyclesMaterialSettings") extern class CyclesMaterialSettings {
+}@:native("bpy.types.CyclesMaterialSettings") extern class CyclesMaterialSettings {
 	/**
 		Method to use for the displacement
 		
@@ -53,12 +53,12 @@ package bpy.types.cyclesmaterialsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

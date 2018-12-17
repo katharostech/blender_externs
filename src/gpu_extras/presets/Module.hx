@@ -11,7 +11,7 @@ package gpu_extras.presets;
 		@param segments How many segments will be used to draw the circle.
 		                                        Higher values give besser results but the drawing will take longer. — int
 	**/
-	static function draw_circle_2d(position:Dynamic, color:Dynamic, radius:Dynamic, segments:Dynamic):Void;
+	static function pydraw_circle_2d(position:Dynamic, color:Dynamic, radius:Float, segments:Int):Void;
 	/**
 		Draw a 2d texture.
 		@param texture_id OpenGL id of the texture (e.g. bpy.types.Image.bindcode). — int
@@ -20,5 +20,5 @@ package gpu_extras.presets;
 		                                        the original width of the texture). — float
 		@param height Height of the image when drawn. — float
 	**/
-	static function draw_texture_2d(texture_id:Dynamic, position:Dynamic, width:Dynamic, height:Dynamic):Void;
+	static function pydraw_texture_2d(texture_id:Int, position:Dynamic, width:Float, height:Float):Void;
 }

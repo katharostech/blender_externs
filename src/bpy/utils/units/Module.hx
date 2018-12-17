@@ -25,7 +25,7 @@ package bpy.utils.units;
 		
 		@returns str
 	**/
-	function to_string(unit_system:Dynamic, unit_category:Dynamic, value:Dynamic, precision:Dynamic, split_unit:Dynamic, compatible_unit:Dynamic):Dynamic;
+	static function to_string(unit_system:String, unit_category:String, value:Float, precision:Int, split_unit:Dynamic, compatible_unit:Dynamic):Dynamic;
 	/**
 		Convert a given input string into a float value.
 		@param unit_system The unit system, from bpy.utils.units.systems. — string
@@ -36,5 +36,5 @@ package bpy.utils.units;
 		
 		@returns float
 	**/
-	function to_value(unit_system:Dynamic, unit_category:Dynamic, str_input:Dynamic, str_ref_unit:String):Dynamic;
+	static function to_value(unit_system:String, unit_category:String, str_input:String, str_ref_unit:String):Float;
 }

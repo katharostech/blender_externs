@@ -105,7 +105,7 @@ package bpy.ops.scene;
 	/**
 		Save the export settings on export (saved in .blend).
 	**/
-	static function gltf2_export_settings_set():Void;
+	static function pygltf2_export_settings_set():Void;
 	/**
 		Add or remove grease pencil brush preset
 		@param name Name, Name of the preset, used to make the path name — string, (optional, never None)
@@ -134,7 +134,7 @@ package bpy.ops.scene;
 		Add new scene by type
 		@param type TypeNEW New, Add new scene.EMPTY Copy Settings, Make a copy without any objects.LINK_OBJECTS Link Objects, Link to the objects from the current scene.LINK_OBJECT_DATA Link Object Data, Copy objects linked to data from the current scene.FULL_COPY Full Copy, Make a full copy of the current scene. — enum in ['NEW', 'EMPTY', 'LINK_OBJECTS', 'LINK_OBJECT_DATA', 'FULL_COPY'], (optional)
 	**/
-	static function new(type:bpy.ops.scene.Scene.Enum10):Void;
+	static function pyNew(type:bpy.ops.scene.Scene.Enum10):Void;
 	/**
 		Add a render view
 	**/

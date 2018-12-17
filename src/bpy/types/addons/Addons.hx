@@ -2,13 +2,13 @@ package bpy.types.addons;
 /**
 	Collection of add-ons
 **/
-@:pythonImport("bpy.types.Addons") extern class Addons {
+@:native("bpy.types.Addons") extern class Addons {
 	/**
 		Add a new add-on
 		
 		@returns Addon
 	**/
-	static function new():bpy.types.addon.Addon;
+	static function pyNew():bpy.types.addon.Addon;
 	/**
 		Remove add-on
 		@param addon Add-on to remove — Addon, (never None)
@@ -20,12 +20,12 @@ package bpy.types.addons;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

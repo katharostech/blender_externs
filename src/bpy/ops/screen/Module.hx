@@ -104,7 +104,7 @@ package bpy.ops.screen;
 	/**
 		Add a new screen
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Display menu for last action performed
 	**/

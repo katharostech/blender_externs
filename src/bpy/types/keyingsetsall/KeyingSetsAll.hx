@@ -2,7 +2,7 @@ package bpy.types.keyingsetsall;
 /**
 	All available keying sets
 **/
-@:pythonImport("bpy.types.KeyingSetsAll") extern class KeyingSetsAll {
+@:native("bpy.types.KeyingSetsAll") extern class KeyingSetsAll {
 	/**
 		Active Keying Set used to insert/delete keyframes
 		
@@ -21,12 +21,12 @@ package bpy.types.keyingsetsall;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

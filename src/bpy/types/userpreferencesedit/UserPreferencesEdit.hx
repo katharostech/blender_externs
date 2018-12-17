@@ -31,7 +31,7 @@ package bpy.types.userpreferencesedit;
 }/**
 	Settings for interacting with Blender data
 **/
-@:pythonImport("bpy.types.UserPreferencesEdit") extern class UserPreferencesEdit {
+@:native("bpy.types.UserPreferencesEdit") extern class UserPreferencesEdit {
 	/**
 		Mode of automatic keyframe insertion for Objects and Bones (default setting used for new Scenes)
 		
@@ -266,12 +266,12 @@ package bpy.types.userpreferencesedit;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

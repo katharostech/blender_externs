@@ -2,7 +2,7 @@ package bpy.types.masksplinepointuw;
 /**
 	Single point in spline segment defining feather
 **/
-@:pythonImport("bpy.types.MaskSplinePointUW") extern class MaskSplinePointUW {
+@:native("bpy.types.MaskSplinePointUW") extern class MaskSplinePointUW {
 	/**
 		Selection status
 		
@@ -27,12 +27,12 @@ package bpy.types.masksplinepointuw;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

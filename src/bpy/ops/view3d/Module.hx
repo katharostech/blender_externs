@@ -54,7 +54,7 @@ package bpy.ops.view3d;
 		@param use_depth Surface Project, Project onto the surface — boolean, (optional)
 		@param orientation Orientation, Preset viewpoint to useNONE None, Leave orientation unchanged.VIEW View, Orient to the viewport.XFORM Transform, Orient to the current transform setting.GEOM Geometry, Match the surface normal. — enum in ['NONE', 'VIEW', 'XFORM', 'GEOM'], (optional)
 	**/
-	static function cursor3d(use_depth:Bool, orientation:bpy.ops.view3d.View3d.Enum3):Void;
+	static function pycursor3d(use_depth:Bool, orientation:bpy.ops.view3d.View3d.Enum3):Void;
 	/**
 		Dolly in/out in the view
 		@param mx Region Position X — int in [0, inf], (optional)
@@ -338,5 +338,5 @@ package bpy.ops.view3d;
 	/**
 		Match the camera to 1:1 to the render output
 	**/
-	static function zoom_camera_1_to_1():Void;
+	static function pyzoom_camera_1_to_1():Void;
 }

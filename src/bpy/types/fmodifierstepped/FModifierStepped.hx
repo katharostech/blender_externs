@@ -2,7 +2,7 @@ package bpy.types.fmodifierstepped;
 /**
 	Hold each interpolated value from the F-Curve for several frames without changing the timing
 **/
-@:pythonImport("bpy.types.FModifierStepped") extern class FModifierStepped {
+@:native("bpy.types.FModifierStepped") extern class FModifierStepped {
 	/**
 		Frame that modifier’s influence ends (if applicable)
 		
@@ -45,14 +45,14 @@ package bpy.types.fmodifierstepped;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		F-Curve Modifier Type
 		

@@ -10,7 +10,7 @@ package bpy.types.camerastereodata;
 }/**
 	Stereoscopy settings for a Camera data-block
 **/
-@:pythonImport("bpy.types.CameraStereoData") extern class CameraStereoData {
+@:native("bpy.types.CameraStereoData") extern class CameraStereoData {
 	/**
 		The converge point for the stereo cameras (often the distance between a projector and the projection screen)
 		
@@ -65,12 +65,12 @@ package bpy.types.camerastereodata;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

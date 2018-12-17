@@ -15,7 +15,7 @@ package bpy.types.sculpt;
 	var POSITIVE_Y : String = "POSITIVE_Y";
 	var NEGATIVE_Z : String = "NEGATIVE_Z";
 	var POSITIVE_Z : String = "POSITIVE_Z";
-}@:pythonImport("bpy.types.Sculpt") extern class Sculpt {
+}@:native("bpy.types.Sculpt") extern class Sculpt {
 	/**
 		Maximum edge length for dynamic topology sculpting (as divisor of blender unit - higher value means smaller edge length)
 		
@@ -124,14 +124,14 @@ package bpy.types.sculpt;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Active Brush
 		

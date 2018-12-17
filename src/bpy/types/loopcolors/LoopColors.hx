@@ -2,7 +2,7 @@ package bpy.types.loopcolors;
 /**
 	Collection of vertex colors
 **/
-@:pythonImport("bpy.types.LoopColors") extern class LoopColors {
+@:native("bpy.types.LoopColors") extern class LoopColors {
 	/**
 		Active vertex color layer
 		
@@ -21,7 +21,7 @@ package bpy.types.loopcolors;
 		
 		@returns MeshLoopColorLayer
 	**/
-	function new(name:String):bpy.types.meshloopcolorlayer.MeshLoopColorLayer;
+	function pyNew(name:String):bpy.types.meshloopcolorlayer.MeshLoopColorLayer;
 	/**
 		Remove a vertex color layer
 		@param layer The layer to remove — MeshLoopColorLayer, (never None)
@@ -33,12 +33,12 @@ package bpy.types.loopcolors;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

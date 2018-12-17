@@ -2,14 +2,14 @@ package bpy.types.blenddataspeakers;
 /**
 	Collection of speakers
 **/
-@:pythonImport("bpy.types.BlendDataSpeakers") extern class BlendDataSpeakers {
+@:native("bpy.types.BlendDataSpeakers") extern class BlendDataSpeakers {
 	/**
 		Add a new speaker to the main database
 		@param name New name for the data-block — string, (never None)
 		
 		@returns Speaker
 	**/
-	function new(name:String):bpy.types.speaker.Speaker;
+	function pyNew(name:String):bpy.types.speaker.Speaker;
 	/**
 		Remove a speaker from the current blendfile
 		@param speaker Speaker to remove — Speaker, (never None)
@@ -22,19 +22,19 @@ package bpy.types.blenddataspeakers;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

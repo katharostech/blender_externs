@@ -7,25 +7,11 @@ package freestyle.types;
 	decrement() methods of a ChainingIterator and passed to the
 	traverse() method of the ChainingIterator.
 **/
-@:pythonImport("freestyle.types.AdjacencyIterator") extern class AdjacencyIterator {
+@:native("freestyle.types.AdjacencyIterator") extern class AdjacencyIterator {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother An AdjacencyIterator object. — AdjacencyIterator
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a AdjacencyIterator object.
-		@param vertex The vertex which is the next crossing. — ViewVertex
-		@param restrict_to_selection Indicates whether to force the chaining
-		                                                to stay within the set of selected ViewEdges or not. — bool
-		@param restrict_to_unvisited Indicates whether a ViewEdge that has
-		                                                already been chained must be ignored ot not. — bool
-	**/
-	function __init__(vertex:Dynamic, restrict_to_selection:Dynamic, restrict_to_unvisited:Dynamic):Void;
 	/**
 		True if the current ViewEdge is coming towards the iteration vertex, and
 		False otherwise.
@@ -42,7 +28,7 @@ package freestyle.types;
 }/**
 	Class for representing a bounding box.
 **/
-@:pythonImport("freestyle.types.BBox") extern class BBox {
+@:native("freestyle.types.BBox") extern class BBox {
 	/**
 		Default constructor.
 	**/
@@ -54,7 +40,7 @@ package freestyle.types;
 	between the two Interface0D instances and returns a boolean value (true
 	or false).  It is used by invoking the __call__() method.
 **/
-@:pythonImport("freestyle.types.BinaryPredicate0D") extern class BinaryPredicate0D {
+@:native("freestyle.types.BinaryPredicate0D") extern class BinaryPredicate0D {
 	/**
 		Default constructor.
 	**/
@@ -62,12 +48,12 @@ package freestyle.types;
 	/**
 		Must be overload by inherited classes.  It evaluates a relation
 		between two Interface0D objects.
-		@param inter1 The first Interface0D object. — Interface0D
-		@param inter2 The second Interface0D object. — Interface0D
+		@param pyinter1 The first Interface0D object. — Interface0D
+		@param pyinter2 The second Interface0D object. — Interface0D
 		
 		@returns bool
 	**/
-	function __call__(inter1:Dynamic, inter2:Dynamic):Dynamic;
+	function __call__(pyinter1:Dynamic, pyinter2:Dynamic):Dynamic;
 	/**
 		The name of the binary 0D predicate.
 		
@@ -81,7 +67,7 @@ package freestyle.types;
 	between the two Interface1D instances and returns a boolean value (true
 	or false).  It is used by invoking the __call__() method.
 **/
-@:pythonImport("freestyle.types.BinaryPredicate1D") extern class BinaryPredicate1D {
+@:native("freestyle.types.BinaryPredicate1D") extern class BinaryPredicate1D {
 	/**
 		Default constructor.
 	**/
@@ -89,12 +75,12 @@ package freestyle.types;
 	/**
 		Must be overload by inherited classes. It evaluates a relation
 		between two Interface1D objects.
-		@param inter1 The first Interface1D object. — Interface1D
-		@param inter2 The second Interface1D object. — Interface1D
+		@param pyinter1 The first Interface1D object. — Interface1D
+		@param pyinter2 The second Interface1D object. — Interface1D
 		
 		@returns bool
 	**/
-	function __call__(inter1:Dynamic, inter2:Dynamic):Dynamic;
+	function __call__(pyinter1:Dynamic, pyinter2:Dynamic):Dynamic;
 	/**
 		The name of the binary 1D predicate.
 		
@@ -108,21 +94,11 @@ package freestyle.types;
 	Chain is the last step before the Stroke and is used in the
 	Splitting and Creation processes.
 **/
-@:pythonImport("freestyle.types.Chain") extern class Chain {
+@:native("freestyle.types.Chain") extern class Chain {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A Chain object. — Chain
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a chain from its Id.
-		@param id An Id object. — Id
-	**/
-	function __init__(id:Dynamic):Void;
 	/**
 		Adds a ViewEdge at the end of the Chain.
 		@param viewedge The ViewEdge that must be added. — ViewEdge
@@ -149,7 +125,7 @@ package freestyle.types;
 	they will be included in the adjacency iterator (i.e, the adjacent
 	iterator will only stop on “valid” edges).
 **/
-@:pythonImport("freestyle.types.ChainingIterator") extern class ChainingIterator {
+@:native("freestyle.types.ChainingIterator") extern class ChainingIterator {
 	/**
 		Builds a Chaining Iterator from the first ViewEdge used for
 		iteration and its orientation.
@@ -162,11 +138,6 @@ package freestyle.types;
 		                                                true, the direction indicated by the first ViewEdge is used. — bool
 	**/
 	function __init__(restrict_to_selection:Dynamic, restrict_to_unvisited:Dynamic, begin:Dynamic, orientation:Dynamic):Void;
-	/**
-		Copy constructor.
-		@param brother  — ChainingIterator
-	**/
-	function __init__(brother:Dynamic):Void;
 	/**
 		Initializes the iterator context.  This method is called each
 		time a new chain is started.  It can be used to reset some
@@ -209,21 +180,11 @@ package freestyle.types;
 	type of the initial curve vertices.  A Chain is a
 	specialization of a Curve.
 **/
-@:pythonImport("freestyle.types.Curve") extern class Curve {
+@:native("freestyle.types.Curve") extern class Curve {
 	/**
 		Default Constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy Constructor.
-		@param brother A Curve object. — Curve
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a Curve from its Id.
-		@param id An Id object. — Id
-	**/
-	function __init__(id:Dynamic):Void;
 	/**
 		Adds a single vertex at the end of the Curve.
 		@param vertex A vertex object. — SVertex or CurvePoint
@@ -245,7 +206,7 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var segments_size : Dynamic;
+	var segments_size : Int;
 }/**
 	Class hierarchy: Interface0D &gt; CurvePoint
 	
@@ -258,33 +219,11 @@ package freestyle.types;
 	as virtual points while querying 0D information along a curve at a
 	given resolution.
 **/
-@:pythonImport("freestyle.types.CurvePoint") extern class CurvePoint {
+@:native("freestyle.types.CurvePoint") extern class CurvePoint {
 	/**
 		Defult constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A CurvePoint object. — CurvePoint
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a CurvePoint from two SVertex objects and an interpolation parameter.
-		@param first_vertex The first SVertex. — SVertex
-		@param second_vertex The second SVertex. — SVertex
-		@param t2d A 2D interpolation parameter used to linearly interpolate
-		                                                first_vertex and second_vertex. — float
-	**/
-	function __init__(first_vertex:Dynamic, second_vertex:Dynamic, t2d:Dynamic):Void;
-	/**
-		Builds a CurvePoint from two CurvePoint objects and an interpolation
-		parameter.
-		@param first_point The first CurvePoint. — CurvePoint
-		@param second_point The second CurvePoint. — CurvePoint
-		@param t2d The 2D interpolation parameter used to linearly interpolate
-		                                                first_point and second_point. — float
-	**/
-	function __init__(first_point:Dynamic, second_point:Dynamic, t2d:Dynamic):Void;
 	/**
 		Gets the FEdge for the two SVertices that given CurvePoints consists out of.
 		A shortcut for CurvePoint.first_svertex.get_fedge(CurvePoint.second_svertex).
@@ -309,7 +248,7 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var t2d : Dynamic;
+	var pyt2d : Float;
 }/**
 	Class hierarchy: Iterator &gt; CurvePointIterator
 	
@@ -317,23 +256,11 @@ package freestyle.types;
 	outside initial vertices.  A CurvePoint is instanciated and returned
 	through the .object attribute.
 **/
-@:pythonImport("freestyle.types.CurvePointIterator") extern class CurvePointIterator {
+@:native("freestyle.types.CurvePointIterator") extern class CurvePointIterator {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A CurvePointIterator object. — CurvePointIterator
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a CurvePointIterator object.
-		@param step A resampling resolution with which the curve is resampled.
-		                                        If zero, no resampling is done (i.e., the iterator iterates over
-		                                        initial vertices). — float
-	**/
-	function __init__(step:Dynamic):Void;
 	/**
 		The CurvePoint object currently pointed by this iterator.
 		
@@ -345,13 +272,13 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var t : Dynamic;
+	var t : Float;
 	/**
 		The point parameter at the current point in the stroke (0 &lt;= u &lt;= 1).
 		
 		Type: float
 	**/
-	var u : Dynamic;
+	var u : Float;
 }/**
 	Class hierarchy: Interface1D &gt; FEdge
 	
@@ -365,22 +292,11 @@ package freestyle.types;
 	into a smooth and a sharp version since their properties slightly vary
 	from one to the other.
 **/
-@:pythonImport("freestyle.types.FEdge") extern class FEdge {
+@:native("freestyle.types.FEdge") extern class FEdge {
 	/**
 		Default constructor.
 	**/
 	function FEdge():Void;
-	/**
-		Copy constructor.
-		@param brother An FEdge object. — FEdge
-	**/
-	function FEdge(brother:Dynamic):Void;
-	/**
-		Builds an FEdge going from the first vertex to the second.
-		@param first_vertex The first SVertex. — SVertex
-		@param second_vertex The second SVertex. — SVertex
-	**/
-	function FEdge(first_vertex:Dynamic, second_vertex:Dynamic):Void;
 	/**
 		The first SVertex constituting this FEdge.
 		
@@ -441,22 +357,11 @@ package freestyle.types;
 	border edge, then it doesn’t have any face on its right, and thus Face
 	a is None.
 **/
-@:pythonImport("freestyle.types.FEdgeSharp") extern class FEdgeSharp {
+@:native("freestyle.types.FEdgeSharp") extern class FEdgeSharp {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother An FEdgeSharp object. — FEdgeSharp
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds an FEdgeSharp going from the first vertex to the second.
-		@param first_vertex The first SVertex object. — SVertex
-		@param second_vertex The second SVertex object. — SVertex
-	**/
-	function __init__(first_vertex:Dynamic, second_vertex:Dynamic):Void;
 	/**
 		The face mark of the face lying on the left of the FEdge.
 		
@@ -476,7 +381,7 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var material_index_left : Dynamic;
+	var material_index_left : Int;
 	/**
 		The index of the material of the face lying on the right of the FEdge.
 		If this FEdge is a border, it has no Face on its right and therefore
@@ -484,7 +389,7 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var material_index_right : Dynamic;
+	var material_index_right : Int;
 	/**
 		The material of the face lying on the left of the FEdge.
 		
@@ -518,22 +423,11 @@ package freestyle.types;
 	a face of the input mesh.  It can be a silhouette, a ridge or valley,
 	a suggestive contour.
 **/
-@:pythonImport("freestyle.types.FEdgeSmooth") extern class FEdgeSmooth {
+@:native("freestyle.types.FEdgeSmooth") extern class FEdgeSmooth {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother An FEdgeSmooth object. — FEdgeSmooth
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds an FEdgeSmooth going from the first to the second.
-		@param first_vertex The first SVertex object. — SVertex
-		@param second_vertex The second SVertex object. — SVertex
-	**/
-	function __init__(first_vertex:Dynamic, second_vertex:Dynamic):Void;
 	/**
 		The face mark of the face that this FEdge is running across.
 		
@@ -551,7 +445,7 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var material_index : Dynamic;
+	var material_index : Int;
 	/**
 		The normal of the face that this FEdge is running across.
 		
@@ -561,30 +455,25 @@ package freestyle.types;
 }/**
 	Class for representing an object Id.
 **/
-@:pythonImport("freestyle.types.Id") extern class Id {
+@:native("freestyle.types.Id") extern class Id {
 	/**
 		Build the Id from two numbers.
 		@param first The first number. — int
 		@param second The second number. — int
 	**/
-	function __init__(first:Dynamic, second:Dynamic):Void;
-	/**
-		Copy constructor.
-		@param brother An Id object. — Id
-	**/
-	function __init__(brother:Dynamic):Void;
+	function __init__(first:Int, second:Int):Void;
 	/**
 		The first number constituting the Id.
 		
 		Type: int
 	**/
-	var first : Dynamic;
+	var first : Int;
 	/**
 		The second number constituting the Id.
 		
 		Type: int
 	**/
-	var second : Dynamic;
+	var second : Int;
 }/**
 	Class hierarchy: int &gt; IntegrationType
 	
@@ -592,12 +481,12 @@ package freestyle.types;
 	single value the set of values obtained from each 0D element of an 1D
 	element:
 **/
-@:pythonImport("freestyle.types.IntegrationType") extern class IntegrationType {
+@:native("freestyle.types.IntegrationType") extern class IntegrationType {
 
 }/**
 	Base class for any 0D element.
 **/
-@:pythonImport("freestyle.types.Interface0D") extern class Interface0D {
+@:native("freestyle.types.Interface0D") extern class Interface0D {
 	/**
 		Default constructor.
 	**/
@@ -633,50 +522,43 @@ package freestyle.types;
 		
 		Type: mathutils.Vector
 	**/
-	var point_2d : mathutils.vector.Vector;
+	var pypoint_2d : mathutils.vector.Vector;
 	/**
 		The 3D point of this 0D element.
 		
 		Type: mathutils.Vector
 	**/
-	var point_3d : mathutils.vector.Vector;
+	var pypoint_3d : mathutils.vector.Vector;
 	/**
 		The X coordinate of the projected 3D point of this 0D element.
 		
 		Type: float
 	**/
-	var projected_x : Dynamic;
+	var projected_x : Float;
 	/**
 		The Y coordinate of the projected 3D point of this 0D element.
 		
 		Type: float
 	**/
-	var projected_y : Dynamic;
+	var projected_y : Float;
 	/**
 		The Z coordinate of the projected 3D point of this 0D element.
 		
 		Type: float
 	**/
-	var projected_z : Dynamic;
+	var projected_z : Float;
 }/**
 	Class hierarchy: Iterator &gt; Interface0DIterator
 	
 	Class defining an iterator over Interface0D elements.  An instance of
 	this iterator is always obtained from a 1D element.
 **/
-@:pythonImport("freestyle.types.Interface0DIterator") extern class Interface0DIterator {
+@:native("freestyle.types.Interface0DIterator") extern class Interface0DIterator {
 	/**
 		Copy constructor.
 		@param brother An Interface0DIterator object. — Interface0DIterator
 	**/
 	function __init__(brother:Dynamic):Void;
-	/**
-		Construct a nested Interface0DIterator that can be the argument of
-		a Function0D.
-		@param it An iterator object to be nested. — SVertexIterator, CurvePointIterator, or
-		                                        StrokeVertexIterator
-	**/
-	function __init__(it:Dynamic):Void;
 	/**
 		True if the interator points to the last valid element.
 		For its counterpart (pointing to the first valid element), use it.is_begin.
@@ -698,17 +580,17 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var t : Dynamic;
+	var t : Float;
 	/**
 		The point parameter at the current point in the 1D element (0 &lt;= u &lt;= 1).
 		
 		Type: float
 	**/
-	var u : Dynamic;
+	var u : Float;
 }/**
 	Base class for any 1D element.
 **/
-@:pythonImport("freestyle.types.Interface1D") extern class Interface1D {
+@:native("freestyle.types.Interface1D") extern class Interface1D {
 	/**
 		Default constructor.
 	**/
@@ -723,7 +605,7 @@ package freestyle.types;
 		
 		@returns Interface0DIterator
 	**/
-	function points_begin(t:Dynamic):freestyle.types.interface0diterator.Interface0DIterator;
+	function points_begin(t:Float):freestyle.types.interface0diterator.Interface0DIterator;
 	/**
 		Returns an iterator over the Interface1D points, pointing after the
 		last point. The difference with vertices_end() is that here we can
@@ -734,7 +616,7 @@ package freestyle.types;
 		
 		@returns Interface0DIterator
 	**/
-	function points_end(t:Dynamic):freestyle.types.interface0diterator.Interface0DIterator;
+	function points_end(t:Float):freestyle.types.interface0diterator.Interface0DIterator;
 	/**
 		Returns an iterator over the Interface1D vertices, pointing to the
 		first vertex.
@@ -760,7 +642,7 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var length_2d : Dynamic;
+	var pylength_2d : Float;
 	/**
 		The string of the name of the 1D element.
 		
@@ -778,11 +660,11 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var time_stamp : Dynamic;
+	var time_stamp : Int;
 }/**
 	Base class to define iterators.
 **/
-@:pythonImport("freestyle.types.Iterator") extern class Iterator {
+@:native("freestyle.types.Iterator") extern class Iterator {
 	/**
 		Default constructor.
 	**/
@@ -816,28 +698,11 @@ package freestyle.types;
 }/**
 	Class defining a material.
 **/
-@:pythonImport("freestyle.types.Material") extern class Material {
+@:native("freestyle.types.Material") extern class Material {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A Material object. — Material
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a Material from its line, diffuse, ambient, specular, emissive
-		colors, a shininess coefficient and line color priority.
-		@param line The line color. — mathutils.Vector, list or tuple of 4 float values
-		@param diffuse The diffuse color. — mathutils.Vector, list or tuple of 4 float values
-		@param ambient The ambient color. — mathutils.Vector, list or tuple of 4 float values
-		@param specular The specular color. — mathutils.Vector, list or tuple of 4 float values
-		@param emission The emissive color. — mathutils.Vector, list or tuple of 4 float values
-		@param shininess The shininess coefficient. — float
-		@param priority The line color priority. — int
-	**/
-	function __init__(line:Dynamic, diffuse:Dynamic, ambient:Dynamic, specular:Dynamic, emission:Dynamic, shininess:Dynamic, priority:Dynamic):Void;
 	/**
 		RGBA components of the ambient color of the material.
 		
@@ -867,13 +732,13 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var priority : Dynamic;
+	var priority : Int;
 	/**
 		Shininess coefficient of the material.
 		
 		Type: float
 	**/
-	var shininess : Dynamic;
+	var shininess : Float;
 	/**
 		RGBA components of the specular color of the material.
 		
@@ -886,7 +751,7 @@ package freestyle.types;
 	The different blending modes available to similate the interaction
 	media-medium:
 **/
-@:pythonImport("freestyle.types.MediumType") extern class MediumType {
+@:native("freestyle.types.MediumType") extern class MediumType {
 
 }/**
 	Class hierarchy: int &gt; Nature
@@ -897,7 +762,7 @@ package freestyle.types;
 	
 	Edge natures:
 **/
-@:pythonImport("freestyle.types.Nature") extern class Nature {
+@:native("freestyle.types.Nature") extern class Nature {
 
 }/**
 	Class to provide Perlin noise functionalities.
@@ -906,35 +771,35 @@ package freestyle.types;
 	
 	Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 **/
-@:pythonImport("freestyle.types.Noise") extern class Noise {
+@:native("freestyle.types.Noise") extern class Noise {
 	/**
 		Builds a Noise object.  Seed is an optional argument.  The seed value is used
 		as a seed for random number generation if it is equal to or greater than zero;
 		otherwise, time is used as a seed.
 		@param seed Seed for random number generation. — int
 	**/
-	function __init__(seed:Dynamic):Void;
+	function __init__(seed:Int):Void;
 	/**
 		Returns a smooth noise value for a 1D element.
 		@param v One-dimensional sample point. — float
 		
 		@returns float
 	**/
-	function smoothNoise1(v:Dynamic):Dynamic;
+	function pysmoothNoise1(v:Float):Float;
 	/**
 		Returns a smooth noise value for a 2D element.
 		@param v Two-dimensional sample point. — mathutils.Vector, list or tuple of 2 real numbers
 		
 		@returns float
 	**/
-	function smoothNoise2(v:Dynamic):Dynamic;
+	function pysmoothNoise2(v:Dynamic):Float;
 	/**
 		Returns a smooth noise value for a 3D element.
 		@param v Three-dimensional sample point. — mathutils.Vector, list or tuple of 3 real numbers
 		
 		@returns float
 	**/
-	function smoothNoise3(v:Dynamic):Dynamic;
+	function pysmoothNoise3(v:Dynamic):Float;
 	/**
 		Returns a noise value for a 1D element.
 		@param v One-dimensional sample point. — float
@@ -944,7 +809,7 @@ package freestyle.types;
 		
 		@returns float
 	**/
-	function turbulence1(v:Dynamic, freq:Dynamic, amp:Dynamic, oct:Dynamic):Dynamic;
+	function pyturbulence1(v:Float, freq:Float, amp:Float, oct:Int):Float;
 	/**
 		Returns a noise value for a 2D element.
 		@param v Two-dimensional sample point. — mathutils.Vector, list or tuple of 2 real numbers
@@ -954,7 +819,7 @@ package freestyle.types;
 		
 		@returns float
 	**/
-	function turbulence2(v:Dynamic, freq:Dynamic, amp:Dynamic, oct:Dynamic):Dynamic;
+	function pyturbulence2(v:Dynamic, freq:Float, amp:Float, oct:Int):Float;
 	/**
 		Returns a noise value for a 3D element.
 		@param v Three-dimensional sample point. — mathutils.Vector, list or tuple of 3 real numbers
@@ -964,23 +829,18 @@ package freestyle.types;
 		
 		@returns float
 	**/
-	function turbulence3(v:Dynamic, freq:Dynamic, amp:Dynamic, oct:Dynamic):Dynamic;
+	function pyturbulence3(v:Dynamic, freq:Float, amp:Float, oct:Int):Float;
 }/**
 	Class hierarchy: Interface0D &gt; ViewVertex &gt; NonTVertex
 	
 	View vertex for corners, cusps, etc. associated to a single SVertex.
 	Can be associated to 2 or more view edges.
 **/
-@:pythonImport("freestyle.types.NonTVertex") extern class NonTVertex {
+@:native("freestyle.types.NonTVertex") extern class NonTVertex {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Build a NonTVertex from a SVertex.
-		@param svertex An SVertex object. — SVertex
-	**/
-	function __init__(svertex:Dynamic):Void;
 	/**
 		The SVertex on top of which this NonTVertex is built.
 		
@@ -993,7 +853,7 @@ package freestyle.types;
 	creation.  All these operators are user controlled through functors,
 	predicates and shaders that are taken as arguments.
 **/
-@:pythonImport("freestyle.types.Operators") extern class Operators {
+@:native("freestyle.types.Operators") extern class Operators {
 	/**
 		Builds a set of chains from the current set of ViewEdges.  Each
 		ViewEdge of the current list potentially starts a new chain.  The
@@ -1013,25 +873,6 @@ package freestyle.types;
 	**/
 	static function bidirectional_chain(it:Dynamic, pred:Dynamic):Void;
 	/**
-		The only difference with the above bidirectional chaining algorithm
-		is that we don’t need to pass a stopping criterion.  This might be
-		desirable when the stopping criterion is already contained in the
-		iterator definition.  Builds a set of chains from the current set of
-		ViewEdges.  Each ViewEdge of the current list potentially starts a new
-		chain.  The chaining operator then iterates over the ViewEdges of the
-		ViewMap using the user specified iterator.  This operator iterates
-		both using the increment and decrement operators and is therefore
-		bidirectional.  This operator works with a ChainingIterator which
-		contains the chaining rules.  It is this last one which can be told to
-		chain only edges that belong to the selection or not to process twice
-		a ViewEdge during the chaining.  Each time a ViewEdge is added to a
-		chain, its chaining time stamp is incremented.  This allows you to
-		keep track of the number of chains to which a ViewEdge belongs to.
-		@param it The ChainingIterator on the ViewEdges of the ViewMap.  It
-		                                        contains the chaining rule. — ChainingIterator
-	**/
-	static function bidirectional_chain(it:Dynamic):Void;
-	/**
 		Builds a set of chains from the current set of ViewEdges.  Each
 		ViewEdge of the current list starts a new chain.  The chaining
 		operator then iterates over the ViewEdges of the ViewMap using the
@@ -1048,22 +889,6 @@ package freestyle.types;
 	**/
 	static function chain(it:Dynamic, pred:Dynamic, modifier:Dynamic):Void;
 	/**
-		Builds a set of chains from the current set of ViewEdges.  Each
-		ViewEdge of the current list starts a new chain.  The chaining
-		operator then iterates over the ViewEdges of the ViewMap using the
-		user specified iterator.  This operator only iterates using the
-		increment operator and is therefore unidirectional.  This chaining
-		operator is different from the previous one because it doesn’t take
-		any modifier as argument.  Indeed, the time stamp (insuring that a
-		ViewEdge is processed one time) is automatically managed in this
-		case.
-		@param it The iterator on the ViewEdges of the ViewMap. It contains
-		                                                the chaining rule. — ViewEdgeIterator
-		@param pred The predicate on the ViewEdge that expresses the
-		                                                stopping condition. — UnaryPredicate1D
-	**/
-	static function chain(it:Dynamic, pred:Dynamic):Void;
-	/**
 		Creates and shades the strokes from the current set of chains.  A
 		predicate can be specified to make a selection pass on the chains.
 		@param pred The predicate that a chain must verify in order to be
@@ -1077,39 +902,39 @@ package freestyle.types;
 		
 		@returns Chain
 	**/
-	static function get_chain_from_index(i:Dynamic):freestyle.types.chain.Chain;
+	static function get_chain_from_index(i:Int):freestyle.types.chain.Chain;
 	/**
 		Returns the number of Chains.
 		
 		@returns int
 	**/
-	static function get_chains_size():Dynamic;
+	static function get_chains_size():Int;
 	/**
 		Returns the Stroke at the index in the current set of Strokes.
 		@param i index (0 &lt;= i &lt; Operators.get_strokes_size()). — int
 		
 		@returns Stroke
 	**/
-	static function get_stroke_from_index(i:Dynamic):freestyle.types.stroke.Stroke;
+	static function get_stroke_from_index(i:Int):freestyle.types.stroke.Stroke;
 	/**
 		Returns the number of Strokes.
 		
 		@returns int
 	**/
-	static function get_strokes_size():Dynamic;
+	static function get_strokes_size():Int;
 	/**
 		Returns the number of ViewEdges.
 		
 		@returns int
 	**/
-	static function get_view_edges_size():Dynamic;
+	static function get_view_edges_size():Int;
 	/**
 		Returns the ViewEdge at the index in the current set of ViewEdges.
 		@param i index (0 &lt;= i &lt; Operators.get_view_edges_size()). — int
 		
 		@returns ViewEdge
 	**/
-	static function get_viewedge_from_index(i:Dynamic):freestyle.types.viewedge.ViewEdge;
+	static function get_viewedge_from_index(i:Int):freestyle.types.viewedge.ViewEdge;
 	/**
 		Splits the current set of chains in a recursive way.  We process the
 		points of each chain (with a specified sampling) to find the point
@@ -1119,7 +944,7 @@ package freestyle.types;
 		a stopping condition on the chain that is about to be processed.
 		@param func The Unary Function evaluated at each point of the chain.
 		                                                The splitting point is the point minimizing this function. — UnaryFunction0DDouble
-		@param pred_1d The Unary Predicate expressing the recursivity stopping
+		@param pypred_1d The Unary Predicate expressing the recursivity stopping
 		                                                condition.  This predicate is evaluated for each curve before it
 		                                                actually gets split.  If pred_1d(chain) is true, the curve won’t be
 		                                                split anymore. — UnaryPredicate1D
@@ -1128,34 +953,7 @@ package freestyle.types;
 		                                                virtual point only progresses along the curve using this
 		                                                resolution.) — float
 	**/
-	static function recursive_split(func:Dynamic, pred_1d:Dynamic, sampling:Dynamic):Void;
-	/**
-		Splits the current set of chains in a recursive way.  We process the
-		points of each chain (with a specified sampling) to find the point
-		minimizing a specified function.  The chain is split in two at this
-		point and the two new chains are processed in the same way.  The user
-		can specify a 0D predicate to make a first selection on the points
-		that can potentially be split.  A point that doesn’t verify the 0D
-		predicate won’t be candidate in realizing the min.  The recursivity
-		level is controlled through a predicate 1D that expresses a stopping
-		condition on the chain that is about to be processed.
-		@param func The Unary Function evaluated at each point of the chain.
-		                                                The splitting point is the point minimizing this function. — UnaryFunction0DDouble
-		@param pred_0d The Unary Predicate 0D used to select the candidate
-		                                                points where the split can occur.  For example, it is very likely
-		                                                that would rather have your chain splitting around its middle
-		                                                point than around one of its extremities.  A 0D predicate working
-		                                                on the curvilinear abscissa allows to add this kind of constraints. — UnaryPredicate0D
-		@param pred_1d The Unary Predicate expressing the recursivity stopping
-		                                                condition. This predicate is evaluated for each curve before it
-		                                                actually gets split.  If pred_1d(chain) is true, the curve won’t be
-		                                                split anymore. — UnaryPredicate1D
-		@param sampling The resolution used to sample the chain for the
-		                                                predicates evaluation. (The chain is not actually resampled; a
-		                                                virtual point only progresses along the curve using this
-		                                                resolution.) — float
-	**/
-	static function recursive_split(func:Dynamic, pred_0d:Dynamic, pred_1d:Dynamic, sampling:Dynamic):Void;
+	static function recursive_split(func:Dynamic, pypred_1d:Dynamic, sampling:Float):Void;
 	/**
 		Resets the line stylization process to the initial state.  The results of
 		stroke creation are accumulated if delete_strokes is set to False.
@@ -1186,21 +984,7 @@ package freestyle.types;
 		                                                a virtual point only progresses along the curve using this
 		                                                resolution.) — float
 	**/
-	static function sequential_split(starting_pred:Dynamic, stopping_pred:Dynamic, sampling:Dynamic):Void;
-	/**
-		Splits each chain of the current set of chains in a sequential way.
-		The points of each chain are processed (with a specified sampling)
-		sequentially and each time a user specified condition is verified,
-		the chain is split into two chains.  The resulting set of chains is a
-		partition of the initial chain
-		@param pred The predicate on a point that expresses the splitting
-		                                                condition. — UnaryPredicate0D
-		@param sampling The resolution used to sample the chain for the
-		                                                predicate evaluation. (The chain is not actually resampled; a
-		                                                virtual point only progresses along the curve using this
-		                                                resolution.) — float
-	**/
-	static function sequential_split(pred:Dynamic, sampling:Dynamic):Void;
+	static function sequential_split(starting_pred:Dynamic, stopping_pred:Dynamic, sampling:Float):Void;
 	/**
 		Sorts the current set of chains (or viewedges) according to the
 		comparison predicate given as argument.
@@ -1211,16 +995,11 @@ package freestyle.types;
 	Class to define a feature shape.  It is the gathering of feature
 	elements from an identified input shape.
 **/
-@:pythonImport("freestyle.types.SShape") extern class SShape {
+@:native("freestyle.types.SShape") extern class SShape {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother An SShape object. — SShape
-	**/
-	function __init__(brother:Dynamic):Void;
 	/**
 		Adds an FEdge to the list of FEdges.
 		@param edge An FEdge object. — FEdge
@@ -1247,7 +1026,7 @@ package freestyle.types;
 		
 		Type: List of FEdge objects
 	**/
-	var edges : Dynamic;
+	var edges : freestyle.types.fedge.FEdge;
 	/**
 		The Id of this SShape.
 		
@@ -1265,28 +1044,17 @@ package freestyle.types;
 		
 		Type: List of SVertex objects
 	**/
-	var vertices : Dynamic;
+	var vertices : freestyle.types.svertex.SVertex;
 }/**
 	Class hierarchy: Interface0D &gt; SVertex
 	
 	Class to define a vertex of the embedding.
 **/
-@:pythonImport("freestyle.types.SVertex") extern class SVertex {
+@:native("freestyle.types.SVertex") extern class SVertex {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A SVertex object. — SVertex
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a SVertex from 3D coordinates and an Id.
-		@param point_3d A three-dimensional vector. — mathutils.Vector
-		@param id An Id object. — Id
-	**/
-	function __init__(point_3d:Dynamic, id:Dynamic):Void;
 	/**
 		Add an FEdge to the list of edges emanating from this SVertex.
 		@param fedge An FEdge. — FEdge
@@ -1325,25 +1093,25 @@ package freestyle.types;
 		
 		Type: list of mathutils.Vector objects
 	**/
-	var normals : Array<Dynamic>;
+	var normals : mathutils.vector.Vector;
 	/**
 		The number of different normals for this SVertex.
 		
 		Type: int
 	**/
-	var normals_size : Dynamic;
+	var normals_size : Int;
 	/**
 		The projected 3D coordinates of the SVertex.
 		
 		Type: mathutils.Vector
 	**/
-	var point_2d : mathutils.vector.Vector;
+	var pypoint_2d : mathutils.vector.Vector;
 	/**
 		The 3D coordinates of the SVertex.
 		
 		Type: mathutils.Vector
 	**/
-	var point_3d : mathutils.vector.Vector;
+	var pypoint_3d : mathutils.vector.Vector;
 	/**
 		If this SVertex is also a ViewVertex, this property refers to the
 		ViewVertex, and None otherwise.
@@ -1358,26 +1126,11 @@ package freestyle.types;
 	ViewEdge.  An instance of an SVertexIterator can be obtained
 	from a ViewEdge by calling verticesBegin() or verticesEnd().
 **/
-@:pythonImport("freestyle.types.SVertexIterator") extern class SVertexIterator {
+@:native("freestyle.types.SVertexIterator") extern class SVertexIterator {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother An SVertexIterator object. — SVertexIterator
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Build an SVertexIterator that starts iteration from an SVertex
-		object v.
-		@param vertex The SVertex from which the iterator starts iteration. — SVertex
-		@param begin The first SVertex of a ViewEdge. — SVertex
-		@param previous_edge The previous FEdge coming to vertex. — FEdge
-		@param next_edge The next FEdge going out from vertex. — FEdge
-		@param t The curvilinear abscissa at vertex. — float
-	**/
-	function __init__(vertex:Dynamic, begin:Dynamic, previous_edge:Dynamic, next_edge:Dynamic, t:Dynamic):Void;
 	/**
 		The SVertex object currently pointed by this iterator.
 		
@@ -1389,13 +1142,13 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var t : Dynamic;
+	var t : Float;
 	/**
 		The point parameter at the current point in the 1D element (0 &lt;= u &lt;= 1).
 		
 		Type: float
 	**/
-	var u : Dynamic;
+	var u : Float;
 }/**
 	Class hierarchy: Interface1D &gt; Stroke
 	
@@ -1404,13 +1157,9 @@ package freestyle.types;
 	defines the stroke’s backbone geometry.  Each of these stroke vertices
 	defines the stroke’s shape and appearance at this vertex position.
 **/
-@:pythonImport("freestyle.types.Stroke") extern class Stroke {
+@:native("freestyle.types.Stroke") extern class Stroke {
 	/**
 		Default constructor
-	**/
-	function Stroke():Void;
-	/**
-		Copy constructor
 	**/
 	function Stroke():Void;
 	/**
@@ -1423,7 +1172,7 @@ package freestyle.types;
 		
 		@returns float
 	**/
-	function compute_sampling(n:Dynamic):Dynamic;
+	function compute_sampling(n:Int):Float;
 	/**
 		Inserts the StrokeVertex given as argument into the Stroke before the
 		point specified by next.  The length and curvilinear abscissa are
@@ -1450,13 +1199,7 @@ package freestyle.types;
 		resampling is done.
 		@param n The number of vertices we eventually want in our stroke. — int
 	**/
-	function resample(n:Dynamic):Void;
-	/**
-		Resamples the stroke with a given sampling.  If the sampling is
-		smaller than the actual sampling value, no resampling is done.
-		@param sampling The new sampling value. — float
-	**/
-	function resample(sampling:Dynamic):Void;
+	function resample(n:Int):Void;
 	/**
 		Returns a StrokeVertexIterator pointing on the first StrokeVertex of
 		the Stroke. One can specify a sampling value to resample the Stroke
@@ -1466,7 +1209,7 @@ package freestyle.types;
 		
 		@returns StrokeVertexIterator
 	**/
-	function stroke_vertices_begin(t:Dynamic):freestyle.types.strokevertexiterator.StrokeVertexIterator;
+	function stroke_vertices_begin(t:Float):freestyle.types.strokevertexiterator.StrokeVertexIterator;
 	/**
 		Returns a StrokeVertexIterator pointing after the last StrokeVertex
 		of the Stroke.
@@ -1479,7 +1222,7 @@ package freestyle.types;
 		
 		@returns int
 	**/
-	function stroke_vertices_size():Dynamic;
+	function stroke_vertices_size():Int;
 	/**
 		Updates the 2D length of the Stroke.
 	**/
@@ -1495,7 +1238,7 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var length_2d : Dynamic;
+	var pylength_2d : Float;
 	/**
 		The MediumType used for this Stroke.
 		
@@ -1507,7 +1250,7 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var texture_id : Dynamic;
+	var texture_id : Int;
 	/**
 		True if this Stroke uses a texture with tips, and false otherwise.
 		
@@ -1519,55 +1262,32 @@ package freestyle.types;
 	The attribute set stores the color, alpha and thickness values for a Stroke
 	Vertex.
 **/
-@:pythonImport("freestyle.types.StrokeAttribute") extern class StrokeAttribute {
+@:native("freestyle.types.StrokeAttribute") extern class StrokeAttribute {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A StrokeAttribute object. — StrokeAttribute
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Build a stroke vertex attribute from a set of parameters.
-		@param red Red component of a stroke color. — float
-		@param green Green component of a stroke color. — float
-		@param blue Blue component of a stroke color. — float
-		@param alpha Alpha component of a stroke color. — float
-		@param thickness_right Stroke thickness on the right. — float
-		@param thickness_left Stroke thickness on the left. — float
-	**/
-	function __init__(red:Dynamic, green:Dynamic, blue:Dynamic, alpha:Dynamic, thickness_right:Dynamic, thickness_left:Dynamic):Void;
-	/**
-		Interpolation constructor. Build a StrokeAttribute from two
-		StrokeAttribute objects and an interpolation parameter.
-		@param attribute1 The first StrokeAttribute object. — StrokeAttribute
-		@param attribute2 The second StrokeAttribute object. — StrokeAttribute
-		@param t The interpolation parameter (0 &lt;= t &lt;= 1). — float
-	**/
-	function __init__(attribute1:Dynamic, attribute2:Dynamic, t:Dynamic):Void;
 	/**
 		Returns an attribute of float type.
 		@param name The name of the attribute. — str
 		
 		@returns float
 	**/
-	function get_attribute_real(name:Dynamic):Dynamic;
+	function get_attribute_real(name:Dynamic):Float;
 	/**
 		Returns an attribute of two-dimensional vector type.
 		@param name The name of the attribute. — str
 		
 		@returns mathutils.Vector
 	**/
-	function get_attribute_vec2(name:Dynamic):mathutils.vector.Vector;
+	function pyget_attribute_vec2(name:Dynamic):mathutils.vector.Vector;
 	/**
 		Returns an attribute of three-dimensional vector type.
 		@param name The name of the attribute. — str
 		
 		@returns mathutils.Vector
 	**/
-	function get_attribute_vec3(name:Dynamic):mathutils.vector.Vector;
+	function pyget_attribute_vec3(name:Dynamic):mathutils.vector.Vector;
 	/**
 		Checks whether the attribute name of float type is available.
 		@param name The name of the attribute. — str
@@ -1582,7 +1302,7 @@ package freestyle.types;
 		
 		@returns bool
 	**/
-	function has_attribute_vec2(name:Dynamic):Dynamic;
+	function pyhas_attribute_vec2(name:Dynamic):Dynamic;
 	/**
 		Checks whether the attribute name of three-dimensional vector
 		type is available.
@@ -1590,7 +1310,7 @@ package freestyle.types;
 		
 		@returns bool
 	**/
-	function has_attribute_vec3(name:Dynamic):Dynamic;
+	function pyhas_attribute_vec3(name:Dynamic):Dynamic;
 	/**
 		Adds a user-defined attribute of float type.  If there is no
 		attribute of the given name, it is added.  Otherwise, the new value
@@ -1598,7 +1318,7 @@ package freestyle.types;
 		@param name The name of the attribute. — str
 		@param value The attribute value. — float
 	**/
-	function set_attribute_real(name:Dynamic, value:Dynamic):Void;
+	function set_attribute_real(name:Dynamic, value:Float):Void;
 	/**
 		Adds a user-defined attribute of two-dimensional vector type.  If
 		there is no attribute of the given name, it is added.  Otherwise,
@@ -1606,7 +1326,7 @@ package freestyle.types;
 		@param name The name of the attribute. — str
 		@param value The attribute value. — mathutils.Vector, list or tuple of 2 real numbers
 	**/
-	function set_attribute_vec2(name:Dynamic, value:Dynamic):Void;
+	function pyset_attribute_vec2(name:Dynamic, value:Dynamic):Void;
 	/**
 		Adds a user-defined attribute of three-dimensional vector type.
 		If there is no attribute of the given name, it is added.
@@ -1614,13 +1334,13 @@ package freestyle.types;
 		@param name The name of the attribute. — str
 		@param value The attribute value. — mathutils.Vector, list or tuple of 3 real numbers
 	**/
-	function set_attribute_vec3(name:Dynamic, value:Dynamic):Void;
+	function pyset_attribute_vec3(name:Dynamic, value:Dynamic):Void;
 	/**
 		Alpha component of the stroke color.
 		
 		Type: float
 	**/
-	var alpha : Dynamic;
+	var alpha : Float;
 	/**
 		RGB components of the stroke color.
 		
@@ -1650,7 +1370,7 @@ package freestyle.types;
 	and to modify the StrokeAttribute of each vertex.  Here is a
 	code example of such an iteration:
 **/
-@:pythonImport("freestyle.types.StrokeShader") extern class StrokeShader {
+@:native("freestyle.types.StrokeShader") extern class StrokeShader {
 	/**
 		Default constructor.
 	**/
@@ -1671,40 +1391,11 @@ package freestyle.types;
 	
 	Class to define a stroke vertex.
 **/
-@:pythonImport("freestyle.types.StrokeVertex") extern class StrokeVertex {
+@:native("freestyle.types.StrokeVertex") extern class StrokeVertex {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A StrokeVertex object. — StrokeVertex
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Build a stroke vertex from 2 stroke vertices and an interpolation
-		parameter.
-		@param first_vertex The first StrokeVertex. — StrokeVertex
-		@param second_vertex The second StrokeVertex. — StrokeVertex
-		@param t3d An interpolation parameter. — float
-	**/
-	function __init__(first_vertex:Dynamic, second_vertex:Dynamic, t3d:Dynamic):Void;
-	/**
-		Build a stroke vertex from a CurvePoint
-		@param point A CurvePoint object. — CurvePoint
-	**/
-	function __init__(point:Dynamic):Void;
-	/**
-		Build a stroke vertex from a SVertex
-		@param svertex An SVertex object. — SVertex
-	**/
-	function __init__(svertex:Dynamic):Void;
-	/**
-		Build a stroke vertex from an SVertex and a StrokeAttribute object.
-		@param svertex An SVertex object. — SVertex
-		@param attribute A StrokeAttribute object. — StrokeAttribute
-	**/
-	function __init__(svertex:Dynamic, attribute:Dynamic):Void;
 	/**
 		StrokeAttribute for this StrokeVertex.
 		
@@ -1716,7 +1407,7 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var curvilinear_abscissa : Dynamic;
+	var curvilinear_abscissa : Float;
 	/**
 		2D point coordinates.
 		
@@ -1729,13 +1420,13 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var stroke_length : Dynamic;
+	var stroke_length : Float;
 	/**
 		Curvilinear abscissa of this StrokeVertex in the Stroke.
 		
 		Type: float
 	**/
-	var u : Dynamic;
+	var u : Float;
 }/**
 	Class hierarchy: Iterator &gt; StrokeVertexIterator
 	
@@ -1751,16 +1442,11 @@ package freestyle.types;
 	a StrokeVertexIterator can be converted to an Interface0DIterator by
 	by calling Interface0DIterator(it).
 **/
-@:pythonImport("freestyle.types.StrokeVertexIterator") extern class StrokeVertexIterator {
+@:native("freestyle.types.StrokeVertexIterator") extern class StrokeVertexIterator {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A StrokeVertexIterator object. — StrokeVertexIterator
-	**/
-	function __init__(brother:Dynamic):Void;
 	/**
 		Returns a copy of a decremented StrokeVertexIterator.
 		
@@ -1798,13 +1484,13 @@ package freestyle.types;
 		
 		Type: float
 	**/
-	var t : Dynamic;
+	var t : Float;
 	/**
 		The point parameter at the current point in the stroke (0 &lt;= u &lt;= 1).
 		
 		Type: float
 	**/
-	var u : Dynamic;
+	var u : Float;
 }/**
 	Class hierarchy: Interface0D &gt; ViewVertex &gt; TVertex
 	
@@ -1814,7 +1500,7 @@ package freestyle.types;
 	front edge hides part of a back edge.  So, among the back edges, one
 	is of invisibility N and the other of invisibility N+1.
 **/
-@:pythonImport("freestyle.types.TVertex") extern class TVertex {
+@:native("freestyle.types.TVertex") extern class TVertex {
 	/**
 		Default constructor.
 	**/
@@ -1862,7 +1548,7 @@ package freestyle.types;
 	a UnaryFunction0DDouble if you wish to define a function that
 	returns a double value.  Available UnaryFunction0D subclasses are:
 **/
-@:pythonImport("freestyle.types.UnaryFunction0D") extern class UnaryFunction0D {
+@:native("freestyle.types.UnaryFunction0D") extern class UnaryFunction0D {
 	/**
 		The name of the unary 0D function.
 		
@@ -1875,7 +1561,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return a float value.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DDouble") extern class UnaryFunction0DDouble {
+@:native("freestyle.types.UnaryFunction0DDouble") extern class UnaryFunction0DDouble {
 	/**
 		Default constructor.
 	**/
@@ -1886,7 +1572,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return a Nature object.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DEdgeNature") extern class UnaryFunction0DEdgeNature {
+@:native("freestyle.types.UnaryFunction0DEdgeNature") extern class UnaryFunction0DEdgeNature {
 	/**
 		Default constructor.
 	**/
@@ -1897,7 +1583,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return a float value.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DFloat") extern class UnaryFunction0DFloat {
+@:native("freestyle.types.UnaryFunction0DFloat") extern class UnaryFunction0DFloat {
 	/**
 		Default constructor.
 	**/
@@ -1908,7 +1594,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return an Id object.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DId") extern class UnaryFunction0DId {
+@:native("freestyle.types.UnaryFunction0DId") extern class UnaryFunction0DId {
 	/**
 		Default constructor.
 	**/
@@ -1919,7 +1605,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return a Material object.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DMaterial") extern class UnaryFunction0DMaterial {
+@:native("freestyle.types.UnaryFunction0DMaterial") extern class UnaryFunction0DMaterial {
 	/**
 		Default constructor.
 	**/
@@ -1930,7 +1616,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return an int value.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DUnsigned") extern class UnaryFunction0DUnsigned {
+@:native("freestyle.types.UnaryFunction0DUnsigned") extern class UnaryFunction0DUnsigned {
 	/**
 		Default constructor.
 	**/
@@ -1941,7 +1627,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return a 2D vector.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DVec2f") extern class UnaryFunction0DVec2f {
+@:native("freestyle.types.UnaryFunction0DVec2f") extern class UnaryFunction0DVec2f {
 	/**
 		Default constructor.
 	**/
@@ -1952,7 +1638,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return a 3D vector.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DVec3f") extern class UnaryFunction0DVec3f {
+@:native("freestyle.types.UnaryFunction0DVec3f") extern class UnaryFunction0DVec3f {
 	/**
 		Default constructor.
 	**/
@@ -1964,7 +1650,7 @@ package freestyle.types;
 	Interface0DIterator and return a list of ViewShape
 	objects.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DVectorViewShape") extern class UnaryFunction0DVectorViewShape {
+@:native("freestyle.types.UnaryFunction0DVectorViewShape") extern class UnaryFunction0DVectorViewShape {
 	/**
 		Default constructor.
 	**/
@@ -1975,7 +1661,7 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface0DIterator and return a ViewShape object.
 **/
-@:pythonImport("freestyle.types.UnaryFunction0DViewShape") extern class UnaryFunction0DViewShape {
+@:native("freestyle.types.UnaryFunction0DViewShape") extern class UnaryFunction0DViewShape {
 	/**
 		Default constructor.
 	**/
@@ -1989,7 +1675,7 @@ package freestyle.types;
 	UnaryFunction1DDouble if you wish to define a function that
 	returns a double value.  Available UnaryFunction1D subclasses are:
 **/
-@:pythonImport("freestyle.types.UnaryFunction1D") extern class UnaryFunction1D {
+@:native("freestyle.types.UnaryFunction1D") extern class UnaryFunction1D {
 	/**
 		The name of the unary 1D function.
 		
@@ -2002,17 +1688,11 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface1D and return a float value.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DDouble") extern class UnaryFunction1DDouble {
+@:native("freestyle.types.UnaryFunction1DDouble") extern class UnaryFunction1DDouble {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2025,17 +1705,11 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface1D and return a Nature object.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DEdgeNature") extern class UnaryFunction1DEdgeNature {
+@:native("freestyle.types.UnaryFunction1DEdgeNature") extern class UnaryFunction1DEdgeNature {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2048,17 +1722,11 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface1D and return a float value.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DFloat") extern class UnaryFunction1DFloat {
+@:native("freestyle.types.UnaryFunction1DFloat") extern class UnaryFunction1DFloat {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2071,17 +1739,11 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface1D and return an int value.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DUnsigned") extern class UnaryFunction1DUnsigned {
+@:native("freestyle.types.UnaryFunction1DUnsigned") extern class UnaryFunction1DUnsigned {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2094,17 +1756,11 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface1D and return a 2D vector.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DVec2f") extern class UnaryFunction1DVec2f {
+@:native("freestyle.types.UnaryFunction1DVec2f") extern class UnaryFunction1DVec2f {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2117,17 +1773,11 @@ package freestyle.types;
 	Base class for unary functions (functors) that work on
 	Interface1D and return a 3D vector.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DVec3f") extern class UnaryFunction1DVec3f {
+@:native("freestyle.types.UnaryFunction1DVec3f") extern class UnaryFunction1DVec3f {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2141,17 +1791,11 @@ package freestyle.types;
 	Interface1D and return a list of ViewShape
 	objects.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DVectorViewShape") extern class UnaryFunction1DVectorViewShape {
+@:native("freestyle.types.UnaryFunction1DVectorViewShape") extern class UnaryFunction1DVectorViewShape {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2164,17 +1808,11 @@ package freestyle.types;
 	Base class for unary functions (functors) working on
 	Interface1D.
 **/
-@:pythonImport("freestyle.types.UnaryFunction1DVoid") extern class UnaryFunction1DVoid {
+@:native("freestyle.types.UnaryFunction1DVoid") extern class UnaryFunction1DVoid {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Builds a unary 1D function using the integration method given as
-		argument.
-		@param integration_type An integration method. — IntegrationType
-	**/
-	function __init__(integration_type:Dynamic):Void;
 	/**
 		The integration method.
 		
@@ -2189,7 +1827,7 @@ package freestyle.types;
 	UnaryPredicate0D is used by invoking its __call__() method.  Any
 	inherited class must overload the __call__() method.
 **/
-@:pythonImport("freestyle.types.UnaryPredicate0D") extern class UnaryPredicate0D {
+@:native("freestyle.types.UnaryPredicate0D") extern class UnaryPredicate0D {
 	/**
 		Default constructor.
 	**/
@@ -2216,7 +1854,7 @@ package freestyle.types;
 	invoking its __call__() method.  Any inherited class must overload the
 	__call__() method.
 **/
-@:pythonImport("freestyle.types.UnaryPredicate1D") extern class UnaryPredicate1D {
+@:native("freestyle.types.UnaryPredicate1D") extern class UnaryPredicate1D {
 	/**
 		Default constructor.
 	**/
@@ -2241,16 +1879,11 @@ package freestyle.types;
 	it connects two ViewVertex objects.  It is made by connecting
 	a set of FEdges.
 **/
-@:pythonImport("freestyle.types.ViewEdge") extern class ViewEdge {
+@:native("freestyle.types.ViewEdge") extern class ViewEdge {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A ViewEdge object. — ViewEdge
-	**/
-	function __init__(brother:Dynamic):Void;
 	/**
 		Sets Viewedge to this for all embedded fedges.
 	**/
@@ -2260,7 +1893,7 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var chaining_time_stamp : Dynamic;
+	var chaining_time_stamp : Int;
 	/**
 		The first FEdge that constitutes this ViewEdge.
 		
@@ -2315,7 +1948,7 @@ package freestyle.types;
 		
 		Type: int
 	**/
-	var qi : Dynamic;
+	var qi : Int;
 	/**
 		The ViewShape to which this ViewEdge belongs to.
 		
@@ -2330,7 +1963,7 @@ package freestyle.types;
 	take the decision of “where” (on which ViewEdge) to go when pointing
 	on a given ViewEdge.
 **/
-@:pythonImport("freestyle.types.ViewEdgeIterator") extern class ViewEdgeIterator {
+@:native("freestyle.types.ViewEdgeIterator") extern class ViewEdgeIterator {
 	/**
 		Builds a ViewEdgeIterator from a starting ViewEdge and its
 		orientation.
@@ -2341,11 +1974,6 @@ package freestyle.types;
 		                                                ViewVertex of begin. — bool
 	**/
 	function __init__(begin:Dynamic, orientation:Dynamic):Void;
-	/**
-		Copy constructor.
-		@param brother A ViewEdgeIterator object. — ViewEdgeIterator
-	**/
-	function __init__(brother:Dynamic):Void;
 	/**
 		Changes the current orientation.
 	**/
@@ -2381,7 +2009,7 @@ package freestyle.types;
 }/**
 	Class defining the ViewMap.
 **/
-@:pythonImport("freestyle.types.ViewMap") extern class ViewMap {
+@:native("freestyle.types.ViewMap") extern class ViewMap {
 	/**
 		Default constructor.
 	**/
@@ -2393,7 +2021,7 @@ package freestyle.types;
 		
 		@returns FEdge
 	**/
-	function get_closest_fedge(x:Dynamic, y:Dynamic):freestyle.types.fedge.FEdge;
+	function get_closest_fedge(x:Float, y:Float):freestyle.types.fedge.FEdge;
 	/**
 		Gets the ViewEdge nearest to the 2D point specified as arguments.
 		@param x X coordinate of a 2D point. — float
@@ -2401,7 +2029,7 @@ package freestyle.types;
 		
 		@returns ViewEdge
 	**/
-	function get_closest_viewedge(x:Dynamic, y:Dynamic):freestyle.types.viewedge.ViewEdge;
+	function get_closest_viewedge(x:Float, y:Float):freestyle.types.viewedge.ViewEdge;
 	/**
 		The 3D bounding box of the scene.
 		
@@ -2412,21 +2040,11 @@ package freestyle.types;
 	Class gathering the elements of the ViewMap (i.e., ViewVertex
 	and ViewEdge) that are issued from the same input shape.
 **/
-@:pythonImport("freestyle.types.ViewShape") extern class ViewShape {
+@:native("freestyle.types.ViewShape") extern class ViewShape {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param brother A ViewShape object. — ViewShape
-	**/
-	function __init__(brother:Dynamic):Void;
-	/**
-		Builds a ViewShape from an SShape.
-		@param sshape An SShape object. — SShape
-	**/
-	function __init__(sshape:Dynamic):Void;
 	/**
 		Adds a ViewEdge to the list of ViewEdge objects.
 		@param edge A ViewEdge object. — ViewEdge
@@ -2442,7 +2060,7 @@ package freestyle.types;
 		
 		Type: List of ViewEdge objects
 	**/
-	var edges : Dynamic;
+	var edges : freestyle.types.viewedge.ViewEdge;
 	/**
 		The Id of this ViewShape.
 		
@@ -2472,7 +2090,7 @@ package freestyle.types;
 		
 		Type: List of ViewVertex objects
 	**/
-	var vertices : Dynamic;
+	var vertices : freestyle.types.viewvertex.ViewVertex;
 }/**
 	Class hierarchy: Interface0D &gt; ViewVertex
 	
@@ -2486,7 +2104,7 @@ package freestyle.types;
 	Thus, this class can be specialized into two classes, the
 	TVertex class and the NonTVertex class.
 **/
-@:pythonImport("freestyle.types.ViewVertex") extern class ViewVertex {
+@:native("freestyle.types.ViewVertex") extern class ViewVertex {
 	/**
 		Returns an iterator over the ViewEdges that goes to or comes from
 		this ViewVertex pointing to the first ViewEdge of the list. The
@@ -2526,16 +2144,11 @@ package freestyle.types;
 	plane).  An instance of an orientedViewEdgeIterator can only be
 	obtained from a ViewVertex by calling edges_begin() or edges_end().
 **/
-@:pythonImport("freestyle.types.orientedViewEdgeIterator") extern class OrientedViewEdgeIterator {
+@:native("freestyle.types.orientedViewEdgeIterator") extern class OrientedViewEdgeIterator {
 	/**
 		Default constructor.
 	**/
 	function __init__():Void;
-	/**
-		Copy constructor.
-		@param iBrother An orientedViewEdgeIterator object. — orientedViewEdgeIterator
-	**/
-	function __init__(iBrother:Dynamic):Void;
 	/**
 		The oriented ViewEdge (i.e., a tuple of the pointed ViewEdge and a boolean
 		value) currently pointed to by this iterator. If the boolean value is true,

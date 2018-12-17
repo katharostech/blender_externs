@@ -545,8 +545,8 @@ package bpy.ops.mesh;
 	/**
 		Construct a conic mesh
 		@param vertices Vertices — int in [3, 10000000], (optional)
-		@param radius1 Radius 1 — float in [0, inf], (optional)
-		@param radius2 Radius 2 — float in [0, inf], (optional)
+		@param pyradius1 Radius 1 — float in [0, inf], (optional)
+		@param pyradius2 Radius 2 — float in [0, inf], (optional)
 		@param depth Depth — float in [0, inf], (optional)
 		@param end_fill_type Base Fill TypeNOTHING Nothing, Don’t fill at all.NGON Ngon, Use ngons.TRIFAN Triangle Fan, Use triangle fans. — enum in ['NOTHING', 'NGON', 'TRIFAN'], (optional)
 		@param calc_uvs Generate UVs, Generate a default UV map — boolean, (optional)
@@ -555,7 +555,7 @@ package bpy.ops.mesh;
 		@param location Location, Location for the newly added object — float array of 3 items in [-inf, inf], (optional)
 		@param rotation Rotation, Rotation for the newly added object — float array of 3 items in [-inf, inf], (optional)
 	**/
-	static function primitive_cone_add(vertices:Int, radius1:Float, radius2:Float, depth:Float, end_fill_type:bpy.ops.mesh.Mesh.Enum24, calc_uvs:Bool, view_align:Bool, enter_editmode:Bool, location:Array<Float>, rotation:Array<Float>):Void;
+	static function primitive_cone_add(vertices:Int, pyradius1:Float, pyradius2:Float, depth:Float, end_fill_type:bpy.ops.mesh.Mesh.Enum24, calc_uvs:Bool, view_align:Bool, enter_editmode:Bool, location:Array<Float>, rotation:Array<Float>):Void;
 	/**
 		Construct a cube mesh
 		@param size Size — float in [0, inf], (optional)

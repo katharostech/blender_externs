@@ -16,7 +16,7 @@ package bpy.types.workspace;
 	var DEFAULT : String = "DEFAULT";
 }@:enum abstract Enum3(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -36,7 +36,7 @@ package bpy.types.workspace;
 }/**
 	Workspace data-block, defining the working environment for the user
 **/
-@:pythonImport("bpy.types.WorkSpace") extern class WorkSpace {
+@:native("bpy.types.WorkSpace") extern class WorkSpace {
 	/**
 		Switch to this object mode when activating the workspace
 		
@@ -83,21 +83,21 @@ package bpy.types.workspace;
 		Set the status bar text, typically key shortcuts for modal operators
 		@param text Text, New string for the status bar, None clears the text — string
 	**/
-	static function status_text_set(text:Dynamic):Void;
+	static function status_text_set(text:String):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

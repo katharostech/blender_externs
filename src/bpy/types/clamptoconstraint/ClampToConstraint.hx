@@ -7,7 +7,7 @@ package bpy.types.clamptoconstraint;
 }/**
 	Constrain an object’s location to the nearest point along the target path
 **/
-@:pythonImport("bpy.types.ClampToConstraint") extern class ClampToConstraint {
+@:native("bpy.types.ClampToConstraint") extern class ClampToConstraint {
 	/**
 		Main axis of movement
 		
@@ -32,14 +32,14 @@ package bpy.types.clamptoconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

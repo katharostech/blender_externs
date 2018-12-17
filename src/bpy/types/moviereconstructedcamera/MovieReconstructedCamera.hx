@@ -2,7 +2,7 @@ package bpy.types.moviereconstructedcamera;
 /**
 	Match-moving reconstructed camera data from tracker
 **/
-@:pythonImport("bpy.types.MovieReconstructedCamera") extern class MovieReconstructedCamera {
+@:native("bpy.types.MovieReconstructedCamera") extern class MovieReconstructedCamera {
 	/**
 		Average error of reconstruction
 		
@@ -27,12 +27,12 @@ package bpy.types.moviereconstructedcamera;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

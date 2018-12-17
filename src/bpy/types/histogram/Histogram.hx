@@ -9,7 +9,7 @@ package bpy.types.histogram;
 }/**
 	Statistical view of the levels of color in an image
 **/
-@:pythonImport("bpy.types.Histogram") extern class Histogram {
+@:native("bpy.types.Histogram") extern class Histogram {
 	/**
 		Channels to display when drawing the histogram
 		
@@ -28,12 +28,12 @@ package bpy.types.histogram;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

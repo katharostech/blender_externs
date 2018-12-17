@@ -11,7 +11,7 @@ package bpy.types.header;
 	var NAVIGATION_BAR : String = "NAVIGATION_BAR";
 }@:enum abstract Enum2(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -31,7 +31,7 @@ package bpy.types.header;
 }/**
 	Editor header containing UI elements
 **/
-@:pythonImport("bpy.types.Header") extern class Header {
+@:native("bpy.types.Header") extern class Header {
 	/**
 		If this is set, the header gets a custom ID, otherwise it takes the name of the class used to define the panel; for example, if the class name is “OBJECT_HT_hello”, and bl_idname is not set by the script, then bl_idname = “OBJECT_HT_hello”
 		
@@ -59,19 +59,19 @@ package bpy.types.header;
 	/**
 		Draw UI elements into the header UI layout
 	**/
-	function draw():Void;
+	function draw(context:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

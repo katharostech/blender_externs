@@ -2,7 +2,7 @@ package bpy.types.soundsequence;
 /**
 	Sequence strip defining a sound to be played over a period of time
 **/
-@:pythonImport("bpy.types.SoundSequence") extern class SoundSequence {
+@:native("bpy.types.SoundSequence") extern class SoundSequence {
 	/**
 		Animation end offset (trim end)
 		
@@ -51,14 +51,14 @@ package bpy.types.soundsequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

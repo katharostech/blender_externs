@@ -5,7 +5,7 @@ package bpy.types.movieclipsequence;
 }/**
 	Sequence strip to load a video from the clip editor
 **/
-@:pythonImport("bpy.types.MovieClipSequence") extern class MovieClipSequence {
+@:native("bpy.types.MovieClipSequence") extern class MovieClipSequence {
 	/**
 		Representation of alpha information in the RGBA pixels
 		
@@ -53,7 +53,7 @@ package bpy.types.movieclipsequence;
 		
 		Type: boolean, default False
 	**/
-	var stabilize2d : Bool;
+	var pystabilize2d : Bool;
 	/**
 		Only display every nth frame
 		
@@ -120,14 +120,14 @@ package bpy.types.movieclipsequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

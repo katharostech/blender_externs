@@ -10,7 +10,7 @@ package bpy.types.obstaclefluidsettings;
 }/**
 	Fluid simulation settings for obstacles in the simulation
 **/
-@:pythonImport("bpy.types.ObstacleFluidSettings") extern class ObstacleFluidSettings {
+@:native("bpy.types.ObstacleFluidSettings") extern class ObstacleFluidSettings {
 	/**
 		This is an unphysical value for moving objects - it controls the impact an obstacle has on the fluid, =0 behaves a bit like outflow (deleting fluid), =1 is default, while &gt;1 results in high forces (can be used to tweak total mass)
 		
@@ -53,14 +53,14 @@ package bpy.types.obstaclefluidsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Type of participation in the fluid simulation
 		

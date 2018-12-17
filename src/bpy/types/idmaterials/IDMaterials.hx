@@ -2,7 +2,7 @@ package bpy.types.idmaterials;
 /**
 	Collection of materials
 **/
-@:pythonImport("bpy.types.IDMaterials") extern class IDMaterials {
+@:native("bpy.types.IDMaterials") extern class IDMaterials {
 	/**
 		Add a new material to the data-block
 		@param material Material to add — Material
@@ -27,12 +27,12 @@ package bpy.types.idmaterials;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

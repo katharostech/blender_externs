@@ -2,7 +2,7 @@ package bpy.types.blenddataimages;
 /**
 	Collection of images
 **/
-@:pythonImport("bpy.types.BlendDataImages") extern class BlendDataImages {
+@:native("bpy.types.BlendDataImages") extern class BlendDataImages {
 	/**
 		Add a new image to the main database
 		@param name New name for the data-block — string, (never None)
@@ -10,11 +10,11 @@ package bpy.types.blenddataimages;
 		@param height Height of the image — int in [1, inf]
 		@param alpha Alpha, Use alpha channel — boolean, (optional)
 		@param float_buffer Float Buffer, Create an image with floating point color — boolean, (optional)
-		@param stereo3d Stereo 3D, Create left and right views — boolean, (optional)
+		@param pystereo3d Stereo 3D, Create left and right views — boolean, (optional)
 		
 		@returns Image
 	**/
-	function new(name:String, width:Int, height:Int, alpha:Bool, float_buffer:Bool, stereo3d:Bool):bpy.types.image.Image;
+	function pyNew(name:String, width:Int, height:Int, alpha:Bool, float_buffer:Bool, pystereo3d:Bool):bpy.types.image.Image;
 	/**
 		Load a new image into the main database
 		@param filepath path of the file to load — string, (never None)
@@ -35,19 +35,19 @@ package bpy.types.blenddataimages;
 		tag
 		@param value Value — boolean
 	**/
-	function tag(value:Dynamic):Void;
+	function tag(value:Bool):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

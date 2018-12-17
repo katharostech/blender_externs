@@ -2,7 +2,7 @@ package bpy.types.worldlighting;
 /**
 	Lighting for a World data-block
 **/
-@:pythonImport("bpy.types.WorldLighting") extern class WorldLighting {
+@:native("bpy.types.WorldLighting") extern class WorldLighting {
 	/**
 		Factor for ambient occlusion blending
 		
@@ -27,12 +27,12 @@ package bpy.types.worldlighting;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

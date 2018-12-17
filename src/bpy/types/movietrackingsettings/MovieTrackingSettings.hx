@@ -4,23 +4,23 @@ package bpy.types.movietrackingsettings;
 	var DELETE_TRACK : String = "DELETE_TRACK";
 	var DELETE_SEGMENTS : String = "DELETE_SEGMENTS";
 }@:enum abstract Enum2(String) from String to String {
-	var P : String = "P";
-	var A : String = "A";
-	var L : String = "L";
-	var L : String = "L";
-	var L : String = "L";
-	var L : String = "L";
+	var Perspective : String = "Perspective";
+	var Affine : String = "Affine";
+	var LocRotScale : String = "LocRotScale";
+	var LocScale : String = "LocScale";
+	var LocRot : String = "LocRot";
+	var Loc : String = "Loc";
 }@:enum abstract Enum3(String) from String to String {
 	var KEYFRAME : String = "KEYFRAME";
 	var PREV_FRAME : String = "PREV_FRAME";
 }@:enum abstract Enum4(String) from String to String {
 	var NONE : String = "NONE";
 	var FOCAL_LENGTH : String = "FOCAL_LENGTH";
-	var FOCAL_LENGTH_RADIAL_K1 : String = "FOCAL_LENGTH_RADIAL_K1";
-	var FOCAL_LENGTH_RADIAL_K1_K2 : String = "FOCAL_LENGTH_RADIAL_K1_K2";
-	var FOCAL_LENGTH_PRINCIPAL_POINT_RADIAL_K1_K2 : String = "FOCAL_LENGTH_PRINCIPAL_POINT_RADIAL_K1_K2";
+	var pyFOCAL_LENGTH_RADIAL_K1 : String = "FOCAL_LENGTH_RADIAL_K1";
+	var pyFOCAL_LENGTH_RADIAL_K1_K2 : String = "FOCAL_LENGTH_RADIAL_K1_K2";
+	var pyFOCAL_LENGTH_PRINCIPAL_POINT_RADIAL_K1_K2 : String = "FOCAL_LENGTH_PRINCIPAL_POINT_RADIAL_K1_K2";
 	var FOCAL_LENGTH_PRINCIPAL_POINT : String = "FOCAL_LENGTH_PRINCIPAL_POINT";
-	var RADIAL_K1_K2 : String = "RADIAL_K1_K2";
+	var pyRADIAL_K1_K2 : String = "RADIAL_K1_K2";
 }@:enum abstract Enum5(String) from String to String {
 	var FASTEST : String = "FASTEST";
 	var DOUBLE : String = "DOUBLE";
@@ -30,7 +30,7 @@ package bpy.types.movietrackingsettings;
 }/**
 	Match moving settings
 **/
-@:pythonImport("bpy.types.MovieTrackingSettings") extern class MovieTrackingSettings {
+@:native("bpy.types.MovieTrackingSettings") extern class MovieTrackingSettings {
 	/**
 		Cleanup action to execute
 		
@@ -187,12 +187,12 @@ package bpy.types.movietrackingsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

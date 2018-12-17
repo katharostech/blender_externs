@@ -18,7 +18,7 @@ package bpy.types.spline;
 }/**
 	Element of a curve, either NURBS, Bezier or Polyline or a character with text objects
 **/
-@:pythonImport("bpy.types.Spline") extern class Spline {
+@:native("bpy.types.Spline") extern class Spline {
 	/**
 		Collection of points for Bezier curves only
 		
@@ -158,12 +158,12 @@ package bpy.types.spline;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

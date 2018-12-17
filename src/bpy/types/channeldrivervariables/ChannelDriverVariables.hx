@@ -2,13 +2,13 @@ package bpy.types.channeldrivervariables;
 /**
 	Collection of channel driver Variables
 **/
-@:pythonImport("bpy.types.ChannelDriverVariables") extern class ChannelDriverVariables {
+@:native("bpy.types.ChannelDriverVariables") extern class ChannelDriverVariables {
 	/**
 		Add a new variable for the driver
 		
 		@returns DriverVariable
 	**/
-	function new():bpy.types.drivervariable.DriverVariable;
+	function pyNew():bpy.types.drivervariable.DriverVariable;
 	/**
 		Remove an existing variable from the driver
 		@param variable Variable to remove from the driver — DriverVariable, (never None)
@@ -20,12 +20,12 @@ package bpy.types.channeldrivervariables;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

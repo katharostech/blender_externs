@@ -26,9 +26,9 @@ package bpy.types.toolsettings;
 	var BEVEL : String = "BEVEL";
 	var FREESTYLE : String = "FREESTYLE";
 }@:enum abstract Enum7(String) from String to String {
-	var W : String = "W";
-	var M : String = "M";
-	var S : String = "S";
+	var Weak : String = "Weak";
+	var Medium : String = "Medium";
+	var Strong : String = "Strong";
 }@:enum abstract Enum8(String) from String to String {
 	var POINT : String = "POINT";
 	var STROKE : String = "STROKE";
@@ -100,7 +100,7 @@ package bpy.types.toolsettings;
 	var NONE : String = "NONE";
 	var ACTIVE : String = "ACTIVE";
 	var ALL : String = "ALL";
-}@:pythonImport("bpy.types.ToolSettings") extern class ToolSettings {
+}@:native("bpy.types.ToolSettings") extern class ToolSettings {
 	/**
 		
 		
@@ -118,13 +118,13 @@ package bpy.types.toolsettings;
 		
 		Type: enum in [‘CURSOR’, ‘VIEW’, ‘SURFACE’], default ‘VIEW’
 	**/
-	var annotation_stroke_placement_view2d : bpy.types.toolsettings.ToolSettings.Enum3;
+	var pyannotation_stroke_placement_view2d : bpy.types.toolsettings.ToolSettings.Enum3;
 	/**
 		How annotation strokes are orientated in 3D space
 		
 		Type: enum in [‘CURSOR’, ‘VIEW’, ‘SURFACE’], default ‘VIEW’
 	**/
-	var annotation_stroke_placement_view3d : bpy.types.toolsettings.ToolSettings.Enum4;
+	var pyannotation_stroke_placement_view3d : bpy.types.toolsettings.ToolSettings.Enum4;
 	/**
 		Thickness of annotation strokes
 		
@@ -196,7 +196,7 @@ package bpy.types.toolsettings;
 		
 		Type: enum in [‘ORIGIN’, ‘CURSOR’, ‘SURFACE’, ‘STROKE’], default ‘ORIGIN’
 	**/
-	var gpencil_stroke_placement_view3d : bpy.types.toolsettings.ToolSettings.Enum9;
+	var pygpencil_stroke_placement_view3d : bpy.types.toolsettings.ToolSettings.Enum9;
 	/**
 		
 		
@@ -545,12 +545,12 @@ package bpy.types.toolsettings;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

@@ -1,5 +1,5 @@
 package bpy.types.meshuvlooplayer;
-@:pythonImport("bpy.types.MeshUVLoopLayer") extern class MeshUVLoopLayer {
+@:native("bpy.types.MeshUVLoopLayer") extern class MeshUVLoopLayer {
 	/**
 		Set the map as active for display and editing
 		
@@ -36,12 +36,12 @@ package bpy.types.meshuvlooplayer;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

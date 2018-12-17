@@ -14,10 +14,10 @@ package bpy.types.spacesequenceeditor;
 }@:enum abstract Enum4(String) from String to String {
 	var NONE : String = "NONE";
 	var SCENE : String = "SCENE";
-	var PROXY_25 : String = "PROXY_25";
-	var PROXY_50 : String = "PROXY_50";
-	var PROXY_75 : String = "PROXY_75";
-	var PROXY_100 : String = "PROXY_100";
+	var pyPROXY_25 : String = "PROXY_25";
+	var pyPROXY_50 : String = "PROXY_50";
+	var pyPROXY_75 : String = "PROXY_75";
+	var pyPROXY_100 : String = "PROXY_100";
 	var FULL : String = "FULL";
 }@:enum abstract Enum5(String) from String to String {
 	var SEQUENCER : String = "SEQUENCER";
@@ -30,7 +30,7 @@ package bpy.types.spacesequenceeditor;
 }/**
 	Sequence editor space data
 **/
-@:pythonImport("bpy.types.SpaceSequenceEditor") extern class SpaceSequenceEditor {
+@:native("bpy.types.SpaceSequenceEditor") extern class SpaceSequenceEditor {
 	/**
 		The channel number shown in the image preview. 0 is the result of all strips combined
 		
@@ -157,14 +157,14 @@ package bpy.types.spacesequenceeditor;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Undocumented contribute &lt;https://developer.blender.org/T51061&gt;
 	**/

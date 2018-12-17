@@ -2,7 +2,7 @@ package bpy.types.nodetreeinputs;
 /**
 	Collection of Node Tree Sockets
 **/
-@:pythonImport("bpy.types.NodeTreeInputs") extern class NodeTreeInputs {
+@:native("bpy.types.NodeTreeInputs") extern class NodeTreeInputs {
 	/**
 		Add a socket to this node tree
 		@param type Type, Data type — string, (never None)
@@ -10,12 +10,12 @@ package bpy.types.nodetreeinputs;
 		
 		@returns NodeSocketInterface
 	**/
-	function new(type:String, name:String):bpy.types.nodesocketinterface.NodeSocketInterface;
+	function pyNew(type:String, name:String):bpy.types.nodesocketinterface.NodeSocketInterface;
 	/**
 		Remove a socket from this node tree
 		@param socket The socket to remove — NodeSocketInterface
 	**/
-	function remove(socket:Dynamic):Void;
+	function remove(socket:bpy.types.nodesocketinterface.NodeSocketInterface):Void;
 	/**
 		Remove all sockets from this node tree
 	**/
@@ -32,12 +32,12 @@ package bpy.types.nodetreeinputs;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

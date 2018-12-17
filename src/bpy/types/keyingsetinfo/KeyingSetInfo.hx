@@ -2,7 +2,7 @@ package bpy.types.keyingsetinfo;
 /**
 	Callback function defines for builtin Keying Sets
 **/
-@:pythonImport("bpy.types.KeyingSetInfo") extern class KeyingSetInfo {
+@:native("bpy.types.KeyingSetInfo") extern class KeyingSetInfo {
 	/**
 		A short description of the keying set
 		
@@ -32,27 +32,27 @@ package bpy.types.keyingsetinfo;
 		
 		@returns boolean
 	**/
-	function poll():Dynamic;
+	function poll(context:Dynamic):Bool;
 	/**
 		Call generate() on the structs which have properties to be keyframed
 	**/
-	function iterator():Void;
+	function iterator(context:Dynamic, ks:Dynamic):Void;
 	/**
 		Add Paths to the Keying Set to keyframe the properties of the given data
 	**/
-	function generate():Void;
+	function generate(context:Dynamic, ks:Dynamic, data:Dynamic):Void;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

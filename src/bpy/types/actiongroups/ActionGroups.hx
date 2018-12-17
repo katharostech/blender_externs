@@ -2,14 +2,14 @@ package bpy.types.actiongroups;
 /**
 	Collection of action groups
 **/
-@:pythonImport("bpy.types.ActionGroups") extern class ActionGroups {
+@:native("bpy.types.ActionGroups") extern class ActionGroups {
 	/**
 		Create a new action group and add it to the action
 		@param name New name for the action group — string, (never None)
 		
 		@returns ActionGroup
 	**/
-	function new(name:String):bpy.types.actiongroup.ActionGroup;
+	function pyNew(name:String):bpy.types.actiongroup.ActionGroup;
 	/**
 		Remove action group
 		@param action_group Action group to remove — ActionGroup, (never None)
@@ -21,12 +21,12 @@ package bpy.types.actiongroups;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

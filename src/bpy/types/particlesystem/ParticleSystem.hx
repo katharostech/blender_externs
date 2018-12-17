@@ -2,7 +2,7 @@ package bpy.types.particlesystem;
 /**
 	Particle system in an object
 **/
-@:pythonImport("bpy.types.ParticleSystem") extern class ParticleSystem {
+@:native("bpy.types.ParticleSystem") extern class ParticleSystem {
 	/**
 		
 		
@@ -104,13 +104,13 @@ package bpy.types.particlesystem;
 		
 		Type: boolean, default False
 	**/
-	var invert_vertex_group_roughness_1 : Bool;
+	var pyinvert_vertex_group_roughness_1 : Bool;
 	/**
 		Negate the effect of the roughness 2 vertex group
 		
 		Type: boolean, default False
 	**/
-	var invert_vertex_group_roughness_2 : Bool;
+	var pyinvert_vertex_group_roughness_2 : Bool;
 	/**
 		Negate the effect of the roughness end vertex group
 		
@@ -266,13 +266,13 @@ package bpy.types.particlesystem;
 		
 		Type: string, default “”, (never None)
 	**/
-	var vertex_group_roughness_1 : String;
+	var pyvertex_group_roughness_1 : String;
 	/**
 		Vertex group to control roughness 2
 		
 		Type: string, default “”, (never None)
 	**/
-	var vertex_group_roughness_2 : String;
+	var pyvertex_group_roughness_2 : String;
 	/**
 		Vertex group to control roughness end
 		
@@ -338,12 +338,12 @@ package bpy.types.particlesystem;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

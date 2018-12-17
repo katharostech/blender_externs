@@ -5,7 +5,7 @@ package bpy.types.materialslot;
 }/**
 	Material slot in an object
 **/
-@:pythonImport("bpy.types.MaterialSlot") extern class MaterialSlot {
+@:native("bpy.types.MaterialSlot") extern class MaterialSlot {
 	/**
 		Link material to object or the object’s data
 		
@@ -30,12 +30,12 @@ package bpy.types.materialslot;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

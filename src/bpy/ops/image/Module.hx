@@ -56,9 +56,9 @@ package bpy.ops.image;
 		@param alpha Alpha, Create an image with an alpha channel — boolean, (optional)
 		@param generated_type Generated Type, Fill the image with a grid for UV map testingBLANK Blank, Generate a blank image.UV_GRID UV Grid, Generated grid to test UV mappings.COLOR_GRID Color Grid, Generated improved UV grid to test UV mappings. — enum in ['BLANK', 'UV_GRID', 'COLOR_GRID'], (optional)
 		@param float 32 bit Float, Create image with 32 bit floating point bit depth — boolean, (optional)
-		@param use_stereo_3d Stereo 3D, Create an image with left and right views — boolean, (optional)
+		@param pyuse_stereo_3d Stereo 3D, Create an image with left and right views — boolean, (optional)
 	**/
-	static function new(name:String, width:Int, height:Int, color:Array<Float>, alpha:Bool, generated_type:bpy.ops.image.Image.Enum2, float:Bool, use_stereo_3d:Bool):Void;
+	static function pyNew(name:String, width:Int, height:Int, color:Array<Float>, alpha:Bool, generated_type:bpy.ops.image.Image.Enum2, float:Bool, pyuse_stereo_3d:Bool):Void;
 	/**
 		Open image
 		@param filepath File Path, Path to file — string, (optional, never None)

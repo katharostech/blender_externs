@@ -8,7 +8,7 @@ package bgl;
 	parameter, while in other instances the user will want to create just a blank buffer
 	which will be zeroed by default.
 **/
-@:pythonImport("bgl.Buffer") extern class Buffer {
+@:native("bgl.Buffer") extern class Buffer {
 	/**
 		The number of dimensions of the Buffer.
 	**/
@@ -36,5 +36,5 @@ package bgl;
 		
 		@returns Buffer object
 	**/
-	function __init__(type, dimensions, template = None):(type:Dynamic, dimensions:Dynamic, template:Dynamic):Dynamic;
+	function __init__(type,dimensions,template=None):(type:Int, dimensions:Dynamic, template:Dynamic):Dynamic;
 }

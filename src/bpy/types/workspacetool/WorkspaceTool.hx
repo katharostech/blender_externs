@@ -3,7 +3,7 @@ package bpy.types.workspacetool;
 	var DEFAULT : String = "DEFAULT";
 }@:enum abstract Enum2(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -35,7 +35,7 @@ package bpy.types.workspacetool;
 	var SCROLL_Y : String = "SCROLL_Y";
 	var SCROLL_XY : String = "SCROLL_XY";
 	var EYEDROPPER : String = "EYEDROPPER";
-}@:pythonImport("bpy.types.WorkspaceTool") extern class WorkspaceTool {
+}@:native("bpy.types.WorkspaceTool") extern class WorkspaceTool {
 	/**
 		
 		
@@ -88,13 +88,13 @@ package bpy.types.workspacetool;
 		
 		@returns OperatorProperties, (never None)
 	**/
-	function operator_properties():bpy.types.operatorproperties.OperatorProperties;
+	function operator_properties(operator:Dynamic):bpy.types.operatorproperties.OperatorProperties;
 	/**
 		gizmo_group_properties
 		
 		@returns GizmoGroupProperties, (never None)
 	**/
-	function gizmo_group_properties():bpy.types.gizmogroupproperties.GizmoGroupProperties;
+	function gizmo_group_properties(group:Dynamic):bpy.types.gizmogroupproperties.GizmoGroupProperties;
 	/**
 		refresh_from_context
 	**/
@@ -105,12 +105,12 @@ package bpy.types.workspacetool;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

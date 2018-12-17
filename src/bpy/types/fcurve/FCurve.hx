@@ -13,7 +13,7 @@ package bpy.types.fcurve;
 }/**
 	F-Curve defining values of a period of time
 **/
-@:pythonImport("bpy.types.FCurve") extern class FCurve {
+@:native("bpy.types.FCurve") extern class FCurve {
 	/**
 		Index to the specific property affected by F-Curve if applicable
 		
@@ -150,12 +150,12 @@ package bpy.types.fcurve;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

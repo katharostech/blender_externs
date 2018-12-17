@@ -5,7 +5,7 @@ package bpy.types.sequencertonemapmodifierdata;
 }/**
 	Tone mapping modifier
 **/
-@:pythonImport("bpy.types.SequencerTonemapModifierData") extern class SequencerTonemapModifierData {
+@:native("bpy.types.SequencerTonemapModifierData") extern class SequencerTonemapModifierData {
 	/**
 		If 0, global; if 1, based on pixel intensity
 		
@@ -60,14 +60,14 @@ package bpy.types.sequencertonemapmodifierdata;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

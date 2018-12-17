@@ -2,7 +2,7 @@ package bpy.types.explodemodifier;
 /**
 	Explosion effect modifier based on a particle system
 **/
-@:pythonImport("bpy.types.ExplodeModifier") extern class ExplodeModifier {
+@:native("bpy.types.ExplodeModifier") extern class ExplodeModifier {
 	/**
 		UV map to change with particle age
 		
@@ -57,14 +57,14 @@ package bpy.types.explodemodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

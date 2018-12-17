@@ -7,7 +7,7 @@ package bpy.types.greasepencillayers;
 }/**
 	Collection of grease pencil layers
 **/
-@:pythonImport("bpy.types.GreasePencilLayers") extern class GreasePencilLayers {
+@:native("bpy.types.GreasePencilLayers") extern class GreasePencilLayers {
 	/**
 		Active grease pencil layer
 		
@@ -33,7 +33,7 @@ package bpy.types.greasepencillayers;
 		
 		@returns GPencilLayer
 	**/
-	function new(name:String, set_active:Bool):bpy.types.gpencillayer.GPencilLayer;
+	function pyNew(name:String, set_active:Bool):bpy.types.gpencillayer.GPencilLayer;
 	/**
 		Remove a grease pencil layer
 		@param layer The layer to remove — GPencilLayer, (never None)
@@ -51,12 +51,12 @@ package bpy.types.greasepencillayers;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

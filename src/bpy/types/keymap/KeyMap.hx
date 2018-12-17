@@ -11,7 +11,7 @@ package bpy.types.keymap;
 	var NAVIGATION_BAR : String = "NAVIGATION_BAR";
 }@:enum abstract Enum2(String) from String to String {
 	var EMPTY : String = "EMPTY";
-	var VIEW_3D : String = "VIEW_3D";
+	var pyVIEW_3D : String = "VIEW_3D";
 	var IMAGE_EDITOR : String = "IMAGE_EDITOR";
 	var NODE_EDITOR : String = "NODE_EDITOR";
 	var SEQUENCE_EDITOR : String = "SEQUENCE_EDITOR";
@@ -31,7 +31,7 @@ package bpy.types.keymap;
 }/**
 	Input configuration, including keymaps
 **/
-@:pythonImport("bpy.types.KeyMap") extern class KeyMap {
+@:native("bpy.types.KeyMap") extern class KeyMap {
 	/**
 		Internal owner
 		
@@ -107,12 +107,12 @@ package bpy.types.keymap;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

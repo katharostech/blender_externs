@@ -2,7 +2,7 @@ package bpy.types.childofconstraint;
 /**
 	Create constraint-based parent-child relationship
 **/
-@:pythonImport("bpy.types.ChildOfConstraint") extern class ChildOfConstraint {
+@:native("bpy.types.ChildOfConstraint") extern class ChildOfConstraint {
 	/**
 		Transformation matrix to apply before
 		
@@ -81,14 +81,14 @@ package bpy.types.childofconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

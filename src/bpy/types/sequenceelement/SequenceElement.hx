@@ -2,7 +2,7 @@ package bpy.types.sequenceelement;
 /**
 	Sequence strip data for a single frame
 **/
-@:pythonImport("bpy.types.SequenceElement") extern class SequenceElement {
+@:native("bpy.types.SequenceElement") extern class SequenceElement {
 	/**
 		Name of the source file
 		
@@ -27,12 +27,12 @@ package bpy.types.sequenceelement;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

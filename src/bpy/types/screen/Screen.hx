@@ -2,7 +2,7 @@ package bpy.types.screen;
 /**
 	Screen data-block, defining the layout of areas in a window
 **/
-@:pythonImport("bpy.types.Screen") extern class Screen {
+@:native("bpy.types.Screen") extern class Screen {
 	/**
 		Areas the screen is subdivided into
 		
@@ -50,7 +50,7 @@ package bpy.types.screen;
 		
 		Type: boolean, default False
 	**/
-	var use_play_3d_editors : Bool;
+	var pyuse_play_3d_editors : Bool;
 	/**
 		
 		
@@ -92,21 +92,21 @@ package bpy.types.screen;
 		
 		Type: boolean, default False
 	**/
-	var use_play_top_left_3d_editor : Bool;
+	var pyuse_play_top_left_3d_editor : Bool;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

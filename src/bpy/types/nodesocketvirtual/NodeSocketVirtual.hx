@@ -2,7 +2,7 @@ package bpy.types.nodesocketvirtual;
 /**
 	Virtual socket of a node
 **/
-@:pythonImport("bpy.types.NodeSocketVirtual") extern class NodeSocketVirtual {
+@:native("bpy.types.NodeSocketVirtual") extern class NodeSocketVirtual {
 	/**
 		List of node links from or to this socket. Warning: takes O(len(nodetree.links)) time.
 		(readonly)
@@ -14,14 +14,14 @@ package bpy.types.nodesocketvirtual;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Socket name
 		

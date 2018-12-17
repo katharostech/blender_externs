@@ -5,7 +5,7 @@ package bpy.types.metasequence;
 }/**
 	Sequence strip to group other strips as a single sequence strip
 **/
-@:pythonImport("bpy.types.MetaSequence") extern class MetaSequence {
+@:native("bpy.types.MetaSequence") extern class MetaSequence {
 	/**
 		Representation of alpha information in the RGBA pixels
 		
@@ -120,14 +120,14 @@ package bpy.types.metasequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

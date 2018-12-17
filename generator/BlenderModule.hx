@@ -1,7 +1,7 @@
 package;
 
-import haxe.rtti.XmlParser;
-import haxe.xml.Check;
+import haxe.macro.Type.FieldAccess;
+import haxe.EnumTools.EnumValueTools;
 import haxe.macro.Printer;
 import sys.io.File;
 import haxe.xml.Parser;
@@ -59,40 +59,52 @@ class BlenderModule {
 	public function parseData() {
 		// Get file data and parse.
 		var file = File.getContent(defFile);
-		var xml = new Fast(Parser.parse(file));
+		var xml = new Fast(Parser.parse(file, true));
 
-		// For each section
-		var firstSection = true;
-		for (section in xml.node.document.nodes.section) { 
-			// Set module description
-			if (firstSection) {
-				var paragraphs = [];
-				if (section.hasNode.title) { paragraphs.push(section.node.title.innerHTML); }
-				for (paragraph in section.nodes.paragraph) {
-					paragraphs.push(paragraph.innerHTML);
-				}
-				moduleDescription = paragraphs.join("\n\n");
-				firstSection = false;
+		function optrace(message:String) {
+			if (moduleName == "bpy.types.Operator") {
+				trace(message);
 			}
+		}
 
-			// Loop through descriptions
-			for (desc in section.nodes.desc) {
-				switch(desc.att.desctype) {
-				case "attribute":
-					moduleDefs.push(parseAttribute(desc));
-				case "data":
-					moduleDefs.push(parseAttribute(desc));
-				case "function":
-					moduleDefs.push(parseFunction(desc));
-				case "method":
-					moduleDefs.push(parseFunction(desc));
-				case "class":
-					parseClass(desc, section);
-				default:
-					generator.addWarning('Found unhandled description type while parsing $moduleName: ${desc.att.desctype}');
+		var firstSection = true;
+		function parseSections(sections:Array<Fast>) {
+			// For each section
+			for (section in sections) { 
+				// Set module description
+				if (firstSection) {
+					var paragraphs = [];
+					if (section.hasNode.title) { paragraphs.push(section.node.title.innerHTML); }
+					for (paragraph in section.nodes.paragraph) {
+						paragraphs.push(paragraph.innerHTML);
+					}
+					moduleDescription = paragraphs.join("\n\n");
+					firstSection = false;
+				}
+
+				// Loop through descriptions
+				for (desc in section.nodes.desc) {
+					switch(desc.att.desctype) {
+					case 	"attribute",
+								"data":
+						moduleDefs.push(parseAttribute(desc));
+					case 	"function",
+								"method":
+						moduleDefs.push(parseFunction(desc, true));
+					case "class":
+						parseClass(desc, section);
+					default:
+						generator.addWarning('Found unhandled description type while parsing $moduleName: ${desc.att.desctype}');
+					}
+				}
+
+				if (section.hasNode.section) {
+					parseSections(section.nodes.section);
 				}
 			}
 		}
+
+		parseSections(xml.node.document.nodes.section);
 
 		isParsed = true;
 	}
@@ -175,6 +187,8 @@ class BlenderModule {
 		var desc_signature = desc.node.desc_signature;
 		var name = capitalize(desc_signature.att.fullname);
 		var pack = moduleName.toLowerCase();
+		/**Array of field names used to make sure we don't have duplicates**/
+		var fieldNames:Array<String> = [];
 		
 		// Create class definition
 		var classDef:TypeDefinition = {
@@ -184,7 +198,7 @@ class BlenderModule {
 			pos: nullPos,
 			meta: [
 				{
-					name: ":pythonImport",
+					name: ":native",
 					params: [
 						{
 							expr: EConst(CString(desc_signature.att.ids)),
@@ -201,22 +215,26 @@ class BlenderModule {
 		}
 
 		// Parse class members
+		var newField:Field = null;
 		for (field in desc.node.desc_content.nodes.desc) {
 			switch(field.att.desctype) {
-			case "attribute":
-				classDef.fields.push(parseAttribute(field));
-			case "data":
-				classDef.fields.push(parseAttribute(field));
-			case "method":
-				classDef.fields.push(parseFunction(field));
-			case "function":
-				classDef.fields.push(parseFunction(field));
-			case "staticmethod":
-				classDef.fields.push(parseFunction(field));
-			case "classmethod":
-				classDef.fields.push(parseFunction(field));
+			case 	"attribute",
+						"data":
+				newField = parseAttribute(field);
+			case 	"method",
+						"function",
+						"staticmethod",
+						"classmethod":
+				newField = parseFunction(field);
 			default:
 				generator.addWarning('Found unhanded field type while parsing $pack.$name: ${field.att.desctype}');
+			}
+
+			// If we haven't already added a field with that name
+			if (fieldNames.indexOf(newField.name) == -1) {
+				// Add the field to the class def
+				classDef.fields.push(newField);
+				fieldNames.push(newField.name);
 			}
 		}
 
@@ -259,12 +277,20 @@ class BlenderModule {
 	 * @param desc The XML description of class attribute
 	 * @return Field The parsed class field
 	 */
-	 private function parseAttribute(desc:Fast):Field {
-		var name = desc.node.desc_signature.node.desc_name.innerData;
+	 private function parseAttribute(desc:Fast, forceStatic:Bool=false):Field {
+		var name = sanitizeName(desc.node.desc_signature.node.desc_name.innerData);
+		var access:Array<Access> = null;
 		var kind:FieldType = null;
 		var doc = createDocString(desc.node.desc_content.nodes.paragraph);
 		// The default type is `Dynamic`
 		var type:ComplexType = dynamicType;
+
+		// Set field access
+		if (forceStatic) {
+			access = [AStatic];
+		} else {
+			access = [];
+		}
 
 		// Parse type
 		try {
@@ -301,10 +327,11 @@ class BlenderModule {
 	/**
 	 * Parse a method description
 	 * @param desc XML description of a method
-	 * @return Field The parsed method
+	 * @param forceStatic Force function to be made static
+	 * @return The parsed method
 	 */
-	private function parseFunction(desc:Fast):Field {
-		var name = desc.node.desc_signature.node.desc_name.innerData;
+	private function parseFunction(desc:Fast, forceStatic:Bool=false):Field {
+		var name = sanitizeName(desc.node.desc_signature.node.desc_name.innerData);
 		var access:Array<Access> = [];
 		var doc = createDocString(desc.node.desc_content.nodes.paragraph);
 		var args:Array<FunctionArg> = [];
@@ -314,14 +341,15 @@ class BlenderModule {
 		// Set Static or not
 		if (desc.att.desctype == "function" ||
 				desc.att.desctype == "classmethod" ||
-				desc.att.desctype == "staticmethod") {
+				desc.att.desctype == "staticmethod" ||
+				forceStatic) {
 			access.push(AStatic);
 		}
 
 		// Helper for parsing paremters
 		function parseParameter(paramDef:Fast) {
 			var paramString = stripXmlTags(paramDef.innerHTML);
-			var paramName = paramString.split(" ")[0];
+			var paramName = sanitizeName(paramString.split(" ")[0]);
 			var paramDoc = paramString.split(" – ")[1];
 
 			doc += '\n@param $paramName $paramDoc';
@@ -387,7 +415,27 @@ class BlenderModule {
 			}
 		}
 
-		
+		// If we didn't find any documented paremeters
+		if (args.length == 0) {
+			// Parse the desc_signature
+			if (desc.node.desc_signature.hasNode.desc_parameterlist) {
+				for (param in desc.node.desc_signature.node.desc_parameterlist.nodes.desc_parameter) {
+					var paramString = param.innerData;
+					var argName = paramString;
+
+					if (paramString.indexOf("=") != -1) {
+						// Extract name from name=default pair
+						argName = paramString.split("=")[0];
+					}
+
+					args.push({
+						name: sanitizeName(argName),
+						type: dynamicType
+					});
+				}
+			}
+		}
+
 		return {
 			name: name,
 			doc: doc,
@@ -423,9 +471,23 @@ class BlenderModule {
 		// Set whether or not type is an array
 		var isArray = typeString.indexOf("array") != -1;
 
+		// Used for matching on basic type name
+		var typeNameReg = ~/^([a-zA-Z]*)[, ]?/gm;
+
+		// Try to parse class reference
+		if (paramTypeDesc != null && paramTypeDesc.hasNode.reference) {
+			var ref = paramTypeDesc.node.reference.att.reftitle;
+			var pack = ref.toLowerCase();
+			var refSplit = ref.split(".");
+			var className = capitalize(refSplit[refSplit.length - 1]);
+
+			type = TPath({
+				name: className,
+				pack: [pack]
+			});
+
 		// Try to match on basic type name
-		var typeNameReg = ~/^([a-zA-Z]*)[, ]/gm;
-		if (typeNameReg.match(typeString)) {
+		} else if (typeNameReg.match(typeString)) {
 			var typeName = typeNameReg.matched(1);
 			var typePack = [];
 
@@ -439,23 +501,17 @@ class BlenderModule {
 			case "boolean":
 				typeName = "Bool";
 			case "list":
-				var reg = ~/list of (.*)/gm;
-				if (reg.match(typeString)) {
-					isArray = true;
-					// TODO: Parse type of list
-					typeName = "Dynamic";
-				}
+				isArray = true;
+				// TODO: Parse type of list
+				typeName = "Dynamic";
 			case "enum":
 				var valueReg = ~/enum in \[(.*)\]/gm;
 				if (valueReg.match(typeString)) {
 					// Enum values
-					var enumValues = valueReg.matched(1).split(",");
+					var enumValues = valueReg.matched(1).split(", ");
 					for (i in 0...enumValues.length) {
 						// Strip quotes
-						var reg = ~/[A-Z0-9_]+/m;
-						if (reg.match(enumValues[i])) {
-							enumValues[i] = reg.matched(0);
-						}
+						enumValues[i] = enumValues[i].replace("‘", "").replace("’", "").replace("'", "");
 					}
 
 					enumCounter++;
@@ -482,7 +538,7 @@ class BlenderModule {
 					// Add all enum values
 					for (value in enumValues) {
 						enumClass.fields.push({
-							name: value,
+							name: sanitizeName(value),
 							pos: nullPos,
 							kind: FVar(
 								TPath({name: "String", pack: [] }),
@@ -553,18 +609,6 @@ class BlenderModule {
 					params: [TPType(type)]
 				});
 			}
-
-		// Try to parse class reference
-		} else if (paramTypeDesc != null && paramTypeDesc.hasNode.reference) {
-			var ref = paramTypeDesc.node.reference.att.reftitle;
-			var pack = ref.toLowerCase();
-			var refSplit = ref.split(".");
-			var className = capitalize(refSplit[refSplit.length - 1]);
-
-			type = TPath({
-				name: className,
-				pack: [pack]
-			});
 		}
 
 		return type;
@@ -605,10 +649,12 @@ class BlenderModule {
 			for (list_item in hlistcol.node.bullet_list.nodes.list_item) {
 				try {
 					refs.push(list_item.node.paragraph.node.reference.att.reftitle);
+				
+				// If we can't find a specific reference
 				} catch (e:String) {
-					// There are many references to inherited properties that don't
-					// have the full class path for a cross-reference. Hopefully this
-					// doesn't cause issues.
+					// Try to parse the reference
+					// TODO: Make sure this is a good idea
+					parseParamType(list_item.node.paragraph.innerHTML);
 				}
 			}
 		}
@@ -643,5 +689,30 @@ class BlenderModule {
 			}
 
 			return buf.toString();
+	}
+
+	/**
+	 * Return a version of the name that doesn't conflict with a Haxe identifier.
+	 * @param name The name to check
+	 * @return String If `name` is not a Haxe reserved identifier or invalid
+	 * ( starts with a number ), return `name` unchanged. Otherwise prepend "py"
+	 * to the capitalized `name`.
+	 */
+	private static function sanitizeName(name:String):String {
+		// Remove spaces
+		name = name.replace(" ", "").replace("-", "");
+		
+		switch (name) {
+			// If name is a reserved word
+			case 	"default",
+						"new":
+				return "py" + capitalize(name);
+			
+			// If name starts with a number
+			case _ if (~/[0-9].*/.match(name)):
+				return "py" + name;
+			default:
+				return name;
+		}
 	}
 }

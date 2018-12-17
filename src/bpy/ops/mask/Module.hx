@@ -84,7 +84,7 @@ package bpy.ops.mask;
 		Create new mask
 		@param name Name, Name of new mask — string, (optional, never None)
 	**/
-	static function new(name:String):Void;
+	static function pyNew(name:String):Void;
 	/**
 		Re-calculate the direction of selected handles
 	**/

@@ -10,5 +10,5 @@ package mathutils.interpolate;
 		@param veclist list of vectors — 
 		@param pt point   :rtype: list of per-vector weights — 
 	**/
-	static function poly_3d_calc(veclist:Dynamic, pt:Dynamic):Void;
+	static function pypoly_3d_calc(veclist:Dynamic, pt:Dynamic):Void;
 }

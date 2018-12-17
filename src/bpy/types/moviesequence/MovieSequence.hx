@@ -4,11 +4,11 @@ package bpy.types.moviesequence;
 	var PREMUL : String = "PREMUL";
 }@:enum abstract Enum2(String) from String to String {
 	var INDIVIDUAL : String = "INDIVIDUAL";
-	var STEREO_3D : String = "STEREO_3D";
+	var pySTEREO_3D : String = "STEREO_3D";
 }/**
 	Sequence strip to load a video
 **/
-@:pythonImport("bpy.types.MovieSequence") extern class MovieSequence {
+@:native("bpy.types.MovieSequence") extern class MovieSequence {
 	/**
 		Representation of alpha information in the RGBA pixels
 		
@@ -86,7 +86,7 @@ package bpy.types.moviesequence;
 		
 		Type: Stereo3dFormat, (readonly, never None)
 	**/
-	var stereo_3d_format(default, never) : bpy.types.stereo3dformat.Stereo3dFormat;
+	var pystereo_3d_format(default, never) : bpy.types.stereo3dformat.Stereo3dFormat;
 	/**
 		For files with several movie streams, use the stream with the given index
 		
@@ -177,14 +177,14 @@ package bpy.types.moviesequence;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		
 		

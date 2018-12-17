@@ -21,21 +21,21 @@ package bpy_extras.object_utils;
 		
 		@returns bpy.types.Object
 	**/
-	static function object_data_add(context:Dynamic, obdata:Dynamic, operator:Dynamic, name:Dynamic):bpy.types.object.Object;
+	static function object_data_add(context:Dynamic, obdata:Dynamic, operator:Dynamic, name:String):bpy.types.object.Object;
 	/**
 		Return scale which should be applied on object
 		data to align it to grid scale
 	**/
-	static function object_add_grid_scale():Void;
+	static function object_add_grid_scale(context:Dynamic):Void;
 	/**
 		Scale an operators distance values by the grid size.
 	**/
-	static function object_add_grid_scale_apply_operator():Void;
+	static function object_add_grid_scale_apply_operator(operator:Dynamic, context:Dynamic):Void;
 	/**
 		Return a single image used by the object,
 		first checking the texture-faces, then the material.
 	**/
-	static function object_image_guess():Void;
+	static function object_image_guess(obj:Dynamic, bm:Dynamic):Void;
 	/**
 		Returns the camera space coords for a 3d point.
 		(also known as: normalized device coordinates - NDC).

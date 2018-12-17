@@ -2,7 +2,7 @@ package bpy.types.layercollection;
 /**
 	Layer collection
 **/
-@:pythonImport("bpy.types.LayerCollection") extern class LayerCollection {
+@:native("bpy.types.LayerCollection") extern class LayerCollection {
 	/**
 		Child layer collections
 		
@@ -44,40 +44,40 @@ package bpy.types.layercollection;
 		
 		@returns boolean
 	**/
-	function has_objects():Dynamic;
+	function has_objects():Bool;
 	/**
 		
 		@param view_layer ViewLayer the layer collection belongs to — ViewLayer
 		
 		@returns boolean
 	**/
-	function has_visible_objects(view_layer:Dynamic):Dynamic;
+	function has_visible_objects(view_layer:bpy.types.viewlayer.ViewLayer):Bool;
 	/**
 		
 		@param view_layer ViewLayer the layer collection belongs to — ViewLayer
 		
 		@returns boolean
 	**/
-	function has_hidden_objects(view_layer:Dynamic):Dynamic;
+	function has_hidden_objects(view_layer:bpy.types.viewlayer.ViewLayer):Bool;
 	/**
 		
 		@param view_layer ViewLayer the layer collection belongs to — ViewLayer
 		
 		@returns boolean
 	**/
-	function has_selected_objects(view_layer:Dynamic):Dynamic;
+	function has_selected_objects(view_layer:bpy.types.viewlayer.ViewLayer):Bool;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

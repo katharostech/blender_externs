@@ -12,5 +12,5 @@ package bmesh.geometry;
 		
 		@returns bool
 	**/
-	function intersect_face_point(face:Dynamic, point:Float):Dynamic;
+	static function intersect_face_point(face:Dynamic, point:Float):Dynamic;
 }

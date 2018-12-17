@@ -6,7 +6,7 @@ package bpy.ops.texture;
 	/**
 		Add a new texture
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 	/**
 		Copy the material texture settings and nodes
 	**/

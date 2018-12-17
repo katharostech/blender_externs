@@ -2,7 +2,7 @@ package bpy.types.nlastripfcurves;
 /**
 	Collection of NLA strip F-Curves
 **/
-@:pythonImport("bpy.types.NlaStripFCurves") extern class NlaStripFCurves {
+@:native("bpy.types.NlaStripFCurves") extern class NlaStripFCurves {
 	/**
 		Find an F-Curve. Note that this function performs a linear scan of all F-Curves in the NLA strip.
 		@param data_path Data Path, F-Curve data path — string, (never None)
@@ -17,12 +17,12 @@ package bpy.types.nlastripfcurves;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

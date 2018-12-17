@@ -2,7 +2,7 @@ package bpy.types.movietrackingplanetrack;
 /**
 	Match-moving plane track data for tracking
 **/
-@:pythonImport("bpy.types.MovieTrackingPlaneTrack") extern class MovieTrackingPlaneTrack {
+@:native("bpy.types.MovieTrackingPlaneTrack") extern class MovieTrackingPlaneTrack {
 	/**
 		Image displayed in the track during editing in clip editor
 		
@@ -45,12 +45,12 @@ package bpy.types.movietrackingplanetrack;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

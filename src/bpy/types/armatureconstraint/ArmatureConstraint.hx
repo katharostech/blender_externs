@@ -2,7 +2,7 @@ package bpy.types.armatureconstraint;
 /**
 	Applies transformations done by the Armature modifier
 **/
-@:pythonImport("bpy.types.ArmatureConstraint") extern class ArmatureConstraint {
+@:native("bpy.types.ArmatureConstraint") extern class ArmatureConstraint {
 	/**
 		Target Bones
 		
@@ -33,14 +33,14 @@ package bpy.types.armatureconstraint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Constraint name
 		

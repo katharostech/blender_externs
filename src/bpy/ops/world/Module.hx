@@ -6,5 +6,5 @@ package bpy.ops.world;
 	/**
 		Create a new world Data-Block
 	**/
-	static function new():Void;
+	static function pyNew():Void;
 }

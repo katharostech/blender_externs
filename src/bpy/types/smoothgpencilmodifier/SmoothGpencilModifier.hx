@@ -2,7 +2,7 @@ package bpy.types.smoothgpencilmodifier;
 /**
 	Smooth effect modifier
 **/
-@:pythonImport("bpy.types.SmoothGpencilModifier") extern class SmoothGpencilModifier {
+@:native("bpy.types.SmoothGpencilModifier") extern class SmoothGpencilModifier {
 	/**
 		Amount of smooth to apply
 		
@@ -93,14 +93,14 @@ package bpy.types.smoothgpencilmodifier;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Modifier name
 		

@@ -15,7 +15,7 @@ package bpy.types.keyconfigurations;
 }/**
 	Collection of KeyConfigs
 **/
-@:pythonImport("bpy.types.KeyConfigurations") extern class KeyConfigurations {
+@:native("bpy.types.KeyConfigurations") extern class KeyConfigurations {
 	/**
 		Active key configuration (preset)
 		
@@ -33,7 +33,7 @@ package bpy.types.keyconfigurations;
 		
 		Type: KeyConfig, (readonly)
 	**/
-	var default(default, never) : bpy.types.keyconfig.KeyConfig;
+	var pyDefault(default, never) : bpy.types.keyconfig.KeyConfig;
 	/**
 		Final key configuration that combines keymaps from the active and add-on configurations, and can be edited by the user
 		
@@ -46,7 +46,7 @@ package bpy.types.keyconfigurations;
 		
 		@returns KeyConfig
 	**/
-	function new(name:String):bpy.types.keyconfig.KeyConfig;
+	function pyNew(name:String):bpy.types.keyconfig.KeyConfig;
 	/**
 		remove
 		@param keyconfig Key Configuration, Removed key configuration — KeyConfig, (never None)
@@ -69,12 +69,12 @@ package bpy.types.keyconfigurations;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

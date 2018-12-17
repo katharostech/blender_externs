@@ -2,7 +2,7 @@ package bpy.types.displaysafeareas;
 /**
 	Safe Areas used in 3D view and the VSE
 **/
-@:pythonImport("bpy.types.DisplaySafeAreas") extern class DisplaySafeAreas {
+@:native("bpy.types.DisplaySafeAreas") extern class DisplaySafeAreas {
 	/**
 		Safe area for general elements
 		
@@ -33,12 +33,12 @@ package bpy.types.displaysafeareas;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

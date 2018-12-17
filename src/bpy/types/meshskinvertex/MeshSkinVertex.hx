@@ -2,7 +2,7 @@ package bpy.types.meshskinvertex;
 /**
 	Per-vertex skin data for use with the Skin modifier
 **/
-@:pythonImport("bpy.types.MeshSkinVertex") extern class MeshSkinVertex {
+@:native("bpy.types.MeshSkinVertex") extern class MeshSkinVertex {
 	/**
 		Radius of the skin
 		
@@ -27,12 +27,12 @@ package bpy.types.meshskinvertex;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

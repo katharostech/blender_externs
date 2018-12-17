@@ -7,7 +7,7 @@ package bpy.types.image;
 	var IRIS : String = "IRIS";
 	var PNG : String = "PNG";
 	var JPEG : String = "JPEG";
-	var JPEG2000 : String = "JPEG2000";
+	var pyJPEG2000 : String = "JPEG2000";
 	var TARGA : String = "TARGA";
 	var TARGA_RAW : String = "TARGA_RAW";
 	var CINEON : String = "CINEON";
@@ -37,7 +37,7 @@ package bpy.types.image;
 	var COMPOSITING : String = "COMPOSITING";
 }@:enum abstract Enum6(String) from String to String {
 	var INDIVIDUAL : String = "INDIVIDUAL";
-	var STEREO_3D : String = "STEREO_3D";
+	var pySTEREO_3D : String = "STEREO_3D";
 }@:enum abstract Enum7(String) from String to String {
 	var USE_LOCAL : String = "USE_LOCAL";
 	var WRITE_LOCAL : String = "WRITE_LOCAL";
@@ -46,7 +46,7 @@ package bpy.types.image;
 }/**
 	Image data-block referencing an external or packed image
 **/
-@:pythonImport("bpy.types.Image") extern class Image {
+@:native("bpy.types.Image") extern class Image {
 	/**
 		Representation of alpha information in the RGBA pixels
 		
@@ -160,7 +160,7 @@ package bpy.types.image;
 		
 		Type: boolean, default False, (readonly)
 	**/
-	var is_stereo_3d(default, never) : Bool;
+	var pyis_stereo_3d(default, never) : Bool;
 	/**
 		First packed file of the image
 		
@@ -208,7 +208,7 @@ package bpy.types.image;
 		
 		Type: Stereo3dFormat, (readonly, never None)
 	**/
-	var stereo_3d_format(default, never) : bpy.types.stereo3dformat.Stereo3dFormat;
+	var pystereo_3d_format(default, never) : bpy.types.stereo3dformat.Stereo3dFormat;
 	/**
 		How to generate the image
 		
@@ -326,14 +326,14 @@ package bpy.types.image;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Unique data-block ID name
 		

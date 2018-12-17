@@ -2,7 +2,7 @@ package bpy.types.gpencilstrokepoint;
 /**
 	Data point for freehand stroke curve
 **/
-@:pythonImport("bpy.types.GPencilStrokePoint") extern class GPencilStrokePoint {
+@:native("bpy.types.GPencilStrokePoint") extern class GPencilStrokePoint {
 	/**
 		
 		
@@ -45,12 +45,12 @@ package bpy.types.gpencilstrokepoint;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }

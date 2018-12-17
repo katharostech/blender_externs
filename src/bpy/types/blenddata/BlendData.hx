@@ -2,7 +2,7 @@ package bpy.types.blenddata;
 /**
 	Main data structure representing a .blend file and all its data-blocks
 **/
-@:pythonImport("bpy.types.BlendData") extern class BlendData {
+@:native("bpy.types.BlendData") extern class BlendData {
 	/**
 		Action data-blocks
 		
@@ -249,14 +249,14 @@ package bpy.types.blenddata;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 	/**
 		Returns a mapping of all ID datablocks in current bpy.data to a set of all datablocks using them.
 		

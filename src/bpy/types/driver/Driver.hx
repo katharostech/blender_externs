@@ -8,7 +8,7 @@ package bpy.types.driver;
 }/**
 	Driver for the value of a setting based on an external value
 **/
-@:pythonImport("bpy.types.Driver") extern class Driver {
+@:native("bpy.types.Driver") extern class Driver {
 	/**
 		Expression to use for Scripted Expression
 		
@@ -51,12 +51,12 @@ package bpy.types.driver;
 		
 		@returns bpy.types.Struct subclass
 	**/
-	static function bl_rna_get_subclass(id:Dynamic):bpy.types.struct.Struct;
+	static function bl_rna_get_subclass(id:String):bpy.types.struct.Struct;
 	/**
 		
 		@param id The RNA type identifier. — string
 		
 		@returns type
 	**/
-	static function bl_rna_get_subclass_py(id:Dynamic):Dynamic;
+	static function bl_rna_get_subclass_py(id:String):Dynamic;
 }
